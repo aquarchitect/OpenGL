@@ -8,6 +8,6 @@
 
 #ifndef draw_h
 #define draw_h
-extern void setupSampleShader(void);
-extern void drawSampleShader(void);
+extern void setup(void);
+extern void draw(void);
 #endif /* draw_h */

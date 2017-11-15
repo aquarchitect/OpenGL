@@ -11,7 +11,7 @@
 #include <stdio.h>
 #include <string.h>
 
-const char *g_BasePath;
+const char* g_BasePath;
 
 // Returns a string containing the content of a vertext/fragment shader file.
 static char *loadFile(const char *filePath) {
@@ -62,14 +62,13 @@ static char *loadFile(const char *filePath) {
 void attachShader(GLuint program, GLenum type, const char *filePath) {
     fprintf(stderr, "Base path: %s\n", g_BasePath);
     fprintf(stderr, "File path: %s\n", filePath);
-    char *fullPath = malloc(strlen(g_BasePath) + strlen(filePath) + 1);
+    char fullPath[strlen(g_BasePath) + strlen(filePath) + 1];
     strcpy(fullPath, g_BasePath);
     strcat(fullPath, filePath);
     fprintf(stderr, "Full path: %s\n", fullPath);
     
     // get shader source
     char *source = loadFile(fullPath);
-    free(fullPath);
     if (!source) return;
     
     GLuint shader = (GLuint)glCreateShader(type);

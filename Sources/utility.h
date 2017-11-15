@@ -8,5 +8,5 @@
 
 #ifndef utility_h
 #define utility_h
-extern const char *g_BasePath;
+extern const char* g_BasePath;
 #endif /* utility_h */

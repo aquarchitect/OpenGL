@@ -18,6 +18,7 @@
 		C2B25DF31FBBB23B00287630 /* draw.c in Sources */ = {isa = PBXBuildFile; fileRef = C2B25DF21FBBB23B00287630 /* draw.c */; };
 		C2B25DF41FBBB23B00287630 /* draw.c in Sources */ = {isa = PBXBuildFile; fileRef = C2B25DF21FBBB23B00287630 /* draw.c */; };
 		C2B25DFF1FBBBF2900287630 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2B25DFE1FBBBF2900287630 /* OpenGLES.framework */; };
+		C2C33B901FBCFD0600DE4B8E /* sample.c in Sources */ = {isa = PBXBuildFile; fileRef = C2C33B8E1FBCFD0600DE4B8E /* sample.c */; };
 		C2F2836E1FBA7339007A0BEA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2F2836D1FBA7339007A0BEA /* AppDelegate.swift */; };
 		C2F283751FBA7339007A0BEA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C2F283741FBA7339007A0BEA /* Assets.xcassets */; };
 		C2F283781FBA7339007A0BEA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C2F283761FBA7339007A0BEA /* LaunchScreen.storyboard */; };
@@ -52,6 +53,8 @@
 		C2B25DF81FBBB6A900287630 /* draw.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = draw.h; sourceTree = "<group>"; };
 		C2B25DFE1FBBBF2900287630 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		C2C33B8D1FBCCC9D00DE4B8E /* utility.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = utility.h; sourceTree = "<group>"; };
+		C2C33B8E1FBCFD0600DE4B8E /* sample.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = sample.c; sourceTree = "<group>"; };
+		C2C33B8F1FBCFD0600DE4B8E /* sample.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = sample.h; sourceTree = "<group>"; };
 		C2F2836A1FBA7339007A0BEA /* Demo-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Demo-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2F2836D1FBA7339007A0BEA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C2F283741FBA7339007A0BEA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -90,6 +93,8 @@
 				C27A64D41FBBCFD3006E92BF /* sample.vsh */,
 				C2B25DE31FBB81CD00287630 /* utility.c */,
 				C2C33B8D1FBCCC9D00DE4B8E /* utility.h */,
+				C2C33B8E1FBCFD0600DE4B8E /* sample.c */,
+				C2C33B8F1FBCFD0600DE4B8E /* sample.h */,
 				C2B25DF21FBBB23B00287630 /* draw.c */,
 				C2B25DF81FBBB6A900287630 /* draw.h */,
 				C2AFD4961FBC016700825D35 /* Vertex.h */,
@@ -294,6 +299,7 @@
 				C2B25DE51FBB81CD00287630 /* utility.c in Sources */,
 				C2B25DF31FBBB23B00287630 /* draw.c in Sources */,
 				C2F2836E1FBA7339007A0BEA /* AppDelegate.swift in Sources */,
+				C2C33B901FBCFD0600DE4B8E /* sample.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
