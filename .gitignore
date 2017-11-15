@@ -1,0 +1,27 @@
+.DS_Store
+
+## Build generated
+build/
+DerivedData/
+
+## User settings
+xcuserdata/
+
+## Obj-C/Swift specific
+*.hmap
+*.ipa
+*.dSYM.zip
+*.dSYM
+
+## Playgrounds
+*.playground
+
+## Workspaces
+*.xcworkspace
+
+## Swift Package Manager
+Packages/
+.build/
+
+## Carthage
+Carthage/Build/
