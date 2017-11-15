@@ -39,6 +39,8 @@
 /* Begin PBXFileReference section */
 		C2652A661FBB5C3B0049F156 /* Bridging.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Bridging.h; sourceTree = "<group>"; };
 		C27A64D41FBBCFD3006E92BF /* sample.vsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = sample.vsh; sourceTree = "<group>"; };
+		C2AFD4961FBC016700825D35 /* Vertex.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Vertex.h; sourceTree = "<group>"; };
+		C2AFD4971FBC030200825D35 /* common.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = common.h; sourceTree = "<group>"; };
 		C2B25DDC1FBB80EF00287630 /* Demo-macOS */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Demo-macOS"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2B25DDE1FBB80EF00287630 /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
 		C2B25DE31FBB81CD00287630 /* utility.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = utility.c; sourceTree = "<group>"; };
@@ -47,8 +49,9 @@
 		C2B25DEC1FBB841300287630 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk/System/Library/Frameworks/Cocoa.framework; sourceTree = DEVELOPER_DIR; };
 		C2B25DF01FBB9C8B00287630 /* sample.fsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = sample.fsh; sourceTree = "<group>"; };
 		C2B25DF21FBBB23B00287630 /* draw.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = draw.c; sourceTree = "<group>"; };
-		C2B25DF81FBBB6A900287630 /* umbrella.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = umbrella.h; sourceTree = "<group>"; };
+		C2B25DF81FBBB6A900287630 /* draw.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = draw.h; sourceTree = "<group>"; };
 		C2B25DFE1FBBBF2900287630 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
+		C2C33B8D1FBCCC9D00DE4B8E /* utility.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = utility.h; sourceTree = "<group>"; };
 		C2F2836A1FBA7339007A0BEA /* Demo-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Demo-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2F2836D1FBA7339007A0BEA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C2F283741FBA7339007A0BEA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -86,8 +89,11 @@
 				C2B25DF01FBB9C8B00287630 /* sample.fsh */,
 				C27A64D41FBBCFD3006E92BF /* sample.vsh */,
 				C2B25DE31FBB81CD00287630 /* utility.c */,
+				C2C33B8D1FBCCC9D00DE4B8E /* utility.h */,
 				C2B25DF21FBBB23B00287630 /* draw.c */,
-				C2B25DF81FBBB6A900287630 /* umbrella.h */,
+				C2B25DF81FBBB6A900287630 /* draw.h */,
+				C2AFD4961FBC016700825D35 /* Vertex.h */,
+				C2AFD4971FBC030200825D35 /* common.h */,
 			);
 			path = Sources;
 			sourceTree = "<group>";

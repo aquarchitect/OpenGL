@@ -6,25 +6,15 @@
 //  Copyright © 2017 Hai Nguyen. All rights reserved.
 //
 
+#include "common.h"
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
-#if __APPLE__
-    #include <TargetConditionals.h>
-    #if TARGET_IPHONE_SIMULATE || TARGET_OS_IPHONE
-        #include <OpenGLES/ES2/gl.h>
-    #elif TARGET_OS_MAC
-        #include <OpenGL/gl.h>
-        #include <OpenGL/glu.h>
-        #include <GLUT/glut.h>
-    #else
-        #error "Unknown Apple Plaform"
-    #endif
-#endif
 
+const char *g_BasePath;
 
 // Returns a string containing the content of a vertext/fragment shader file.
-static char *loadShader(const char *filePath) {
+static char *loadFile(const char *filePath) {
     const size_t blockSize = 512;
     FILE *file;
     
@@ -69,10 +59,18 @@ static char *loadShader(const char *filePath) {
 }
 
 // Returns a shader object containing a shader compiled from a given GLSL file.
-static GLuint compileShader(GLenum type, const char *filePath) {
+void attachShader(GLuint program, GLenum type, const char *filePath) {
+    fprintf(stderr, "Base path: %s\n", g_BasePath);
+    fprintf(stderr, "File path: %s\n", filePath);
+    char *fullPath = malloc(strlen(g_BasePath) + strlen(filePath) + 1);
+    strcpy(fullPath, g_BasePath);
+    strcat(fullPath, filePath);
+    fprintf(stderr, "Full path: %s\n", fullPath);
+    
     // get shader source
-    char *source = loadShader(filePath);
-    if (!source) return 0;
+    char *source = loadFile(fullPath);
+    free(fullPath);
+    if (!source) return;
     
     GLuint shader = (GLuint)glCreateShader(type);
     GLint length = (GLint)strlen(source);
@@ -94,20 +92,27 @@ static GLuint compileShader(GLenum type, const char *filePath) {
         glGetShaderInfoLog(shader, length, &result, log);
         fprintf(stderr, "compileShader(): Unable to compile %s: %s.\n", filePath, log);
         free(log);
-        
-        glDeleteShader(shader);
-        return 0;
     } else {
-        return shader;
+        glAttachShader(program, shader);
     }
+    
+    glDeleteShader(shader);
 }
 
-// Compiles and attaches a shader of the given type
-void attachShader(GLuint program, GLenum type, const char *filePath) {
-    // compile shader
-    GLuint shader = compileShader(type, filePath);
-    if (shader != 0) {
-        glAttachShader(program, shader);
-        glDeleteShader(shader);
+void linkProgram(GLuint program) {
+    GLint result, length;
+    glLinkProgram(program);
+    glGetProgramiv(program, GL_LINK_STATUS, &result);
+    if (result == GL_FALSE) {
+        char *log;
+        
+        // get the program info log
+        glGetProgramiv(program, GL_INFO_LOG_LENGTH, &length);
+        log = malloc(length);
+        glGetProgramInfoLog(program, length, &result, log);
+        fprintf(stderr, "setup(): Unable to link program %s.\n", log);
+        free(log);
+        
+        glDeleteProgram(program);
     }
 }
