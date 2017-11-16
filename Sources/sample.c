@@ -18,6 +18,41 @@ extern void linkProgram(GLuint program);
 GLfloat transformationMatrix[16];
 GLfloat projectionMatrix[16];
 
+#if 1 // cube
+static const Vertex vertices[] = {
+    // Front
+    {{1, -1, 1}, {1, 0, 0, 1}},  // 0
+    {{1, 1, 1}, {0, 1, 0, 1}},   // 1
+    {{-1, 1, 1}, {0, 0, 1, 1}},  // 2
+    {{-1, -1, 1}, {0, 0, 0, 1}}, // 3
+
+    // Back
+    {{-1, -1, -1}, {1, 0, 0, 1}}, // 4
+    {{-1, 1, -1}, {0, 1, 0, 1}},  // 5
+    {{1, 1, -1}, {0, 0, 1, 1}},   // 6
+    {{1, -1, -1}, {0, 0, 0, 1}},  // 7
+};
+static const GLubyte indices[] = {
+    // Front
+    0, 1, 2,
+    2, 3, 0,
+    // Back
+    4, 5, 6,
+    6, 7, 4,
+    // Left
+    3, 2, 5,
+    5, 4, 3,
+    // Right
+    7, 6, 1,
+    1, 0, 7,
+    // Top
+    1, 6, 5,
+    5, 2, 1,
+    // Bottom
+    3, 4, 7,
+    7, 0, 3
+};
+#else // square
 static const Vertex vertices[] = {
     {{1, -1, 0}, {1, 0, 0, 1}}, // V0
     {{1, 1, 0}, {0, 1, 0, 1}}, // V1
@@ -28,6 +63,7 @@ static const GLubyte indices[] = {
     0, 1, 2,
     2, 3, 0
 };
+#endif
 static GLuint  vertexBuffer;
 static GLuint  indexBuffer;
 static GLint   _transformationMatrix;
@@ -75,6 +111,7 @@ void loadSampleShader(GLuint program) {
 void drawSampleShader(GLuint program) {
     glClearColor(1.0, 0.0, 0.0, 1.0);
     glClear(GL_COLOR_BUFFER_BIT);
+    glEnable(GL_CULL_FACE);
     glUseProgram(program);
     
     glUniformMatrix4fv(_transformationMatrix, 1, GL_FALSE, transformationMatrix);

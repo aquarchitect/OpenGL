@@ -15,7 +15,6 @@ final class RootView: GLKView {
     // MARK: Properties
     
     private(set) var transformationMatrix = GLKMatrix4MakeTranslation(0, 0, -5)
-    
     // MARK: Initialization
     
     required init?(coder aDecoder: NSCoder) {
@@ -24,7 +23,7 @@ final class RootView: GLKView {
     
     init() {
         super.init(frame: UIScreen.main.bounds)
- 
+        
         if let context = EAGLContext(api: .openGLES2) {
             self.context = context
         }
@@ -39,11 +38,11 @@ extension RootView {
     
     @objc func pan(_ gesture: UIPanGestureRecognizer) {
         let translation = gesture.translation(in: nil)
-
-        transformationMatrix = GLKMatrix4MakeTranslation(
-            Float(translation.x/self.bounds.width),
-            -Float(translation.y/self.bounds.height),
-            -5
-        )
+        
+        var matrix = GLKMatrix4Identity
+        matrix = GLKMatrix4Translate(matrix, 0, 0, -5)
+        matrix = GLKMatrix4RotateX(matrix, .pi * Float(translation.y/self.bounds.height))
+        matrix = GLKMatrix4RotateY(matrix, .pi * Float(translation.x/self.bounds.width))
+        transformationMatrix = matrix
     }
 }
