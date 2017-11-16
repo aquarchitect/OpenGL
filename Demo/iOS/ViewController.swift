@@ -32,8 +32,22 @@ final class ViewController: GLKViewController {
         super.viewDidLoad()
         
         _ = rootView.map({ EAGLContext.setCurrent($0.context) })
-        
+    
         setBasePathForResources("\(Bundle.main.bundlePath)/")
+        
+        if let image = Bundle.main
+                .path(forResource: "Dungeon", ofType: "png")
+                .flatMap(UIImage.init(contentsOfFile:))?
+                .cgImage,
+            let bytes = image
+                .dataProvider?
+                .data
+                .map({ $0 as NSData })?
+                .bytes
+        {
+            setFacadeImage(Int32(image.width), Int32(image.height), UInt32(GL_RGBA), bytes)
+        }
+        
         transformationMatrix = rootView?.transformationMatrix.m ??  GLKMatrix4Identity.m
         projectionMatrix = GLKMatrix4MakePerspective(
             GLKMathDegreesToRadians(85),
