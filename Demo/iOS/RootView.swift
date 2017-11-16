@@ -14,7 +14,7 @@ final class RootView: GLKView {
  
     // MARK: Properties
     
-    private(set) var transformMatrix = GLKMatrix4Identity
+    private(set) var transformationMatrix = GLKMatrix4MakeTranslation(0, 0, -5)
     
     // MARK: Initialization
     
@@ -40,10 +40,10 @@ extension RootView {
     @objc func pan(_ gesture: UIPanGestureRecognizer) {
         let translation = gesture.translation(in: nil)
 
-        transformMatrix = GLKMatrix4MakeTranslation(
+        transformationMatrix = GLKMatrix4MakeTranslation(
             Float(translation.x/self.bounds.width),
-            Float(translation.y/self.bounds.height),
-            0
+            -Float(translation.y/self.bounds.height),
+            -5
         )
     }
 }

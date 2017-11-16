@@ -9,7 +9,8 @@
 #ifndef sample_h
 #define sample_h
 #include "common.h"
-extern GLfloat transformMatrix[16];
+extern GLfloat transformationMatrix[16];
+extern GLfloat projectionMatrix[16];
 extern void loadSampleShader(GLuint program);
 extern void drawSampleShader(GLuint program);
 #endif /* sample_h */

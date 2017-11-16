@@ -15,7 +15,8 @@
 extern void attachShader(GLuint program, GLenum type, const char *filePath);
 extern void linkProgram(GLuint program);
 
-GLfloat transformMatrix[16];
+GLfloat transformationMatrix[16];
+GLfloat projectionMatrix[16];
 
 static const Vertex vertices[] = {
     {{1, -1, 0}, {1, 0, 0, 1}}, // V0
@@ -29,7 +30,8 @@ static const GLubyte indices[] = {
 };
 static GLuint  vertexBuffer;
 static GLuint  indexBuffer;
-static GLint   uniformMatrix;
+static GLint   _transformationMatrix;
+static GLint   _projectionMatrix;
 static GLuint  vertexArrayObject;
 
 void loadSampleShader(GLuint program) {
@@ -41,7 +43,8 @@ void loadSampleShader(GLuint program) {
     
     linkProgram(program);
     
-    uniformMatrix = glGetUniformLocation(program, "u_Transform");
+    _transformationMatrix = glGetUniformLocation(program, "u_Transformation");
+    _projectionMatrix = glGetUniformLocation(program, "u_Projection");
     
     glGenVertexArraysOES(1, &vertexArrayObject);
     glBindVertexArrayOES(vertexArrayObject);
@@ -74,7 +77,8 @@ void drawSampleShader(GLuint program) {
     glClear(GL_COLOR_BUFFER_BIT);
     glUseProgram(program);
     
-    glUniformMatrix4fv(uniformMatrix, 1, GL_FALSE, transformMatrix);
+    glUniformMatrix4fv(_transformationMatrix, 1, GL_FALSE, transformationMatrix);
+    glUniformMatrix4fv(_projectionMatrix, 1, GL_FALSE, projectionMatrix);
     
     glBindVertexArrayOES(vertexArrayObject);
     GLsizei count = sizeof(indices) / sizeof(indices[0]);

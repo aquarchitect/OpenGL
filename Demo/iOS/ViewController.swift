@@ -31,19 +31,31 @@ final class ViewController: GLKViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        _ = (view as? GLKView).map({ EAGLContext.setCurrent($0.context) })
+        _ = rootView.map({ EAGLContext.setCurrent($0.context) })
         
         setBasePathForResources("\(Bundle.main.bundlePath)/")
-        transformMatrix = GLKMatrix4Identity.m
+        transformationMatrix = rootView?.transformationMatrix.m ??  GLKMatrix4Identity.m
+        projectionMatrix = GLKMatrix4MakePerspective(
+            GLKMathDegreesToRadians(85),
+            Float(view.bounds.width/view.bounds.height),
+            1, 150
+        ).m
         
         setup()
+    }
+}
+
+private extension ViewController {
+    
+    var rootView: RootView? {
+        return view as? RootView
     }
 }
 
 extension ViewController: GLKViewControllerDelegate {
     
     func glkViewControllerUpdate(_ controller: GLKViewController) {
-        (view as? RootView).map({ transformMatrix = $0.transformMatrix.m })
+        (view as? RootView).map({ transformationMatrix = $0.transformationMatrix.m })
     }
 }
 
