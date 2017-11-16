@@ -6,7 +6,7 @@
 //  Copyright © 2017 Hai Nguyen. All rights reserved.
 //
 
-#include "common.h"
+#include "sample.h"
 #include "Vertex.h"
 #include <stdlib.h>
 #include <stdio.h>
@@ -25,10 +25,12 @@ static const GLubyte indices[] = {
     0, 1, 2,
     2, 3, 0
 };
-static GLuint vertexBuffer;
-static GLuint indexBuffer;
-static GLint  uniformMatrix;
-static GLuint vertexArrayObject;
+GLfloat transformMatrix[16];
+
+static GLuint  vertexBuffer;
+static GLuint  indexBuffer;
+static GLint   uniformMatrix;
+static GLuint  vertexArrayObject;
 
 void loadSampleShader(GLuint program) {
     attachShader(program, GL_FRAGMENT_SHADER, "sample.fsh");
@@ -39,7 +41,7 @@ void loadSampleShader(GLuint program) {
     
     linkProgram(program);
     
-    //uniformMatrix = glGetUniformLocation(program, "u_Tranformation");
+    uniformMatrix = glGetUniformLocation(program, "u_Transform");
     
     glGenVertexArraysOES(1, &vertexArrayObject);
     glBindVertexArrayOES(vertexArrayObject);
@@ -56,21 +58,11 @@ void loadSampleShader(GLuint program) {
     
     // enable vertex position buffer
     glEnableVertexAttribArray(VertexAttribPosition);
-    glVertexAttribPointer(
-                          VertexAttribPosition,
-                          3, GL_FLOAT, GL_FALSE,
-                          sizeof(Vertex),
-                          (const GLvoid*) offsetof(Vertex, Position)
-                          );
+    glVertexAttribPointer(VertexAttribPosition, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), (const GLvoid*) offsetof(Vertex, Position));
     
     // enable vertex color buffer
     glEnableVertexAttribArray(VertexAttribColor);
-    glVertexAttribPointer(
-                          VertexAttribColor,
-                          4, GL_FLOAT, GL_FALSE,
-                          sizeof(Vertex),
-                          (const GLvoid*) offsetof(Vertex, Color)
-                          );
+    glVertexAttribPointer(VertexAttribColor, 4, GL_FLOAT, GL_FALSE, sizeof(Vertex), (const GLvoid*) offsetof(Vertex, Color));
     
     glBindVertexArrayOES(0);
     glBindBuffer(GL_ARRAY_BUFFER, 0);
@@ -81,6 +73,8 @@ void drawSampleShader(GLuint program) {
     glClearColor(1.0, 0.0, 0.0, 1.0);
     glClear(GL_COLOR_BUFFER_BIT);
     glUseProgram(program);
+    
+    glUniformMatrix4fv(uniformMatrix, 1, GL_FALSE, transformMatrix);
     
     glBindVertexArrayOES(vertexArrayObject);
     GLsizei count = sizeof(indices) / sizeof(indices[0]);

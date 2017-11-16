@@ -11,7 +11,12 @@
 #include <stdio.h>
 #include <string.h>
 
-const char* g_BasePath;
+static char *g_BasePath;
+
+void setBasePathForResources(const char *basePath) {
+    g_BasePath = malloc(strlen(basePath) + 1);
+    strcpy(g_BasePath, basePath);
+}
 
 // Returns a string containing the content of a vertext/fragment shader file.
 static char *loadFile(const char *filePath) {

@@ -8,5 +8,5 @@
 
 #ifndef utility_h
 #define utility_h
-extern const char* g_BasePath;
+extern void setBasePathForResources(const char *basePath);
 #endif /* utility_h */
