@@ -6,7 +6,7 @@
 //  Copyright © 2017 Hai Nguyen. All rights reserved.
 //
 
-#include "sample.h"
+#include "common.h"
 #include "Vertex.h"
 #include <stdlib.h>
 #include <stdio.h>
@@ -14,6 +14,8 @@
 
 extern void attachShader(GLuint program, GLenum type, const char *filePath);
 extern void linkProgram(GLuint program);
+
+GLfloat transformMatrix[16];
 
 static const Vertex vertices[] = {
     {{1, -1, 0}, {1, 0, 0, 1}}, // V0
@@ -25,8 +27,6 @@ static const GLubyte indices[] = {
     0, 1, 2,
     2, 3, 0
 };
-GLfloat transformMatrix[16];
-
 static GLuint  vertexBuffer;
 static GLuint  indexBuffer;
 static GLint   uniformMatrix;

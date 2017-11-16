@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C225BE101FBD11650097F75E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C225BE0F1FBD11650097F75E /* ViewController.swift */; };
+		C225BE111FBD176C0097F75E /* sample.c in Sources */ = {isa = PBXBuildFile; fileRef = C2C33B8E1FBCFD0600DE4B8E /* sample.c */; };
+		C225BE131FBD18FD0097F75E /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C225BE121FBD18FD0097F75E /* RootView.swift */; };
 		C27A64D31FBBCE30006E92BF /* sample.fsh in Resources */ = {isa = PBXBuildFile; fileRef = C2B25DF01FBB9C8B00287630 /* sample.fsh */; };
 		C27A64D51FBBCFD3006E92BF /* sample.vsh in Resources */ = {isa = PBXBuildFile; fileRef = C27A64D41FBBCFD3006E92BF /* sample.vsh */; };
 		C2B25DDF1FBB80EF00287630 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = C2B25DDE1FBB80EF00287630 /* main.c */; };
@@ -38,6 +41,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		C225BE0F1FBD11650097F75E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		C225BE121FBD18FD0097F75E /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 		C2652A661FBB5C3B0049F156 /* Bridging.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Bridging.h; sourceTree = "<group>"; };
 		C27A64D41FBBCFD3006E92BF /* sample.vsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = sample.vsh; sourceTree = "<group>"; };
 		C2AFD4961FBC016700825D35 /* Vertex.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Vertex.h; sourceTree = "<group>"; };
@@ -123,6 +128,8 @@
 			isa = PBXGroup;
 			children = (
 				C2F2836D1FBA7339007A0BEA /* AppDelegate.swift */,
+				C225BE0F1FBD11650097F75E /* ViewController.swift */,
+				C225BE121FBD18FD0097F75E /* RootView.swift */,
 				C2652A661FBB5C3B0049F156 /* Bridging.h */,
 				C2F283741FBA7339007A0BEA /* Assets.xcassets */,
 				C2F283761FBA7339007A0BEA /* LaunchScreen.storyboard */,
@@ -289,6 +296,7 @@
 				C2B25DE61FBB81CD00287630 /* utility.c in Sources */,
 				C2B25DF41FBBB23B00287630 /* draw.c in Sources */,
 				C2B25DDF1FBB80EF00287630 /* main.c in Sources */,
+				C225BE111FBD176C0097F75E /* sample.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -296,7 +304,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C225BE101FBD11650097F75E /* ViewController.swift in Sources */,
 				C2B25DE51FBB81CD00287630 /* utility.c in Sources */,
+				C225BE131FBD18FD0097F75E /* RootView.swift in Sources */,
 				C2B25DF31FBBB23B00287630 /* draw.c in Sources */,
 				C2F2836E1FBA7339007A0BEA /* AppDelegate.swift in Sources */,
 				C2C33B901FBCFD0600DE4B8E /* sample.c in Sources */,

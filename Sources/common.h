@@ -15,6 +15,7 @@
         #include <OpenGLES/ES2/glext.h>
     #elif TARGET_OS_MAC
         #include <OpenGL/gl.h>
+        #include <OpenGL/glext.h>
         #include <OpenGL/glu.h>
         #include <GLUT/glut.h>
     #else
