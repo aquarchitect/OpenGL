@@ -56,14 +56,14 @@ static char *loadFile(const char *filePath) {
 }
 
 // Returns a shader object containing a shader compiled from a given GLSL file.
-void attachShader(GLuint program, GLenum type, const char *filePath) {
+GLuint loadShader(const GLenum type, const char *filePath) {
     char fullPath[strlen(g_BasePath) + strlen(filePath) + 1];
     strcpy(fullPath, g_BasePath);
     strcat(fullPath, filePath);
     
     // get shader source
     char *source = loadFile(fullPath);
-    if (!source) return;
+    assert(source);
     
     GLuint shader = (GLuint)glCreateShader(type);
     GLint length = (GLint)strlen(source);
@@ -85,15 +85,28 @@ void attachShader(GLuint program, GLenum type, const char *filePath) {
         glGetShaderInfoLog(shader, length, &result, log);
         fprintf(stderr, "compileShader(): Unable to compile %s: %s.\n", filePath, log);
         free(log);
-    } else {
-        glAttachShader(program, shader);
+        
+        glDeleteShader(shader);
     }
-    
-    glDeleteShader(shader);
+
     assert(result == GL_TRUE);
+    return shader;
 }
 
-void linkProgram(GLuint program) {
+GLuint loadTexture(const GLsizei width, const GLsizei height, const GLenum type, const GLvoid *pixels) {
+    GLuint texture;
+    
+    glGenTextures(1, &texture);
+    glBindTexture(GL_TEXTURE_2D, texture);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+    glTexImage2D(GL_TEXTURE_2D, 0, type, width, height, 0, type, GL_UNSIGNED_BYTE, pixels);
+    glGenerateMipmap(GL_TEXTURE_2D);
+    glBindTexture(GL_TEXTURE_2D, 0);
+    return texture;
+}
+
+void linkProgram(const GLuint program) {
     GLint result, length;
     glLinkProgram(program);
     glGetProgramiv(program, GL_LINK_STATUS, &result);
@@ -112,3 +125,4 @@ void linkProgram(GLuint program) {
     
     assert(result == GL_TRUE);
 }
+

@@ -12,8 +12,9 @@
 #include <stdio.h>
 #include <string.h>
 
-extern void attachShader(GLuint program, GLenum type, const char *filePath);
-extern void linkProgram(GLuint program);
+extern GLuint loadShader(const GLenum type, const char *filePath);
+extern GLuint loadTexture(const GLsizei width, const GLsizei height, const GLenum type, const GLvoid *pixels);
+extern void linkProgram(const GLuint program);
 
 GLfloat transformationMatrix[16];
 GLfloat projectionMatrix[16];
@@ -71,8 +72,13 @@ static GLint   _projectionMatrix;
 static GLuint  vertexArrayObject;
 
 void loadSampleShader(GLuint program) {
-    attachShader(program, GL_FRAGMENT_SHADER, "sample.fsh");
-    attachShader(program, GL_VERTEX_SHADER, "sample.vsh");
+    GLuint fragmentShader = loadShader(GL_FRAGMENT_SHADER, "sample.fsh");
+    glAttachShader(program, fragmentShader);
+    glDeleteShader(fragmentShader);
+    
+    GLuint vertexShader = loadShader(GL_VERTEX_SHADER, "sample.vsh");
+    glAttachShader(program, vertexShader);
+    glDeleteShader(vertexShader);
     
     glBindAttribLocation(program, VertexAttribPosition, "a_Position");
     glBindAttribLocation(program, VertexAttribColor, "a_Color");
@@ -86,7 +92,7 @@ void loadSampleShader(GLuint program) {
     glBindVertexArrayOES(vertexArrayObject);
     
     // generate vertex buffer;
-    glGenBuffers(1, &(vertexBuffer));
+    glGenBuffers(1, &vertexBuffer);
     glBindBuffer(GL_ARRAY_BUFFER, vertexBuffer);
     glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
     
