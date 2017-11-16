@@ -7,6 +7,7 @@
 //
 
 #include "common.h"
+#include <assert.h>
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
@@ -30,20 +31,11 @@ static char *loadFile(const char *filePath) {
     
     // open file; terminate if NULL or empty
     file = fopen(filePath, "r");
-    if (!file) {
-        fprintf(stderr, "loadShader(): Unable to open %s.\n", filePath);
-        return NULL;
-    }
+    assert(file); // unable to open the file
     
     // read the file into a string
     while ((currLength = fread(buffer, 1, blockSize, file)) > 0) {
         char *_source = malloc(totalLength + currLength + 1);
-        if (!_source) {
-            fprintf(stderr, "loadShader(): malloc failed.\n");
-            // free source pointer
-            if (source) free(source);
-            return NULL;
-        }
 
         if (source) {
             memcpy(_source, source, totalLength);
@@ -65,12 +57,9 @@ static char *loadFile(const char *filePath) {
 
 // Returns a shader object containing a shader compiled from a given GLSL file.
 void attachShader(GLuint program, GLenum type, const char *filePath) {
-    fprintf(stderr, "Base path: %s\n", g_BasePath);
-    fprintf(stderr, "File path: %s\n", filePath);
     char fullPath[strlen(g_BasePath) + strlen(filePath) + 1];
     strcpy(fullPath, g_BasePath);
     strcat(fullPath, filePath);
-    fprintf(stderr, "Full path: %s\n", fullPath);
     
     // get shader source
     char *source = loadFile(fullPath);
@@ -101,6 +90,7 @@ void attachShader(GLuint program, GLenum type, const char *filePath) {
     }
     
     glDeleteShader(shader);
+    assert(result == GL_TRUE);
 }
 
 void linkProgram(GLuint program) {
@@ -119,4 +109,6 @@ void linkProgram(GLuint program) {
         
         glDeleteProgram(program);
     }
+    
+    assert(result == GL_TRUE);
 }
