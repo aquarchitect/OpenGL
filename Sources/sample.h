@@ -11,6 +11,5 @@
 #include "common.h"
 extern GLfloat transformationMatrix[16];
 extern GLfloat projectionMatrix[16];
-extern void loadSampleShader(GLuint program);
-extern void drawSampleShader(GLuint program);
+extern void setFacadeImage(const GLsizei width, const GLsizei height, const GLenum type, const GLvoid *pixels);
 #endif /* sample_h */

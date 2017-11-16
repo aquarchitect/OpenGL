@@ -9,6 +9,9 @@
 #include "common.h"
 #include "sample.h"
 
+extern void loadSampleShader(GLuint program);
+extern void drawSampleShader(GLuint program);
+
 static GLuint currProgram;
 
 void setup() {

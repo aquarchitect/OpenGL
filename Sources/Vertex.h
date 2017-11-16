@@ -10,10 +10,12 @@
 #define Vertex_h
 typedef enum {
     VertexAttribPosition = 0,
-    VertexAttribColor
+    VertexAttribColor,
+    VertexAttribFacadeTexCoord
 } VertexAttributes;
 typedef struct {
     GLfloat Position[3];
     GLfloat Color[4];
+    GLfloat FacadeTexCoord[2];
 } Vertex;
 #endif /* Vertex_h */

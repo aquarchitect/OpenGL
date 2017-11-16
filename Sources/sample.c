@@ -65,11 +65,17 @@ static const GLubyte indices[] = {
     2, 3, 0
 };
 #endif
+static GLuint  facadeTextureBuffer;
 static GLuint  vertexBuffer;
 static GLuint  indexBuffer;
-static GLint   _transformationMatrix;
-static GLint   _projectionMatrix;
 static GLuint  vertexArrayObject;
+static GLuint  transformationUniform;
+static GLuint  projectionUniform;
+static GLuint  facadeTextureUniform;
+
+void setFacadeImage(const GLsizei width, const GLsizei height, const GLenum type, const GLvoid *pixels) {
+    facadeTextureBuffer = loadTexture(width, height, type, pixels);
+}
 
 void loadSampleShader(GLuint program) {
     GLuint fragmentShader = loadShader(GL_FRAGMENT_SHADER, "sample.fsh");
@@ -82,11 +88,13 @@ void loadSampleShader(GLuint program) {
     
     glBindAttribLocation(program, VertexAttribPosition, "a_Position");
     glBindAttribLocation(program, VertexAttribColor, "a_Color");
+    glBindAttribLocation(program, VertexAttribFacadeTexCoord, "a_FacadeTexCoord");
     
     linkProgram(program);
     
-    _transformationMatrix = glGetUniformLocation(program, "u_Transformation");
-    _projectionMatrix = glGetUniformLocation(program, "u_Projection");
+    transformationUniform = glGetUniformLocation(program, "u_Transformation");
+    projectionUniform = glGetUniformLocation(program, "u_Projection");
+    facadeTextureUniform = glGetUniformLocation(program, "u_FacadeTexture");
     
     glGenVertexArraysOES(1, &vertexArrayObject);
     glBindVertexArrayOES(vertexArrayObject);
@@ -109,6 +117,10 @@ void loadSampleShader(GLuint program) {
     glEnableVertexAttribArray(VertexAttribColor);
     glVertexAttribPointer(VertexAttribColor, 4, GL_FLOAT, GL_FALSE, sizeof(Vertex), (const GLvoid*) offsetof(Vertex, Color));
     
+    // enable texture coordinate buffer
+    glEnableVertexAttribArray(VertexAttribFacadeTexCoord);
+    glVertexAttribPointer(VertexAttribFacadeTexCoord, 2, GL_FLOAT, GL_FALSE, sizeof(Vertex), (const GLvoid*) offsetof(Vertex, FacadeTexCoord));
+    
     glBindVertexArrayOES(0);
     glBindBuffer(GL_ARRAY_BUFFER, 0);
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
@@ -118,10 +130,17 @@ void drawSampleShader(GLuint program) {
     glClearColor(1.0, 0.0, 0.0, 1.0);
     glClear(GL_COLOR_BUFFER_BIT);
     glEnable(GL_CULL_FACE);
+    glEnable(GL_BLEND);
+    glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
     glUseProgram(program);
     
-    glUniformMatrix4fv(_transformationMatrix, 1, GL_FALSE, transformationMatrix);
-    glUniformMatrix4fv(_projectionMatrix, 1, GL_FALSE, projectionMatrix);
+    glUniformMatrix4fv(transformationUniform, 1, GL_FALSE, transformationMatrix);
+    glUniformMatrix4fv(projectionUniform, 1, GL_FALSE, projectionMatrix);
+    
+    // enable texture
+    glActiveTexture(GL_TEXTURE1);
+    glBindTexture(GL_TEXTURE_2D, facadeTextureBuffer);
+    glUniform1i(facadeTextureUniform, 1);
     
     glBindVertexArrayOES(vertexArrayObject);
     GLsizei count = sizeof(indices) / sizeof(indices[0]);
