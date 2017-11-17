@@ -14,7 +14,9 @@ final class RootView: GLKView {
  
     // MARK: Properties
     
-    private(set) var transformationMatrix = GLKMatrix4MakeTranslation(0, 0, -5)
+    private(set) var panFeatures: (translation: CGPoint, velocity: CGPoint) = (.zero, .zero)
+    private(set) var tapLocation: CGPoint = .zero
+    
     // MARK: Initialization
     
     required init?(coder aDecoder: NSCoder) {
@@ -28,21 +30,25 @@ final class RootView: GLKView {
             self.context = context
         }
         
-        UIPanGestureRecognizer()
-            .then({ $0.addTarget(self, action: #selector(pan(_:))) })
-            .andThen(self.addGestureRecognizer(_:))
+        let pan = UIPanGestureRecognizer(target: self, action: #selector(pan(_:)))
+        let tap = UITapGestureRecognizer(target: self, action: #selector(tap(_:)))
+        tap.require(toFail: pan)
+        
+        [tap, pan].forEach(self.addGestureRecognizer(_:))
     }
 }
 
 extension RootView {
     
+    @objc func tap(_ gesture: UITapGestureRecognizer) {
+        tapLocation = gesture.location(in: nil)
+    }
+    
     @objc func pan(_ gesture: UIPanGestureRecognizer) {
         let translation = gesture.translation(in: nil)
+        let velocity = gesture.velocity(in: nil)
         
-        var matrix = GLKMatrix4Identity
-        matrix = GLKMatrix4Translate(matrix, 0, 0, -5)
-        matrix = GLKMatrix4RotateX(matrix, .pi * Float(translation.y/self.bounds.height))
-        matrix = GLKMatrix4RotateY(matrix, .pi * Float(translation.x/self.bounds.width))
-        transformationMatrix = matrix
+        panFeatures = (translation, velocity)
+        
     }
 }

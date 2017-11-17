@@ -48,7 +48,7 @@ final class ViewController: GLKViewController {
             setFacadeImage(Int32(image.width), Int32(image.height), UInt32(GL_RGBA), bytes)
         }
         
-        transformationMatrix = rootView?.transformationMatrix.m ??  GLKMatrix4Identity.m
+        transformationMatrix = GLKMatrix4MakeTranslation(0, 0, -5).m
         projectionMatrix = GLKMatrix4MakePerspective(
             GLKMathDegreesToRadians(85),
             Float(view.bounds.width/view.bounds.height),
@@ -69,7 +69,15 @@ private extension ViewController {
 extension ViewController: GLKViewControllerDelegate {
     
     func glkViewControllerUpdate(_ controller: GLKViewController) {
-        (view as? RootView).map({ transformationMatrix = $0.transformationMatrix.m })
+        (view as? RootView)?.then {
+            let translation = $0.panFeatures.translation
+            
+            var matrix = GLKMatrix4Identity
+            matrix = GLKMatrix4Translate(matrix, 0, 0, -5)
+            matrix = GLKMatrix4RotateX(matrix, .pi * Float(translation.y/$0.bounds.height))
+            matrix = GLKMatrix4RotateY(matrix, .pi * Float(translation.x/$0.bounds.width))
+            transformationMatrix = matrix.m
+        }
     }
 }
 
