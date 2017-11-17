@@ -70,13 +70,7 @@ extension ViewController: GLKViewControllerDelegate {
     
     func glkViewControllerUpdate(_ controller: GLKViewController) {
         (view as? RootView)?.then {
-            let translation = $0.panFeatures.translation
-            
-            var matrix = GLKMatrix4Identity
-            matrix = GLKMatrix4Translate(matrix, 0, 0, -5)
-            matrix = GLKMatrix4RotateX(matrix, .pi * Float(translation.y/$0.bounds.height))
-            matrix = GLKMatrix4RotateY(matrix, .pi * Float(translation.x/$0.bounds.width))
-            transformationMatrix = matrix.m
+            transformationMatrix = $0.panTransform.m
         }
     }
 }

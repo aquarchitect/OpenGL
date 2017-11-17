@@ -14,8 +14,10 @@ final class RootView: GLKView {
  
     // MARK: Properties
     
-    private(set) var panFeatures: (translation: CGPoint, velocity: CGPoint) = (.zero, .zero)
     private(set) var tapLocation: CGPoint = .zero
+    private(set) var panTransform: GLKMatrix4 = GLKMatrix4MakeTranslation(0, 0, -5)
+
+    private var lastCyclePanTransform = GLKMatrix4MakeTranslation(0, 0, -5)
     
     // MARK: Initialization
     
@@ -46,9 +48,15 @@ extension RootView {
     
     @objc func pan(_ gesture: UIPanGestureRecognizer) {
         let translation = gesture.translation(in: nil)
-        let velocity = gesture.velocity(in: nil)
         
-        panFeatures = (translation, velocity)
+        var matrix = lastCyclePanTransform
+        matrix = GLKMatrix4RotateX(matrix, .pi * Float(translation.y/self.bounds.height))
+        matrix = GLKMatrix4RotateY(matrix, .pi * Float(translation.x/self.bounds.width))
+        
+        switch gesture.state {
+        case .began, .changed: panTransform = matrix
+        default: lastCyclePanTransform = matrix
+        }
         
     }
 }
