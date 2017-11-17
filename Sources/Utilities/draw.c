@@ -7,19 +7,19 @@
 //
 
 #include "common.h"
-#include "sample.h"
+#include "cube.h"
 
-extern void loadSampleShader(GLuint program);
-extern void drawSampleShader(GLuint program);
+extern void loadCubeShader(GLuint program);
+extern void drawCubeShader(GLuint program);
 
 static GLuint currProgram;
 
 void setup() {
     currProgram = glCreateProgram();
-    loadSampleShader(currProgram);
+    loadCubeShader(currProgram);
 }
 
 void draw() {
-    drawSampleShader(currProgram);
+    drawCubeShader(currProgram);
 }
 

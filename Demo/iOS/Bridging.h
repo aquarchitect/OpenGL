@@ -3,5 +3,5 @@
 //
 
 #include "draw.h"
-#include "sample.h"
+#include "cube.h"
 #include "utility.h"

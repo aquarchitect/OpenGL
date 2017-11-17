@@ -8,10 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		C225BE101FBD11650097F75E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C225BE0F1FBD11650097F75E /* ViewController.swift */; };
-		C225BE111FBD176C0097F75E /* sample.c in Sources */ = {isa = PBXBuildFile; fileRef = C2C33B8E1FBCFD0600DE4B8E /* sample.c */; };
+		C225BE111FBD176C0097F75E /* cube.c in Sources */ = {isa = PBXBuildFile; fileRef = C2C33B8E1FBCFD0600DE4B8E /* cube.c */; };
 		C225BE131FBD18FD0097F75E /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C225BE121FBD18FD0097F75E /* RootView.swift */; };
-		C27A64D31FBBCE30006E92BF /* sample.fsh in Resources */ = {isa = PBXBuildFile; fileRef = C2B25DF01FBB9C8B00287630 /* sample.fsh */; };
-		C27A64D51FBBCFD3006E92BF /* sample.vsh in Resources */ = {isa = PBXBuildFile; fileRef = C27A64D41FBBCFD3006E92BF /* sample.vsh */; };
+		C27A64D31FBBCE30006E92BF /* cube.fsh in Resources */ = {isa = PBXBuildFile; fileRef = C2B25DF01FBB9C8B00287630 /* cube.fsh */; };
+		C27A64D51FBBCFD3006E92BF /* cube.vsh in Resources */ = {isa = PBXBuildFile; fileRef = C27A64D41FBBCFD3006E92BF /* cube.vsh */; };
 		C28AB1651FBF82030022EAE9 /* Playground.h in Headers */ = {isa = PBXBuildFile; fileRef = C28AB1631FBF82030022EAE9 /* Playground.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C28AB1691FBF82230022EAE9 /* Playground.fsh in Resources */ = {isa = PBXBuildFile; fileRef = C2EBDCB01FBF7BD100CD2CE2 /* Playground.fsh */; };
 		C28AB16B1FBF822B0022EAE9 /* Scene.sks in Resources */ = {isa = PBXBuildFile; fileRef = C2EBDCAE1FBF79A700CD2CE2 /* Scene.sks */; };
@@ -24,7 +24,7 @@
 		C2B25DF31FBBB23B00287630 /* draw.c in Sources */ = {isa = PBXBuildFile; fileRef = C2B25DF21FBBB23B00287630 /* draw.c */; };
 		C2B25DF41FBBB23B00287630 /* draw.c in Sources */ = {isa = PBXBuildFile; fileRef = C2B25DF21FBBB23B00287630 /* draw.c */; };
 		C2B25DFF1FBBBF2900287630 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2B25DFE1FBBBF2900287630 /* OpenGLES.framework */; };
-		C2C33B901FBCFD0600DE4B8E /* sample.c in Sources */ = {isa = PBXBuildFile; fileRef = C2C33B8E1FBCFD0600DE4B8E /* sample.c */; };
+		C2C33B901FBCFD0600DE4B8E /* cube.c in Sources */ = {isa = PBXBuildFile; fileRef = C2C33B8E1FBCFD0600DE4B8E /* cube.c */; };
 		C2F2836E1FBA7339007A0BEA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2F2836D1FBA7339007A0BEA /* AppDelegate.swift */; };
 		C2F283751FBA7339007A0BEA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C2F283741FBA7339007A0BEA /* Assets.xcassets */; };
 		C2F283781FBA7339007A0BEA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C2F283761FBA7339007A0BEA /* LaunchScreen.storyboard */; };
@@ -48,11 +48,10 @@
 		C225BE0F1FBD11650097F75E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		C225BE121FBD18FD0097F75E /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 		C2652A661FBB5C3B0049F156 /* Bridging.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Bridging.h; sourceTree = "<group>"; };
-		C27A64D41FBBCFD3006E92BF /* sample.vsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = sample.vsh; sourceTree = "<group>"; };
+		C27A64D41FBBCFD3006E92BF /* cube.vsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = cube.vsh; sourceTree = "<group>"; };
 		C28AB1611FBF82030022EAE9 /* Playground.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Playground.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C28AB1631FBF82030022EAE9 /* Playground.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Playground.h; sourceTree = "<group>"; };
 		C28AB1641FBF82030022EAE9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C2AFD4961FBC016700825D35 /* Vertex.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Vertex.h; sourceTree = "<group>"; };
 		C2AFD4971FBC030200825D35 /* common.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = common.h; sourceTree = "<group>"; };
 		C2B25DDC1FBB80EF00287630 /* Demo-macOS */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Demo-macOS"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2B25DDE1FBB80EF00287630 /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
@@ -60,13 +59,13 @@
 		C2B25DE81FBB837A00287630 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk/System/Library/Frameworks/OpenGL.framework; sourceTree = DEVELOPER_DIR; };
 		C2B25DEA1FBB840A00287630 /* GLUT.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLUT.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk/System/Library/Frameworks/GLUT.framework; sourceTree = DEVELOPER_DIR; };
 		C2B25DEC1FBB841300287630 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk/System/Library/Frameworks/Cocoa.framework; sourceTree = DEVELOPER_DIR; };
-		C2B25DF01FBB9C8B00287630 /* sample.fsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = sample.fsh; sourceTree = "<group>"; };
+		C2B25DF01FBB9C8B00287630 /* cube.fsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = cube.fsh; sourceTree = "<group>"; };
 		C2B25DF21FBBB23B00287630 /* draw.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = draw.c; sourceTree = "<group>"; };
 		C2B25DF81FBBB6A900287630 /* draw.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = draw.h; sourceTree = "<group>"; };
 		C2B25DFE1FBBBF2900287630 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		C2C33B8D1FBCCC9D00DE4B8E /* utility.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = utility.h; sourceTree = "<group>"; };
-		C2C33B8E1FBCFD0600DE4B8E /* sample.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = sample.c; sourceTree = "<group>"; };
-		C2C33B8F1FBCFD0600DE4B8E /* sample.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = sample.h; sourceTree = "<group>"; };
+		C2C33B8E1FBCFD0600DE4B8E /* cube.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = cube.c; sourceTree = "<group>"; };
+		C2C33B8F1FBCFD0600DE4B8E /* cube.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = cube.h; sourceTree = "<group>"; };
 		C2EBDCAE1FBF79A700CD2CE2 /* Scene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Scene.sks; sourceTree = "<group>"; };
 		C2EBDCB01FBF7BD100CD2CE2 /* Playground.fsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = Playground.fsh; sourceTree = "<group>"; };
 		C2F2836A1FBA7339007A0BEA /* Demo-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Demo-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -111,16 +110,8 @@
 		C24FC4C31FBAA5F100AB7C1E /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				C2B25DF01FBB9C8B00287630 /* sample.fsh */,
-				C27A64D41FBBCFD3006E92BF /* sample.vsh */,
-				C2B25DE31FBB81CD00287630 /* utility.c */,
-				C2C33B8D1FBCCC9D00DE4B8E /* utility.h */,
-				C2C33B8E1FBCFD0600DE4B8E /* sample.c */,
-				C2C33B8F1FBCFD0600DE4B8E /* sample.h */,
-				C2B25DF21FBBB23B00287630 /* draw.c */,
-				C2B25DF81FBBB6A900287630 /* draw.h */,
-				C2AFD4961FBC016700825D35 /* Vertex.h */,
-				C2AFD4971FBC030200825D35 /* common.h */,
+				C2DC35991FBF89F000C49007 /* Utilities */,
+				C2DC35981FBF89AC00C49007 /* Components */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -173,6 +164,37 @@
 				C2B25DDE1FBB80EF00287630 /* main.c */,
 			);
 			path = macOS;
+			sourceTree = "<group>";
+		};
+		C2DC35981FBF89AC00C49007 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				C2DC359A1FBF8A0100C49007 /* Cube */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		C2DC35991FBF89F000C49007 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				C2B25DE31FBB81CD00287630 /* utility.c */,
+				C2C33B8D1FBCCC9D00DE4B8E /* utility.h */,
+				C2B25DF21FBBB23B00287630 /* draw.c */,
+				C2B25DF81FBBB6A900287630 /* draw.h */,
+				C2AFD4971FBC030200825D35 /* common.h */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		C2DC359A1FBF8A0100C49007 /* Cube */ = {
+			isa = PBXGroup;
+			children = (
+				C2C33B8E1FBCFD0600DE4B8E /* cube.c */,
+				C2C33B8F1FBCFD0600DE4B8E /* cube.h */,
+				C2B25DF01FBB9C8B00287630 /* cube.fsh */,
+				C27A64D41FBBCFD3006E92BF /* cube.vsh */,
+			);
+			path = Cube;
 			sourceTree = "<group>";
 		};
 		C2F283611FBA7338007A0BEA = {
@@ -334,11 +356,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C27A64D31FBBCE30006E92BF /* sample.fsh in Resources */,
+				C27A64D31FBBCE30006E92BF /* cube.fsh in Resources */,
 				C2F283781FBA7339007A0BEA /* LaunchScreen.storyboard in Resources */,
 				C2FDEDBD1FBE40C3008529A6 /* Dungeon.png in Resources */,
 				C2F283751FBA7339007A0BEA /* Assets.xcassets in Resources */,
-				C27A64D51FBBCFD3006E92BF /* sample.vsh in Resources */,
+				C27A64D51FBBCFD3006E92BF /* cube.vsh in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -378,7 +400,7 @@
 				C2B25DE61FBB81CD00287630 /* utility.c in Sources */,
 				C2B25DF41FBBB23B00287630 /* draw.c in Sources */,
 				C2B25DDF1FBB80EF00287630 /* main.c in Sources */,
-				C225BE111FBD176C0097F75E /* sample.c in Sources */,
+				C225BE111FBD176C0097F75E /* cube.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -391,7 +413,7 @@
 				C225BE131FBD18FD0097F75E /* RootView.swift in Sources */,
 				C2B25DF31FBBB23B00287630 /* draw.c in Sources */,
 				C2F2836E1FBA7339007A0BEA /* AppDelegate.swift in Sources */,
-				C2C33B901FBCFD0600DE4B8E /* sample.c in Sources */,
+				C2C33B901FBCFD0600DE4B8E /* cube.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

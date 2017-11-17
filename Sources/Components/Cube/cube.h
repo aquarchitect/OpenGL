@@ -1,13 +1,14 @@
 //
-//  Vertex.h
-//  OpenGL
+//  cube.h
+//  Demo-iOS
 //
-//  Created by Hai Nguyen on 11/14/17.
+//  Created by Hai Nguyen on 11/15/17.
 //  Copyright © 2017 Hai Nguyen. All rights reserved.
 //
 
-#ifndef Vertex_h
-#define Vertex_h
+#ifndef cube_h
+#define cube_h
+#include "common.h"
 typedef enum {
     VertexAttribPosition = 0,
     VertexAttribColor,
@@ -20,4 +21,8 @@ typedef struct {
     GLfloat texCoord[2];
     GLfloat normal[3];
 } Vertex;
-#endif /* Vertex_h */
+
+extern GLfloat transformationMatrix[16];
+extern GLfloat projectionMatrix[16];
+extern void setFacadeImage(const GLsizei width, const GLsizei height, const GLenum type, const GLvoid *pixels);
+#endif /* cube_h */

@@ -1,13 +1,12 @@
 //
-//  sample.c
+//  cube.c
 //  Demo-iOS
 //
 //  Created by Hai Nguyen on 11/15/17.
 //  Copyright © 2017 Hai Nguyen. All rights reserved.
 //
 
-#include "common.h"
-#include "Vertex.h"
+#include "cube.h"
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
@@ -114,12 +113,12 @@ void setFacadeImage(const GLsizei width, const GLsizei height, const GLenum type
     textureBuffer = loadTexture(width, height, type, pixels);
 }
 
-void loadSampleShader(GLuint program) {
-    GLuint fragmentShader = loadShader(GL_FRAGMENT_SHADER, "sample.fsh");
+void loadCubeShader(GLuint program) {
+    GLuint fragmentShader = loadShader(GL_FRAGMENT_SHADER, "cube.fsh");
     glAttachShader(program, fragmentShader);
     glDeleteShader(fragmentShader);
     
-    GLuint vertexShader = loadShader(GL_VERTEX_SHADER, "sample.vsh");
+    GLuint vertexShader = loadShader(GL_VERTEX_SHADER, "cube.vsh");
     glAttachShader(program, vertexShader);
     glDeleteShader(vertexShader);
     
@@ -176,7 +175,7 @@ void loadSampleShader(GLuint program) {
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
 }
 
-void drawSampleShader(GLuint program) {
+void drawCubeShader(GLuint program) {
     glClearColor(1.0, 0.0, 0.0, 1.0);
     glClear(GL_COLOR_BUFFER_BIT);
     glEnable(GL_CULL_FACE);
