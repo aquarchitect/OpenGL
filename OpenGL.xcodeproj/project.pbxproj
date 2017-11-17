@@ -8,41 +8,26 @@
 
 /* Begin PBXBuildFile section */
 		C225BE101FBD11650097F75E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C225BE0F1FBD11650097F75E /* ViewController.swift */; };
-		C225BE111FBD176C0097F75E /* cube.c in Sources */ = {isa = PBXBuildFile; fileRef = C2C33B8E1FBCFD0600DE4B8E /* cube.c */; };
 		C225BE131FBD18FD0097F75E /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C225BE121FBD18FD0097F75E /* RootView.swift */; };
 		C27A64D31FBBCE30006E92BF /* cube.fsh in Resources */ = {isa = PBXBuildFile; fileRef = C2B25DF01FBB9C8B00287630 /* cube.fsh */; };
 		C27A64D51FBBCFD3006E92BF /* cube.vsh in Resources */ = {isa = PBXBuildFile; fileRef = C27A64D41FBBCFD3006E92BF /* cube.vsh */; };
 		C28AB1651FBF82030022EAE9 /* Playground.h in Headers */ = {isa = PBXBuildFile; fileRef = C28AB1631FBF82030022EAE9 /* Playground.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C28AB1691FBF82230022EAE9 /* Playground.fsh in Resources */ = {isa = PBXBuildFile; fileRef = C2EBDCB01FBF7BD100CD2CE2 /* Playground.fsh */; };
 		C28AB16B1FBF822B0022EAE9 /* Scene.sks in Resources */ = {isa = PBXBuildFile; fileRef = C2EBDCAE1FBF79A700CD2CE2 /* Scene.sks */; };
-		C2B25DDF1FBB80EF00287630 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = C2B25DDE1FBB80EF00287630 /* main.c */; };
 		C2B25DE51FBB81CD00287630 /* utility.c in Sources */ = {isa = PBXBuildFile; fileRef = C2B25DE31FBB81CD00287630 /* utility.c */; };
-		C2B25DE61FBB81CD00287630 /* utility.c in Sources */ = {isa = PBXBuildFile; fileRef = C2B25DE31FBB81CD00287630 /* utility.c */; };
-		C2B25DE91FBB83F800287630 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2B25DE81FBB837A00287630 /* OpenGL.framework */; };
-		C2B25DEB1FBB840A00287630 /* GLUT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2B25DEA1FBB840A00287630 /* GLUT.framework */; };
-		C2B25DED1FBB841300287630 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2B25DEC1FBB841300287630 /* Cocoa.framework */; };
 		C2B25DF31FBBB23B00287630 /* draw.c in Sources */ = {isa = PBXBuildFile; fileRef = C2B25DF21FBBB23B00287630 /* draw.c */; };
-		C2B25DF41FBBB23B00287630 /* draw.c in Sources */ = {isa = PBXBuildFile; fileRef = C2B25DF21FBBB23B00287630 /* draw.c */; };
 		C2B25DFF1FBBBF2900287630 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2B25DFE1FBBBF2900287630 /* OpenGLES.framework */; };
 		C2C33B901FBCFD0600DE4B8E /* cube.c in Sources */ = {isa = PBXBuildFile; fileRef = C2C33B8E1FBCFD0600DE4B8E /* cube.c */; };
+		C2DC35A21FBF8E3E00C49007 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2DC35A11FBF8E3E00C49007 /* AppDelegate.swift */; };
+		C2DC35A41FBF8E3E00C49007 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C2DC35A31FBF8E3E00C49007 /* Assets.xcassets */; };
+		C2DC35AE1FBF929A00C49007 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2DC35AD1FBF929A00C49007 /* main.swift */; };
+		C2DC35B11FBFA2C800C49007 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2DC35B01FBFA2C800C49007 /* ViewController.swift */; };
+		C2DC35B31FBFA47700C49007 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2DC35B21FBFA47700C49007 /* RootView.swift */; };
 		C2F2836E1FBA7339007A0BEA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2F2836D1FBA7339007A0BEA /* AppDelegate.swift */; };
 		C2F283751FBA7339007A0BEA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C2F283741FBA7339007A0BEA /* Assets.xcassets */; };
 		C2F283781FBA7339007A0BEA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C2F283761FBA7339007A0BEA /* LaunchScreen.storyboard */; };
-		C2F283821FBA7834007A0BEA /* MyKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2F283811FBA7834007A0BEA /* MyKit.framework */; };
 		C2FDEDBD1FBE40C3008529A6 /* Dungeon.png in Resources */ = {isa = PBXBuildFile; fileRef = C2FDEDBC1FBE40C3008529A6 /* Dungeon.png */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		C2B25DDA1FBB80EF00287630 /* CopyFiles */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = /usr/share/man/man1/;
-			dstSubfolderSpec = 0;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 1;
-		};
-/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		C225BE0F1FBD11650097F75E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -53,8 +38,6 @@
 		C28AB1631FBF82030022EAE9 /* Playground.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Playground.h; sourceTree = "<group>"; };
 		C28AB1641FBF82030022EAE9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C2AFD4971FBC030200825D35 /* common.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = common.h; sourceTree = "<group>"; };
-		C2B25DDC1FBB80EF00287630 /* Demo-macOS */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Demo-macOS"; sourceTree = BUILT_PRODUCTS_DIR; };
-		C2B25DDE1FBB80EF00287630 /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
 		C2B25DE31FBB81CD00287630 /* utility.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = utility.c; sourceTree = "<group>"; };
 		C2B25DE81FBB837A00287630 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk/System/Library/Frameworks/OpenGL.framework; sourceTree = DEVELOPER_DIR; };
 		C2B25DEA1FBB840A00287630 /* GLUT.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLUT.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk/System/Library/Frameworks/GLUT.framework; sourceTree = DEVELOPER_DIR; };
@@ -66,6 +49,13 @@
 		C2C33B8D1FBCCC9D00DE4B8E /* utility.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = utility.h; sourceTree = "<group>"; };
 		C2C33B8E1FBCFD0600DE4B8E /* cube.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = cube.c; sourceTree = "<group>"; };
 		C2C33B8F1FBCFD0600DE4B8E /* cube.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = cube.h; sourceTree = "<group>"; };
+		C2DC359F1FBF8E3E00C49007 /* Demo-macOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Demo-macOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C2DC35A11FBF8E3E00C49007 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		C2DC35A31FBF8E3E00C49007 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		C2DC35A81FBF8E3E00C49007 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C2DC35AD1FBF929A00C49007 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		C2DC35B01FBFA2C800C49007 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		C2DC35B21FBFA47700C49007 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 		C2EBDCAE1FBF79A700CD2CE2 /* Scene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Scene.sks; sourceTree = "<group>"; };
 		C2EBDCB01FBF7BD100CD2CE2 /* Playground.fsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = Playground.fsh; sourceTree = "<group>"; };
 		C2F2836A1FBA7339007A0BEA /* Demo-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Demo-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -85,13 +75,10 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		C2B25DD91FBB80EF00287630 /* Frameworks */ = {
+		C2DC359C1FBF8E3E00C49007 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C2B25DED1FBB841300287630 /* Cocoa.framework in Frameworks */,
-				C2B25DEB1FBB840A00287630 /* GLUT.framework in Frameworks */,
-				C2B25DE91FBB83F800287630 /* OpenGL.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -100,7 +87,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				C2B25DFF1FBBBF2900287630 /* OpenGLES.framework in Frameworks */,
-				C2F283821FBA7834007A0BEA /* MyKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -161,7 +147,12 @@
 		C2B25DD71FBB801D00287630 /* macOS */ = {
 			isa = PBXGroup;
 			children = (
-				C2B25DDE1FBB80EF00287630 /* main.c */,
+				C2DC35AD1FBF929A00C49007 /* main.swift */,
+				C2DC35A11FBF8E3E00C49007 /* AppDelegate.swift */,
+				C2DC35B01FBFA2C800C49007 /* ViewController.swift */,
+				C2DC35B21FBFA47700C49007 /* RootView.swift */,
+				C2DC35A31FBF8E3E00C49007 /* Assets.xcassets */,
+				C2DC35A81FBF8E3E00C49007 /* Info.plist */,
 			);
 			path = macOS;
 			sourceTree = "<group>";
@@ -213,8 +204,8 @@
 			isa = PBXGroup;
 			children = (
 				C2F2836A1FBA7339007A0BEA /* Demo-iOS.app */,
-				C2B25DDC1FBB80EF00287630 /* Demo-macOS */,
 				C28AB1611FBF82030022EAE9 /* Playground.framework */,
+				C2DC359F1FBF8E3E00C49007 /* Demo-macOS.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -263,22 +254,22 @@
 			productReference = C28AB1611FBF82030022EAE9 /* Playground.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		C2B25DDB1FBB80EF00287630 /* Demo-macOS */ = {
+		C2DC359E1FBF8E3E00C49007 /* Demo-macOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = C2B25DE01FBB80EF00287630 /* Build configuration list for PBXNativeTarget "Demo-macOS" */;
+			buildConfigurationList = C2DC35AA1FBF8E3E00C49007 /* Build configuration list for PBXNativeTarget "Demo-macOS" */;
 			buildPhases = (
-				C2B25DD81FBB80EF00287630 /* Sources */,
-				C2B25DD91FBB80EF00287630 /* Frameworks */,
-				C2B25DDA1FBB80EF00287630 /* CopyFiles */,
+				C2DC359B1FBF8E3E00C49007 /* Sources */,
+				C2DC359C1FBF8E3E00C49007 /* Frameworks */,
+				C2DC359D1FBF8E3E00C49007 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = "Demo-macOS";
-			productName = "Demo-macos";
-			productReference = C2B25DDC1FBB80EF00287630 /* Demo-macOS */;
-			productType = "com.apple.product-type.tool";
+			productName = "Demo-macOS";
+			productReference = C2DC359F1FBF8E3E00C49007 /* Demo-macOS.app */;
+			productType = "com.apple.product-type.application";
 		};
 		C2F283691FBA7338007A0BEA /* Demo-iOS */ = {
 			isa = PBXNativeTarget;
@@ -287,7 +278,6 @@
 				C2F283661FBA7338007A0BEA /* Sources */,
 				C2F283671FBA7338007A0BEA /* Frameworks */,
 				C2F283681FBA7338007A0BEA /* Resources */,
-				C2F2837F1FBA77D3007A0BEA /* Carthage Script */,
 			);
 			buildRules = (
 			);
@@ -312,8 +302,9 @@
 						CreatedOnToolsVersion = 9.1;
 						ProvisioningStyle = Automatic;
 					};
-					C2B25DDB1FBB80EF00287630 = {
+					C2DC359E1FBF8E3E00C49007 = {
 						CreatedOnToolsVersion = 9.1;
+						ProvisioningStyle = Automatic;
 					};
 					C2F283691FBA7338007A0BEA = {
 						CreatedOnToolsVersion = 9.1;
@@ -335,9 +326,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				C28AB1601FBF82030022EAE9 /* Playground */,
 				C2F283691FBA7338007A0BEA /* Demo-iOS */,
-				C2B25DDB1FBB80EF00287630 /* Demo-macOS */,
+				C2DC359E1FBF8E3E00C49007 /* Demo-macOS */,
+				C28AB1601FBF82030022EAE9 /* Playground */,
 			);
 		};
 /* End PBXProject section */
@@ -352,38 +343,27 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		C2DC359D1FBF8E3E00C49007 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C2DC35A41FBF8E3E00C49007 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C2F283681FBA7338007A0BEA /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				C27A64D31FBBCE30006E92BF /* cube.fsh in Resources */,
+				C27A64D51FBBCFD3006E92BF /* cube.vsh in Resources */,
 				C2F283781FBA7339007A0BEA /* LaunchScreen.storyboard in Resources */,
 				C2FDEDBD1FBE40C3008529A6 /* Dungeon.png in Resources */,
 				C2F283751FBA7339007A0BEA /* Assets.xcassets in Resources */,
-				C27A64D51FBBCFD3006E92BF /* cube.vsh in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		C2F2837F1FBA77D3007A0BEA /* Carthage Script */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"$(SRCROOT)/Carthage/Build/iOS/MyKit.framework",
-			);
-			name = "Carthage Script";
-			outputPaths = (
-				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/MyKit.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "/usr/local/bin/carthage copy-frameworks";
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		C28AB15C1FBF82030022EAE9 /* Sources */ = {
@@ -393,14 +373,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		C2B25DD81FBB80EF00287630 /* Sources */ = {
+		C2DC359B1FBF8E3E00C49007 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C2B25DE61FBB81CD00287630 /* utility.c in Sources */,
-				C2B25DF41FBBB23B00287630 /* draw.c in Sources */,
-				C2B25DDF1FBB80EF00287630 /* main.c in Sources */,
-				C225BE111FBD176C0097F75E /* cube.c in Sources */,
+				C2DC35B31FBFA47700C49007 /* RootView.swift in Sources */,
+				C2DC35B11FBFA2C800C49007 /* ViewController.swift in Sources */,
+				C2DC35AE1FBF929A00C49007 /* main.swift in Sources */,
+				C2DC35A21FBF8E3E00C49007 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -444,7 +424,7 @@
 				INFOPLIST_FILE = Playground/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.hainguyen.Playground;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.hainguyen.fragment-shader-playground";
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 4.0;
@@ -467,7 +447,7 @@
 				INFOPLIST_FILE = Playground/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.hainguyen.Playground;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.hainguyen.fragment-shader-playground";
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 4.0;
@@ -477,27 +457,41 @@
 			};
 			name = Release;
 		};
-		C2B25DE11FBB80EF00287630 /* Debug */ = {
+		C2DC35AB1FBF8E3E00C49007 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				DEVELOPMENT_TEAM = "";
-				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 88HW36EGGB;
+				INFOPLIST_FILE = Demo/macOS/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.hainguyen.opengl-demo-macos";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = macosx;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
-		C2B25DE21FBB80EF00287630 /* Release */ = {
+		C2DC35AC1FBF8E3E00C49007 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				DEVELOPMENT_TEAM = "";
-				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 88HW36EGGB;
+				INFOPLIST_FILE = Demo/macOS/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.hainguyen.opengl-demo-macos";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = macosx;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};
@@ -615,14 +609,10 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 88HW36EGGB;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
-				);
 				INFOPLIST_FILE = Demo/iOS/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.hainguyen.opengl-demo";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.hainguyen.opengl-demo-ios";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = Demo/iOS/Bridging.h;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -638,14 +628,10 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 88HW36EGGB;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
-				);
 				INFOPLIST_FILE = Demo/iOS/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.hainguyen.opengl-demo";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.hainguyen.opengl-demo-ios";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = Demo/iOS/Bridging.h;
 				SWIFT_VERSION = 4.0;
@@ -665,11 +651,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		C2B25DE01FBB80EF00287630 /* Build configuration list for PBXNativeTarget "Demo-macOS" */ = {
+		C2DC35AA1FBF8E3E00C49007 /* Build configuration list for PBXNativeTarget "Demo-macOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				C2B25DE11FBB80EF00287630 /* Debug */,
-				C2B25DE21FBB80EF00287630 /* Release */,
+				C2DC35AB1FBF8E3E00C49007 /* Debug */,
+				C2DC35AC1FBF8E3E00C49007 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
