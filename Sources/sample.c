@@ -22,40 +22,40 @@ GLfloat projectionMatrix[16];
 #if 1 // cube
 static const Vertex vertices[] = {
     // Front
-    {{1, -1, 1}, {1, 0, 0, 1}, {1, 0}}, // 0
-    {{1, 1, 1}, {0, 1, 0, 1}, {1, 1}}, // 1
-    {{-1, 1, 1}, {0, 0, 1, 1}, {0, 1}}, // 2
-    {{-1, -1, 1}, {0, 0, 0, 1}, {0, 0}}, // 3
+    {{ 1, -1, 1}, {1, 0, 0, 1}, {1, 0}, {0, 0, 1}}, // 0
+    {{ 1,  1, 1}, {0, 1, 0, 1}, {1, 1}, {0, 0, 1}}, // 1
+    {{-1,  1, 1}, {0, 0, 1, 1}, {0, 1}, {0, 0, 1}}, // 2
+    {{-1, -1, 1}, {0, 0, 0, 1}, {0, 0}, {0, 0, 1}}, // 3
     
     // Back
-    {{-1, -1, -1}, {0, 0, 1, 1}, {1, 0}}, // 4
-    {{-1, 1, -1}, {0, 1, 0, 1}, {1, 1}}, // 5
-    {{1, 1, -1}, {1, 0, 0, 1}, {0, 1}}, // 6
-    {{1, -1, -1}, {0, 0, 0, 1}, {0, 0}}, // 7
+    {{-1, -1, -1}, {0, 0, 1, 1}, {1, 0}, {0, 0, -1}}, // 4
+    {{-1,  1, -1}, {0, 1, 0, 1}, {1, 1}, {0, 0, -1}}, // 5
+    {{ 1,  1, -1}, {1, 0, 0, 1}, {0, 1}, {0, 0, -1}}, // 6
+    {{ 1, -1, -1}, {0, 0, 0, 1}, {0, 0}, {0, 0, -1}}, // 7
     
     // Left
-    {{-1, -1, 1}, {1, 0, 0, 1}, {1, 0}}, // 8
-    {{-1, 1, 1}, {0, 1, 0, 1}, {1, 1}}, // 9
-    {{-1, 1, -1}, {0, 0, 1, 1}, {0, 1}}, // 10
-    {{-1, -1, -1}, {0, 0, 0, 1}, {0, 0}}, // 11
+    {{-1, -1,  1}, {1, 0, 0, 1}, {1, 0}, {-1, 0, 0}}, // 8
+    {{-1,  1,  1}, {0, 1, 0, 1}, {1, 1}, {-1, 0, 0}}, // 9
+    {{-1,  1, -1}, {0, 0, 1, 1}, {0, 1}, {-1, 0, 0}}, // 10
+    {{-1, -1, -1}, {0, 0, 0, 1}, {0, 0}, {-1, 0, 0}}, // 11
     
     // Right
-    {{1, -1, -1}, {1, 0, 0, 1}, {1, 0}}, // 12
-    {{1, 1, -1}, {0, 1, 0, 1}, {1, 1}}, // 13
-    {{1, 1, 1}, {0, 0, 1, 1}, {0, 1}}, // 14
-    {{1, -1, 1}, {0, 0, 0, 1}, {0, 0}}, // 15
+    {{1, -1, -1}, {1, 0, 0, 1}, {1, 0}, {1, 0, 0}}, // 12
+    {{1,  1, -1}, {0, 1, 0, 1}, {1, 1}, {1, 0, 0}}, // 13
+    {{1,  1,  1}, {0, 0, 1, 1}, {0, 1}, {1, 0, 0}}, // 14
+    {{1, -1,  1}, {0, 0, 0, 1}, {0, 0}, {1, 0, 0}}, // 15
     
     // Top
-    {{1, 1, 1}, {1, 0, 0, 1}, {1, 0}}, // 16
-    {{1, 1, -1}, {0, 1, 0, 1}, {1, 1}}, // 17
-    {{-1, 1, -1}, {0, 0, 1, 1}, {0, 1}}, // 18
-    {{-1, 1, 1}, {0, 0, 0, 1}, {0, 0}}, // 19
+    {{ 1, 1,  1}, {1, 0, 0, 1}, {1, 0}, {0, 1, 0}}, // 16
+    {{ 1, 1, -1}, {0, 1, 0, 1}, {1, 1}, {0, 1, 0}}, // 17
+    {{-1, 1, -1}, {0, 0, 1, 1}, {0, 1}, {0, 1, 0}}, // 18
+    {{-1, 1,  1}, {0, 0, 0, 1}, {0, 0}, {0, 1, 0}}, // 19
     
     // Bottom
-    {{1, -1, -1}, {1, 0, 0, 1}, {1, 0}}, // 20
-    {{1, -1, 1}, {0, 1, 0, 1}, {1, 1}}, // 21
-    {{-1, -1, 1}, {0, 0, 1, 1}, {0, 1}}, // 22
-    {{-1, -1, -1}, {0, 0, 0, 1}, {0, 0}}, // 23
+    {{ 1, -1, -1}, {1, 0, 0, 1}, {1, 0}, {0, -1, 0}}, // 20
+    {{ 1, -1,  1}, {0, 1, 0, 1}, {1, 1}, {0, -1, 0}}, // 21
+    {{-1, -1,  1}, {0, 0, 1, 1}, {0, 1}, {0, -1, 0}}, // 22
+    {{-1, -1, -1}, {0, 0, 0, 1}, {0, 0}, {0, -1, 0}}, // 23
 };
 static const GLubyte indices[] = {
     // Front
@@ -94,16 +94,21 @@ static const GLubyte indices[] = {
     2, 3, 0
 };
 #endif
-static GLuint  facadeTextureBuffer;
+static GLuint  textureBuffer;
 static GLuint  vertexBuffer;
 static GLuint  indexBuffer;
 static GLuint  vertexArrayObject;
 static GLuint  transformationUniform;
 static GLuint  projectionUniform;
-static GLuint  facadeTextureUniform;
+static GLuint  textureUniform;
+
+static GLuint  lightColorUniform;
+static GLuint  lightDirectionUniform;
+static GLuint  lightAmbientIntensityUniform;
+static GLuint  lightDiffuseIntensityUniform;
 
 void setFacadeImage(const GLsizei width, const GLsizei height, const GLenum type, const GLvoid *pixels) {
-    facadeTextureBuffer = loadTexture(width, height, type, pixels);
+    textureBuffer = loadTexture(width, height, type, pixels);
 }
 
 void loadSampleShader(GLuint program) {
@@ -117,14 +122,20 @@ void loadSampleShader(GLuint program) {
     
     glBindAttribLocation(program, VertexAttribPosition, "a_Position");
     glBindAttribLocation(program, VertexAttribColor, "a_Color");
-    glBindAttribLocation(program, VertexAttribFacadeTexCoord, "a_FacadeTexCoord");
+    glBindAttribLocation(program, VertexAttribTexCoord, "a_TexCoord");
+    glBindAttribLocation(program, VertexAttribNormal, "a_Normal");
     
     linkProgram(program);
     
     transformationUniform = glGetUniformLocation(program, "u_Transformation");
     projectionUniform = glGetUniformLocation(program, "u_Projection");
-    facadeTextureUniform = glGetUniformLocation(program, "u_FacadeTexture");
+    textureUniform = glGetUniformLocation(program, "u_Texture");
     
+    lightColorUniform = glGetUniformLocation(program, "u_Light.color");
+    lightDirectionUniform = glGetUniformLocation(program, "u_Light.direction");
+    lightAmbientIntensityUniform = glGetUniformLocation(program, "u_Light.ambientIntensity");
+    lightDiffuseIntensityUniform = glGetUniformLocation(program, "u_Light.diffuseIntensity");
+
     glGenVertexArraysOES(1, &vertexArrayObject);
     glBindVertexArrayOES(vertexArrayObject);
     
@@ -140,15 +151,19 @@ void loadSampleShader(GLuint program) {
     
     // enable vertex position buffer
     glEnableVertexAttribArray(VertexAttribPosition);
-    glVertexAttribPointer(VertexAttribPosition, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), (const GLvoid*) offsetof(Vertex, Position));
+    glVertexAttribPointer(VertexAttribPosition, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), (const GLvoid*) offsetof(Vertex, position));
     
     // enable vertex color buffer
     glEnableVertexAttribArray(VertexAttribColor);
-    glVertexAttribPointer(VertexAttribColor, 4, GL_FLOAT, GL_FALSE, sizeof(Vertex), (const GLvoid*) offsetof(Vertex, Color));
+    glVertexAttribPointer(VertexAttribColor, 4, GL_FLOAT, GL_FALSE, sizeof(Vertex), (const GLvoid*) offsetof(Vertex, color));
     
     // enable texture coordinate buffer
-    glEnableVertexAttribArray(VertexAttribFacadeTexCoord);
-    glVertexAttribPointer(VertexAttribFacadeTexCoord, 2, GL_FLOAT, GL_FALSE, sizeof(Vertex), (const GLvoid*) offsetof(Vertex, FacadeTexCoord));
+    glEnableVertexAttribArray(VertexAttribTexCoord);
+    glVertexAttribPointer(VertexAttribTexCoord, 2, GL_FLOAT, GL_FALSE, sizeof(Vertex), (const GLvoid*) offsetof(Vertex, texCoord));
+    
+    // enabled normal buffer
+    glEnableVertexAttribArray(VertexAttribNormal);
+    glVertexAttribPointer(VertexAttribNormal, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), (const GLvoid*) offsetof(Vertex, normal));
     
     glBindVertexArrayOES(0);
     glBindBuffer(GL_ARRAY_BUFFER, 0);
@@ -168,8 +183,13 @@ void drawSampleShader(GLuint program) {
     
     // enable texture
     glActiveTexture(GL_TEXTURE1);
-    glBindTexture(GL_TEXTURE_2D, facadeTextureBuffer);
-    glUniform1i(facadeTextureUniform, 1);
+    glBindTexture(GL_TEXTURE_2D, textureBuffer);
+    glUniform1i(textureUniform, 1);
+    
+    glUniform3f(lightColorUniform, 1, 1, 1);
+    glUniform3f(lightDirectionUniform, 0, -1, -1);
+    glUniform1f(lightAmbientIntensityUniform, 0.3);
+    glUniform1f(lightDiffuseIntensityUniform, 0.8);
     
     glBindVertexArrayOES(vertexArrayObject);
     GLsizei count = sizeof(indices) / sizeof(indices[0]);
