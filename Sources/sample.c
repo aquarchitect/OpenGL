@@ -107,6 +107,9 @@ static GLuint  lightDirectionUniform;
 static GLuint  lightAmbientIntensityUniform;
 static GLuint  lightDiffuseIntensityUniform;
 
+static GLuint  materialShininessUniform;
+static GLuint  materialSpecularIntensityUniform;
+
 void setFacadeImage(const GLsizei width, const GLsizei height, const GLenum type, const GLvoid *pixels) {
     textureBuffer = loadTexture(width, height, type, pixels);
 }
@@ -135,6 +138,9 @@ void loadSampleShader(GLuint program) {
     lightDirectionUniform = glGetUniformLocation(program, "u_Light.direction");
     lightAmbientIntensityUniform = glGetUniformLocation(program, "u_Light.ambientIntensity");
     lightDiffuseIntensityUniform = glGetUniformLocation(program, "u_Light.diffuseIntensity");
+    
+    materialShininessUniform = glGetUniformLocation(program, "u_Material.shininess");
+    materialSpecularIntensityUniform = glGetUniformLocation(program, "u_Material.specularIntensity");
 
     glGenVertexArraysOES(1, &vertexArrayObject);
     glBindVertexArrayOES(vertexArrayObject);
@@ -187,9 +193,12 @@ void drawSampleShader(GLuint program) {
     glUniform1i(textureUniform, 1);
     
     glUniform3f(lightColorUniform, 1, 1, 1);
-    glUniform3f(lightDirectionUniform, 0, -1, -1);
-    glUniform1f(lightAmbientIntensityUniform, 0.3);
-    glUniform1f(lightDiffuseIntensityUniform, 0.8);
+    glUniform3f(lightDirectionUniform, 0, 0, -1);
+    glUniform1f(lightAmbientIntensityUniform, 0.1);
+    glUniform1f(lightDiffuseIntensityUniform, 0.7);
+    
+    glUniform1f(materialShininessUniform, 7.0);
+    glUniform1f(materialSpecularIntensityUniform, 2.0);
     
     glBindVertexArrayOES(vertexArrayObject);
     GLsizei count = sizeof(indices) / sizeof(indices[0]);
