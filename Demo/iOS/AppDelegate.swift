@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import MyKit
 import GLKit
 
 @UIApplicationMain
@@ -19,11 +18,10 @@ final class AppDelegate: UIResponder {
 extension AppDelegate: UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        window = UIWindow(frame: UIScreen.main.bounds).then {
-            $0.rootViewController = ViewController()
-            $0.backgroundColor = .white
-            $0.makeKeyAndVisible()
-        }
+        window = UIWindow(frame: UIScreen.main.bounds)
+        window?.rootViewController = ViewController()
+        window?.backgroundColor = .white
+        window?.makeKeyAndVisible()
 
         return true
     }

@@ -8,7 +8,6 @@
 
 import UIKit
 import GLKit
-import MyKit
 
 final class RootView: GLKView {
  
