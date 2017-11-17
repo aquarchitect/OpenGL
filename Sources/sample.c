@@ -197,8 +197,8 @@ void drawSampleShader(GLuint program) {
     glUniform1f(lightAmbientIntensityUniform, 0.1);
     glUniform1f(lightDiffuseIntensityUniform, 0.7);
     
-    glUniform1f(materialShininessUniform, 7.0);
-    glUniform1f(materialSpecularIntensityUniform, 2.0);
+    glUniform1f(materialShininessUniform, 7.0); // the larger the more focused
+    glUniform1f(materialSpecularIntensityUniform, 2.0); // the brightness
     
     glBindVertexArrayOES(vertexArrayObject);
     GLsizei count = sizeof(indices) / sizeof(indices[0]);
