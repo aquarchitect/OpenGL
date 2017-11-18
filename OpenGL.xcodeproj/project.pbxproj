@@ -97,13 +97,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		C24FC4C31FBAA5F100AB7C1E /* Sources */ = {
+		C24FC4C31FBAA5F100AB7C1E /* Common */ = {
 			isa = PBXGroup;
 			children = (
 				C2DC35991FBF89F000C49007 /* Utilities */,
 				C2DC35981FBF89AC00C49007 /* Components */,
 			);
-			path = Sources;
+			path = Common;
 			sourceTree = "<group>";
 		};
 		C28AB1621FBF82030022EAE9 /* Playground */ = {
@@ -196,7 +196,7 @@
 		C2F283611FBA7338007A0BEA = {
 			isa = PBXGroup;
 			children = (
-				C24FC4C31FBAA5F100AB7C1E /* Sources */,
+				C24FC4C31FBAA5F100AB7C1E /* Common */,
 				C2B25DD41FBB7FF800287630 /* Demo */,
 				C2B25DD51FBB800700287630 /* Resources */,
 				C28AB1621FBF82030022EAE9 /* Playground */,
