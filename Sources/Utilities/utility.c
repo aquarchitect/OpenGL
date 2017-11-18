@@ -49,9 +49,8 @@ static char *loadFile(const char *filePath) {
     }
 
     // close file and terminate the string
-    fclose(file);
     if (source) source[totalLength] = '\0';
-    
+    fclose(file);
     return source;
 }
 

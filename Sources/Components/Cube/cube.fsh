@@ -14,12 +14,9 @@ struct Material {
     float specularIntensity;
 };
 
-const Light u_Light = Light(
-    vec3(1.0,1.0,1.0),
-    vec3(1.0,1.0,-1.0),
-    0.1, 0.7
-);
+const Light u_Light = Light(vec3(1.0,1.0,1.0), vec3(1.0,1.0,-1.0), 0.1, 0.7);
 const Material u_Material = Material(7.0, 2.0);
+
 uniform sampler2D u_Texture;
 
 #if __VERSION__ >= 140
