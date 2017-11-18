@@ -33,7 +33,7 @@ final class ViewController: GLKViewController {
         
         _ = rootView.map({ EAGLContext.setCurrent($0.context) })
     
-        setBasePathForResources("\(Bundle.main.bundlePath)/")
+        Bundle.main.resourcePath.map({ setBasePathForResources("\($0)/") })
         
         if let image = Bundle.main
                 .path(forResource: "Dungeon", ofType: "png")
@@ -69,9 +69,8 @@ private extension ViewController {
 extension ViewController: GLKViewControllerDelegate {
     
     func glkViewControllerUpdate(_ controller: GLKViewController) {
-        (view as? RootView)?.then {
-            transformationMatrix = $0.panTransform.m
-        }
+        guard let view = self.view as? RootView else { return }
+        transformationMatrix = view.panTransform.m
     }
 }
 

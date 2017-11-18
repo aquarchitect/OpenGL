@@ -16,13 +16,18 @@
 		C28AB16B1FBF822B0022EAE9 /* Scene.sks in Resources */ = {isa = PBXBuildFile; fileRef = C2EBDCAE1FBF79A700CD2CE2 /* Scene.sks */; };
 		C2B25DE51FBB81CD00287630 /* utility.c in Sources */ = {isa = PBXBuildFile; fileRef = C2B25DE31FBB81CD00287630 /* utility.c */; };
 		C2B25DF31FBBB23B00287630 /* draw.c in Sources */ = {isa = PBXBuildFile; fileRef = C2B25DF21FBBB23B00287630 /* draw.c */; };
-		C2B25DFF1FBBBF2900287630 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2B25DFE1FBBBF2900287630 /* OpenGLES.framework */; };
 		C2C33B901FBCFD0600DE4B8E /* cube.c in Sources */ = {isa = PBXBuildFile; fileRef = C2C33B8E1FBCFD0600DE4B8E /* cube.c */; };
 		C2DC35A21FBF8E3E00C49007 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2DC35A11FBF8E3E00C49007 /* AppDelegate.swift */; };
 		C2DC35A41FBF8E3E00C49007 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C2DC35A31FBF8E3E00C49007 /* Assets.xcassets */; };
 		C2DC35AE1FBF929A00C49007 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2DC35AD1FBF929A00C49007 /* main.swift */; };
 		C2DC35B11FBFA2C800C49007 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2DC35B01FBFA2C800C49007 /* ViewController.swift */; };
 		C2DC35B31FBFA47700C49007 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2DC35B21FBFA47700C49007 /* RootView.swift */; };
+		C2DC35B71FBFAD8800C49007 /* utility.c in Sources */ = {isa = PBXBuildFile; fileRef = C2B25DE31FBB81CD00287630 /* utility.c */; };
+		C2DC35B81FBFAD8800C49007 /* draw.c in Sources */ = {isa = PBXBuildFile; fileRef = C2B25DF21FBBB23B00287630 /* draw.c */; };
+		C2DC35B91FBFAD9900C49007 /* cube.c in Sources */ = {isa = PBXBuildFile; fileRef = C2C33B8E1FBCFD0600DE4B8E /* cube.c */; };
+		C2DC35BA1FBFAD9D00C49007 /* cube.vsh in Resources */ = {isa = PBXBuildFile; fileRef = C27A64D41FBBCFD3006E92BF /* cube.vsh */; };
+		C2DC35BB1FBFADA000C49007 /* cube.fsh in Resources */ = {isa = PBXBuildFile; fileRef = C2B25DF01FBB9C8B00287630 /* cube.fsh */; };
+		C2DC35BC1FBFB47900C49007 /* Dungeon.png in Resources */ = {isa = PBXBuildFile; fileRef = C2FDEDBC1FBE40C3008529A6 /* Dungeon.png */; };
 		C2F2836E1FBA7339007A0BEA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2F2836D1FBA7339007A0BEA /* AppDelegate.swift */; };
 		C2F283751FBA7339007A0BEA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C2F283741FBA7339007A0BEA /* Assets.xcassets */; };
 		C2F283781FBA7339007A0BEA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C2F283761FBA7339007A0BEA /* LaunchScreen.storyboard */; };
@@ -56,6 +61,7 @@
 		C2DC35AD1FBF929A00C49007 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		C2DC35B01FBFA2C800C49007 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		C2DC35B21FBFA47700C49007 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
+		C2DC35B61FBFAD3400C49007 /* Bridging.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Bridging.h; sourceTree = "<group>"; };
 		C2EBDCAE1FBF79A700CD2CE2 /* Scene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Scene.sks; sourceTree = "<group>"; };
 		C2EBDCB01FBF7BD100CD2CE2 /* Playground.fsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = Playground.fsh; sourceTree = "<group>"; };
 		C2F2836A1FBA7339007A0BEA /* Demo-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Demo-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -63,7 +69,6 @@
 		C2F283741FBA7339007A0BEA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C2F283771FBA7339007A0BEA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C2F283791FBA7339007A0BEA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C2F283811FBA7834007A0BEA /* MyKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MyKit.framework; path = Carthage/Build/iOS/MyKit.framework; sourceTree = "<group>"; };
 		C2FDEDBC1FBE40C3008529A6 /* Dungeon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Dungeon.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -86,7 +91,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C2B25DFF1FBBBF2900287630 /* OpenGLES.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -151,6 +155,7 @@
 				C2DC35A11FBF8E3E00C49007 /* AppDelegate.swift */,
 				C2DC35B01FBFA2C800C49007 /* ViewController.swift */,
 				C2DC35B21FBFA47700C49007 /* RootView.swift */,
+				C2DC35B61FBFAD3400C49007 /* Bridging.h */,
 				C2DC35A31FBF8E3E00C49007 /* Assets.xcassets */,
 				C2DC35A81FBF8E3E00C49007 /* Info.plist */,
 			);
@@ -217,7 +222,6 @@
 				C2B25DEC1FBB841300287630 /* Cocoa.framework */,
 				C2B25DEA1FBB840A00287630 /* GLUT.framework */,
 				C2B25DE81FBB837A00287630 /* OpenGL.framework */,
-				C2F283811FBA7834007A0BEA /* MyKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -347,6 +351,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C2DC35BA1FBFAD9D00C49007 /* cube.vsh in Resources */,
+				C2DC35BB1FBFADA000C49007 /* cube.fsh in Resources */,
+				C2DC35BC1FBFB47900C49007 /* Dungeon.png in Resources */,
 				C2DC35A41FBF8E3E00C49007 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -377,7 +384,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C2DC35B71FBFAD8800C49007 /* utility.c in Sources */,
+				C2DC35B81FBFAD8800C49007 /* draw.c in Sources */,
 				C2DC35B31FBFA47700C49007 /* RootView.swift in Sources */,
+				C2DC35B91FBFAD9900C49007 /* cube.c in Sources */,
 				C2DC35B11FBFA2C800C49007 /* ViewController.swift in Sources */,
 				C2DC35AE1FBF929A00C49007 /* main.swift in Sources */,
 				C2DC35A21FBF8E3E00C49007 /* AppDelegate.swift in Sources */,
@@ -472,6 +482,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = macosx;
+				SWIFT_OBJC_BRIDGING_HEADER = Demo/macOS/Bridging.h;
 				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
@@ -491,6 +502,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = macosx;
+				SWIFT_OBJC_BRIDGING_HEADER = Demo/macOS/Bridging.h;
 				SWIFT_VERSION = 4.0;
 			};
 			name = Release;

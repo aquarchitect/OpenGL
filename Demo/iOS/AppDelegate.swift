@@ -22,7 +22,7 @@ extension AppDelegate: UIApplicationDelegate {
         window?.rootViewController = ViewController()
         window?.backgroundColor = .white
         window?.makeKeyAndVisible()
-
+        
         return true
     }
 }

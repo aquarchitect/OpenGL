@@ -8,7 +8,15 @@
 
 import AppKit
 
+protocol NSOpenGLViewDelegate: class {
+    
+    func openGLViewDidPrepareOpenGL(_ view: NSOpenGLView)
+    func openGLView(_ view: NSOpenGLView, drawIn rect: NSRect)
+}
+
 final class RootView: NSOpenGLView {
+    
+    weak var delegate: NSOpenGLViewDelegate?
     
     // MARK: Initialization
     
@@ -24,5 +32,18 @@ final class RootView: NSOpenGLView {
     override init?(frame frameRect: NSRect, pixelFormat format: NSOpenGLPixelFormat?) {
         super.init(frame: frameRect, pixelFormat: format)
         super.frame.size = CGSize(width: 400, height: 400)
+    }
+    
+    // MARK: System Methods
+    
+    override func prepareOpenGL() {
+        super.prepareOpenGL()
+        
+        delegate?.openGLViewDidPrepareOpenGL(self)
+    }
+    
+    override func draw(_ dirtyRect: NSRect) {
+        super.draw(dirtyRect)
+        delegate?.openGLView(self, drawIn: dirtyRect)
     }
 }

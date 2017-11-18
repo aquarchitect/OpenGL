@@ -141,8 +141,13 @@ void loadCubeShader(GLuint program) {
     materialShininessUniform = glGetUniformLocation(program, "u_Material.shininess");
     materialSpecularIntensityUniform = glGetUniformLocation(program, "u_Material.specularIntensity");
 
+#if GL_APPLE_vertex_array_object
+    glGenVertexArraysAPPLE(1, &vertexArrayObject);
+    glBindVertexArrayAPPLE(vertexArrayObject);
+#elif GL_OES_vertex_array_object
     glGenVertexArraysOES(1, &vertexArrayObject);
     glBindVertexArrayOES(vertexArrayObject);
+#endif
     
     // generate vertex buffer;
     glGenBuffers(1, &vertexBuffer);
@@ -170,7 +175,11 @@ void loadCubeShader(GLuint program) {
     glEnableVertexAttribArray(VertexAttribNormal);
     glVertexAttribPointer(VertexAttribNormal, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), (const GLvoid*) offsetof(Vertex, normal));
     
+#if GL_APPLE_vertex_array_object
+    glBindVertexArrayAPPLE(0);
+#elif GL_OES_vertex_array_object
     glBindVertexArrayOES(0);
+#endif
     glBindBuffer(GL_ARRAY_BUFFER, 0);
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
 }
@@ -199,8 +208,16 @@ void drawCubeShader(GLuint program) {
     glUniform1f(materialShininessUniform, 7.0); // the larger the more focused
     glUniform1f(materialSpecularIntensityUniform, 2.0); // the brightness
     
+#if GL_APPLE_vertex_array_object
+    glBindVertexArrayAPPLE(vertexArrayObject);
+#elif GL_OES_vertex_array_object
     glBindVertexArrayOES(vertexArrayObject);
+#endif
     GLsizei count = sizeof(indices) / sizeof(indices[0]);
     glDrawElements(GL_TRIANGLES, count, GL_UNSIGNED_BYTE, 0);
+#if GL_APPLE_vertex_array_object
+    glBindVertexArrayAPPLE(0);
+#elif GL_OES_vertex_array_object
     glBindVertexArrayOES(0);
+#endif
 }

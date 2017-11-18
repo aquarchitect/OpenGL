@@ -7,6 +7,7 @@
 //
 
 import AppKit
+import GLKit
 
 final class ViewController: NSViewController {
     
@@ -24,5 +25,44 @@ final class ViewController: NSViewController {
     
     override func loadView() {
         view = RootView()
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        (view as? RootView)?.delegate = self
+    }
+}
+
+extension ViewController: NSOpenGLViewDelegate {
+    
+    func openGLViewDidPrepareOpenGL(_ view: NSOpenGLView) {
+        Bundle.main.resourcePath.map({ setBasePathForResources("\($0)/") })
+        
+        if let image = Bundle.main
+            .path(forResource: "Dungeon", ofType: "png")
+            .flatMap(NSImage.init(contentsOfFile:))?
+            .cgImage(forProposedRect: nil, context: nil, hints: nil),
+            let bytes = image
+                .dataProvider?
+                .data
+                .map({ $0 as NSData })?
+                .bytes
+        {
+            setFacadeImage(Int32(image.width), Int32(image.height), UInt32(GL_RGBA), bytes)
+        }
+        
+        transformationMatrix = GLKMatrix4MakeTranslation(0, 0, -5).m
+        projectionMatrix = GLKMatrix4MakePerspective(
+            GLKMathDegreesToRadians(85),
+            Float(view.bounds.width/view.bounds.height),
+            1, 150
+        ).m
+    }
+    
+    func openGLView(_ view: NSOpenGLView, drawIn rect: NSRect) {
+        Swift.print(#function)
+        setup()
+        draw()
     }
 }
