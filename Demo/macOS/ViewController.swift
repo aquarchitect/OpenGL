@@ -61,8 +61,8 @@ extension ViewController: NSOpenGLViewDelegate {
     }
     
     func openGLView(_ view: NSOpenGLView, drawIn rect: NSRect) {
-        Swift.print(#function)
         setup()
         draw()
+        glFlush()
     }
 }
