@@ -11,19 +11,6 @@ import GLKit
 
 final class ViewController: GLKViewController {
     
-    // MARK: Properties
-    
-    // MARK: Initialization
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    init() {
-        super.init(nibName: nil, bundle: nil)
-        super.delegate = self
-    }
-    
     // MARK: View Lifecycle
     
     override func loadView() {
@@ -37,6 +24,7 @@ final class ViewController: GLKViewController {
     
         Bundle.main.resourcePath.map({ setBasePathForResources("\($0)/") })
         
+#if true
         if let image = Bundle.main
                 .path(forResource: "Dungeon", ofType: "png")
                 .flatMap(UIImage.init(contentsOfFile:))?
@@ -56,6 +44,7 @@ final class ViewController: GLKViewController {
             1, 150
         )
         setCubeProjection(projection.cm)
+#endif
         
         setup()
     }
@@ -68,14 +57,14 @@ private extension ViewController {
     }
 }
 
-extension ViewController: GLKViewControllerDelegate {
-    
-    func glkViewControllerUpdate(_ controller: GLKViewController) {}
-}
-
 extension ViewController {
     
     override func glkView(_ view: GLKView, drawIn rect: CGRect) {
+        Swift.print(#function)
+#if false
+        drawEffect(Int32(rect.width), Int32(rect.height))
+#else
         (view as? RootView).map({ drawCube($0.panTransform.cm) })
+#endif
     }
 }
