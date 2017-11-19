@@ -6,20 +6,15 @@
 //  Copyright © 2017 Hai Nguyen. All rights reserved.
 //
 
-#include "common.h"
-#include "cube.h"
-
-extern void loadCubeShader(GLuint program);
-extern void drawCubeShader(GLuint program);
+#include "draw.h"
 
 static GLuint currProgram;
 
 void setup() {
     currProgram = glCreateProgram();
     loadCubeShader(currProgram);
-}
+};
 
-void draw() {
-    drawCubeShader(currProgram);
-}
-
+void drawCube(const GLfloat transformation[16]) {
+    drawCubeShader(currProgram, transformation);
+};

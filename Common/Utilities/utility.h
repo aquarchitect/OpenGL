@@ -9,4 +9,7 @@
 #ifndef utility_h
 #define utility_h
 extern void setBasePathForResources(const char *basePath);
+extern GLuint loadShader(const GLenum type, const char *filePath);
+extern GLuint loadTexture(const GLsizei width, const GLsizei height, const GLenum type, const GLvoid *pixels);
+extern void linkProgram(const GLuint program);
 #endif /* utility_h */

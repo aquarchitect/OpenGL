@@ -7,16 +7,10 @@
 //
 
 #include "cube.h"
+#include "utility.h"
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
-
-extern GLuint loadShader(const GLenum type, const char *filePath);
-extern GLuint loadTexture(const GLsizei width, const GLsizei height, const GLenum type, const GLvoid *pixels);
-extern void linkProgram(const GLuint program);
-
-GLfloat transformationMatrix[16];
-GLfloat projectionMatrix[16];
 
 #if 1 // cube
 static const Vertex vertices[] = {
@@ -93,6 +87,7 @@ static const GLubyte indices[] = {
     2, 3, 0
 };
 #endif
+static GLfloat projectionMatrix[16];
 static GLuint  textureBuffer;
 static GLuint  vertexBuffer;
 static GLuint  indexBuffer;
@@ -101,11 +96,15 @@ static GLuint  transformationUniform;
 static GLuint  projectionUniform;
 static GLuint  textureUniform;
 
-void setFacadeImage(const GLsizei width, const GLsizei height, const GLenum type, const GLvoid *pixels) {
-    textureBuffer = loadTexture(width, height, type, pixels);
-}
+void setCubeProjection(const GLfloat matrix[16]) {
+    memcpy(projectionMatrix, matrix, sizeof(projectionMatrix));
+};
 
-void loadCubeShader(GLuint program) {
+void setCubeTexture(const GLsizei width, const GLsizei height, const GLenum type, const GLvoid *pixels) {
+    textureBuffer = loadTexture(width, height, type, pixels);
+};
+
+void loadCubeShader(const GLuint program) {
     GLuint fragmentShader = loadShader(GL_FRAGMENT_SHADER, "cube.fsh");
     glAttachShader(program, fragmentShader);
     glDeleteShader(fragmentShader);
@@ -166,9 +165,9 @@ void loadCubeShader(GLuint program) {
 #endif
     glBindBuffer(GL_ARRAY_BUFFER, 0);
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
-}
+};
 
-void drawCubeShader(GLuint program) {
+void drawCubeShader(const GLuint program, const GLfloat transformation[16]) {
     glClearColor(1.0, 0.0, 0.0, 1.0);
     glClear(GL_COLOR_BUFFER_BIT);
     glEnable(GL_CULL_FACE);
@@ -176,7 +175,7 @@ void drawCubeShader(GLuint program) {
     glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
     glUseProgram(program);
     
-    glUniformMatrix4fv(transformationUniform, 1, GL_FALSE, transformationMatrix);
+    glUniformMatrix4fv(transformationUniform, 1, GL_FALSE, transformation);
     glUniformMatrix4fv(projectionUniform, 1, GL_FALSE, projectionMatrix);
     
     // enable texture
@@ -196,4 +195,4 @@ void drawCubeShader(GLuint program) {
 #elif GL_OES_vertex_array_object
     glBindVertexArrayOES(0);
 #endif
-}
+};

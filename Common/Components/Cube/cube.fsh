@@ -7,7 +7,7 @@ struct Light {
     vec3 direction;
     float ambientIntensity;
     float diffuseIntensity;
-} u_Light;
+};
 
 struct Material {
     float shininess;

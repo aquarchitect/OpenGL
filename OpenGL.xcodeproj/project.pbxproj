@@ -9,6 +9,14 @@
 /* Begin PBXBuildFile section */
 		C225BE101FBD11650097F75E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C225BE0F1FBD11650097F75E /* ViewController.swift */; };
 		C225BE131FBD18FD0097F75E /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C225BE121FBD18FD0097F75E /* RootView.swift */; };
+		C24897891FC0F3A5002594AA /* effect.c in Sources */ = {isa = PBXBuildFile; fileRef = C24897871FC0F3A5002594AA /* effect.c */; };
+		C248978A1FC0F3A5002594AA /* effect.c in Sources */ = {isa = PBXBuildFile; fileRef = C24897871FC0F3A5002594AA /* effect.c */; };
+		C248978C1FC0F3B7002594AA /* base.fsh in Resources */ = {isa = PBXBuildFile; fileRef = C248978B1FC0F3B7002594AA /* base.fsh */; };
+		C248978D1FC0F3B7002594AA /* base.fsh in Resources */ = {isa = PBXBuildFile; fileRef = C248978B1FC0F3B7002594AA /* base.fsh */; };
+		C248978F1FC0F3EB002594AA /* base.vsh in Resources */ = {isa = PBXBuildFile; fileRef = C248978E1FC0F3EB002594AA /* base.vsh */; };
+		C24897901FC0F3EB002594AA /* base.vsh in Resources */ = {isa = PBXBuildFile; fileRef = C248978E1FC0F3EB002594AA /* base.vsh */; };
+		C24897941FC11C1C002594AA /* GLKMatrix4+.swift in Sources */ = {isa = PBXBuildFile; fileRef = C24897931FC11C1C002594AA /* GLKMatrix4+.swift */; };
+		C24897951FC11C1C002594AA /* GLKMatrix4+.swift in Sources */ = {isa = PBXBuildFile; fileRef = C24897931FC11C1C002594AA /* GLKMatrix4+.swift */; };
 		C27A64D31FBBCE30006E92BF /* cube.fsh in Resources */ = {isa = PBXBuildFile; fileRef = C2B25DF01FBB9C8B00287630 /* cube.fsh */; };
 		C27A64D51FBBCFD3006E92BF /* cube.vsh in Resources */ = {isa = PBXBuildFile; fileRef = C27A64D41FBBCFD3006E92BF /* cube.vsh */; };
 		C28AB1651FBF82030022EAE9 /* Playground.h in Headers */ = {isa = PBXBuildFile; fileRef = C28AB1631FBF82030022EAE9 /* Playground.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -37,6 +45,12 @@
 /* Begin PBXFileReference section */
 		C225BE0F1FBD11650097F75E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		C225BE121FBD18FD0097F75E /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
+		C24897871FC0F3A5002594AA /* effect.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = effect.c; sourceTree = "<group>"; };
+		C24897881FC0F3A5002594AA /* effect.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = effect.h; sourceTree = "<group>"; };
+		C248978B1FC0F3B7002594AA /* base.fsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = base.fsh; sourceTree = "<group>"; };
+		C248978E1FC0F3EB002594AA /* base.vsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = base.vsh; sourceTree = "<group>"; };
+		C24897911FC0FA05002594AA /* size.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = size.h; sourceTree = "<group>"; };
+		C24897931FC11C1C002594AA /* GLKMatrix4+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GLKMatrix4+.swift"; sourceTree = "<group>"; };
 		C2652A661FBB5C3B0049F156 /* Bridging.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Bridging.h; sourceTree = "<group>"; };
 		C27A64D41FBBCFD3006E92BF /* cube.vsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = cube.vsh; sourceTree = "<group>"; };
 		C28AB1611FBF82030022EAE9 /* Playground.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Playground.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -97,6 +111,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C24897861FC0F33C002594AA /* Effect */ = {
+			isa = PBXGroup;
+			children = (
+				C24897871FC0F3A5002594AA /* effect.c */,
+				C24897881FC0F3A5002594AA /* effect.h */,
+				C248978B1FC0F3B7002594AA /* base.fsh */,
+				C248978E1FC0F3EB002594AA /* base.vsh */,
+			);
+			path = Effect;
+			sourceTree = "<group>";
+		};
+		C24897921FC11BD4002594AA /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				C24897931FC11C1C002594AA /* GLKMatrix4+.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		C24FC4C31FBAA5F100AB7C1E /* Common */ = {
 			isa = PBXGroup;
 			children = (
@@ -120,6 +153,7 @@
 		C2B25DD41FBB7FF800287630 /* Demo */ = {
 			isa = PBXGroup;
 			children = (
+				C24897921FC11BD4002594AA /* Extensions */,
 				C2B25DD61FBB801800287630 /* iOS */,
 				C2B25DD71FBB801D00287630 /* macOS */,
 			);
@@ -165,6 +199,7 @@
 		C2DC35981FBF89AC00C49007 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				C24897861FC0F33C002594AA /* Effect */,
 				C2DC359A1FBF8A0100C49007 /* Cube */,
 			);
 			path = Components;
@@ -178,6 +213,7 @@
 				C2B25DF21FBBB23B00287630 /* draw.c */,
 				C2B25DF81FBBB6A900287630 /* draw.h */,
 				C2AFD4971FBC030200825D35 /* common.h */,
+				C24897911FC0FA05002594AA /* size.h */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -351,7 +387,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C248978D1FC0F3B7002594AA /* base.fsh in Resources */,
 				C2DC35BA1FBFAD9D00C49007 /* cube.vsh in Resources */,
+				C24897901FC0F3EB002594AA /* base.vsh in Resources */,
 				C2DC35BB1FBFADA000C49007 /* cube.fsh in Resources */,
 				C2DC35BC1FBFB47900C49007 /* Dungeon.png in Resources */,
 				C2DC35A41FBF8E3E00C49007 /* Assets.xcassets in Resources */,
@@ -364,7 +402,9 @@
 			files = (
 				C27A64D31FBBCE30006E92BF /* cube.fsh in Resources */,
 				C27A64D51FBBCFD3006E92BF /* cube.vsh in Resources */,
+				C248978C1FC0F3B7002594AA /* base.fsh in Resources */,
 				C2F283781FBA7339007A0BEA /* LaunchScreen.storyboard in Resources */,
+				C248978F1FC0F3EB002594AA /* base.vsh in Resources */,
 				C2FDEDBD1FBE40C3008529A6 /* Dungeon.png in Resources */,
 				C2F283751FBA7339007A0BEA /* Assets.xcassets in Resources */,
 			);
@@ -384,6 +424,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C248978A1FC0F3A5002594AA /* effect.c in Sources */,
+				C24897951FC11C1C002594AA /* GLKMatrix4+.swift in Sources */,
 				C2DC35B71FBFAD8800C49007 /* utility.c in Sources */,
 				C2DC35B81FBFAD8800C49007 /* draw.c in Sources */,
 				C2DC35B31FBFA47700C49007 /* RootView.swift in Sources */,
@@ -399,10 +441,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				C225BE101FBD11650097F75E /* ViewController.swift in Sources */,
+				C24897891FC0F3A5002594AA /* effect.c in Sources */,
 				C2B25DE51FBB81CD00287630 /* utility.c in Sources */,
 				C225BE131FBD18FD0097F75E /* RootView.swift in Sources */,
 				C2B25DF31FBBB23B00287630 /* draw.c in Sources */,
 				C2F2836E1FBA7339007A0BEA /* AppDelegate.swift in Sources */,
+				C24897941FC11C1C002594AA /* GLKMatrix4+.swift in Sources */,
 				C2C33B901FBCFD0600DE4B8E /* cube.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

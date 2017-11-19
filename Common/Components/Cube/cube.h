@@ -22,7 +22,8 @@ typedef struct {
     GLfloat normal[3];
 } Vertex;
 
-extern GLfloat transformationMatrix[16];
-extern GLfloat projectionMatrix[16];
-extern void setFacadeImage(const GLsizei width, const GLsizei height, const GLenum type, const GLvoid *pixels);
+extern void setCubeProjection(const GLfloat matrix[16]);
+extern void loadCubeShader(const GLuint program);
+extern void setCubeTexture(const GLsizei width, const GLsizei height, const GLenum type, const GLvoid *pixels);
+extern void drawCubeShader(const GLuint program, const GLfloat transformation[16]);
 #endif /* cube_h */

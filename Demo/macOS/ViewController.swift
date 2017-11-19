@@ -49,20 +49,23 @@ extension ViewController: NSOpenGLViewDelegate {
                 .map({ $0 as NSData })?
                 .bytes
         {
-            setFacadeImage(Int32(image.width), Int32(image.height), UInt32(GL_RGBA), bytes)
+            setCubeTexture(Int32(image.width), Int32(image.height), UInt32(GL_RGBA), bytes)
         }
         
-        transformationMatrix = GLKMatrix4MakeTranslation(0, 0, -5).m
-        projectionMatrix = GLKMatrix4MakePerspective(
+        let projection = GLKMatrix4MakePerspective(
             GLKMathDegreesToRadians(85),
             Float(view.bounds.width/view.bounds.height),
             1, 150
-        ).m
+        )
+        setCubeProjection(projection.cm)
     }
     
     func openGLView(_ view: NSOpenGLView, drawIn rect: NSRect) {
         setup()
-        draw()
+        
+        let transformation = GLKMatrix4MakeTranslation(0, 0, -5)
+        drawCube(transformation.cm)
+        
         glFlush()
     }
 }

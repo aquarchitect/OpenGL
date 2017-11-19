@@ -11,6 +11,8 @@ import GLKit
 
 final class ViewController: GLKViewController {
     
+    // MARK: Properties
+    
     // MARK: Initialization
     
     required init?(coder aDecoder: NSCoder) {
@@ -45,15 +47,15 @@ final class ViewController: GLKViewController {
                 .map({ $0 as NSData })?
                 .bytes
         {
-            setFacadeImage(Int32(image.width), Int32(image.height), UInt32(GL_RGBA), bytes)
+            setCubeTexture(Int32(image.width), Int32(image.height), UInt32(GL_RGBA), bytes)
         }
         
-        transformationMatrix = GLKMatrix4MakeTranslation(0, 0, -5).m
-        projectionMatrix = GLKMatrix4MakePerspective(
+        let projection = GLKMatrix4MakePerspective(
             GLKMathDegreesToRadians(85),
             Float(view.bounds.width/view.bounds.height),
             1, 150
-        ).m
+        )
+        setCubeProjection(projection.cm)
         
         setup()
     }
@@ -68,15 +70,12 @@ private extension ViewController {
 
 extension ViewController: GLKViewControllerDelegate {
     
-    func glkViewControllerUpdate(_ controller: GLKViewController) {
-        guard let view = self.view as? RootView else { return }
-        transformationMatrix = view.panTransform.m
-    }
+    func glkViewControllerUpdate(_ controller: GLKViewController) {}
 }
 
 extension ViewController {
     
     override func glkView(_ view: GLKView, drawIn rect: CGRect) {
-        draw()
+        (view as? RootView).map({ drawCube($0.panTransform.cm) })
     }
 }
