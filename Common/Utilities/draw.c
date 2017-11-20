@@ -10,18 +10,19 @@
 #include "effect.h"
 #include <stdio.h>
 
+
 static GLuint currProgram;
 
 
 void setup() {
     currProgram = glCreateProgram();
     
-     loadCubeShader(currProgram);
-//    loadEffectShader(currProgram);
+//     loadCubeShader(currProgram);
+    loadEffectShader(currProgram);
 };
 
 void drawCube(const GLfloat transformation[16]) {
-    drawCubeShader(currProgram, transformation);
+//    drawCubeShader(currProgram, transformation);
 };
 
 void drawEffect(const GLsizei width, const GLsizei height) {

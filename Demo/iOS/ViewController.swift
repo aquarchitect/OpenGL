@@ -24,7 +24,7 @@ final class ViewController: GLKViewController {
     
         Bundle.main.resourcePath.map({ setBasePathForResources("\($0)/") })
         
-#if true
+#if false
         if let image = Bundle.main
                 .path(forResource: "Dungeon", ofType: "png")
                 .flatMap(UIImage.init(contentsOfFile:))?
@@ -60,8 +60,7 @@ private extension ViewController {
 extension ViewController {
     
     override func glkView(_ view: GLKView, drawIn rect: CGRect) {
-        Swift.print(#function)
-#if false
+#if true
         drawEffect(Int32(rect.width), Int32(rect.height))
 #else
         (view as? RootView).map({ drawCube($0.panTransform.cm) })
