@@ -20,50 +20,21 @@ final class ViewController: GLKViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        _ = rootView.map({ EAGLContext.setCurrent($0.context) })
+        _ = (view as? GLKView).map({ EAGLContext.setCurrent($0.context) })
     
-        Bundle.main.resourcePath.map({ setBasePathForResources("\($0)/") })
-        
-#if false
-        if let image = Bundle.main
-                .path(forResource: "Dungeon", ofType: "png")
-                .flatMap(UIImage.init(contentsOfFile:))?
-                .cgImage,
-            let bytes = image
-                .dataProvider?
-                .data
-                .map({ $0 as NSData })?
-                .bytes
-        {
-            setCubeTexture(Int32(image.width), Int32(image.height), UInt32(GL_RGBA), bytes)
-        }
-        
-        let projection = GLKMatrix4MakePerspective(
-            GLKMathDegreesToRadians(85),
-            Float(view.bounds.width/view.bounds.height),
-            1, 150
+        let basePath = (Bundle.main.resourcePath.map({ "\($0)/" }) ?? "").cString(using: .utf8)
+        setup(
+            Float(view.bounds.width),
+            Float(view.bounds.height),
+            UnsafeMutablePointer<Int8>(mutating: basePath)
         )
-        setCubeProjection(projection.cm)
-#endif
-        
-        setup()
-    }
-}
-
-private extension ViewController {
-    
-    var rootView: RootView? {
-        return view as? RootView
     }
 }
 
 extension ViewController {
     
     override func glkView(_ view: GLKView, drawIn rect: CGRect) {
-#if true
-        drawEffect(Int32(rect.width), Int32(rect.height))
-#else
-        (view as? RootView).map({ drawCube($0.panTransform.cm) })
-#endif
+        guard let translation = (view as? RootView)?.translation else { return }
+        translate(GLfloat(translation.x), GLfloat(translation.y), GLfloat(translation.z))
     }
 }

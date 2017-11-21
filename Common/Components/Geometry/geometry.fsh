@@ -24,6 +24,7 @@ in vec4 v_Color;
 in vec2 v_TexCoord;
 in vec3 v_Normal;
 in vec3 v_Position;
+
 out vec4 fragColor;
 #else
 varying vec4 v_Color;
@@ -46,6 +47,7 @@ void main() {
 #if __VERSION__ >= 140
     fraColor = texture(u_Texture, v_TexCoord) * lightColor;
 #else
-    gl_FragColor = texture2D(u_Texture, v_TexCoord) * lightColor;
+    gl_FragColor = v_Color;
+    // gl_FragColor = texture2D(u_Texture, v_TexCoord) * lightColor;
 #endif
 }

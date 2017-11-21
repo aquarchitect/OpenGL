@@ -35,4 +35,3 @@ void main() {
     
     gl_Position = u_Projection * u_Transformation * a_Position;
 }
-

@@ -1,13 +1,14 @@
 //
-//  common.h
+//  utility.hpp
 //  OpenGL
 //
-//  Created by Hai Nguyen on 11/14/17.
+//  Created by Hai Nguyen on 11/20/17.
 //  Copyright © 2017 Hai Nguyen. All rights reserved.
 //
 
-#ifndef common_h
-#define common_h
+#ifndef utility_hpp
+#define utility_hpp
+
 #if __APPLE__
     #include <TargetConditionals.h>
     #if TARGET_IPHONE_SIMULATOR || TARGET_OS_IPHONE
@@ -22,4 +23,11 @@
         #error "Unknown Apple Plaform"
     #endif
 #endif
-#endif /* common_h */
+
+#include <stdio.h>
+#include <string>
+namespace Utility {
+    GLuint  loadShader(const GLenum type, const std::string filePath);
+    void    linkShaders(const GLuint vertexShaderID, const GLuint fragmentShaderID, const GLuint programID);
+}
+#endif /* utility_hpp */
