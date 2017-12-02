@@ -34,9 +34,7 @@ private:
     const GLuint            programID = glCreateProgram();
     
     GLuint                  vertexArrayObject;
-    
-    GLuint                  vertexBufferObject;
-    GLuint                  indexBufferObject;
+    GLuint                  vertexBufferObject[2];
     
     GLuint                  projectionUniformLocation;
     GLuint                  transformationUniformLocation;

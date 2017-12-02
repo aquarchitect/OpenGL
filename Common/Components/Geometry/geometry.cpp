@@ -26,6 +26,7 @@ Geometry::Geometry(std::string basePath, std::vector<Vertex> vertices, std::vect
     
     glBindAttribLocation(programID, ATTRIBUTE_POSITION, "aPosition");
     glBindAttribLocation(programID, ATTRIBUTE_COLOR, "aColor");
+    glBindAttribLocation(programID, ATTRIBUTE_TEXCOORD, "aTexCoord");
     
     Utility::linkShaders(vertextShaderID, fragmentShaderID, programID);
     
@@ -35,14 +36,12 @@ Geometry::Geometry(std::string basePath, std::vector<Vertex> vertices, std::vect
     glGenBuffers(1, &vertexArrayObject);
     glBindVertexArrayOES(vertexArrayObject);
     
-    // generate vertex buffer
-    glGenBuffers(1, &vertexBufferObject);
-    glBindBuffer(GL_ARRAY_BUFFER, vertexBufferObject);
+    glGenBuffers(1, &vertexBufferObject[0]);
+    glBindBuffer(GL_ARRAY_BUFFER, vertexBufferObject[0]);
     glBufferData(GL_ARRAY_BUFFER, vertices.size() * sizeof(Vertex), &vertices.front(), GL_STATIC_DRAW);
     
-    // generate index buffer
-    glGenBuffers(1, &indexBufferObject);
-    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, indexBufferObject);
+    glGenBuffers(1, &vertexBufferObject[1]);
+    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, vertexBufferObject[1]);
     glBufferData(GL_ELEMENT_ARRAY_BUFFER, indices.size() * sizeof(GLubyte), &indices.front(), GL_STATIC_DRAW);
     
     glEnableVertexAttribArray(ATTRIBUTE_POSITION);
