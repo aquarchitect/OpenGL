@@ -11,16 +11,10 @@
 
 #include "utility.hpp"
 #include <string>
+#include <vector>
 #include <glm/glm.hpp>
+
 class Geometry {
-private:
-    enum Attribute {
-        position = 0,
-        color,
-        texCoord,
-        normal
-    };
-    
 public:
     struct Vertex {
         GLfloat position[3];
@@ -29,25 +23,23 @@ public:
         GLfloat normal[3];
     };
     
-    Geometry(std::string basePath, GLfloat *projection, Vertex *vertices);
+    Geometry(std::string basePath, std::vector<Vertex> vertices, std::vector<GLubyte> indices);
     
-    void            draw(GLfloat *pTransformation);
+    void                    draw(glm::mat4 transformation, glm::mat4 projection);
     
 private:
-    const GLuint    programID = glCreateProgram();
-
-    Vertex          *pVertices;
-    GLfloat         *pProjection;
-    GLfloat         *pTransformation;
+    std::vector<GLubyte>    indices;
+    std::vector<Vertex>     vertices;
     
-    GLuint          vertexBuffer;
-    GLuint          textureBuffer;
+    const GLuint            programID = glCreateProgram();
     
-    GLuint          projectionUniformID;
-    GLuint          transformationUniformID;
-    GLuint          textureUniformID;
+    GLuint                  vertexArrayObject;
     
-    GLuint          vertexArrayObjectID;
+    GLuint                  vertexBufferObject;
+    GLuint                  indexBufferObject;
+    
+    GLuint                  projectionUniformLocation;
+    GLuint                  transformationUniformLocation;
 };
 
 #endif /* geometry_hpp */

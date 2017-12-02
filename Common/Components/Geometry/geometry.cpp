@@ -8,60 +8,55 @@
 
 #include "geometry.hpp"
 #include <glm/gtc/matrix_transform.hpp>
+#include <glm/gtc/type_ptr.hpp>
 
-Geometry::Geometry(std::string basePath, GLfloat *projection, Vertex *vertices) {
-    this->pVertices = &(*vertices);
-    this->pProjection = &(*projection);
+enum AttributeLayout {
+    ATTRIBUTE_POSITION = 0,
+    ATTRIBUTE_COLOR,
+    ATTRIBUTE_TEXCOORD,
+    ATTRIBUTE_COORD
+};
+
+Geometry::Geometry(std::string basePath, std::vector<Vertex> vertices, std::vector<GLubyte> indices) {
+    this->vertices = vertices;
+    this->indices = indices;
     
     GLuint vertextShaderID = Utility::loadShader(GL_VERTEX_SHADER, basePath + "geometry.vsh");
     GLuint fragmentShaderID = Utility::loadShader(GL_FRAGMENT_SHADER, basePath + "geometry.fsh");
     
-    glBindAttribLocation(programID, (Attribute)position, "a_Position");
-    glBindAttribLocation(programID, (Attribute)color, "a_Color");
-    glBindAttribLocation(programID, (Attribute)texCoord, "a_TexCoord");
-    glBindAttribLocation(programID, (Attribute)normal, "a_Normal");
+    glBindAttribLocation(programID, ATTRIBUTE_POSITION, "aPosition");
+    glBindAttribLocation(programID, ATTRIBUTE_COLOR, "aColor");
     
     Utility::linkShaders(vertextShaderID, fragmentShaderID, programID);
     
-    this->transformationUniformID = glGetUniformLocation(programID, "u_Transformation");
-    this->textureUniformID = glGetUniformLocation(programID, "u_Texture");
-    this->projectionUniformID = glGetUniformLocation(programID, "u_Projection");
+    projectionUniformLocation = glGetUniformLocation(programID, "uProjection");
+    transformationUniformLocation = glGetUniformLocation(programID, "uTransformation");
     
-#if GL_APPLE_vertex_array_object
-    glGenVertexArraysAPPLE(1, &vertexArrayObjectID);
-    glBindVertexArrayAPPLE(vertexArrayObjectID);
-#elif GL_OES_vertex_array_object
-    glGenVertexArraysOES(1, &vertexArrayObjectID);
-    glBindVertexArrayOES(vertexArrayObjectID);
-#endif
+    glGenBuffers(1, &vertexArrayObject);
+    glBindVertexArrayOES(vertexArrayObject);
     
-    // generate vertext buffer
-    glGenBuffers(1, &vertexBuffer);
-    glBindBuffer(GL_ARRAY_BUFFER, vertexBuffer);
-    glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
+    // generate vertex buffer
+    glGenBuffers(1, &vertexBufferObject);
+    glBindBuffer(GL_ARRAY_BUFFER, vertexBufferObject);
+    glBufferData(GL_ARRAY_BUFFER, vertices.size() * sizeof(Vertex), &vertices.front(), GL_STATIC_DRAW);
     
-    glEnableVertexAttribArray((Attribute)position);
-    glVertexAttribPointer((Attribute)position, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), (const GLvoid*) offsetof(Vertex, position));
+    // generate index buffer
+    glGenBuffers(1, &indexBufferObject);
+    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, indexBufferObject);
+    glBufferData(GL_ELEMENT_ARRAY_BUFFER, indices.size() * sizeof(GLubyte), &indices.front(), GL_STATIC_DRAW);
     
-    glEnableVertexAttribArray((Attribute)color);
-    glVertexAttribPointer((Attribute)color, 4, GL_FLOAT, GL_FALSE, sizeof(Vertex), (const GLvoid*) offsetof(Vertex, color));
+    glEnableVertexAttribArray(ATTRIBUTE_POSITION);
+    glVertexAttribPointer(ATTRIBUTE_POSITION, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), (const GLvoid *) offsetof(Vertex, position));
     
-    glEnableVertexAttribArray((Attribute)texCoord);
-    glVertexAttribPointer((Attribute)texCoord, 2, GL_FLOAT, GL_FALSE, sizeof(Vertex), (const GLvoid*) offsetof(Vertex, texCoord));
-
-    glEnableVertexAttribArray((Attribute)normal);
-    glVertexAttribPointer((Attribute)normal, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), (const GLvoid*) offsetof(Vertex, normal));
+    glEnableVertexAttribArray(ATTRIBUTE_COLOR);
+    glVertexAttribPointer(ATTRIBUTE_COLOR, 4, GL_FLOAT, GL_FALSE, sizeof(Vertex), (const GLvoid *) offsetof(Vertex, color));
     
-#if GL_APPLE_vertex_array_object
-    glBindVertexArrayAPPLE(0);
-#elif GL_OES_vertex_array_object
     glBindVertexArrayOES(0);
-#endif
-    
     glBindBuffer(GL_ARRAY_BUFFER, 0);
-}
+    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
+};
 
-void Geometry::draw(GLfloat *pTransformation) {
+void Geometry::draw(glm::mat4 transformation, glm::mat4 projection) {
     glClearColor(1., 0., 0., 1.);
     glClear(GL_COLOR_BUFFER_BIT);
     glEnable(GL_CULL_FACE);
@@ -69,23 +64,10 @@ void Geometry::draw(GLfloat *pTransformation) {
     glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
     glUseProgram(programID);
     
-    this->pTransformation = pTransformation;
-    glUniformMatrix4fv(transformationUniformID, 1, GL_FALSE, pTransformation);
-    glUniformMatrix4fv(projectionUniformID, 1, GL_FALSE, pProjection);
+    glUniformMatrix4fv(projectionUniformLocation, 1, GL_FALSE, glm::value_ptr(projection));
+    glUniformMatrix4fv(transformationUniformLocation, 1, GL_FALSE, glm::value_ptr(transformation));
     
-    glActiveTexture(GL_TEXTURE1);
-    glBindTexture(GL_TEXTURE_2D, textureBuffer);
-    glUniform1i(textureUniformID, 1);
-    
-#if GL_APPLE_vertex_array_object
-    glBindVertexArrayAPPLE(vertexArrayObjectID);
-#elif GL_OES_vertex_array_object
-    glBindVertexArrayOES(vertexArrayObjectID);
-#endif
-    glDrawArrays(GL_TRIANGLES, 0, 3);
-#if GL_APPLE_vertex_array_object
-    glBindVertexArrayAPPLE(0);
-#elif GL_OES_vertex_array_object
+    glBindVertexArrayOES(vertexArrayObject);
+    glDrawElements(GL_TRIANGLES, (GLsizei)indices.size(), GL_UNSIGNED_BYTE, &indices.front());
     glBindVertexArrayOES(0);
-#endif
 };

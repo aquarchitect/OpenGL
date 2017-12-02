@@ -9,13 +9,12 @@
 #include "draw.hpp"
 #include "geometry.hpp"
 #include <glm/gtc/matrix_transform.hpp>
-#include <glm/gtc/type_ptr.hpp>
 
-static Geometry                 *cube;
 static std::tuple<float, float> size;
+static Geometry                 *pCube;
 
 void setup(const float width, const float height, char *basePath) {
-    Geometry::Vertex vertices[] = {
+    std::vector<Geometry::Vertex> vertices = {
         // Front
         {{ 1, -1, 1}, {1, 0, 0, 1}, {1, 0}, {0, 0, 1}}, // 0
         {{ 1,  1, 1}, {0, 1, 0, 1}, {1, 1}, {0, 0, 1}}, // 1
@@ -53,11 +52,34 @@ void setup(const float width, const float height, char *basePath) {
         {{-1, -1, -1}, {0, 0, 0, 1}, {0, 0}, {0, -1, 0}}, // 23
     };
     
-    glm::mat4 persepective = glm::perspective(glm::radians(85.0f), width/height, 1.0f, 150.0f);
-    float *pPerspective = glm::value_ptr(persepective);
+    std::vector<GLubyte> indices = {
+        // Front
+        0, 1, 2,
+        2, 3, 0,
+        
+        // Back
+        4, 5, 6,
+        6, 7, 4,
+        
+        // Left
+        8, 9, 10,
+        10, 11, 8,
+        
+        // Right
+        12, 13, 14,
+        14, 15, 12,
+        
+        // Top
+        16, 17, 18,
+        18, 19, 16,
+        
+        // Bottom
+        20, 21, 22,
+        22, 23, 20
+    };
     
     size = std::make_tuple(width, height);
-    cube = new Geometry(basePath, pPerspective, vertices);
+    pCube = new Geometry(basePath, vertices, indices);
 };
 
 void translate(const float x, const float y, const float z) {
@@ -66,7 +88,9 @@ void translate(const float x, const float y, const float z) {
     transformation = glm::rotate(transformation, x/std::get<0>(size), glm::vec3(1.0, 0.0, 0.0)); // x
     transformation = glm::rotate(transformation, y/std::get<1>(size), glm::vec3(0.0, 1.0, 0.0)); // y
 
-    float *pTransformation = glm::value_ptr(transformation);
-    cube->draw(pTransformation);
+    float ratio = std::get<0>(size) / std::get<1>(size);
+    glm::mat4 perspective = glm::perspective(glm::radians(85.0f), ratio, 1.0f, 150.0f);
+    
+    pCube->draw(transformation, perspective);
 };
 

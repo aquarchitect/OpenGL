@@ -24,7 +24,6 @@
     #endif
 #endif
 
-#include <stdio.h>
 #include <string>
 namespace Utility {
     GLuint  loadShader(const GLenum type, const std::string filePath);
