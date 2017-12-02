@@ -13,6 +13,9 @@
 static std::tuple<float, float> size;
 static Geometry                 *pCube;
 
+static glm::mat4                lastTransformation;
+static glm::mat4                constPerspective;
+
 void setup(const float width, const float height, char *basePath) {
     std::vector<Geometry::Vertex> vertices = {
         // Front
@@ -80,17 +83,15 @@ void setup(const float width, const float height, char *basePath) {
     
     size = std::make_tuple(width, height);
     pCube = new Geometry(basePath, vertices, indices);
+    
+    lastTransformation = glm::translate(glm::mat4(1.0f), glm::vec3(0.0, 0.0, -5.0));
+    constPerspective = glm::perspective(glm::radians(85.0f), width/height, 1.0f, 150.0f);
 };
 
 void translate(const float x, const float y, const float z) {
-    glm::mat4 transformation(1.0f);
-    transformation = glm::translate(transformation, glm::vec3(0.0, 0.0, -5.0));
-    transformation = glm::rotate(transformation, x/std::get<0>(size), glm::vec3(1.0, 0.0, 0.0)); // x
-    transformation = glm::rotate(transformation, y/std::get<1>(size), glm::vec3(0.0, 1.0, 0.0)); // y
-
-    float ratio = std::get<0>(size) / std::get<1>(size);
-    glm::mat4 perspective = glm::perspective(glm::radians(85.0f), ratio, 1.0f, 150.0f);
+    lastTransformation = glm::rotate(lastTransformation, glm::pi<float>() * x/std::get<0>(size), glm::vec3(0.0, 1.0, 0.0)); // rotate y-axis
+    lastTransformation = glm::rotate(lastTransformation, glm::pi<float>() * y/std::get<1>(size), glm::vec3(-1.0, 0.0, 0.0)); // rotate x-axis
     
-    pCube->draw(transformation, perspective);
+    pCube->draw(lastTransformation, constPerspective);
 };
 

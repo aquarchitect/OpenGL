@@ -31,6 +31,11 @@ final class ViewController: GLKViewController {
     }
 }
 
+extension ViewController: GLKViewControllerDelegate {
+    
+    func glkViewControllerUpdate(_ controller: GLKViewController) {}
+}
+
 extension ViewController {
     
     override func glkView(_ view: GLKView, drawIn rect: CGRect) {

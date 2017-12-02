@@ -45,11 +45,20 @@ extension RootView {
     
     @objc func pan(_ gesture: UIPanGestureRecognizer) {
         let location = gesture.location(in: nil)
-        translation = (
-            x: location.x - previousLocation.x,
-            y: location.y - previousLocation.y,
-            z: 0
-        )
-        previousLocation = location
+        
+        switch gesture.state {
+        case .began:
+            previousLocation = location
+        case .changed:
+            translation = (
+                x: location.x - previousLocation.x,
+                y: location.y - previousLocation.y,
+                z: 0
+            )
+            previousLocation = location
+        default:
+            translation = (0, 0, 0)
+        }
+        
     }
 }
