@@ -16,8 +16,8 @@ varying vec2 vTexCoord;
 
 void main() {    
 #if __VERSION__ >= 140
-    fragColor = vColor;
+    fragColor = texture(uTexture, vTexCoord);
 #else
-    gl_FragColor = vColor;
+    gl_FragColor = texture2D(uTexture, vTexCoord);
 #endif
 }

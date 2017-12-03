@@ -32,16 +32,15 @@ Geometry::Geometry(std::string basePath, std::vector<Vertex> vertices, std::vect
     
     projectionUniformLocation = glGetUniformLocation(programID, "uProjection");
     transformationUniformLocation = glGetUniformLocation(programID, "uTransformation");
+    textureUniformLocation = glGetUniformLocation(programID, "uTexture");
     
     glGenBuffers(1, &vertexArrayObject);
     glBindVertexArrayOES(vertexArrayObject);
     
-    glGenBuffers(1, &vertexBufferObject[0]);
-    glBindBuffer(GL_ARRAY_BUFFER, vertexBufferObject[0]);
+    glGenBuffers((GLsizei)sizeof(bufferObjects)/sizeof(GLuint), bufferObjects);
+    glBindBuffer(GL_ARRAY_BUFFER, bufferObjects[0]);
     glBufferData(GL_ARRAY_BUFFER, vertices.size() * sizeof(Vertex), &vertices.front(), GL_STATIC_DRAW);
-    
-    glGenBuffers(1, &vertexBufferObject[1]);
-    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, vertexBufferObject[1]);
+    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, bufferObjects[1]);
     glBufferData(GL_ELEMENT_ARRAY_BUFFER, indices.size() * sizeof(GLubyte), &indices.front(), GL_STATIC_DRAW);
     
     glEnableVertexAttribArray(ATTRIBUTE_POSITION);
@@ -49,6 +48,9 @@ Geometry::Geometry(std::string basePath, std::vector<Vertex> vertices, std::vect
     
     glEnableVertexAttribArray(ATTRIBUTE_COLOR);
     glVertexAttribPointer(ATTRIBUTE_COLOR, 4, GL_FLOAT, GL_FALSE, sizeof(Vertex), (const GLvoid *) offsetof(Vertex, color));
+    
+    glEnableVertexAttribArray(ATTRIBUTE_TEXCOORD);
+    glVertexAttribPointer(ATTRIBUTE_TEXCOORD, 2, GL_FLOAT, GL_FALSE, sizeof(Vertex), (const GLvoid *) offsetof(Vertex, texCoord));
     
     glBindVertexArrayOES(0);
     glBindBuffer(GL_ARRAY_BUFFER, 0);
@@ -66,7 +68,22 @@ void Geometry::draw(glm::mat4 transformation, glm::mat4 projection) {
     glUniformMatrix4fv(projectionUniformLocation, 1, GL_FALSE, glm::value_ptr(projection));
     glUniformMatrix4fv(transformationUniformLocation, 1, GL_FALSE, glm::value_ptr(transformation));
     
+    glActiveTexture(GL_TEXTURE0);
+    glBindTexture(GL_TEXTURE_2D, textureObject);
+    glUniform1i(textureUniformLocation, 0); // 0 is corresponded with the texture slot
+    
     glBindVertexArrayOES(vertexArrayObject);
     glDrawElements(GL_TRIANGLES, (GLsizei)indices.size(), GL_UNSIGNED_BYTE, &indices.front());
     glBindVertexArrayOES(0);
+    
+    glBindTexture(GL_TEXTURE_2D, 0);
+};
+
+void Geometry::loadTexture(GLsizei width, GLsizei height, GLvoid *pixels) {
+    glGenTextures(1, &textureObject);
+    glActiveTexture(GL_TEXTURE0);
+    glBindTexture(GL_TEXTURE_2D, textureObject);
+    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, width, height, 0, GL_RGBA, GL_UNSIGNED_BYTE, pixels);
+    glGenerateMipmap(GL_TEXTURE_2D);
+    glBindTexture(GL_TEXTURE_2D, 0);
 };

@@ -28,6 +28,19 @@ final class ViewController: GLKViewController {
             Float(view.bounds.height),
             UnsafeMutablePointer<Int8>(mutating: basePath)
         )
+        
+        if let image = Bundle.main
+                .path(forResource: "Dungeon", ofType: "png")
+                .flatMap(UIImage.init(contentsOfFile:))?
+                .cgImage,
+            let bytes = image
+                .dataProvider?
+                .data
+                .map({ $0 as NSData })
+                .map({ UnsafeMutableRawPointer(mutating: $0.bytes) })
+        {
+            loadTexture(Int32(image.width), Int32(image.height), bytes)
+        }
     }
 }
 

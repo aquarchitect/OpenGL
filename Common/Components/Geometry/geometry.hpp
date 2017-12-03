@@ -26,6 +26,7 @@ public:
     Geometry(std::string basePath, std::vector<Vertex> vertices, std::vector<GLubyte> indices);
     
     void                    draw(glm::mat4 transformation, glm::mat4 projection);
+    void                    loadTexture(GLsizei width, GLsizei height, GLvoid *pixels);
     
 private:
     std::vector<GLubyte>    indices;
@@ -34,10 +35,12 @@ private:
     const GLuint            programID = glCreateProgram();
     
     GLuint                  vertexArrayObject;
-    GLuint                  vertexBufferObject[2];
+    GLuint                  bufferObjects[2];
+    GLuint                  textureObject;
     
     GLuint                  projectionUniformLocation;
     GLuint                  transformationUniformLocation;
+    GLuint                  textureUniformLocation;
 };
 
 #endif /* geometry_hpp */
