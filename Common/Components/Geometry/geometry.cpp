@@ -34,8 +34,13 @@ Geometry::Geometry(std::string basePath, std::vector<Vertex> vertices, std::vect
     transformationUniformLocation = glGetUniformLocation(programID, "uTransformation");
     textureUniformLocation = glGetUniformLocation(programID, "uTexture");
     
-    glGenBuffers(1, &vertexArrayObject);
+#if GL_APPLE_vertex_array_object
+    glGenVertexArraysAPPLE(1, &vertexArrayObject);
+    glBindVertexArrayAPPLE(vertexArrayObject);
+#elif GL_OES_vertex_array_object
+    glGenVertexArraysOES(1, &vertexArrayObject);
     glBindVertexArrayOES(vertexArrayObject);
+#endif
     
     glGenBuffers((GLsizei)sizeof(bufferObjects)/sizeof(GLuint), bufferObjects);
     glBindBuffer(GL_ARRAY_BUFFER, bufferObjects[0]);
@@ -52,7 +57,11 @@ Geometry::Geometry(std::string basePath, std::vector<Vertex> vertices, std::vect
     glEnableVertexAttribArray(ATTRIBUTE_TEXCOORD);
     glVertexAttribPointer(ATTRIBUTE_TEXCOORD, 2, GL_FLOAT, GL_FALSE, sizeof(Vertex), (const GLvoid *) offsetof(Vertex, texCoord));
     
+#if GL_APPLE_vertex_array_object
+    glBindVertexArrayAPPLE(0);
+#elif GL_OES_vertex_array_object
     glBindVertexArrayOES(0);
+#endif
     glBindBuffer(GL_ARRAY_BUFFER, 0);
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
 };
@@ -72,9 +81,18 @@ void Geometry::draw(glm::mat4 transformation, glm::mat4 projection) {
     glBindTexture(GL_TEXTURE_2D, textureObject);
     glUniform1i(textureUniformLocation, 0); // 0 is corresponded with the texture slot
     
+#if GL_APPLE_vertex_array_object
+    glBindVertexArrayAPPLE(vertexArrayObject);
+#elif GL_OES_vertex_array_object
     glBindVertexArrayOES(vertexArrayObject);
-    glDrawElements(GL_TRIANGLES, (GLsizei)indices.size(), GL_UNSIGNED_BYTE, &indices.front());
+#endif
+    // TODO: why the last value is 0 instead of the indices pointer.
+    glDrawElements(GL_TRIANGLES, (GLsizei)indices.size(), GL_UNSIGNED_BYTE, 0);
+#if GL_APPLE_vertex_array_object
+    glBindVertexArrayAPPLE(0);
+#elif GL_OES_vertex_array_object
     glBindVertexArrayOES(0);
+#endif
     
     glBindTexture(GL_TEXTURE_2D, 0);
 };

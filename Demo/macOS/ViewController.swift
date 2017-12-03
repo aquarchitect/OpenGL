@@ -37,35 +37,29 @@ final class ViewController: NSViewController {
 extension ViewController: NSOpenGLViewDelegate {
     
     func openGLViewDidPrepareOpenGL(_ view: NSOpenGLView) {
-        Bundle.main.resourcePath.map({ setBasePathForResources("\($0)/") })
+        let basePath = (Bundle.main.resourcePath.map({ "\($0)/" }) ?? "").cString(using: .utf8)
+        setup(
+            Float(view.bounds.width),
+            Float(view.bounds.height),
+            UnsafeMutablePointer<Int8>(mutating: basePath)
+        )
         
         if let image = Bundle.main
-            .path(forResource: "Dungeon", ofType: "png")
-            .flatMap(NSImage.init(contentsOfFile:))?
-            .cgImage(forProposedRect: nil, context: nil, hints: nil),
+                .path(forResource: "Dungeon", ofType: "png")
+                .flatMap(NSImage.init(contentsOfFile:))?
+                .cgImage(forProposedRect: nil, context: nil, hints: nil),
             let bytes = image
                 .dataProvider?
                 .data
-                .map({ $0 as NSData })?
-                .bytes
+                .map({ $0 as NSData })
+                .map({ UnsafeMutableRawPointer(mutating: $0.bytes) })
         {
-            setCubeTexture(Int32(image.width), Int32(image.height), UInt32(GL_RGBA), bytes)
+            loadTexture(Int32(image.width), Int32(image.height), bytes)
         }
-        
-        let projection = GLKMatrix4MakePerspective(
-            GLKMathDegreesToRadians(85),
-            Float(view.bounds.width/view.bounds.height),
-            1, 150
-        )
-        setCubeProjection(projection.cm)
     }
     
     func openGLView(_ view: NSOpenGLView, drawIn rect: NSRect) {
-        setup()
-        
-        let transformation = GLKMatrix4MakeTranslation(0, 0, -5)
-        drawCube(transformation.cm)
-        
+        translate(0, 0, 0)
         glFlush()
     }
 }

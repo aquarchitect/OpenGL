@@ -8,7 +8,5 @@
 
 #ifndef Bridging_h
 #define Bridging_h
-#include "draw.h"
-#include "cube.h"
-#include "utility.h"
+#include "draw.hpp"
 #endif /* Bridging_h */

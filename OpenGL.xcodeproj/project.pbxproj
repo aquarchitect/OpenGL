@@ -473,6 +473,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 88HW36EGGB;
+				HEADER_SEARCH_PATHS = "$(SRCROOT)/Dependencies/glm/";
 				INFOPLIST_FILE = Demo/macOS/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
@@ -493,6 +494,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 88HW36EGGB;
+				HEADER_SEARCH_PATHS = "$(SRCROOT)/Dependencies/glm/";
 				INFOPLIST_FILE = Demo/macOS/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
