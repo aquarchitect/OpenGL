@@ -54,7 +54,6 @@
 		C2DC35AD1FBF929A00C49007 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		C2DC35B01FBFA2C800C49007 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		C2DC35B21FBFA47700C49007 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
-		C2DC35B61FBFAD3400C49007 /* Bridging.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Bridging.h; sourceTree = "<group>"; };
 		C2F2836A1FBA7339007A0BEA /* Demo-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Demo-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2F2836D1FBA7339007A0BEA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C2F283741FBA7339007A0BEA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -81,36 +80,54 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		C24FC4C31FBAA5F100AB7C1E /* Common */ = {
+		C20DA9401FD5B18200B1D45D /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				C2652A661FBB5C3B0049F156 /* Bridging.h */,
 				C239A5C71FD49F43003BD3BB /* draw.cpp */,
 				C239A5C91FD49F43003BD3BB /* draw.hpp */,
-				C239A5C51FD49F43003BD3BB /* geometry.cpp */,
-				C239A5CC1FD49F43003BD3BB /* geometry.hpp */,
-				C239A5C81FD49F43003BD3BB /* geometry.fsh */,
-				C239A5CB1FD49F43003BD3BB /* geometry.vsh */,
-				C239A5CA1FD49F43003BD3BB /* utility.cpp */,
-				C239A5C61FD49F43003BD3BB /* utility.hpp */,
 			);
 			path = Common;
 			sourceTree = "<group>";
 		};
-		C2B25DD41FBB7FF800287630 /* Demo */ = {
+		C20DA9411FD5B18D00B1D45D /* Cube */ = {
 			isa = PBXGroup;
 			children = (
+				C20DA9401FD5B18200B1D45D /* Common */,
 				C2B25DD61FBB801800287630 /* iOS */,
 				C2B25DD71FBB801D00287630 /* macOS */,
+				C20DA9421FD5B1A000B1D45D /* Resources */,
 			);
-			path = Demo;
+			path = Cube;
 			sourceTree = "<group>";
 		};
-		C2B25DD51FBB800700287630 /* Resources */ = {
+		C20DA9421FD5B1A000B1D45D /* Resources */ = {
 			isa = PBXGroup;
 			children = (
 				C2FDEDBC1FBE40C3008529A6 /* Dungeon.png */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		C24FC4C31FBAA5F100AB7C1E /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				C239A5CA1FD49F43003BD3BB /* utility.cpp */,
+				C239A5C61FD49F43003BD3BB /* utility.hpp */,
+				C239A5C51FD49F43003BD3BB /* geometry.cpp */,
+				C239A5CC1FD49F43003BD3BB /* geometry.hpp */,
+				C239A5C81FD49F43003BD3BB /* geometry.fsh */,
+				C239A5CB1FD49F43003BD3BB /* geometry.vsh */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		C2B25DD41FBB7FF800287630 /* Demo */ = {
+			isa = PBXGroup;
+			children = (
+				C20DA9411FD5B18D00B1D45D /* Cube */,
+			);
+			path = Demo;
 			sourceTree = "<group>";
 		};
 		C2B25DD61FBB801800287630 /* iOS */ = {
@@ -119,7 +136,6 @@
 				C2F2836D1FBA7339007A0BEA /* AppDelegate.swift */,
 				C225BE0F1FBD11650097F75E /* ViewController.swift */,
 				C225BE121FBD18FD0097F75E /* RootView.swift */,
-				C2652A661FBB5C3B0049F156 /* Bridging.h */,
 				C2F283741FBA7339007A0BEA /* Assets.xcassets */,
 				C2F283761FBA7339007A0BEA /* LaunchScreen.storyboard */,
 				C2F283791FBA7339007A0BEA /* Info.plist */,
@@ -134,7 +150,6 @@
 				C2DC35A11FBF8E3E00C49007 /* AppDelegate.swift */,
 				C2DC35B01FBFA2C800C49007 /* ViewController.swift */,
 				C2DC35B21FBFA47700C49007 /* RootView.swift */,
-				C2DC35B61FBFAD3400C49007 /* Bridging.h */,
 				C2DC35A31FBF8E3E00C49007 /* Assets.xcassets */,
 				C2DC35A81FBF8E3E00C49007 /* Info.plist */,
 			);
@@ -144,9 +159,8 @@
 		C2F283611FBA7338007A0BEA = {
 			isa = PBXGroup;
 			children = (
-				C24FC4C31FBAA5F100AB7C1E /* Common */,
+				C24FC4C31FBAA5F100AB7C1E /* Sources */,
 				C2B25DD41FBB7FF800287630 /* Demo */,
-				C2B25DD51FBB800700287630 /* Resources */,
 				C2F2836B1FBA7339007A0BEA /* Products */,
 				C2F283801FBA7833007A0BEA /* Frameworks */,
 			);
@@ -325,14 +339,14 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 88HW36EGGB;
-				INFOPLIST_FILE = Demo/macOS/Info.plist;
+				INFOPLIST_FILE = Demo/Cube/macOS/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.hainguyen.opengl-demo-macos";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = macosx;
-				SWIFT_OBJC_BRIDGING_HEADER = Demo/macOS/Bridging.h;
+				SWIFT_OBJC_BRIDGING_HEADER = Demo/Cube/Common/Bridging.h;
 				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
@@ -345,14 +359,14 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 88HW36EGGB;
-				INFOPLIST_FILE = Demo/macOS/Info.plist;
+				INFOPLIST_FILE = Demo/Cube/macOS/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.hainguyen.opengl-demo-macos";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = macosx;
-				SWIFT_OBJC_BRIDGING_HEADER = Demo/macOS/Bridging.h;
+				SWIFT_OBJC_BRIDGING_HEADER = Demo/Cube/Common/Bridging.h;
 				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
@@ -473,12 +487,12 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 88HW36EGGB;
-				INFOPLIST_FILE = Demo/iOS/Info.plist;
+				INFOPLIST_FILE = Demo/Cube/iOS/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.hainguyen.opengl-demo-ios";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = Demo/iOS/Bridging.h;
+				SWIFT_OBJC_BRIDGING_HEADER = Demo/Cube/Common/Bridging.h;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -492,12 +506,12 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 88HW36EGGB;
-				INFOPLIST_FILE = Demo/iOS/Info.plist;
+				INFOPLIST_FILE = Demo/Cube/iOS/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.hainguyen.opengl-demo-ios";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = Demo/iOS/Bridging.h;
+				SWIFT_OBJC_BRIDGING_HEADER = Demo/Cube/Common/Bridging.h;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

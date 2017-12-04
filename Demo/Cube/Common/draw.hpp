@@ -1,13 +1,13 @@
 //
-//  renderer.hpp
+//  draw.hpp
 //  OpenGL
 //
 //  Created by Hai Nguyen on 11/20/17.
 //  Copyright © 2017 Hai Nguyen. All rights reserved.
 //
 
-#ifndef renderer_hpp
-#define renderer_hpp
+#ifndef draw_hpp
+#define draw_hpp
 
 #ifdef __cplusplus
 extern "C" {
@@ -19,4 +19,4 @@ extern "C" {
 #ifdef __cplusplus
 }
 #endif /* __cplusplus */
-#endif /* renderer_hpp */
+#endif /* draw_hpp */
