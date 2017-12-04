@@ -10,13 +10,12 @@
 #include "geometry.hpp"
 #include <glm/gtc/matrix_transform.hpp>
 
-static std::tuple<float, float> size;
 static Geometry                 *pCube;
 
 static glm::mat4                lastTransformation;
 static glm::mat4                constPerspective;
 
-void setup(float width, float height, char *basePath) {
+void setupCube(float screenRatio, char *basePath) {
     std::vector<Geometry::Vertex> vertices = {
         // Front
         {{ 1, -1, 1}, {1, 0, 0, 1}, {1, 0}, {0, 0, 1}}, // 0
@@ -81,20 +80,20 @@ void setup(float width, float height, char *basePath) {
         22, 23, 20
     };
     
-    size = std::make_tuple(width, height);
     pCube = new Geometry(basePath, vertices, indices);
     
     lastTransformation = glm::translate(glm::mat4(1.0f), glm::vec3(0.0, 0.0, -5.0));
-    constPerspective = glm::perspective(glm::radians(85.0f), width/height, 1.0f, 150.0f);
+    constPerspective = glm::perspective(glm::radians(85.0f), screenRatio, 1.0f, 150.0f);
 };
 
-void translate(float x, float y, float z) {
-    lastTransformation = glm::rotate(lastTransformation, glm::pi<float>() * x/std::get<0>(size), glm::vec3(0.0, 1.0, 0.0)); // rotate y-axis
-    lastTransformation = glm::rotate(lastTransformation, glm::pi<float>() * y/std::get<1>(size), glm::vec3(1.0, 0.0, 0.0)); // rotate x-axis
+void rotateCube(float xAngle, float yAngle, float zAngle) {
+    lastTransformation = glm::rotate(lastTransformation, glm::pi<float>() * xAngle, glm::vec3(1.0, 0.0, 0.0)); // rotate x-axis
+    lastTransformation = glm::rotate(lastTransformation, glm::pi<float>() * yAngle, glm::vec3(0.0, 1.0, 0.0)); // rotate y-axis
+    lastTransformation = glm::rotate(lastTransformation, glm::pi<float>() * zAngle, glm::vec3(0.0, 0.0, 1.0)); // rotate z-axis
     
     pCube->draw(lastTransformation, constPerspective);
 };
 
-void loadTexture(int width, int height, void *pixels) {
+void loadCubeTexture(int width, int height, void *pixels) {
     pCube->loadTexture(width, height, pixels);
 };

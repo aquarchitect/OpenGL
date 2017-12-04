@@ -12,10 +12,10 @@
 #ifdef __cplusplus
 extern "C" {
 #endif
-    extern void setup(float width, float height, char *basePath);
-    extern void translate(float x, float y, float z);
+    extern void setupCube(float screenRatio, char *basePath);
+    extern void rotateCube(float xAngle, float yAngle, float zAngle);
     
-    extern void loadTexture(int width, int height, void *pixels);
+    extern void loadCubeTexture(int width, int height, void *pixels);
 #ifdef __cplusplus
 }
 #endif /* __cplusplus */

@@ -23,9 +23,8 @@ final class ViewController: GLKViewController {
         _ = (view as? GLKView).map({ EAGLContext.setCurrent($0.context) })
     
         let basePath = (Bundle.main.resourcePath.map({ "\($0)/" }) ?? "").cString(using: .utf8)
-        setup(
-            Float(view.bounds.width),
-            Float(view.bounds.height),
+        setupCube(
+            Float(view.bounds.width/view.bounds.height),
             UnsafeMutablePointer<Int8>(mutating: basePath)
         )
         
@@ -39,7 +38,7 @@ final class ViewController: GLKViewController {
                 .map({ $0 as NSData })
                 .map({ UnsafeMutableRawPointer(mutating: $0.bytes) })
         {
-            loadTexture(Int32(image.width), Int32(image.height), bytes)
+            loadCubeTexture(Int32(image.width), Int32(image.height), bytes)
         }
     }
 }
@@ -53,6 +52,10 @@ extension ViewController {
     
     override func glkView(_ view: GLKView, drawIn rect: CGRect) {
         guard let translation = (view as? RootView)?.translation else { return }
-        translate(GLfloat(translation.x), GLfloat(translation.y), GLfloat(translation.z))
+        rotateCube(
+            GLfloat(translation.x/view.bounds.width),
+            GLfloat(translation.y/view.bounds.height),
+            0
+        )
     }
 }

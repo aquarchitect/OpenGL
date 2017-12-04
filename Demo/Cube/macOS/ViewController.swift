@@ -38,9 +38,8 @@ extension ViewController: NSOpenGLViewDelegate {
     
     func openGLViewDidPrepareOpenGL(_ view: NSOpenGLView) {
         let basePath = (Bundle.main.resourcePath.map({ "\($0)/" }) ?? "").cString(using: .utf8)
-        setup(
-            Float(view.bounds.width),
-            Float(view.bounds.height),
+        setupCube(
+            Float(view.bounds.width/view.bounds.height),
             UnsafeMutablePointer<Int8>(mutating: basePath)
         )
         
@@ -54,12 +53,12 @@ extension ViewController: NSOpenGLViewDelegate {
                 .map({ $0 as NSData })
                 .map({ UnsafeMutableRawPointer(mutating: $0.bytes) })
         {
-            loadTexture(Int32(image.width), Int32(image.height), bytes)
+            loadCubeTexture(Int32(image.width), Int32(image.height), bytes)
         }
     }
     
     func openGLView(_ view: NSOpenGLView, drawIn rect: NSRect) {
-        translate(0, 0, 0)
+        rotateCube(0, 0, 0)
         glFlush()
     }
 }
