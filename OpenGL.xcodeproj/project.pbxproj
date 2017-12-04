@@ -90,7 +90,7 @@
 			path = Common;
 			sourceTree = "<group>";
 		};
-		C20DA9411FD5B18D00B1D45D /* Cube */ = {
+		C20DA9411FD5B18D00B1D45D /* CubeGeometry */ = {
 			isa = PBXGroup;
 			children = (
 				C20DA9401FD5B18200B1D45D /* Common */,
@@ -98,7 +98,7 @@
 				C2B25DD71FBB801D00287630 /* macOS */,
 				C20DA9421FD5B1A000B1D45D /* Resources */,
 			);
-			path = Cube;
+			path = CubeGeometry;
 			sourceTree = "<group>";
 		};
 		C20DA9421FD5B1A000B1D45D /* Resources */ = {
@@ -107,6 +107,13 @@
 				C2FDEDBC1FBE40C3008529A6 /* Dungeon.png */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		C20DA9431FD5B7D700B1D45D /* GridPoints */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = GridPoints;
 			sourceTree = "<group>";
 		};
 		C24FC4C31FBAA5F100AB7C1E /* Sources */ = {
@@ -125,7 +132,8 @@
 		C2B25DD41FBB7FF800287630 /* Demo */ = {
 			isa = PBXGroup;
 			children = (
-				C20DA9411FD5B18D00B1D45D /* Cube */,
+				C20DA9431FD5B7D700B1D45D /* GridPoints */,
+				C20DA9411FD5B18D00B1D45D /* CubeGeometry */,
 			);
 			path = Demo;
 			sourceTree = "<group>";
