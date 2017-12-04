@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C20DA94A1FD5BDE900B1D45D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C20DA9481FD5BDE900B1D45D /* LaunchScreen.storyboard */; };
+		C20DA94D1FD5BFDF00B1D45D /* utility.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C239A5CA1FD49F43003BD3BB /* utility.cpp */; };
+		C20DA9521FD5BFDF00B1D45D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2F2836D1FBA7339007A0BEA /* AppDelegate.swift */; };
+		C20DA9561FD5BFDF00B1D45D /* Dungeon.png in Resources */ = {isa = PBXBuildFile; fileRef = C2FDEDBC1FBE40C3008529A6 /* Dungeon.png */; };
+		C20DA9571FD5BFDF00B1D45D /* Assets-iOS.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C2F283741FBA7339007A0BEA /* Assets-iOS.xcassets */; };
+		C20DA9581FD5BFDF00B1D45D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C20DA9481FD5BDE900B1D45D /* LaunchScreen.storyboard */; };
 		C225BE101FBD11650097F75E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C225BE0F1FBD11650097F75E /* ViewController.swift */; };
 		C225BE131FBD18FD0097F75E /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C225BE121FBD18FD0097F75E /* RootView.swift */; };
 		C239A5CD1FD49F44003BD3BB /* geometry.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C239A5C51FD49F43003BD3BB /* geometry.cpp */; };
@@ -20,18 +26,19 @@
 		C239A5D51FD49F5A003BD3BB /* geometry.vsh in Resources */ = {isa = PBXBuildFile; fileRef = C239A5CB1FD49F43003BD3BB /* geometry.vsh */; };
 		C239A5D61FD49F5A003BD3BB /* utility.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C239A5CA1FD49F43003BD3BB /* utility.cpp */; };
 		C2DC35A21FBF8E3E00C49007 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2DC35A11FBF8E3E00C49007 /* AppDelegate.swift */; };
-		C2DC35A41FBF8E3E00C49007 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C2DC35A31FBF8E3E00C49007 /* Assets.xcassets */; };
+		C2DC35A41FBF8E3E00C49007 /* Assets-macOS.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C2DC35A31FBF8E3E00C49007 /* Assets-macOS.xcassets */; };
 		C2DC35AE1FBF929A00C49007 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2DC35AD1FBF929A00C49007 /* main.swift */; };
 		C2DC35B11FBFA2C800C49007 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2DC35B01FBFA2C800C49007 /* ViewController.swift */; };
 		C2DC35B31FBFA47700C49007 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2DC35B21FBFA47700C49007 /* RootView.swift */; };
 		C2DC35BC1FBFB47900C49007 /* Dungeon.png in Resources */ = {isa = PBXBuildFile; fileRef = C2FDEDBC1FBE40C3008529A6 /* Dungeon.png */; };
 		C2F2836E1FBA7339007A0BEA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2F2836D1FBA7339007A0BEA /* AppDelegate.swift */; };
-		C2F283751FBA7339007A0BEA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C2F283741FBA7339007A0BEA /* Assets.xcassets */; };
-		C2F283781FBA7339007A0BEA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C2F283761FBA7339007A0BEA /* LaunchScreen.storyboard */; };
+		C2F283751FBA7339007A0BEA /* Assets-iOS.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C2F283741FBA7339007A0BEA /* Assets-iOS.xcassets */; };
 		C2FDEDBD1FBE40C3008529A6 /* Dungeon.png in Resources */ = {isa = PBXBuildFile; fileRef = C2FDEDBC1FBE40C3008529A6 /* Dungeon.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C20DA9491FD5BDE900B1D45D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		C20DA95D1FD5BFDF00B1D45D /* GridPoints-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "GridPoints-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C225BE0F1FBD11650097F75E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		C225BE121FBD18FD0097F75E /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 		C239A5C51FD49F43003BD3BB /* geometry.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = geometry.cpp; sourceTree = "<group>"; };
@@ -47,22 +54,28 @@
 		C2B25DEA1FBB840A00287630 /* GLUT.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLUT.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk/System/Library/Frameworks/GLUT.framework; sourceTree = DEVELOPER_DIR; };
 		C2B25DEC1FBB841300287630 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk/System/Library/Frameworks/Cocoa.framework; sourceTree = DEVELOPER_DIR; };
 		C2B25DFE1FBBBF2900287630 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
-		C2DC359F1FBF8E3E00C49007 /* Demo-macOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Demo-macOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C2DC359F1FBF8E3E00C49007 /* CubeGeometry-macOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "CubeGeometry-macOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2DC35A11FBF8E3E00C49007 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		C2DC35A31FBF8E3E00C49007 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		C2DC35A81FBF8E3E00C49007 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C2DC35A31FBF8E3E00C49007 /* Assets-macOS.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Assets-macOS.xcassets"; sourceTree = "<group>"; };
+		C2DC35A81FBF8E3E00C49007 /* Info-macOS.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Info-macOS.plist"; sourceTree = "<group>"; };
 		C2DC35AD1FBF929A00C49007 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		C2DC35B01FBFA2C800C49007 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		C2DC35B21FBFA47700C49007 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
-		C2F2836A1FBA7339007A0BEA /* Demo-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Demo-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C2F2836A1FBA7339007A0BEA /* CubeGeometry-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "CubeGeometry-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2F2836D1FBA7339007A0BEA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		C2F283741FBA7339007A0BEA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		C2F283771FBA7339007A0BEA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		C2F283791FBA7339007A0BEA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C2F283741FBA7339007A0BEA /* Assets-iOS.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Assets-iOS.xcassets"; sourceTree = "<group>"; };
+		C2F283791FBA7339007A0BEA /* Info-iOS.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Info-iOS.plist"; sourceTree = "<group>"; };
 		C2FDEDBC1FBE40C3008529A6 /* Dungeon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Dungeon.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		C20DA9531FD5BFDF00B1D45D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C2DC359C1FBF8E3E00C49007 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -83,9 +96,12 @@
 		C20DA9401FD5B18200B1D45D /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				C2652A661FBB5C3B0049F156 /* Bridging.h */,
 				C239A5C71FD49F43003BD3BB /* draw.cpp */,
 				C239A5C91FD49F43003BD3BB /* draw.hpp */,
+				C239A5C51FD49F43003BD3BB /* geometry.cpp */,
+				C239A5CC1FD49F43003BD3BB /* geometry.hpp */,
+				C239A5C81FD49F43003BD3BB /* geometry.fsh */,
+				C239A5CB1FD49F43003BD3BB /* geometry.vsh */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -112,19 +128,71 @@
 		C20DA9431FD5B7D700B1D45D /* GridPoints */ = {
 			isa = PBXGroup;
 			children = (
+				C20DA9601FD5C20F00B1D45D /* Common */,
+				C20DA95F1FD5C1A100B1D45D /* iOS */,
 			);
 			path = GridPoints;
+			sourceTree = "<group>";
+		};
+		C20DA9441FD5BC1400B1D45D /* OpenGL */ = {
+			isa = PBXGroup;
+			children = (
+				C2652A661FBB5C3B0049F156 /* Bridging.h */,
+				C2F283791FBA7339007A0BEA /* Info-iOS.plist */,
+				C2DC35A81FBF8E3E00C49007 /* Info-macOS.plist */,
+				C2F283741FBA7339007A0BEA /* Assets-iOS.xcassets */,
+				C2DC35A31FBF8E3E00C49007 /* Assets-macOS.xcassets */,
+			);
+			path = OpenGL;
+			sourceTree = "<group>";
+		};
+		C20DA9451FD5BD6B00B1D45D /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				C239A5CA1FD49F43003BD3BB /* utility.cpp */,
+				C239A5C61FD49F43003BD3BB /* utility.hpp */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		C20DA9461FD5BD8000B1D45D /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				C2F2836D1FBA7339007A0BEA /* AppDelegate.swift */,
+				C20DA9481FD5BDE900B1D45D /* LaunchScreen.storyboard */,
+			);
+			path = iOS;
+			sourceTree = "<group>";
+		};
+		C20DA9471FD5BD8500B1D45D /* macOS */ = {
+			isa = PBXGroup;
+			children = (
+				C2DC35AD1FBF929A00C49007 /* main.swift */,
+				C2DC35A11FBF8E3E00C49007 /* AppDelegate.swift */,
+			);
+			path = macOS;
+			sourceTree = "<group>";
+		};
+		C20DA95F1FD5C1A100B1D45D /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = iOS;
+			sourceTree = "<group>";
+		};
+		C20DA9601FD5C20F00B1D45D /* Common */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Common;
 			sourceTree = "<group>";
 		};
 		C24FC4C31FBAA5F100AB7C1E /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				C239A5CA1FD49F43003BD3BB /* utility.cpp */,
-				C239A5C61FD49F43003BD3BB /* utility.hpp */,
-				C239A5C51FD49F43003BD3BB /* geometry.cpp */,
-				C239A5CC1FD49F43003BD3BB /* geometry.hpp */,
-				C239A5C81FD49F43003BD3BB /* geometry.fsh */,
-				C239A5CB1FD49F43003BD3BB /* geometry.vsh */,
+				C20DA9451FD5BD6B00B1D45D /* Common */,
+				C20DA9461FD5BD8000B1D45D /* iOS */,
+				C20DA9471FD5BD8500B1D45D /* macOS */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -132,8 +200,8 @@
 		C2B25DD41FBB7FF800287630 /* Demo */ = {
 			isa = PBXGroup;
 			children = (
-				C20DA9431FD5B7D700B1D45D /* GridPoints */,
 				C20DA9411FD5B18D00B1D45D /* CubeGeometry */,
+				C20DA9431FD5B7D700B1D45D /* GridPoints */,
 			);
 			path = Demo;
 			sourceTree = "<group>";
@@ -141,12 +209,8 @@
 		C2B25DD61FBB801800287630 /* iOS */ = {
 			isa = PBXGroup;
 			children = (
-				C2F2836D1FBA7339007A0BEA /* AppDelegate.swift */,
 				C225BE0F1FBD11650097F75E /* ViewController.swift */,
 				C225BE121FBD18FD0097F75E /* RootView.swift */,
-				C2F283741FBA7339007A0BEA /* Assets.xcassets */,
-				C2F283761FBA7339007A0BEA /* LaunchScreen.storyboard */,
-				C2F283791FBA7339007A0BEA /* Info.plist */,
 			);
 			path = iOS;
 			sourceTree = "<group>";
@@ -154,12 +218,8 @@
 		C2B25DD71FBB801D00287630 /* macOS */ = {
 			isa = PBXGroup;
 			children = (
-				C2DC35AD1FBF929A00C49007 /* main.swift */,
-				C2DC35A11FBF8E3E00C49007 /* AppDelegate.swift */,
 				C2DC35B01FBFA2C800C49007 /* ViewController.swift */,
 				C2DC35B21FBFA47700C49007 /* RootView.swift */,
-				C2DC35A31FBF8E3E00C49007 /* Assets.xcassets */,
-				C2DC35A81FBF8E3E00C49007 /* Info.plist */,
 			);
 			path = macOS;
 			sourceTree = "<group>";
@@ -167,6 +227,7 @@
 		C2F283611FBA7338007A0BEA = {
 			isa = PBXGroup;
 			children = (
+				C20DA9441FD5BC1400B1D45D /* OpenGL */,
 				C24FC4C31FBAA5F100AB7C1E /* Sources */,
 				C2B25DD41FBB7FF800287630 /* Demo */,
 				C2F2836B1FBA7339007A0BEA /* Products */,
@@ -177,8 +238,9 @@
 		C2F2836B1FBA7339007A0BEA /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				C2F2836A1FBA7339007A0BEA /* Demo-iOS.app */,
-				C2DC359F1FBF8E3E00C49007 /* Demo-macOS.app */,
+				C2F2836A1FBA7339007A0BEA /* CubeGeometry-iOS.app */,
+				C2DC359F1FBF8E3E00C49007 /* CubeGeometry-macOS.app */,
+				C20DA95D1FD5BFDF00B1D45D /* GridPoints-iOS.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -197,9 +259,26 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		C2DC359E1FBF8E3E00C49007 /* Demo-macOS */ = {
+		C20DA94B1FD5BFDF00B1D45D /* GridPoints-iOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = C2DC35AA1FBF8E3E00C49007 /* Build configuration list for PBXNativeTarget "Demo-macOS" */;
+			buildConfigurationList = C20DA95A1FD5BFDF00B1D45D /* Build configuration list for PBXNativeTarget "GridPoints-iOS" */;
+			buildPhases = (
+				C20DA94C1FD5BFDF00B1D45D /* Sources */,
+				C20DA9531FD5BFDF00B1D45D /* Frameworks */,
+				C20DA9541FD5BFDF00B1D45D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "GridPoints-iOS";
+			productName = OpenGL;
+			productReference = C20DA95D1FD5BFDF00B1D45D /* GridPoints-iOS.app */;
+			productType = "com.apple.product-type.application";
+		};
+		C2DC359E1FBF8E3E00C49007 /* CubeGeometry-macOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C2DC35AA1FBF8E3E00C49007 /* Build configuration list for PBXNativeTarget "CubeGeometry-macOS" */;
 			buildPhases = (
 				C2DC359B1FBF8E3E00C49007 /* Sources */,
 				C2DC359C1FBF8E3E00C49007 /* Frameworks */,
@@ -209,14 +288,14 @@
 			);
 			dependencies = (
 			);
-			name = "Demo-macOS";
+			name = "CubeGeometry-macOS";
 			productName = "Demo-macOS";
-			productReference = C2DC359F1FBF8E3E00C49007 /* Demo-macOS.app */;
+			productReference = C2DC359F1FBF8E3E00C49007 /* CubeGeometry-macOS.app */;
 			productType = "com.apple.product-type.application";
 		};
-		C2F283691FBA7338007A0BEA /* Demo-iOS */ = {
+		C2F283691FBA7338007A0BEA /* CubeGeometry-iOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = C2F2837C1FBA7339007A0BEA /* Build configuration list for PBXNativeTarget "Demo-iOS" */;
+			buildConfigurationList = C2F2837C1FBA7339007A0BEA /* Build configuration list for PBXNativeTarget "CubeGeometry-iOS" */;
 			buildPhases = (
 				C2F283661FBA7338007A0BEA /* Sources */,
 				C2F283671FBA7338007A0BEA /* Frameworks */,
@@ -226,9 +305,9 @@
 			);
 			dependencies = (
 			);
-			name = "Demo-iOS";
+			name = "CubeGeometry-iOS";
 			productName = OpenGL;
-			productReference = C2F2836A1FBA7339007A0BEA /* Demo-iOS.app */;
+			productReference = C2F2836A1FBA7339007A0BEA /* CubeGeometry-iOS.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -241,6 +320,9 @@
 				LastUpgradeCheck = 0910;
 				ORGANIZATIONNAME = "Hai Nguyen";
 				TargetAttributes = {
+					C20DA94B1FD5BFDF00B1D45D = {
+						ProvisioningStyle = Automatic;
+					};
 					C2DC359E1FBF8E3E00C49007 = {
 						CreatedOnToolsVersion = 9.1;
 						ProvisioningStyle = Automatic;
@@ -265,20 +347,31 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				C2F283691FBA7338007A0BEA /* Demo-iOS */,
-				C2DC359E1FBF8E3E00C49007 /* Demo-macOS */,
+				C2F283691FBA7338007A0BEA /* CubeGeometry-iOS */,
+				C2DC359E1FBF8E3E00C49007 /* CubeGeometry-macOS */,
+				C20DA94B1FD5BFDF00B1D45D /* GridPoints-iOS */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		C20DA9541FD5BFDF00B1D45D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C20DA9561FD5BFDF00B1D45D /* Dungeon.png in Resources */,
+				C20DA9571FD5BFDF00B1D45D /* Assets-iOS.xcassets in Resources */,
+				C20DA9581FD5BFDF00B1D45D /* LaunchScreen.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C2DC359D1FBF8E3E00C49007 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				C2DC35BC1FBFB47900C49007 /* Dungeon.png in Resources */,
 				C239A5D41FD49F5A003BD3BB /* geometry.fsh in Resources */,
-				C2DC35A41FBF8E3E00C49007 /* Assets.xcassets in Resources */,
+				C2DC35A41FBF8E3E00C49007 /* Assets-macOS.xcassets in Resources */,
 				C239A5D51FD49F5A003BD3BB /* geometry.vsh in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -287,10 +380,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C2F283781FBA7339007A0BEA /* LaunchScreen.storyboard in Resources */,
 				C239A5D11FD49F44003BD3BB /* geometry.vsh in Resources */,
 				C2FDEDBD1FBE40C3008529A6 /* Dungeon.png in Resources */,
-				C2F283751FBA7339007A0BEA /* Assets.xcassets in Resources */,
+				C2F283751FBA7339007A0BEA /* Assets-iOS.xcassets in Resources */,
+				C20DA94A1FD5BDE900B1D45D /* LaunchScreen.storyboard in Resources */,
 				C239A5CF1FD49F44003BD3BB /* geometry.fsh in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -298,6 +391,15 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		C20DA94C1FD5BFDF00B1D45D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C20DA94D1FD5BFDF00B1D45D /* utility.cpp in Sources */,
+				C20DA9521FD5BFDF00B1D45D /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C2DC359B1FBF8E3E00C49007 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -328,10 +430,10 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		C2F283761FBA7339007A0BEA /* LaunchScreen.storyboard */ = {
+		C20DA9481FD5BDE900B1D45D /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				C2F283771FBA7339007A0BEA /* Base */,
+				C20DA9491FD5BDE900B1D45D /* Base */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -339,6 +441,43 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		C20DA95B1FD5BFDF00B1D45D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 88HW36EGGB;
+				INFOPLIST_FILE = "CubeGeometry-iOS copy-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.hainguyen.opengl-demo-ios";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = OpenGL/Bridging.h;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		C20DA95C1FD5BFDF00B1D45D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 88HW36EGGB;
+				INFOPLIST_FILE = "CubeGeometry-iOS copy-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.hainguyen.opengl-demo-ios";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = OpenGL/Bridging.h;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		C2DC35AB1FBF8E3E00C49007 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -347,14 +486,14 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 88HW36EGGB;
-				INFOPLIST_FILE = Demo/Cube/macOS/Info.plist;
+				INFOPLIST_FILE = "OpenGL/Info-macOS.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.hainguyen.opengl-demo-macos";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = macosx;
-				SWIFT_OBJC_BRIDGING_HEADER = Demo/Cube/Common/Bridging.h;
+				SWIFT_OBJC_BRIDGING_HEADER = OpenGL/Bridging.h;
 				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
@@ -367,14 +506,14 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 88HW36EGGB;
-				INFOPLIST_FILE = Demo/Cube/macOS/Info.plist;
+				INFOPLIST_FILE = "OpenGL/Info-macOS.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.hainguyen.opengl-demo-macos";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = macosx;
-				SWIFT_OBJC_BRIDGING_HEADER = Demo/Cube/Common/Bridging.h;
+				SWIFT_OBJC_BRIDGING_HEADER = OpenGL/Bridging.h;
 				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
@@ -495,12 +634,12 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 88HW36EGGB;
-				INFOPLIST_FILE = Demo/Cube/iOS/Info.plist;
+				INFOPLIST_FILE = "OpenGL/Info-iOS.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.hainguyen.opengl-demo-ios";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = Demo/Cube/Common/Bridging.h;
+				SWIFT_OBJC_BRIDGING_HEADER = OpenGL/Bridging.h;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -514,12 +653,12 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 88HW36EGGB;
-				INFOPLIST_FILE = Demo/Cube/iOS/Info.plist;
+				INFOPLIST_FILE = "OpenGL/Info-iOS.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.hainguyen.opengl-demo-ios";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = Demo/Cube/Common/Bridging.h;
+				SWIFT_OBJC_BRIDGING_HEADER = OpenGL/Bridging.h;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -528,7 +667,16 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		C2DC35AA1FBF8E3E00C49007 /* Build configuration list for PBXNativeTarget "Demo-macOS" */ = {
+		C20DA95A1FD5BFDF00B1D45D /* Build configuration list for PBXNativeTarget "GridPoints-iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C20DA95B1FD5BFDF00B1D45D /* Debug */,
+				C20DA95C1FD5BFDF00B1D45D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C2DC35AA1FBF8E3E00C49007 /* Build configuration list for PBXNativeTarget "CubeGeometry-macOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C2DC35AB1FBF8E3E00C49007 /* Debug */,
@@ -546,7 +694,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		C2F2837C1FBA7339007A0BEA /* Build configuration list for PBXNativeTarget "Demo-iOS" */ = {
+		C2F2837C1FBA7339007A0BEA /* Build configuration list for PBXNativeTarget "CubeGeometry-iOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C2F2837D1FBA7339007A0BEA /* Debug */,

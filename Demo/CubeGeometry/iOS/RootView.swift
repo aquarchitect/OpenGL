@@ -27,6 +27,7 @@ final class RootView: GLKView {
         
         if let context = EAGLContext(api: .openGLES2) {
             self.context = context
+            EAGLContext.setCurrent(context)
         }
         
         let pan = UIPanGestureRecognizer(target: self, action: #selector(pan(_:)))

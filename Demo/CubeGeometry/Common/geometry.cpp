@@ -86,8 +86,10 @@ void Geometry::draw(glm::mat4 transformation, glm::mat4 projection) {
 #elif GL_OES_vertex_array_object
     glBindVertexArrayOES(vertexArrayObject);
 #endif
+    
     // TODO: why the last value is 0 instead of the indices pointer.
     glDrawElements(GL_TRIANGLES, (GLsizei)indices.size(), GL_UNSIGNED_BYTE, 0);
+    
 #if GL_APPLE_vertex_array_object
     glBindVertexArrayAPPLE(0);
 #elif GL_OES_vertex_array_object

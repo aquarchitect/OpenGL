@@ -27,7 +27,6 @@ public:
     
     void                    draw(glm::mat4 transformation, glm::mat4 projection);
     void                    loadTexture(GLsizei width, GLsizei height, GLvoid *pixels);
-    
 private:
     std::vector<GLubyte>    indices;
     std::vector<Vertex>     vertices;

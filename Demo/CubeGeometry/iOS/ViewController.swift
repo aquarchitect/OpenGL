@@ -6,7 +6,6 @@
 //  Copyright © 2017 Hai Nguyen. All rights reserved.
 //
 
-import UIKit
 import GLKit
 
 final class ViewController: GLKViewController {
@@ -19,8 +18,6 @@ final class ViewController: GLKViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        _ = (view as? GLKView).map({ EAGLContext.setCurrent($0.context) })
     
         let basePath = (Bundle.main.resourcePath.map({ "\($0)/" }) ?? "").cString(using: .utf8)
         setupCube(
@@ -41,11 +38,6 @@ final class ViewController: GLKViewController {
             loadCubeTexture(Int32(image.width), Int32(image.height), bytes)
         }
     }
-}
-
-extension ViewController: GLKViewControllerDelegate {
-    
-    func glkViewControllerUpdate(_ controller: GLKViewController) {}
 }
 
 extension ViewController {

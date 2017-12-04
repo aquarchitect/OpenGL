@@ -11,7 +11,7 @@
 
 #ifdef __cplusplus
 extern "C" {
-#endif
+#endif /* __cplusplus */
     extern void setupCube(float screenRatio, char *basePath);
     extern void rotateCube(float xAngle, float yAngle, float zAngle);
     
