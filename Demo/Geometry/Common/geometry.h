@@ -1,14 +1,16 @@
 //
-//  geometry.hpp
+//  geometry.h
 //  OpenGL
 //
 //  Created by Hai Nguyen on 11/20/17.
 //  Copyright © 2017 Hai Nguyen. All rights reserved.
 //
 
-#ifndef geometry_hpp
-#define geometry_hpp
+#ifndef geometry_h
+#define geometry_h
 
+// geometry.cpp
+#ifdef __cplusplus
 #include "utility.hpp"
 #include <string>
 #include <vector>
@@ -41,5 +43,17 @@ private:
     GLuint                  transformationUniformLocation;
     GLuint                  textureUniformLocation;
 };
+#endif /* __cplusplus */
 
-#endif /* geometry_hpp */
+// geometry+.cpp
+#ifdef __cplusplus
+extern "C" {
+#endif /* __cplusplus */
+    extern void setupCube(float screenRatio, char *basePath);
+    extern void rotateCube(float xAngle, float yAngle, float zAngle);
+    
+    extern void loadCubeTexture(int width, int height, void *pixels);
+#ifdef __cplusplus
+}
+#endif /* __cplusplus */
+#endif /* geometry_h */

@@ -1,13 +1,12 @@
 //
-//  renderer.cpp
+//  geometry+.cpp
 //  OpenGL
 //
 //  Created by Hai Nguyen on 11/20/17.
 //  Copyright © 2017 Hai Nguyen. All rights reserved.
 //
 
-#include "draw.hpp"
-#include "geometry.hpp"
+#include "geometry.h"
 #include <glm/gtc/matrix_transform.hpp>
 
 static Geometry                 *pCube;

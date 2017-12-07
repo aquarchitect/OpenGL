@@ -10,21 +10,25 @@
 		C20DA94A1FD5BDE900B1D45D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C20DA9481FD5BDE900B1D45D /* LaunchScreen.storyboard */; };
 		C20DA94D1FD5BFDF00B1D45D /* utility.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C239A5CA1FD49F43003BD3BB /* utility.cpp */; };
 		C20DA9521FD5BFDF00B1D45D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2F2836D1FBA7339007A0BEA /* AppDelegate.swift */; };
-		C20DA9561FD5BFDF00B1D45D /* Dungeon.png in Resources */ = {isa = PBXBuildFile; fileRef = C2FDEDBC1FBE40C3008529A6 /* Dungeon.png */; };
 		C20DA9571FD5BFDF00B1D45D /* Assets-iOS.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C2F283741FBA7339007A0BEA /* Assets-iOS.xcassets */; };
 		C20DA9581FD5BFDF00B1D45D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C20DA9481FD5BDE900B1D45D /* LaunchScreen.storyboard */; };
+		C20DA9691FD5C65500B1D45D /* grid.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C20DA9671FD5C65500B1D45D /* grid.cpp */; };
+		C20DA96B1FD5CA9800B1D45D /* grid.vsh in Resources */ = {isa = PBXBuildFile; fileRef = C20DA96A1FD5CA9800B1D45D /* grid.vsh */; };
+		C20DA96D1FD5CAA200B1D45D /* gird.fsh in Resources */ = {isa = PBXBuildFile; fileRef = C20DA96C1FD5CAA200B1D45D /* gird.fsh */; };
+		C21B333F1FD8CDB900B0F57D /* grid+.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C20DA9611FD5C37F00B1D45D /* grid+.cpp */; };
 		C225BE101FBD11650097F75E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C225BE0F1FBD11650097F75E /* ViewController.swift */; };
 		C225BE131FBD18FD0097F75E /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C225BE121FBD18FD0097F75E /* RootView.swift */; };
 		C239A5CD1FD49F44003BD3BB /* geometry.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C239A5C51FD49F43003BD3BB /* geometry.cpp */; };
-		C239A5CE1FD49F44003BD3BB /* draw.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C239A5C71FD49F43003BD3BB /* draw.cpp */; };
 		C239A5CF1FD49F44003BD3BB /* geometry.fsh in Resources */ = {isa = PBXBuildFile; fileRef = C239A5C81FD49F43003BD3BB /* geometry.fsh */; };
 		C239A5D01FD49F44003BD3BB /* utility.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C239A5CA1FD49F43003BD3BB /* utility.cpp */; };
 		C239A5D11FD49F44003BD3BB /* geometry.vsh in Resources */ = {isa = PBXBuildFile; fileRef = C239A5CB1FD49F43003BD3BB /* geometry.vsh */; };
-		C239A5D21FD49F5A003BD3BB /* draw.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C239A5C71FD49F43003BD3BB /* draw.cpp */; };
 		C239A5D31FD49F5A003BD3BB /* geometry.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C239A5C51FD49F43003BD3BB /* geometry.cpp */; };
 		C239A5D41FD49F5A003BD3BB /* geometry.fsh in Resources */ = {isa = PBXBuildFile; fileRef = C239A5C81FD49F43003BD3BB /* geometry.fsh */; };
 		C239A5D51FD49F5A003BD3BB /* geometry.vsh in Resources */ = {isa = PBXBuildFile; fileRef = C239A5CB1FD49F43003BD3BB /* geometry.vsh */; };
 		C239A5D61FD49F5A003BD3BB /* utility.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C239A5CA1FD49F43003BD3BB /* utility.cpp */; };
+		C25128701FD5D9D8008E2959 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C251286F1FD5D9D8008E2959 /* ViewController.swift */; };
+		C2A2DA661FD9011B00DEAC28 /* geometry+.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C239A5C71FD49F43003BD3BB /* geometry+.cpp */; };
+		C2A2DA671FD9011E00DEAC28 /* geometry+.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C239A5C71FD49F43003BD3BB /* geometry+.cpp */; };
 		C2DC35A21FBF8E3E00C49007 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2DC35A11FBF8E3E00C49007 /* AppDelegate.swift */; };
 		C2DC35A41FBF8E3E00C49007 /* Assets-macOS.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C2DC35A31FBF8E3E00C49007 /* Assets-macOS.xcassets */; };
 		C2DC35AE1FBF929A00C49007 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2DC35AD1FBF929A00C49007 /* main.swift */; };
@@ -38,30 +42,34 @@
 
 /* Begin PBXFileReference section */
 		C20DA9491FD5BDE900B1D45D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		C20DA95D1FD5BFDF00B1D45D /* GridPoints-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "GridPoints-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C20DA95D1FD5BFDF00B1D45D /* Grid.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Grid.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C20DA9611FD5C37F00B1D45D /* grid+.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = "grid+.cpp"; sourceTree = "<group>"; };
+		C20DA9671FD5C65500B1D45D /* grid.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = grid.cpp; sourceTree = "<group>"; };
+		C20DA9681FD5C65500B1D45D /* grid.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = grid.h; sourceTree = "<group>"; };
+		C20DA96A1FD5CA9800B1D45D /* grid.vsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = grid.vsh; sourceTree = "<group>"; };
+		C20DA96C1FD5CAA200B1D45D /* gird.fsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = gird.fsh; sourceTree = "<group>"; };
 		C225BE0F1FBD11650097F75E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		C225BE121FBD18FD0097F75E /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 		C239A5C51FD49F43003BD3BB /* geometry.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = geometry.cpp; sourceTree = "<group>"; };
 		C239A5C61FD49F43003BD3BB /* utility.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = utility.hpp; sourceTree = "<group>"; };
-		C239A5C71FD49F43003BD3BB /* draw.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = draw.cpp; sourceTree = "<group>"; };
+		C239A5C71FD49F43003BD3BB /* geometry+.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = "geometry+.cpp"; sourceTree = "<group>"; };
 		C239A5C81FD49F43003BD3BB /* geometry.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = geometry.fsh; sourceTree = "<group>"; };
-		C239A5C91FD49F43003BD3BB /* draw.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = draw.hpp; sourceTree = "<group>"; };
 		C239A5CA1FD49F43003BD3BB /* utility.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = utility.cpp; sourceTree = "<group>"; };
 		C239A5CB1FD49F43003BD3BB /* geometry.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = geometry.vsh; sourceTree = "<group>"; };
-		C239A5CC1FD49F43003BD3BB /* geometry.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = geometry.hpp; sourceTree = "<group>"; };
-		C2652A661FBB5C3B0049F156 /* Bridging.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Bridging.h; sourceTree = "<group>"; };
+		C239A5CC1FD49F43003BD3BB /* geometry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = geometry.h; sourceTree = "<group>"; };
+		C251286F1FD5D9D8008E2959 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		C2B25DE81FBB837A00287630 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk/System/Library/Frameworks/OpenGL.framework; sourceTree = DEVELOPER_DIR; };
 		C2B25DEA1FBB840A00287630 /* GLUT.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLUT.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk/System/Library/Frameworks/GLUT.framework; sourceTree = DEVELOPER_DIR; };
 		C2B25DEC1FBB841300287630 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk/System/Library/Frameworks/Cocoa.framework; sourceTree = DEVELOPER_DIR; };
 		C2B25DFE1FBBBF2900287630 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
-		C2DC359F1FBF8E3E00C49007 /* CubeGeometry-macOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "CubeGeometry-macOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C2DC359F1FBF8E3E00C49007 /* Geometry.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Geometry.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2DC35A11FBF8E3E00C49007 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C2DC35A31FBF8E3E00C49007 /* Assets-macOS.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Assets-macOS.xcassets"; sourceTree = "<group>"; };
 		C2DC35A81FBF8E3E00C49007 /* Info-macOS.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Info-macOS.plist"; sourceTree = "<group>"; };
 		C2DC35AD1FBF929A00C49007 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		C2DC35B01FBFA2C800C49007 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		C2DC35B21FBFA47700C49007 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
-		C2F2836A1FBA7339007A0BEA /* CubeGeometry-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "CubeGeometry-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C2F2836A1FBA7339007A0BEA /* Geometry.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Geometry.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2F2836D1FBA7339007A0BEA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C2F283741FBA7339007A0BEA /* Assets-iOS.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Assets-iOS.xcassets"; sourceTree = "<group>"; };
 		C2F283791FBA7339007A0BEA /* Info-iOS.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Info-iOS.plist"; sourceTree = "<group>"; };
@@ -96,17 +104,16 @@
 		C20DA9401FD5B18200B1D45D /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				C239A5C71FD49F43003BD3BB /* draw.cpp */,
-				C239A5C91FD49F43003BD3BB /* draw.hpp */,
+				C239A5CC1FD49F43003BD3BB /* geometry.h */,
 				C239A5C51FD49F43003BD3BB /* geometry.cpp */,
-				C239A5CC1FD49F43003BD3BB /* geometry.hpp */,
+				C239A5C71FD49F43003BD3BB /* geometry+.cpp */,
 				C239A5C81FD49F43003BD3BB /* geometry.fsh */,
 				C239A5CB1FD49F43003BD3BB /* geometry.vsh */,
 			);
 			path = Common;
 			sourceTree = "<group>";
 		};
-		C20DA9411FD5B18D00B1D45D /* CubeGeometry */ = {
+		C20DA9411FD5B18D00B1D45D /* Geometry */ = {
 			isa = PBXGroup;
 			children = (
 				C20DA9401FD5B18200B1D45D /* Common */,
@@ -114,7 +121,7 @@
 				C2B25DD71FBB801D00287630 /* macOS */,
 				C20DA9421FD5B1A000B1D45D /* Resources */,
 			);
-			path = CubeGeometry;
+			path = Geometry;
 			sourceTree = "<group>";
 		};
 		C20DA9421FD5B1A000B1D45D /* Resources */ = {
@@ -125,19 +132,18 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
-		C20DA9431FD5B7D700B1D45D /* GridPoints */ = {
+		C20DA9431FD5B7D700B1D45D /* Grid */ = {
 			isa = PBXGroup;
 			children = (
 				C20DA9601FD5C20F00B1D45D /* Common */,
 				C20DA95F1FD5C1A100B1D45D /* iOS */,
 			);
-			path = GridPoints;
+			path = Grid;
 			sourceTree = "<group>";
 		};
 		C20DA9441FD5BC1400B1D45D /* OpenGL */ = {
 			isa = PBXGroup;
 			children = (
-				C2652A661FBB5C3B0049F156 /* Bridging.h */,
 				C2F283791FBA7339007A0BEA /* Info-iOS.plist */,
 				C2DC35A81FBF8E3E00C49007 /* Info-macOS.plist */,
 				C2F283741FBA7339007A0BEA /* Assets-iOS.xcassets */,
@@ -176,6 +182,7 @@
 		C20DA95F1FD5C1A100B1D45D /* iOS */ = {
 			isa = PBXGroup;
 			children = (
+				C251286F1FD5D9D8008E2959 /* ViewController.swift */,
 			);
 			path = iOS;
 			sourceTree = "<group>";
@@ -183,6 +190,11 @@
 		C20DA9601FD5C20F00B1D45D /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				C20DA9681FD5C65500B1D45D /* grid.h */,
+				C20DA9671FD5C65500B1D45D /* grid.cpp */,
+				C20DA9611FD5C37F00B1D45D /* grid+.cpp */,
+				C20DA96A1FD5CA9800B1D45D /* grid.vsh */,
+				C20DA96C1FD5CAA200B1D45D /* gird.fsh */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -200,8 +212,8 @@
 		C2B25DD41FBB7FF800287630 /* Demo */ = {
 			isa = PBXGroup;
 			children = (
-				C20DA9411FD5B18D00B1D45D /* CubeGeometry */,
-				C20DA9431FD5B7D700B1D45D /* GridPoints */,
+				C20DA9411FD5B18D00B1D45D /* Geometry */,
+				C20DA9431FD5B7D700B1D45D /* Grid */,
 			);
 			path = Demo;
 			sourceTree = "<group>";
@@ -238,9 +250,9 @@
 		C2F2836B1FBA7339007A0BEA /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				C2F2836A1FBA7339007A0BEA /* CubeGeometry-iOS.app */,
-				C2DC359F1FBF8E3E00C49007 /* CubeGeometry-macOS.app */,
-				C20DA95D1FD5BFDF00B1D45D /* GridPoints-iOS.app */,
+				C2F2836A1FBA7339007A0BEA /* Geometry.app */,
+				C2DC359F1FBF8E3E00C49007 /* Geometry.app */,
+				C20DA95D1FD5BFDF00B1D45D /* Grid.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -259,9 +271,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		C20DA94B1FD5BFDF00B1D45D /* GridPoints-iOS */ = {
+		C20DA94B1FD5BFDF00B1D45D /* Grid-iOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = C20DA95A1FD5BFDF00B1D45D /* Build configuration list for PBXNativeTarget "GridPoints-iOS" */;
+			buildConfigurationList = C20DA95A1FD5BFDF00B1D45D /* Build configuration list for PBXNativeTarget "Grid-iOS" */;
 			buildPhases = (
 				C20DA94C1FD5BFDF00B1D45D /* Sources */,
 				C20DA9531FD5BFDF00B1D45D /* Frameworks */,
@@ -271,14 +283,14 @@
 			);
 			dependencies = (
 			);
-			name = "GridPoints-iOS";
+			name = "Grid-iOS";
 			productName = OpenGL;
-			productReference = C20DA95D1FD5BFDF00B1D45D /* GridPoints-iOS.app */;
+			productReference = C20DA95D1FD5BFDF00B1D45D /* Grid.app */;
 			productType = "com.apple.product-type.application";
 		};
-		C2DC359E1FBF8E3E00C49007 /* CubeGeometry-macOS */ = {
+		C2DC359E1FBF8E3E00C49007 /* Geometry-macOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = C2DC35AA1FBF8E3E00C49007 /* Build configuration list for PBXNativeTarget "CubeGeometry-macOS" */;
+			buildConfigurationList = C2DC35AA1FBF8E3E00C49007 /* Build configuration list for PBXNativeTarget "Geometry-macOS" */;
 			buildPhases = (
 				C2DC359B1FBF8E3E00C49007 /* Sources */,
 				C2DC359C1FBF8E3E00C49007 /* Frameworks */,
@@ -288,14 +300,14 @@
 			);
 			dependencies = (
 			);
-			name = "CubeGeometry-macOS";
+			name = "Geometry-macOS";
 			productName = "Demo-macOS";
-			productReference = C2DC359F1FBF8E3E00C49007 /* CubeGeometry-macOS.app */;
+			productReference = C2DC359F1FBF8E3E00C49007 /* Geometry.app */;
 			productType = "com.apple.product-type.application";
 		};
-		C2F283691FBA7338007A0BEA /* CubeGeometry-iOS */ = {
+		C2F283691FBA7338007A0BEA /* Geometry-iOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = C2F2837C1FBA7339007A0BEA /* Build configuration list for PBXNativeTarget "CubeGeometry-iOS" */;
+			buildConfigurationList = C2F2837C1FBA7339007A0BEA /* Build configuration list for PBXNativeTarget "Geometry-iOS" */;
 			buildPhases = (
 				C2F283661FBA7338007A0BEA /* Sources */,
 				C2F283671FBA7338007A0BEA /* Frameworks */,
@@ -305,9 +317,9 @@
 			);
 			dependencies = (
 			);
-			name = "CubeGeometry-iOS";
+			name = "Geometry-iOS";
 			productName = OpenGL;
-			productReference = C2F2836A1FBA7339007A0BEA /* CubeGeometry-iOS.app */;
+			productReference = C2F2836A1FBA7339007A0BEA /* Geometry.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -347,9 +359,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				C2F283691FBA7338007A0BEA /* CubeGeometry-iOS */,
-				C2DC359E1FBF8E3E00C49007 /* CubeGeometry-macOS */,
-				C20DA94B1FD5BFDF00B1D45D /* GridPoints-iOS */,
+				C2F283691FBA7338007A0BEA /* Geometry-iOS */,
+				C2DC359E1FBF8E3E00C49007 /* Geometry-macOS */,
+				C20DA94B1FD5BFDF00B1D45D /* Grid-iOS */,
 			);
 		};
 /* End PBXProject section */
@@ -359,8 +371,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C20DA9561FD5BFDF00B1D45D /* Dungeon.png in Resources */,
+				C20DA96B1FD5CA9800B1D45D /* grid.vsh in Resources */,
 				C20DA9571FD5BFDF00B1D45D /* Assets-iOS.xcassets in Resources */,
+				C20DA96D1FD5CAA200B1D45D /* gird.fsh in Resources */,
 				C20DA9581FD5BFDF00B1D45D /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -395,8 +408,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C25128701FD5D9D8008E2959 /* ViewController.swift in Sources */,
 				C20DA94D1FD5BFDF00B1D45D /* utility.cpp in Sources */,
 				C20DA9521FD5BFDF00B1D45D /* AppDelegate.swift in Sources */,
+				C21B333F1FD8CDB900B0F57D /* grid+.cpp in Sources */,
+				C20DA9691FD5C65500B1D45D /* grid.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -405,10 +421,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				C2DC35B31FBFA47700C49007 /* RootView.swift in Sources */,
+				C2A2DA671FD9011E00DEAC28 /* geometry+.cpp in Sources */,
 				C2DC35B11FBFA2C800C49007 /* ViewController.swift in Sources */,
 				C2DC35AE1FBF929A00C49007 /* main.swift in Sources */,
 				C239A5D61FD49F5A003BD3BB /* utility.cpp in Sources */,
-				C239A5D21FD49F5A003BD3BB /* draw.cpp in Sources */,
 				C2DC35A21FBF8E3E00C49007 /* AppDelegate.swift in Sources */,
 				C239A5D31FD49F5A003BD3BB /* geometry.cpp in Sources */,
 			);
@@ -421,8 +437,8 @@
 				C239A5D01FD49F44003BD3BB /* utility.cpp in Sources */,
 				C225BE101FBD11650097F75E /* ViewController.swift in Sources */,
 				C239A5CD1FD49F44003BD3BB /* geometry.cpp in Sources */,
+				C2A2DA661FD9011B00DEAC28 /* geometry+.cpp in Sources */,
 				C225BE131FBD18FD0097F75E /* RootView.swift in Sources */,
-				C239A5CE1FD49F44003BD3BB /* draw.cpp in Sources */,
 				C2F2836E1FBA7339007A0BEA /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -448,12 +464,12 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 88HW36EGGB;
-				INFOPLIST_FILE = "CubeGeometry-iOS copy-Info.plist";
+				INFOPLIST_FILE = "OpenGL/Info-iOS.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.hainguyen.opengl-demo-ios";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = OpenGL/Bridging.h;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.hainguyen.opengl-grid-ios";
+				PRODUCT_NAME = Grid;
+				SWIFT_OBJC_BRIDGING_HEADER = Demo/Grid/Common/grid.h;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -467,12 +483,12 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 88HW36EGGB;
-				INFOPLIST_FILE = "CubeGeometry-iOS copy-Info.plist";
+				INFOPLIST_FILE = "OpenGL/Info-iOS.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.hainguyen.opengl-demo-ios";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = OpenGL/Bridging.h;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.hainguyen.opengl-grid-ios";
+				PRODUCT_NAME = Grid;
+				SWIFT_OBJC_BRIDGING_HEADER = Demo/Grid/Common/grid.h;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -489,11 +505,11 @@
 				INFOPLIST_FILE = "OpenGL/Info-macOS.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.hainguyen.opengl-demo-macos";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.hainguyen.opengl-geometry-macos";
+				PRODUCT_NAME = Geometry;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = macosx;
-				SWIFT_OBJC_BRIDGING_HEADER = OpenGL/Bridging.h;
+				SWIFT_OBJC_BRIDGING_HEADER = Demo/Geometry/Common/geometry.h;
 				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
@@ -509,11 +525,11 @@
 				INFOPLIST_FILE = "OpenGL/Info-macOS.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.hainguyen.opengl-demo-macos";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.hainguyen.opengl-geometry-macos";
+				PRODUCT_NAME = Geometry;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = macosx;
-				SWIFT_OBJC_BRIDGING_HEADER = OpenGL/Bridging.h;
+				SWIFT_OBJC_BRIDGING_HEADER = Demo/Geometry/Common/geometry.h;
 				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
@@ -521,7 +537,6 @@
 		C2F2837A1FBA7339007A0BEA /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -579,7 +594,6 @@
 		C2F2837B1FBA7339007A0BEA /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -637,9 +651,9 @@
 				INFOPLIST_FILE = "OpenGL/Info-iOS.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.hainguyen.opengl-demo-ios";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = OpenGL/Bridging.h;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.hainguyen.opengl-geometry-ios";
+				PRODUCT_NAME = Geometry;
+				SWIFT_OBJC_BRIDGING_HEADER = Demo/Geometry/Common/geometry.h;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -656,9 +670,9 @@
 				INFOPLIST_FILE = "OpenGL/Info-iOS.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.hainguyen.opengl-demo-ios";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = OpenGL/Bridging.h;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.hainguyen.opengl-geometry-ios";
+				PRODUCT_NAME = Geometry;
+				SWIFT_OBJC_BRIDGING_HEADER = Demo/Geometry/Common/geometry.h;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -667,7 +681,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		C20DA95A1FD5BFDF00B1D45D /* Build configuration list for PBXNativeTarget "GridPoints-iOS" */ = {
+		C20DA95A1FD5BFDF00B1D45D /* Build configuration list for PBXNativeTarget "Grid-iOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C20DA95B1FD5BFDF00B1D45D /* Debug */,
@@ -676,7 +690,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		C2DC35AA1FBF8E3E00C49007 /* Build configuration list for PBXNativeTarget "CubeGeometry-macOS" */ = {
+		C2DC35AA1FBF8E3E00C49007 /* Build configuration list for PBXNativeTarget "Geometry-macOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C2DC35AB1FBF8E3E00C49007 /* Debug */,
@@ -694,7 +708,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		C2F2837C1FBA7339007A0BEA /* Build configuration list for PBXNativeTarget "CubeGeometry-iOS" */ = {
+		C2F2837C1FBA7339007A0BEA /* Build configuration list for PBXNativeTarget "Geometry-iOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C2F2837D1FBA7339007A0BEA /* Debug */,

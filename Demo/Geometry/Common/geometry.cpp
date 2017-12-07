@@ -6,7 +6,7 @@
 //  Copyright © 2017 Hai Nguyen. All rights reserved.
 //
 
-#include "geometry.hpp"
+#include "geometry.h"
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
 
