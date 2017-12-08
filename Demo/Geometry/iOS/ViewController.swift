@@ -19,6 +19,8 @@ final class ViewController: GLKViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     
+        EAGLContext.setCurrent((view as? GLKView)?.context)
+        
         let basePath = (Bundle.main.resourcePath.map({ "\($0)/" }) ?? "").cString(using: .utf8)
         setupCube(
             Float(view.bounds.width/view.bounds.height),
