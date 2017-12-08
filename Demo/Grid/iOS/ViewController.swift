@@ -13,14 +13,19 @@ final class ViewController: GLKViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        if let context = EAGLContext(api: .openGLES2) {
+            (view as? GLKView)?.context = context
+            EAGLContext.setCurrent(context)
+        }
+        
         let basePath = (Bundle.main.resourcePath.map({ "\($0)/" }) ?? "").cString(using: .utf8)
-//        setupGrid(UnsafeMutablePointer<Int8>(mutating: basePath))
+        setupGrid(UnsafeMutablePointer<Int8>(mutating: basePath))
     }
 }
 
 extension ViewController {
     
     override func glkView(_ view: GLKView, drawIn rect: CGRect) {
-//        drawGrid()
+        drawGrid()
     }
 }

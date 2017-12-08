@@ -8,12 +8,12 @@ uniform float uTime;
 in vec2 aPoint;
 out vec3 vColor;
 #else
-attribute aPoint;
+attribute vec2 aPoint;
 varying vec3 vColor;
 #endif
 
 void main() {
-    gl_PointSize = 10;
+    gl_PointSize = 10.0;
     gl_Position = vec4(vec3(0.0), 1.0);
     
     vColor = vec3(1.0, 0.0, 0.0);

@@ -50,7 +50,7 @@ void Grid::draw(time_t deltaTime) {
     glClearColor(0.0, 0.0, 0.0, 1.0);
     glClear(GL_COLOR_BUFFER_BIT);
     glUseProgram(programID);
-    
+
 #if GL_APPLE_vertex_array_object
     glBindVertexArrayAPPLE(vertexArrayObject);
 #elif GL_OES_vertex_array_object
@@ -58,7 +58,7 @@ void Grid::draw(time_t deltaTime) {
 #endif
 
     glDrawArrays(GL_POINTS, 0, (GLsizei)points.size());
-    
+
 #if GL_APPLE_vertex_array_object
     glBindVertexArrayAPPLE(0);
 #elif GL_OES_vertex_array_object
