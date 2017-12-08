@@ -37,6 +37,7 @@ GLuint Utility::loadShader(const GLenum type, const std::string filePath) {
         std::vector<char> log(length + 1);
         glGetShaderInfoLog(shaderID, length, NULL, &log[0]);
         
+        printf("ERROR: Unable to load shader %s.\n", filePath.c_str());
         printf("%s\n", &log[0]);
         exit(EXIT_FAILURE);
     }
@@ -58,6 +59,7 @@ void Utility::linkShaders(const GLuint vertexShaderID, const GLuint fragmentShad
         std::vector<char> log(length + 1);
         glGetProgramInfoLog(programID, length, NULL, &log[0]);
         
+        printf("ERROR: Unable to link program %i.\n", programID);
         printf("%s\n", &log[0]);
         exit(EXIT_FAILURE);
     }
