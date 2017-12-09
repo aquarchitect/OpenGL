@@ -16,22 +16,33 @@ attribute float aIndex;
 varying vec3 vColor;
 #endif
 
-mat4 translation(float vertexID) {
-    float ri = floor(vertexID / uGridSize.x);  // row index
-    float ci = mod(vertexID, uGridSize.x);     // column index
+void main() {
+    // index
+    float xi = mod(aIndex, uGridSize.x);
+    float yi = floor(aIndex / uGridSize.x);
     
-    float rd = 2.0 / (uGridSize.y - 1.0);   // row distance
-    float cd = 2.0 / (uGridSize.x - 1.0);   // column distance
+    // distance
+    float xd = 1.0 / (uGridSize.x - 1.0);
+    float yd = 1.0 / (uGridSize.y - 1.0);
     
-    mat4 t = mat4(1.0);
-    t[3] = vec4(ci * cd, ri * rd, 0.0, 1.0);
-    t[3] += vec4(-1.0, -1.0, 0.0, 0.0); // translate to lower left corner
-    return t;
-}
-
-void main() {    
-    gl_PointSize = 10.0;
-    gl_Position = translation(aIndex) * vec4(aPoint, 0.0, 1.0);
+    // offset
+    float xo = sin(uTime + 3.0 * yi * yd) * 0.1;
+    float yo = sin(uTime + 4.0 * xi * xd) * 0.1;
+    float so = sin(uTime + xi * xd + yi * yd) * 15.0;
     
-    vColor = vec3(1.0, 0.0, 0.0);
+    mat4 m = mat4(1.0);
+    m[3] = vec4(xi * xd, yi * yd, 0.0, 1.0);
+    m[3] *= vec4(2.0, 2.0, 1.0, 1.0);   // scaling
+    m[3] += vec4(-1.0, -1.0, 0.0, 0.0); // translating
+    m[3] += vec4(xo, yo, 0.0, 0.0);     // translating
+    m[3] *= vec4(0.7, 0.7, 0.0, 1.0);   // scaling
+    
+    gl_Position = m * vec4(aPoint, 0.0, 1.0);
+    gl_PointSize = 15.0 + so;
+    
+    // color
+    float r = sin(uTime + xi * xd);
+    float g = sin(uTime + yi * yd);
+    float b = sin(uTime/2.0);
+    vColor = vec3(r, g, b);
 }

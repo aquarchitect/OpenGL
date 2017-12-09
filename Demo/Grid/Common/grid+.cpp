@@ -11,7 +11,7 @@
 static Grid     *pGrid1x1;
 
 void setupGrid(char *basePath) {
-    pGrid1x1 = new Grid(basePath, glm::vec2(80, 50));
+    pGrid1x1 = new Grid(basePath, glm::vec2(40, 30));
 };
 
 void drawGrid(float deltaTime, int resolutionWidth, int resolutionHeight) {

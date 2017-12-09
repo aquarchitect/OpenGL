@@ -19,7 +19,7 @@
 class Grid {
 public:
     Grid(std::string basePath, glm::vec2 gridSize);
-    void            draw(time_t deltaTime, glm::vec2 resolution);
+    void            draw(GLfloat deltaTime, glm::vec2 resolution);
 private:
     struct Vertex {
         GLfloat point[2];

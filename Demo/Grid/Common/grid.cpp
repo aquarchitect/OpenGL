@@ -63,11 +63,12 @@ Grid::Grid(std::string basePath, glm::vec2 gridSize) {
     glBindBuffer(GL_ARRAY_BUFFER, 0);
 };
 
-void Grid::draw(time_t deltaTime, glm::vec2 resolution) {
+void Grid::draw(GLfloat deltaTime, glm::vec2 resolution) {
     glClearColor(0.0, 0.0, 0.0, 1.0);
     glClear(GL_COLOR_BUFFER_BIT);
     glUseProgram(programID);
     
+    glUniform1f(timeUniformLocation, deltaTime);
     glUniform2fv(resolutionUniformLocation, 1, glm::value_ptr(resolution));
     glUniform2fv(gridSizeUniformLocation, 1, glm::value_ptr(gridSize));
     
