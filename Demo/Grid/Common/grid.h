@@ -18,10 +18,16 @@
 
 class Grid {
 public:
-    Grid(std::string basePath, std::tuple<int, int> gridDimension);
-    void            draw(time_t deltaTime);
+    Grid(std::string basePath, glm::vec2 gridSize);
+    void            draw(time_t deltaTime, glm::vec2 resolution);
 private:
-    std::vector<glm::vec2>  points;
+    struct Vertex {
+        GLfloat point[2];
+        GLfloat index;
+    };
+    
+    std::vector<Vertex>     vertices;
+    glm::vec2               gridSize;
     
     const GLuint            programID = glCreateProgram();
     
@@ -29,6 +35,8 @@ private:
     GLuint                  bufferObject;
     
     GLuint                  timeUniformLocation;
+    GLuint                  resolutionUniformLocation;
+    GLuint                  gridSizeUniformLocation;
 };
 #endif /* __cplusplus */
 
@@ -37,7 +45,7 @@ private:
 extern "C" {
 #endif /* __cplusplus */
     extern void setupGrid(char *basePath);
-    extern void drawGrid();
+    extern void drawGrid(float deltaTime, int resolutionWidth, int resolutionHeight);
 #ifdef __cplusplus
 }
 #endif /* __cplusplus */

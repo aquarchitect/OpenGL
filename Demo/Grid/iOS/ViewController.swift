@@ -26,6 +26,6 @@ final class ViewController: GLKViewController {
 extension ViewController {
     
     override func glkView(_ view: GLKView, drawIn rect: CGRect) {
-        drawGrid()
+        drawGrid(0, Int32(view.drawableWidth), Int32(view.drawableHeight))
     }
 }

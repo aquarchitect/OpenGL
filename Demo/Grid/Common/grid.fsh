@@ -12,8 +12,8 @@ varying vec3 vColor;
 
 void main() {
 #if __VERSION__ >= 140
-    fragColor = vec4(1.0);
+    fragColor = vec4(vColor, 1.0);
 #else
-    gl_FragColor = vec4(1.0);
+    gl_FragColor = vec4(vColor, 1.0);
 #endif
 }

@@ -11,10 +11,9 @@
 static Grid     *pGrid1x1;
 
 void setupGrid(char *basePath) {
-    std::tuple<int, int> gridDimension = std::make_tuple(1, 1);
-    pGrid1x1 = new Grid(basePath, gridDimension);
+    pGrid1x1 = new Grid(basePath, glm::vec2(80, 50));
 };
 
-void drawGrid(void) {
-    pGrid1x1->draw(0);
+void drawGrid(float deltaTime, int resolutionWidth, int resolutionHeight) {
+    pGrid1x1->draw(deltaTime, glm::vec2(resolutionWidth, resolutionHeight));
 };
