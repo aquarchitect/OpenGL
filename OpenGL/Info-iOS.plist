@@ -42,5 +42,7 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
+	<key>PrefersOpengGL</key>
+	<true/>
 </dict>
 </plist>
