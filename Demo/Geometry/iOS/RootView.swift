@@ -30,18 +30,11 @@ final class RootView: GLKView {
         }
         
         let pan = UIPanGestureRecognizer(target: self, action: #selector(pan(_:)))
-        let tap = UITapGestureRecognizer(target: self, action: #selector(tap(_:)))
-        tap.require(toFail: pan)
-        
-        [tap, pan].forEach(self.addGestureRecognizer(_:))
+        self.addGestureRecognizer(pan)
     }
 }
 
 extension RootView {
-    
-    @objc func tap(_ gesture: UITapGestureRecognizer) {
-
-    }
     
     @objc func pan(_ gesture: UIPanGestureRecognizer) {
         let location = gesture.location(in: nil)

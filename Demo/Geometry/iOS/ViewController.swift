@@ -45,11 +45,13 @@ final class ViewController: GLKViewController {
 extension ViewController {
     
     override func glkView(_ view: GLKView, drawIn rect: CGRect) {
-        guard let translation = (view as? RootView)?.translation else { return }
-        rotateCube(
-            GLfloat(translation.x/view.bounds.width),
-            GLfloat(translation.y/view.bounds.height),
-            0
-        )
+        let translation = (view as? RootView).flatMap {
+            $0.translation == (0, 0, 0) ? nil : (
+                Float($0.translation.x/view.bounds.width),
+                Float($0.translation.y/view.bounds.height),
+                Float(0)
+            )
+        } ?? (0, 0.01, 0)
+        rotateCube(translation.0, translation.1, translation.2)
     }
 }
