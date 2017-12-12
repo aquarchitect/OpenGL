@@ -14,7 +14,7 @@ enum AttributeLayout {
     ATTRIBUTE_POSITION = 0,
     ATTRIBUTE_COLOR,
     ATTRIBUTE_TEXCOORD,
-    ATTRIBUTE_COORD
+    ATTRIBUTE_NORMAL
 };
 
 Geometry::Geometry(std::string basePath, std::vector<Vertex> vertices, std::vector<GLubyte> indices) {
@@ -27,11 +27,15 @@ Geometry::Geometry(std::string basePath, std::vector<Vertex> vertices, std::vect
     glBindAttribLocation(programID, ATTRIBUTE_POSITION, "aPosition");
     glBindAttribLocation(programID, ATTRIBUTE_COLOR, "aColor");
     glBindAttribLocation(programID, ATTRIBUTE_TEXCOORD, "aTexCoord");
+    glBindAttribLocation(programID, ATTRIBUTE_NORMAL, "aNormal");
     
     Utility::linkShaders(vertextShaderID, fragmentShaderID, programID);
     
+    modelUniformLocation = glGetUniformLocation(programID, "uModel");
+    worldUniformLocation = glGetUniformLocation(programID, "uWorld");
+    viewUniformLocation = glGetUniformLocation(programID, "uView");
     projectionUniformLocation = glGetUniformLocation(programID, "uProjection");
-    transformationUniformLocation = glGetUniformLocation(programID, "uTransformation");
+
     textureUniformLocation = glGetUniformLocation(programID, "uTexture");
     
 #if GL_APPLE_vertex_array_object
@@ -57,6 +61,9 @@ Geometry::Geometry(std::string basePath, std::vector<Vertex> vertices, std::vect
     glEnableVertexAttribArray(ATTRIBUTE_TEXCOORD);
     glVertexAttribPointer(ATTRIBUTE_TEXCOORD, 2, GL_FLOAT, GL_FALSE, sizeof(Vertex), (const GLvoid *) offsetof(Vertex, texCoord));
     
+    glEnableVertexAttribArray(ATTRIBUTE_NORMAL);
+    glVertexAttribPointer(ATTRIBUTE_NORMAL, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), (const GLvoid *) offsetof(Vertex, normal));
+    
 #if GL_APPLE_vertex_array_object
     glBindVertexArrayAPPLE(0);
 #elif GL_OES_vertex_array_object
@@ -66,16 +73,18 @@ Geometry::Geometry(std::string basePath, std::vector<Vertex> vertices, std::vect
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
 };
 
-void Geometry::draw(glm::mat4 transformation, glm::mat4 projection) {
-    glClearColor(1., 0., 0., 1.);
+void Geometry::draw(glm::mat4 model, glm::mat4 world, glm::mat4 view, glm::mat4 projection) {
+    glClearColor(0., 0., 0., 1.);
     glClear(GL_COLOR_BUFFER_BIT);
     glEnable(GL_CULL_FACE);
     glEnable(GL_BLEND);
     glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
     glUseProgram(programID);
     
+    glUniformMatrix4fv(modelUniformLocation, 1, GL_FALSE, glm::value_ptr(model));
+    glUniformMatrix4fv(worldUniformLocation, 1, GL_FALSE, glm::value_ptr(world));
+    glUniformMatrix4fv(viewUniformLocation, 1, GL_FALSE, glm::value_ptr(view));
     glUniformMatrix4fv(projectionUniformLocation, 1, GL_FALSE, glm::value_ptr(projection));
-    glUniformMatrix4fv(transformationUniformLocation, 1, GL_FALSE, glm::value_ptr(transformation));
     
     glActiveTexture(GL_TEXTURE0);
     glBindTexture(GL_TEXTURE_2D, textureObject);

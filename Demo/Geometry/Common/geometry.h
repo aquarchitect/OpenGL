@@ -27,8 +27,8 @@ public:
     
     Geometry(std::string basePath, std::vector<Vertex> vertices, std::vector<GLubyte> indices);
     
-    void                    draw(glm::mat4 transformation, glm::mat4 projection);
     void                    loadTexture(GLsizei width, GLsizei height, GLvoid *pixels);
+    void                    draw(glm::mat4 model, glm::mat4 world, glm::mat4 view, glm::mat4 projection);
 private:
     std::vector<GLubyte>    indices;
     std::vector<Vertex>     vertices;
@@ -39,8 +39,11 @@ private:
     GLuint                  bufferObjects[2];
     GLuint                  textureObject;
     
+    GLuint                  modelUniformLocation;
+    GLuint                  worldUniformLocation;
+    GLuint                  viewUniformLocation;
     GLuint                  projectionUniformLocation;
-    GLuint                  transformationUniformLocation;
+    
     GLuint                  textureUniformLocation;
 };
 #endif /* __cplusplus */
