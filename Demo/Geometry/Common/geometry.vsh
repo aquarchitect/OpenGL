@@ -28,10 +28,11 @@ varying vec3 vNormal;
 #endif
 
 void main() {
-    gl_Position = uProjection * uView * uWorld * uModel * vec4(aPosition, 1.0);
+    mat4 transformation = uView * uWorld * uModel;
+    gl_Position = uProjection * transformation * vec4(aPosition, 1.0);
     
     // pass to fragment shader
     vColor = aColor;
     vTexCoord = aTexCoord;
-    vNormal = aNormal;
+    vNormal = (transformation * vec4(aNormal, 0.0)).xyz;
 }

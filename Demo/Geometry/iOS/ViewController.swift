@@ -51,7 +51,7 @@ extension ViewController {
                 Float($0.translation.y/view.bounds.height),
                 Float(0)
             )
-        } ?? (0, 0, 0)
+        } ?? (0, 0.005, 0)
         rotateCube(translation.0, translation.1, translation.2)
     }
 }
