@@ -6,6 +6,9 @@
 //  Copyright © 2017 Hai Nguyen. All rights reserved.
 //
 
+//#ifndef GLM_ENABLE_EXPERIMENTAL
+//#define GLM_ENABLE_EXPERIMENTAL
+
 #ifndef geometry_h
 #define geometry_h
 
@@ -53,10 +56,13 @@ private:
 extern "C" {
 #endif /* __cplusplus */
     extern void setupCube(float screenRatio, char *basePath);
-    extern void rotateCube(float xAngle, float yAngle, float zAngle);
+    
+    extern void moveCamera(float pitch, float yaw, float roll);
     
     extern void loadCubeTexture(int width, int height, void *pixels);
 #ifdef __cplusplus
 }
 #endif /* __cplusplus */
 #endif /* geometry_h */
+//#endif /* GLM_ENABLE_EXPERIMENTAL */
+

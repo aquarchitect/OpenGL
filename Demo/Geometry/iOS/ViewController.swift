@@ -7,19 +7,26 @@
 //
 
 import GLKit
+import CoreMotion
 
 final class ViewController: GLKViewController {
     
-    // MARK: View Lifecycle
+    // MARK: Properties
     
-    override func loadView() {
-        view = RootView()
-    }
+    fileprivate let motionManager = CMMotionManager()
+    fileprivate let motionQueue = OperationQueue()
+    
+    fileprivate var attitude: CMAttitude?
+    
+    // MARK: View Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
     
-        EAGLContext.setCurrent((view as? GLKView)?.context)
+        if let context = EAGLContext(api: .openGLES2) {
+            (view as? GLKView)?.context = context
+            EAGLContext.setCurrent(context)
+        }
         
         let basePath = (Bundle.main.resourcePath.map({ "\($0)/" }) ?? "").cString(using: .utf8)
         setupCube(
@@ -39,19 +46,23 @@ final class ViewController: GLKViewController {
         {
             loadCubeTexture(Int32(image.width), Int32(image.height), bytes)
         }
+        
+        motionManager.gyroUpdateInterval = 1
+        motionManager.startDeviceMotionUpdates(to: motionQueue) { [weak self] (motion, _) in
+            self?.attitude = motion?.attitude
+        }
     }
 }
 
 extension ViewController {
     
     override func glkView(_ view: GLKView, drawIn rect: CGRect) {
-        let translation = (view as? RootView).flatMap {
-            $0.translation == (0, 0, 0) ? nil : (
-                Float($0.translation.x/view.bounds.width),
-                Float($0.translation.y/view.bounds.height),
-                Float(0)
-            )
-        } ?? (0, 0.005, 0)
-        rotateCube(translation.0, translation.1, translation.2)
+        guard let attitude = self.attitude else { return }
+        
+        moveCamera(
+            Float(attitude.roll),
+            Float(attitude.pitch),
+            Float(attitude.yaw)
+        )
     }
 }

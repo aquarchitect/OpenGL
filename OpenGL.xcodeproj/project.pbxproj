@@ -17,7 +17,6 @@
 		C20DA96D1FD5CAA200B1D45D /* grid.fsh in Resources */ = {isa = PBXBuildFile; fileRef = C20DA96C1FD5CAA200B1D45D /* grid.fsh */; };
 		C21B333F1FD8CDB900B0F57D /* grid+.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C20DA9611FD5C37F00B1D45D /* grid+.cpp */; };
 		C225BE101FBD11650097F75E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C225BE0F1FBD11650097F75E /* ViewController.swift */; };
-		C225BE131FBD18FD0097F75E /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C225BE121FBD18FD0097F75E /* RootView.swift */; };
 		C239A5CD1FD49F44003BD3BB /* geometry.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C239A5C51FD49F43003BD3BB /* geometry.cpp */; };
 		C239A5CF1FD49F44003BD3BB /* geometry.fsh in Resources */ = {isa = PBXBuildFile; fileRef = C239A5C81FD49F43003BD3BB /* geometry.fsh */; };
 		C239A5D01FD49F44003BD3BB /* utility.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C239A5CA1FD49F43003BD3BB /* utility.cpp */; };
@@ -49,7 +48,6 @@
 		C20DA96A1FD5CA9800B1D45D /* grid.vsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = grid.vsh; sourceTree = "<group>"; };
 		C20DA96C1FD5CAA200B1D45D /* grid.fsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = grid.fsh; sourceTree = "<group>"; };
 		C225BE0F1FBD11650097F75E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		C225BE121FBD18FD0097F75E /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 		C239A5C51FD49F43003BD3BB /* geometry.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = geometry.cpp; sourceTree = "<group>"; };
 		C239A5C61FD49F43003BD3BB /* utility.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = utility.hpp; sourceTree = "<group>"; };
 		C239A5C71FD49F43003BD3BB /* geometry+.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = "geometry+.cpp"; sourceTree = "<group>"; };
@@ -222,7 +220,6 @@
 			isa = PBXGroup;
 			children = (
 				C225BE0F1FBD11650097F75E /* ViewController.swift */,
-				C225BE121FBD18FD0097F75E /* RootView.swift */,
 			);
 			path = iOS;
 			sourceTree = "<group>";
@@ -438,7 +435,6 @@
 				C225BE101FBD11650097F75E /* ViewController.swift in Sources */,
 				C239A5CD1FD49F44003BD3BB /* geometry.cpp in Sources */,
 				C2A2DA661FD9011B00DEAC28 /* geometry+.cpp in Sources */,
-				C225BE131FBD18FD0097F75E /* RootView.swift in Sources */,
 				C2F2836E1FBA7339007A0BEA /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
