@@ -25,8 +25,11 @@
 #endif
 
 #include <string>
+#include <vector>
+#include <glm/glm.hpp>
 
 using namespace std;
+using namespace glm;
 
 namespace Utility {
     GLuint  loadShader(const GLenum type, const string filePath);
