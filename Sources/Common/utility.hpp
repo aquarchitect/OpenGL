@@ -25,8 +25,11 @@
 #endif
 
 #include <string>
+
+using namespace std;
+
 namespace Utility {
-    GLuint  loadShader(const GLenum type, const std::string filePath);
-    void    linkShaders(const GLuint vertexShaderID, const GLuint fragmentShaderID, const GLuint programID);
+    GLuint  loadShader(const GLenum type, const string filePath);
+    void    linkShaders(const string basePath, const GLuint programID);
 }
 #endif /* utility_hpp */

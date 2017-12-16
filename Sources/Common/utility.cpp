@@ -10,13 +10,13 @@
 #include <vector>
 #include <fstream>
 
-GLuint Utility::loadShader(const GLenum type, const std::string filePath) {
+GLuint Utility::loadShader(const GLenum type, const string filePath) {
     // read shader code from file path
-    std::string shaderCodes;
-    std::ifstream fileStream(filePath, std::ios::in);
+    string shaderCodes;
+    ifstream fileStream(filePath, ios::in);
     
     if (fileStream.is_open()) {
-        std::string line = "";
+        string line = "";
         while (getline(fileStream, line)) shaderCodes += line + "\n";
         fileStream.close();
     }
@@ -34,7 +34,7 @@ GLuint Utility::loadShader(const GLenum type, const std::string filePath) {
         int length;
     
         glGetShaderiv(shaderID, GL_INFO_LOG_LENGTH, &length);
-        std::vector<char> log(length + 1);
+        vector<char> log(length + 1);
         glGetShaderInfoLog(shaderID, length, NULL, &log[0]);
         
         printf("ERROR: Unable to load shader %s.\n", filePath.c_str());
@@ -45,7 +45,10 @@ GLuint Utility::loadShader(const GLenum type, const std::string filePath) {
     return shaderID;
 }
 
-void Utility::linkShaders(const GLuint vertexShaderID, const GLuint fragmentShaderID, const GLuint programID) {
+void Utility::linkShaders(const string basePath, const GLuint programID) {
+    GLuint vertexShaderID = loadShader(GL_VERTEX_SHADER, basePath + ".vsh");
+    GLuint fragmentShaderID = loadShader(GL_FRAGMENT_SHADER, basePath + ".fsh");
+    
     glAttachShader(programID, vertexShaderID);
     glAttachShader(programID, fragmentShaderID);
     glLinkProgram(programID);
@@ -56,7 +59,7 @@ void Utility::linkShaders(const GLuint vertexShaderID, const GLuint fragmentShad
         int length;
         
         glGetProgramiv(programID, GL_INFO_LOG_LENGTH, &length);
-        std::vector<char> log(length + 1);
+        vector<char> log(length + 1);
         glGetProgramInfoLog(programID, length, NULL, &log[0]);
         
         printf("ERROR: Unable to link program %i.\n", programID);
@@ -69,4 +72,3 @@ void Utility::linkShaders(const GLuint vertexShaderID, const GLuint fragmentShad
     glDeleteShader(vertexShaderID);
     glDeleteShader(fragmentShaderID);
 }
-
