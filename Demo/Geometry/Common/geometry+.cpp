@@ -7,20 +7,16 @@
 //
 
 #define GLM_ENABLE_EXPERIMENTAL
-#define GLM_SWIZZLE_XYZW
-#define GLM_SWIZZLE_STQP
 
 #include "geometry.h"
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtx/quaternion.hpp>
 
 static Geometry                 *pCube;
-
-static glm::mat4                projection;
-static float                    distance;
+static mat4                projection;
 
 void setupCube(float screenRatio, char *basePath) {
-    std::vector<Geometry::Vertex> vertices = {
+    vector<Geometry::Vertex> vertices = {
         // Front
         {{ 1, -1, 1}, {1, 0, 0, 1}, {1, 0}, {0, 0, 1}}, // 0
         {{ 1,  1, 1}, {0, 1, 0, 1}, {1, 1}, {0, 0, 1}}, // 1
@@ -58,7 +54,7 @@ void setupCube(float screenRatio, char *basePath) {
         {{-1, -1, -1}, {0, 0, 0, 1}, {0, 0}, {0, -1, 0}}, // 23
     };
     
-    std::vector<GLubyte> indices = {
+    vector<GLubyte> indices = {
         // Front
         0, 1, 2,
         2, 3, 0,
@@ -85,13 +81,12 @@ void setupCube(float screenRatio, char *basePath) {
     };
     
     pCube = new Geometry(basePath, vertices, indices);
-    distance = 5.0;
-    projection = glm::perspective(glm::radians(85.0f), screenRatio, 0.1f, 100.0f);
+    projection = perspective(radians(85.0f), screenRatio, 0.1f, 100.0f);
 };
 
-glm::quat toQuaternion(float pitch, float roll, float yaw)
+quat toQuaternion(float pitch, float roll, float yaw)
 {
-    glm::quat q;
+    quat q;
     // Abbreviations for the various angular functions
     float cy = cos(yaw * 0.5);
     float sy = sin(yaw * 0.5);
@@ -108,21 +103,21 @@ glm::quat toQuaternion(float pitch, float roll, float yaw)
 }
 
 void moveCamera(float pitch, float yaw, float roll) {
-//    glm::vec3 position;
+//    vec3 position;
 //    position.x = distance * sin(yaw) * cos(pitch);
 //    position.y = distance * sin(pitch);
 //    position.z = distance * cos(yaw) * cos(pitch);
     
-    glm::quat quat = toQuaternion(yaw, pitch, 0.0);
-    glm::vec3 position = glm::rotate(quat, glm::vec3(0.0,0.0,5.0));
+    quat quat = toQuaternion(yaw, pitch, 0.0);
+    vec3 position = rotate(quat, vec3(0.0,0.0,5.0));
     
-    glm::vec3 up(0.0f, 1.0f, 0.0f);
+    vec3 up(0.0f, 1.0f, 0.0f);
     
-    glm::mat4 model(1.0f);
-    model = glm::translate(model, glm::vec3(0.0,1.0,0.0));
+    mat4 model(1.0f);
+    model = translate(model, vec3(0.0,1.0,0.0));
     
-    glm::mat4 world(1.0f);
-    glm::mat4 view = glm::lookAt(position, glm::vec3(0.0), up);
+    mat4 world(1.0f);
+    mat4 view = lookAt(position, vec3(0.0), up);
     
     pCube->draw(model, world, view, projection);
 };

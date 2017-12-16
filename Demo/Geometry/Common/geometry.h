@@ -15,9 +15,6 @@
 // geometry.cpp
 #ifdef __cplusplus
 #include "utility.hpp"
-#include <string>
-#include <vector>
-#include <glm/glm.hpp>
 
 class Geometry {
 public:
@@ -28,26 +25,25 @@ public:
         GLfloat normal[3];
     };
     
-    Geometry(std::string basePath, std::vector<Vertex> vertices, std::vector<GLubyte> indices);
+    Geometry(string basePath, vector<Vertex> vertices, vector<GLubyte> indices);
     
-    void                    loadTexture(GLsizei width, GLsizei height, GLvoid *pixels);
-    void                    draw(glm::mat4 model, glm::mat4 world, glm::mat4 view, glm::mat4 projection);
+    void               loadTexture(GLsizei width, GLsizei height, GLvoid *pixels);
+    void               draw(mat4 model, mat4 world, mat4 view, mat4 projection);
 private:
-    std::vector<GLubyte>    indices;
-    std::vector<Vertex>     vertices;
+    vector<GLubyte>    indices;
+    vector<Vertex>     vertices;
     
-    const GLuint            programID = glCreateProgram();
+    const GLuint       programID = glCreateProgram();
     
-    GLuint                  vertexArrayObject;
-    GLuint                  bufferObjects[2];
-    GLuint                  textureObject;
+    GLuint             VAO;
+    GLuint             buffers[2];
+    GLuint             texture;
     
-    GLuint                  modelUniformLocation;
-    GLuint                  worldUniformLocation;
-    GLuint                  viewUniformLocation;
-    GLuint                  projectionUniformLocation;
-    
-    GLuint                  textureUniformLocation;
+    GLuint             modelUniformLocation;
+    GLuint             worldUniformLocation;
+    GLuint             viewUniformLocation;
+    GLuint             projectionUniformLocation;
+    GLuint             textureUniformLocation;
 };
 #endif /* __cplusplus */
 

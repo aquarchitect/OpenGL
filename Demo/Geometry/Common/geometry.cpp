@@ -10,26 +10,13 @@
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
 
-enum AttributeLayout {
-    ATTRIBUTE_POSITION = 0,
-    ATTRIBUTE_COLOR,
-    ATTRIBUTE_TEXCOORD,
-    ATTRIBUTE_NORMAL
-};
+using namespace Utility;
 
-Geometry::Geometry(std::string basePath, std::vector<Vertex> vertices, std::vector<GLubyte> indices) {
+Geometry::Geometry(string basePath, vector<Vertex> vertices, vector<GLubyte> indices) {
     this->vertices = vertices;
     this->indices = indices;
     
-    GLuint vertextShaderID = Utility::loadShader(GL_VERTEX_SHADER, basePath + "geometry.vsh");
-    GLuint fragmentShaderID = Utility::loadShader(GL_FRAGMENT_SHADER, basePath + "geometry.fsh");
-    
-    glBindAttribLocation(programID, ATTRIBUTE_POSITION, "aPosition");
-    glBindAttribLocation(programID, ATTRIBUTE_COLOR, "aColor");
-    glBindAttribLocation(programID, ATTRIBUTE_TEXCOORD, "aTexCoord");
-    glBindAttribLocation(programID, ATTRIBUTE_NORMAL, "aNormal");
-    
-    Utility::linkShaders(vertextShaderID, fragmentShaderID, programID);
+    linkShaders(basePath + "geometry", programID);
     
     modelUniformLocation = glGetUniformLocation(programID, "uModel");
     worldUniformLocation = glGetUniformLocation(programID, "uWorld");
@@ -39,30 +26,34 @@ Geometry::Geometry(std::string basePath, std::vector<Vertex> vertices, std::vect
     textureUniformLocation = glGetUniformLocation(programID, "uTexture");
     
 #if GL_APPLE_vertex_array_object
-    glGenVertexArraysAPPLE(1, &vertexArrayObject);
-    glBindVertexArrayAPPLE(vertexArrayObject);
+    glGenVertexArraysAPPLE(1, &VAO);
+    glBindVertexArrayAPPLE(VAO);
 #elif GL_OES_vertex_array_object
-    glGenVertexArraysOES(1, &vertexArrayObject);
-    glBindVertexArrayOES(vertexArrayObject);
+    glGenVertexArraysOES(1, &VAO);
+    glBindVertexArrayOES(VAO);
 #endif
     
-    glGenBuffers((GLsizei)sizeof(bufferObjects)/sizeof(GLuint), bufferObjects);
-    glBindBuffer(GL_ARRAY_BUFFER, bufferObjects[0]);
+    glGenBuffers(GLsizei(sizeof(buffers)/sizeof(GLuint)), buffers);
+    glBindBuffer(GL_ARRAY_BUFFER, buffers[0]);
     glBufferData(GL_ARRAY_BUFFER, vertices.size() * sizeof(Vertex), &vertices.front(), GL_STATIC_DRAW);
-    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, bufferObjects[1]);
+    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, buffers[1]);
     glBufferData(GL_ELEMENT_ARRAY_BUFFER, indices.size() * sizeof(GLubyte), &indices.front(), GL_STATIC_DRAW);
     
-    glEnableVertexAttribArray(ATTRIBUTE_POSITION);
-    glVertexAttribPointer(ATTRIBUTE_POSITION, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), (const GLvoid *) offsetof(Vertex, position));
+    GLuint positionAttributeLocation = glGetAttribLocation(programID, "aPosition");
+    glEnableVertexAttribArray(positionAttributeLocation);
+    glVertexAttribPointer(positionAttributeLocation, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), (const GLvoid *) offsetof(Vertex, position));
     
-    glEnableVertexAttribArray(ATTRIBUTE_COLOR);
-    glVertexAttribPointer(ATTRIBUTE_COLOR, 4, GL_FLOAT, GL_FALSE, sizeof(Vertex), (const GLvoid *) offsetof(Vertex, color));
+    GLuint colorAttributeLocation = glGetAttribLocation(programID, "aColor");
+    glEnableVertexAttribArray(colorAttributeLocation);
+    glVertexAttribPointer(colorAttributeLocation, 4, GL_FLOAT, GL_FALSE, sizeof(Vertex), (const GLvoid *) offsetof(Vertex, color));
     
-    glEnableVertexAttribArray(ATTRIBUTE_TEXCOORD);
-    glVertexAttribPointer(ATTRIBUTE_TEXCOORD, 2, GL_FLOAT, GL_FALSE, sizeof(Vertex), (const GLvoid *) offsetof(Vertex, texCoord));
+    GLuint texCoordAttributeLocation = glGetAttribLocation(programID, "aTexCoord");
+    glEnableVertexAttribArray(texCoordAttributeLocation);
+    glVertexAttribPointer(texCoordAttributeLocation, 2, GL_FLOAT, GL_FALSE, sizeof(Vertex), (const GLvoid *) offsetof(Vertex, texCoord));
     
-    glEnableVertexAttribArray(ATTRIBUTE_NORMAL);
-    glVertexAttribPointer(ATTRIBUTE_NORMAL, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), (const GLvoid *) offsetof(Vertex, normal));
+    GLuint normalAttributeLocation = glGetAttribLocation(programID, "aNormal");
+    glEnableVertexAttribArray(normalAttributeLocation);
+    glVertexAttribPointer(normalAttributeLocation, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), (const GLvoid *) offsetof(Vertex, normal));
     
 #if GL_APPLE_vertex_array_object
     glBindVertexArrayAPPLE(0);
@@ -73,7 +64,7 @@ Geometry::Geometry(std::string basePath, std::vector<Vertex> vertices, std::vect
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
 };
 
-void Geometry::draw(glm::mat4 model, glm::mat4 world, glm::mat4 view, glm::mat4 projection) {
+void Geometry::draw(mat4 model, mat4 world, mat4 view, mat4 projection) {
     glClearColor(0., 0., 0., 1.);
     glClear(GL_COLOR_BUFFER_BIT);
     glEnable(GL_CULL_FACE);
@@ -81,19 +72,19 @@ void Geometry::draw(glm::mat4 model, glm::mat4 world, glm::mat4 view, glm::mat4 
     glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
     glUseProgram(programID);
     
-    glUniformMatrix4fv(modelUniformLocation, 1, GL_FALSE, glm::value_ptr(model));
-    glUniformMatrix4fv(worldUniformLocation, 1, GL_FALSE, glm::value_ptr(world));
-    glUniformMatrix4fv(viewUniformLocation, 1, GL_FALSE, glm::value_ptr(view));
-    glUniformMatrix4fv(projectionUniformLocation, 1, GL_FALSE, glm::value_ptr(projection));
+    glUniformMatrix4fv(modelUniformLocation, 1, GL_FALSE, value_ptr(model));
+    glUniformMatrix4fv(worldUniformLocation, 1, GL_FALSE, value_ptr(world));
+    glUniformMatrix4fv(viewUniformLocation, 1, GL_FALSE, value_ptr(view));
+    glUniformMatrix4fv(projectionUniformLocation, 1, GL_FALSE, value_ptr(projection));
     
     glActiveTexture(GL_TEXTURE0);
-    glBindTexture(GL_TEXTURE_2D, textureObject);
+    glBindTexture(GL_TEXTURE_2D, texture);
     glUniform1i(textureUniformLocation, 0); // 0 is corresponded with the texture slot
     
 #if GL_APPLE_vertex_array_object
-    glBindVertexArrayAPPLE(vertexArrayObject);
+    glBindVertexArrayAPPLE(VAO);
 #elif GL_OES_vertex_array_object
-    glBindVertexArrayOES(vertexArrayObject);
+    glBindVertexArrayOES(VAO);
 #endif
     
     // TODO: why the last value is 0 instead of the indices pointer.
@@ -109,9 +100,9 @@ void Geometry::draw(glm::mat4 model, glm::mat4 world, glm::mat4 view, glm::mat4 
 };
 
 void Geometry::loadTexture(GLsizei width, GLsizei height, GLvoid *pixels) {
-    glGenTextures(1, &textureObject);
+    glGenTextures(1, &texture);
     glActiveTexture(GL_TEXTURE0);
-    glBindTexture(GL_TEXTURE_2D, textureObject);
+    glBindTexture(GL_TEXTURE_2D, texture);
     glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, width, height, 0, GL_RGBA, GL_UNSIGNED_BYTE, pixels);
     glGenerateMipmap(GL_TEXTURE_2D);
     glBindTexture(GL_TEXTURE_2D, 0);
