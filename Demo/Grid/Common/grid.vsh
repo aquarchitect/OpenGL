@@ -3,7 +3,7 @@ precision highp float;
 #endif
 
 uniform vec2 uResolution;
-uniform vec2 uGridSize;
+uniform vec2 uGrid;
 uniform float uTime;
 
 #if __VERSION__ >= 140
@@ -18,12 +18,12 @@ varying vec3 vColor;
 
 void main() {
     // index
-    float xi = mod(aIndex, uGridSize.x);
-    float yi = floor(aIndex / uGridSize.x);
+    float xi = mod(aIndex, uGrid.x);
+    float yi = floor(aIndex / uGrid.x);
     
     // distance
-    float xd = 1.0 / (uGridSize.x - 1.0);
-    float yd = 1.0 / (uGridSize.y - 1.0);
+    float xd = 1.0 / (uGrid.x - 1.0);
+    float yd = 1.0 / (uGrid.y - 1.0);
     
     // offset
     float xo = sin(uTime + 3.0 * yi * yd) * 0.1;

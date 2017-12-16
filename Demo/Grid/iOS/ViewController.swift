@@ -35,10 +35,8 @@ extension ViewController {
     
     override func glkView(_ view: GLKView, drawIn rect: CGRect) {
         let deltaTime = Date().timeIntervalSince(anchorTime)
-        drawGrid(
-            Float(deltaTime),
-            Int32(view.drawableWidth),
-            Int32(view.drawableHeight)
-        )
+        let resolution = UnsafeMutablePointer(mutating: [Int32(view.drawableWidth), Int32(view.drawableHeight)])
+        
+        drawGrid(Float(deltaTime), resolution)
     }
 }

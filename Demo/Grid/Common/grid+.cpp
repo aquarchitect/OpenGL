@@ -11,9 +11,9 @@
 static Grid     *pGrid1x1;
 
 void setupGrid(char *basePath) {
-    pGrid1x1 = new Grid(basePath, glm::vec2(40, 30));
+    pGrid1x1 = new Grid(basePath, vec2(40, 30));
 };
 
-void drawGrid(float deltaTime, int resolutionWidth, int resolutionHeight) {
-    pGrid1x1->draw(deltaTime, glm::vec2(resolutionWidth, resolutionHeight));
+void drawGrid(float deltaTime, int resolution[2]) {
+    pGrid1x1->draw(deltaTime, vec2(resolution[0], resolution[1]));
 };

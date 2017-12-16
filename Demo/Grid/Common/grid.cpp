@@ -10,48 +10,41 @@
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
 
-enum AttributeLayout {
-    ATTRIBUTE_POINT = 0,
-    ATTRIBUTE_INDEX
-};
+using namespace Utility;
 
-Grid::Grid(std::string basePath, glm::vec2 gridSize) {
-    this->vertices = std::vector<Vertex>(gridSize[0] * gridSize[1], {{0.0, 0.0}, 0.0});
-    this->gridSize = gridSize;
+Grid::Grid(string basePath, vec2 grid) {
+    this->vertices = vector<Vertex>(grid[0] * grid[1], {{0.0, 0.0}, 0.0});
+    this->grid = grid;
     
     for (int i = 0; i < vertices.size(); ++i) {
         vertices[i].index = i;
     }
     
-    GLuint vertexShaderID = Utility::loadShader(GL_VERTEX_SHADER, basePath + "grid.vsh");
-    GLuint fragmentShaderID = Utility::loadShader(GL_FRAGMENT_SHADER, basePath + "grid.fsh");
-    
-    glBindAttribLocation(programID, ATTRIBUTE_POINT, "aPoint");
-    glBindAttribLocation(programID, ATTRIBUTE_INDEX, "aIndex");
-    
-    Utility::linkShaders(vertexShaderID, fragmentShaderID, programID);
+    linkShaders(basePath + "grid", programID);
     
     timeUniformLocation = glGetUniformLocation(programID, "uTime");
     resolutionUniformLocation = glGetUniformLocation(programID, "uResolution");
-    gridSizeUniformLocation = glGetUniformLocation(programID, "uGridSize");
+    gridUniformLocation = glGetUniformLocation(programID, "uGrid");
     
 #if GL_APPLE_vertex_array_object
-    glGenVertexArraysAPPLE(1, &vertexArrayObject);
-    glBindVertexArrayAPPLE(vertexArrayObject);
+    glGenVertexArraysAPPLE(1, &VAO);
+    glBindVertexArrayAPPLE(VAO);
 #elif GL_OES_vertex_array_object
-    glGenVertexArraysOES(1, &vertexArrayObject);
-    glBindVertexArrayOES(vertexArrayObject);
+    glGenVertexArraysOES(1, &VAO);
+    glBindVertexArrayOES(VAO);
 #endif
     
-    glGenBuffers(1, &bufferObject);
-    glBindBuffer(GL_ARRAY_BUFFER, bufferObject);
+    glGenBuffers(1, &buffer);
+    glBindBuffer(GL_ARRAY_BUFFER, buffer);
     glBufferData(GL_ARRAY_BUFFER, vertices.size() * sizeof(Vertex), &vertices.front(), GL_STATIC_DRAW);
     
-    glEnableVertexAttribArray(ATTRIBUTE_POINT);
-    glVertexAttribPointer(ATTRIBUTE_POINT, 2, GL_FLOAT, GL_FALSE, sizeof(Vertex), (const GLvoid *) offsetof(Vertex, point));
+    GLuint positionAttributeLocation = glGetAttribLocation(programID, "aPosition");
+    glEnableVertexAttribArray(positionAttributeLocation);
+    glVertexAttribPointer(positionAttributeLocation, 2, GL_FLOAT, GL_FALSE, sizeof(Vertex), (const GLvoid *) offsetof(Vertex, point));
     
-    glEnableVertexAttribArray(ATTRIBUTE_INDEX);
-    glVertexAttribPointer(ATTRIBUTE_INDEX, 1, GL_FLOAT, GL_FALSE, sizeof(Vertex), (const GLvoid *) offsetof(Vertex, index));
+    GLuint indexAttributeLocation = glGetAttribLocation(programID, "aIndex");
+    glEnableVertexAttribArray(indexAttributeLocation);
+    glVertexAttribPointer(indexAttributeLocation, 1, GL_FLOAT, GL_FALSE, sizeof(Vertex), (const GLvoid *) offsetof(Vertex, index));
     
 #if GL_APPLE_vertex_array_object
     glBindVertexArrayAPPLE(0);
@@ -62,22 +55,22 @@ Grid::Grid(std::string basePath, glm::vec2 gridSize) {
     glBindBuffer(GL_ARRAY_BUFFER, 0);
 };
 
-void Grid::draw(GLfloat deltaTime, glm::vec2 resolution) {
+void Grid::draw(GLfloat deltaTime, vec2 resolution) {
     glClearColor(0.0, 0.0, 0.0, 1.0);
     glClear(GL_COLOR_BUFFER_BIT);
     glUseProgram(programID);
     
     glUniform1f(timeUniformLocation, deltaTime);
-    glUniform2fv(resolutionUniformLocation, 1, glm::value_ptr(resolution));
-    glUniform2fv(gridSizeUniformLocation, 1, glm::value_ptr(gridSize));
+    glUniform2fv(resolutionUniformLocation, 1, value_ptr(resolution));
+    glUniform2fv(gridUniformLocation, 1, value_ptr(grid));
     
 #if GL_APPLE_vertex_array_object
-    glBindVertexArrayAPPLE(vertexArrayObject);
+    glBindVertexArrayAPPLE(VAO);
 #elif GL_OES_vertex_array_object
-    glBindVertexArrayOES(vertexArrayObject);
+    glBindVertexArrayOES(VAO);
 #endif
 
-    glDrawArrays(GL_POINTS, 0, (GLsizei)vertices.size());
+    glDrawArrays(GL_POINTS, 0, GLsizei(vertices.size()));
 
 #if GL_APPLE_vertex_array_object
     glBindVertexArrayAPPLE(0);
