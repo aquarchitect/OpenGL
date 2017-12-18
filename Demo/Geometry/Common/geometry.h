@@ -34,10 +34,10 @@ private:
     vector<Vertex>     vertices;
     vec2               resolution;
     
-    const GLuint       programID = glCreateProgram();
+    GLuint             programID = glCreateProgram();
     
     GLuint             VAO;
-    GLuint             buffers[2];
+    GLuint             VBOs[2];
     GLuint             texture;
     
     GLuint             modelUniformLocation;

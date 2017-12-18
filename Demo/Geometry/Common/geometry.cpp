@@ -34,10 +34,10 @@ Geometry::Geometry(string basePath, vec2 resolution, vector<Vertex> vertices, ve
     glBindVertexArrayOES(VAO);
 #endif
     
-    glGenBuffers(GLsizei(sizeof(buffers)/sizeof(GLuint)), buffers);
-    glBindBuffer(GL_ARRAY_BUFFER, buffers[0]);
+    glGenBuffers(GLsizei(sizeof(VBOs)/sizeof(GLuint)), VBOs);
+    glBindBuffer(GL_ARRAY_BUFFER, VBOs[0]);
     glBufferData(GL_ARRAY_BUFFER, vertices.size() * sizeof(Vertex), &vertices.front(), GL_STATIC_DRAW);
-    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, buffers[1]);
+    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, VBOs[1]);
     glBufferData(GL_ELEMENT_ARRAY_BUFFER, indices.size() * sizeof(GLubyte), &indices.front(), GL_STATIC_DRAW);
     
     GLuint positionAttributeLocation = glGetAttribLocation(programID, "aPosition");
@@ -80,7 +80,6 @@ void Geometry::draw(mat4 model, mat4 world, mat4 view, mat4 projection) {
     glUniformMatrix4fv(viewUniformLocation, 1, GL_FALSE, value_ptr(view));
     glUniformMatrix4fv(projectionUniformLocation, 1, GL_FALSE, value_ptr(projection));
     
-    glActiveTexture(GL_TEXTURE0);
     glBindTexture(GL_TEXTURE_2D, texture);
     glUniform1i(textureUniformLocation, 0); // 0 is corresponded with the texture slot
     
