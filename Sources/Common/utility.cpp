@@ -10,7 +10,7 @@
 #include <vector>
 #include <fstream>
 
-GLuint Utility::loadShader(const GLenum type, const string filePath) {
+GLuint Utility::loadShader(GLenum type, string filePath) {
     // read shader code from file path
     string shaderCodes;
     ifstream fileStream(filePath, ios::in);
@@ -45,7 +45,7 @@ GLuint Utility::loadShader(const GLenum type, const string filePath) {
     return shaderID;
 }
 
-void Utility::linkShaders(const string basePath, const GLuint programID) {
+void Utility::linkShaders(string basePath, GLuint programID) {
     GLuint vertexShaderID = loadShader(GL_VERTEX_SHADER, basePath + ".vsh");
     GLuint fragmentShaderID = loadShader(GL_FRAGMENT_SHADER, basePath + ".fsh");
     

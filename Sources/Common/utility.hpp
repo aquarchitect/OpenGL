@@ -32,7 +32,7 @@ using namespace std;
 using namespace glm;
 
 namespace Utility {
-    GLuint  loadShader(const GLenum type, const string filePath);
-    void    linkShaders(const string basePath, const GLuint programID);
+    GLuint  loadShader(GLenum type, string filePath);
+    void    linkShaders(string basePath, GLuint programID);
 }
 #endif /* utility_hpp */
