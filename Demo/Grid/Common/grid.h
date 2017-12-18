@@ -18,8 +18,8 @@
 
 class Grid {
 public:
-    Grid(string basePath, vec2 grid);
-    void            draw(GLfloat deltaTime, vec2 resolution);
+    Grid(string basePath, vec2 grid, vec2 resolution);
+    void            draw(GLfloat deltaTime);
 private:
     struct Vertex {
         GLfloat point[2];
@@ -28,6 +28,7 @@ private:
     
     vector<Vertex>      vertices;
     vec2                grid;
+    vec2                resolution;
     
     const GLuint        programID = glCreateProgram();
     
@@ -44,8 +45,8 @@ private:
 #ifdef __cplusplus
 extern "C" {
 #endif /* __cplusplus */
-    extern void setupGrid(char *basePath);
-    extern void drawGrid(float deltaTime, int resolution[2]);
+    extern void setupGrid(char *basePath, int resolution[2]);
+    extern void drawGrid(float deltaTime);
 #ifdef __cplusplus
 }
 #endif /* __cplusplus */

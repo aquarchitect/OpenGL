@@ -26,8 +26,9 @@ final class ViewController: GLKViewController {
             EAGLContext.setCurrent(context)
         }
         
-        let basePath = (Bundle.main.resourcePath.map({ "\($0)/" }) ?? "").cString(using: .utf8)
-        setupGrid(UnsafeMutablePointer<Int8>(mutating: basePath))
+        var basePath = Bundle.main.resourcePath?.cString(using: .utf8) ?? []
+        var resolution = view.resolution
+        setupGrid(&basePath, &resolution)
     }
 }
 
@@ -35,8 +36,6 @@ extension ViewController {
     
     override func glkView(_ view: GLKView, drawIn rect: CGRect) {
         let deltaTime = Date().timeIntervalSince(anchorTime)
-        let resolution = UnsafeMutablePointer(mutating: [Int32(view.drawableWidth), Int32(view.drawableHeight)])
-        
-        drawGrid(Float(deltaTime), resolution)
+        drawGrid(Float(deltaTime))
     }
 }

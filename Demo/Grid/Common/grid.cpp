@@ -12,15 +12,16 @@
 
 using namespace Utility;
 
-Grid::Grid(string basePath, vec2 grid) {
+Grid::Grid(string basePath, vec2 grid, vec2 resolution) {
     this->vertices = vector<Vertex>(grid[0] * grid[1], {{0.0, 0.0}, 0.0});
     this->grid = grid;
+    this->resolution = resolution;
     
     for (int i = 0; i < vertices.size(); ++i) {
         vertices[i].index = i;
     }
     
-    linkShaders(basePath + "grid", programID);
+    linkShaders(basePath + "/grid", programID);
     
     timeUniformLocation = glGetUniformLocation(programID, "uTime");
     resolutionUniformLocation = glGetUniformLocation(programID, "uResolution");
@@ -55,7 +56,9 @@ Grid::Grid(string basePath, vec2 grid) {
     glBindBuffer(GL_ARRAY_BUFFER, 0);
 };
 
-void Grid::draw(GLfloat deltaTime, vec2 resolution) {
+void Grid::draw(GLfloat deltaTime) {
+    glViewport(0, 0, resolution[0], resolution[1]);
+    
     glClearColor(0.0, 0.0, 0.0, 1.0);
     glClear(GL_COLOR_BUFFER_BIT);
     glUseProgram(programID);
