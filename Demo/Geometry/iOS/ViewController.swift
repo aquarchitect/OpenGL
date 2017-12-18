@@ -29,9 +29,13 @@ final class ViewController: GLKViewController {
         }
         
         let basePath = (Bundle.main.resourcePath.map({ "\($0)/" }) ?? "").cString(using: .utf8)
+        let resolution: [Int32] = [
+            Int32(view.bounds.width * view.contentScaleFactor),
+            Int32(view.bounds.height * view.contentScaleFactor)
+        ]
         setupCube(
-            Float(view.bounds.width/view.bounds.height),
-            UnsafeMutablePointer<Int8>(mutating: basePath)
+            UnsafeMutablePointer<Int8>(mutating: basePath),
+            UnsafeMutablePointer<Int32>(mutating: resolution)
         )
         
         if let image = Bundle.main

@@ -25,13 +25,14 @@ public:
         GLfloat normal[3];
     };
     
-    Geometry(string basePath, vector<Vertex> vertices, vector<GLubyte> indices);
+    Geometry(string basePath, vec2 resolution, vector<Vertex> vertices, vector<GLubyte> indices);
     
     void               loadTexture(GLsizei width, GLsizei height, GLvoid *pixels);
     void               draw(mat4 model, mat4 world, mat4 view, mat4 projection);
 private:
     vector<GLubyte>    indices;
     vector<Vertex>     vertices;
+    vec2               resolution;
     
     const GLuint       programID = glCreateProgram();
     
@@ -51,7 +52,7 @@ private:
 #ifdef __cplusplus
 extern "C" {
 #endif /* __cplusplus */
-    extern void setupCube(float screenRatio, char *basePath);
+    extern void setupCube(char *basePath, int resolution[2]);
     
     extern void moveCamera(float pitch, float yaw, float roll);
     

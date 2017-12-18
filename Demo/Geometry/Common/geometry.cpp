@@ -12,9 +12,10 @@
 
 using namespace Utility;
 
-Geometry::Geometry(string basePath, vector<Vertex> vertices, vector<GLubyte> indices) {
+Geometry::Geometry(string basePath, vec2 resolution, vector<Vertex> vertices, vector<GLubyte> indices) {
     this->vertices = vertices;
     this->indices = indices;
+    this->resolution = resolution;
     
     linkShaders(basePath + "geometry", programID);
     
@@ -65,6 +66,8 @@ Geometry::Geometry(string basePath, vector<Vertex> vertices, vector<GLubyte> ind
 };
 
 void Geometry::draw(mat4 model, mat4 world, mat4 view, mat4 projection) {
+    glViewport(0, 0, resolution[0], resolution[1]);
+    
     glClearColor(0., 0., 0., 1.);
     glClear(GL_COLOR_BUFFER_BIT);
     glEnable(GL_CULL_FACE);

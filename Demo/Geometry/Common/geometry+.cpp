@@ -12,10 +12,10 @@
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtx/quaternion.hpp>
 
-static Geometry                 *pCube;
-static mat4                projection;
+static Geometry     *pCube;
+static GLfloat      ratio;
 
-void setupCube(float screenRatio, char *basePath) {
+void setupCube(char *basePath, int resolution[2]) {
     vector<Geometry::Vertex> vertices = {
         // Front
         {{ 1, -1, 1}, {1, 0, 0, 1}, {1, 0}, {0, 0, 1}}, // 0
@@ -80,8 +80,8 @@ void setupCube(float screenRatio, char *basePath) {
         22, 23, 20
     };
     
-    pCube = new Geometry(basePath, vertices, indices);
-    projection = perspective(radians(85.0f), screenRatio, 0.1f, 100.0f);
+    ratio = GLfloat(resolution[0]) / GLfloat(resolution[1]);
+    pCube = new Geometry(basePath, vec2(resolution[0], resolution[1]), vertices, indices);
 };
 
 quat toQuaternion(float pitch, float roll, float yaw)
@@ -118,6 +118,8 @@ void moveCamera(float pitch, float yaw, float roll) {
     
     mat4 world(1.0f);
     mat4 view = lookAt(position, vec3(0.0), up);
+    
+    mat4 projection = perspective(radians(85.0f), ratio, 0.1f, 100.0f);
     
     pCube->draw(model, world, view, projection);
 };
