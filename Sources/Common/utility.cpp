@@ -45,30 +45,30 @@ GLuint Utility::loadShader(GLenum type, string filePath) {
     return shaderID;
 }
 
-void Utility::linkShaders(string basePath, GLuint programID) {
+void Utility::linkShaders(string basePath, GLuint program) {
     GLuint vertexShaderID = loadShader(GL_VERTEX_SHADER, basePath + ".vsh");
     GLuint fragmentShaderID = loadShader(GL_FRAGMENT_SHADER, basePath + ".fsh");
     
-    glAttachShader(programID, vertexShaderID);
-    glAttachShader(programID, fragmentShaderID);
-    glLinkProgram(programID);
+    glAttachShader(program, vertexShaderID);
+    glAttachShader(program, fragmentShaderID);
+    glLinkProgram(program);
     
     GLint result;
-    glGetProgramiv(programID, GL_LINK_STATUS, &result);
+    glGetProgramiv(program, GL_LINK_STATUS, &result);
     if (result == GL_FALSE) {
         int length;
         
-        glGetProgramiv(programID, GL_INFO_LOG_LENGTH, &length);
+        glGetProgramiv(program, GL_INFO_LOG_LENGTH, &length);
         vector<char> log(length + 1);
-        glGetProgramInfoLog(programID, length, NULL, &log[0]);
+        glGetProgramInfoLog(program, length, NULL, &log[0]);
         
-        printf("ERROR: Unable to link program %i.\n", programID);
+        printf("ERROR: Unable to link program %i.\n", program);
         printf("%s\n", &log[0]);
         exit(EXIT_FAILURE);
     }
     
-    glDetachShader(programID, vertexShaderID);
-    glDetachShader(programID, fragmentShaderID);
+    glDetachShader(program, vertexShaderID);
+    glDetachShader(program, fragmentShaderID);
     glDeleteShader(vertexShaderID);
     glDeleteShader(fragmentShaderID);
 }

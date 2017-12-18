@@ -17,14 +17,14 @@ Geometry::Geometry(string basePath, vec2 resolution, vector<Vertex> vertices, ve
     this->indices = indices;
     this->resolution = resolution;
     
-    linkShaders(basePath + "/geometry", programID);
+    linkShaders(basePath + "/geometry", program);
     
-    modelUniformLocation = glGetUniformLocation(programID, "uModel");
-    worldUniformLocation = glGetUniformLocation(programID, "uWorld");
-    viewUniformLocation = glGetUniformLocation(programID, "uView");
-    projectionUniformLocation = glGetUniformLocation(programID, "uProjection");
+    modelUniformLocation = glGetUniformLocation(program, "uModel");
+    worldUniformLocation = glGetUniformLocation(program, "uWorld");
+    viewUniformLocation = glGetUniformLocation(program, "uView");
+    projectionUniformLocation = glGetUniformLocation(program, "uProjection");
 
-    textureUniformLocation = glGetUniformLocation(programID, "uTexture");
+    textureUniformLocation = glGetUniformLocation(program, "uTexture");
     
 #if GL_APPLE_vertex_array_object
     glGenVertexArraysAPPLE(1, &VAO);
@@ -40,19 +40,19 @@ Geometry::Geometry(string basePath, vec2 resolution, vector<Vertex> vertices, ve
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, VBOs[1]);
     glBufferData(GL_ELEMENT_ARRAY_BUFFER, indices.size() * sizeof(GLubyte), &indices.front(), GL_STATIC_DRAW);
     
-    GLuint positionAttributeLocation = glGetAttribLocation(programID, "aPosition");
+    GLuint positionAttributeLocation = glGetAttribLocation(program, "aPosition");
     glEnableVertexAttribArray(positionAttributeLocation);
     glVertexAttribPointer(positionAttributeLocation, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), (const GLvoid *) offsetof(Vertex, position));
     
-    GLuint colorAttributeLocation = glGetAttribLocation(programID, "aColor");
+    GLuint colorAttributeLocation = glGetAttribLocation(program, "aColor");
     glEnableVertexAttribArray(colorAttributeLocation);
     glVertexAttribPointer(colorAttributeLocation, 4, GL_FLOAT, GL_FALSE, sizeof(Vertex), (const GLvoid *) offsetof(Vertex, color));
     
-    GLuint texCoordAttributeLocation = glGetAttribLocation(programID, "aTexCoord");
+    GLuint texCoordAttributeLocation = glGetAttribLocation(program, "aTexCoord");
     glEnableVertexAttribArray(texCoordAttributeLocation);
     glVertexAttribPointer(texCoordAttributeLocation, 2, GL_FLOAT, GL_FALSE, sizeof(Vertex), (const GLvoid *) offsetof(Vertex, texCoord));
     
-    GLuint normalAttributeLocation = glGetAttribLocation(programID, "aNormal");
+    GLuint normalAttributeLocation = glGetAttribLocation(program, "aNormal");
     glEnableVertexAttribArray(normalAttributeLocation);
     glVertexAttribPointer(normalAttributeLocation, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), (const GLvoid *) offsetof(Vertex, normal));
     
@@ -73,7 +73,7 @@ void Geometry::draw(mat4 model, mat4 world, mat4 view, mat4 projection) {
     glEnable(GL_CULL_FACE);
     glEnable(GL_BLEND);
     glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-    glUseProgram(programID);
+    glUseProgram(program);
     
     glUniformMatrix4fv(modelUniformLocation, 1, GL_FALSE, value_ptr(model));
     glUniformMatrix4fv(worldUniformLocation, 1, GL_FALSE, value_ptr(world));

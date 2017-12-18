@@ -30,7 +30,7 @@ private:
     vec2                grid;
     vec2                resolution;
     
-    const GLuint        programID = glCreateProgram();
+    const GLuint        program = glCreateProgram();
     
     GLuint              VAO;
     GLuint              VBO;

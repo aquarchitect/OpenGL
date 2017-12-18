@@ -33,6 +33,6 @@ using namespace glm;
 
 namespace Utility {
     GLuint  loadShader(GLenum type, string filePath);
-    void    linkShaders(string basePath, GLuint programID);
+    void    linkShaders(string basePath, GLuint program);
 }
 #endif /* utility_hpp */

@@ -34,7 +34,7 @@ private:
     vector<Vertex>     vertices;
     vec2               resolution;
     
-    GLuint             programID = glCreateProgram();
+    GLuint             program = glCreateProgram();
     
     GLuint             VAO;
     GLuint             VBOs[2];

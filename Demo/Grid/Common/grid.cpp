@@ -21,11 +21,11 @@ Grid::Grid(string basePath, vec2 grid, vec2 resolution) {
         vertices[i].index = i;
     }
     
-    linkShaders(basePath + "/grid", programID);
+    linkShaders(basePath + "/grid", program);
     
-    timeUniformLocation = glGetUniformLocation(programID, "uTime");
-    resolutionUniformLocation = glGetUniformLocation(programID, "uResolution");
-    gridUniformLocation = glGetUniformLocation(programID, "uGrid");
+    timeUniformLocation = glGetUniformLocation(program, "uTime");
+    resolutionUniformLocation = glGetUniformLocation(program, "uResolution");
+    gridUniformLocation = glGetUniformLocation(program, "uGrid");
     
 #if GL_APPLE_vertex_array_object
     glGenVertexArraysAPPLE(1, &VAO);
@@ -39,11 +39,11 @@ Grid::Grid(string basePath, vec2 grid, vec2 resolution) {
     glBindBuffer(GL_ARRAY_BUFFER, VBO);
     glBufferData(GL_ARRAY_BUFFER, vertices.size() * sizeof(Vertex), &vertices.front(), GL_STATIC_DRAW);
     
-    GLuint positionAttributeLocation = glGetAttribLocation(programID, "aPosition");
+    GLuint positionAttributeLocation = glGetAttribLocation(program, "aPosition");
     glEnableVertexAttribArray(positionAttributeLocation);
     glVertexAttribPointer(positionAttributeLocation, 2, GL_FLOAT, GL_FALSE, sizeof(Vertex), (const GLvoid *) offsetof(Vertex, point));
     
-    GLuint indexAttributeLocation = glGetAttribLocation(programID, "aIndex");
+    GLuint indexAttributeLocation = glGetAttribLocation(program, "aIndex");
     glEnableVertexAttribArray(indexAttributeLocation);
     glVertexAttribPointer(indexAttributeLocation, 1, GL_FLOAT, GL_FALSE, sizeof(Vertex), (const GLvoid *) offsetof(Vertex, index));
     
@@ -61,7 +61,7 @@ void Grid::draw(GLfloat deltaTime) {
     
     glClearColor(0.0, 0.0, 0.0, 1.0);
     glClear(GL_COLOR_BUFFER_BIT);
-    glUseProgram(programID);
+    glUseProgram(program);
     
     glUniform1f(timeUniformLocation, deltaTime);
     glUniform2fv(resolutionUniformLocation, 1, value_ptr(resolution));
