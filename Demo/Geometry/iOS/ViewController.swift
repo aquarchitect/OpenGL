@@ -28,15 +28,9 @@ final class ViewController: GLKViewController {
             EAGLContext.setCurrent(context)
         }
         
-        let basePath = (Bundle.main.resourcePath.map({ "\($0)/" }) ?? "").cString(using: .utf8)
-        let resolution: [Int32] = [
-            Int32(view.bounds.width * view.contentScaleFactor),
-            Int32(view.bounds.height * view.contentScaleFactor)
-        ]
-        setupCube(
-            UnsafeMutablePointer<Int8>(mutating: basePath),
-            UnsafeMutablePointer<Int32>(mutating: resolution)
-        )
+        var basePath = Bundle.main.resourcePath?.cString(using: .utf8) ?? []
+        var resolution = view.resolution
+        setupCube(&basePath, &resolution)
         
         if let image = Bundle.main
                 .path(forResource: "Dungeon", ofType: "png")

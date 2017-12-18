@@ -17,7 +17,7 @@ Geometry::Geometry(string basePath, vec2 resolution, vector<Vertex> vertices, ve
     this->indices = indices;
     this->resolution = resolution;
     
-    linkShaders(basePath + "geometry", programID);
+    linkShaders(basePath + "/geometry", programID);
     
     modelUniformLocation = glGetUniformLocation(programID, "uModel");
     worldUniformLocation = glGetUniformLocation(programID, "uWorld");
