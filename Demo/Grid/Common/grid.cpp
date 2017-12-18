@@ -35,8 +35,8 @@ Grid::Grid(string basePath, vec2 grid, vec2 resolution) {
     glBindVertexArrayOES(VAO);
 #endif
     
-    glGenBuffers(1, &buffer);
-    glBindBuffer(GL_ARRAY_BUFFER, buffer);
+    glGenBuffers(1, &VBO);
+    glBindBuffer(GL_ARRAY_BUFFER, VBO);
     glBufferData(GL_ARRAY_BUFFER, vertices.size() * sizeof(Vertex), &vertices.front(), GL_STATIC_DRAW);
     
     GLuint positionAttributeLocation = glGetAttribLocation(programID, "aPosition");

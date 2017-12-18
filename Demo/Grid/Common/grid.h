@@ -33,7 +33,7 @@ private:
     const GLuint        programID = glCreateProgram();
     
     GLuint              VAO;
-    GLuint              buffer;
+    GLuint              VBO;
     
     GLuint              timeUniformLocation;
     GLuint              resolutionUniformLocation;
