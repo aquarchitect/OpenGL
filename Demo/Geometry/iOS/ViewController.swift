@@ -9,7 +9,7 @@
 import GLKit
 import CoreMotion
 
-final class ViewController: GLKViewController {
+final class ViewController: RootController {
     
     // MARK: Properties
     
@@ -22,15 +22,6 @@ final class ViewController: GLKViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    
-        if let context = EAGLContext(api: .openGLES2) {
-            (view as? GLKView)?.context = context
-            EAGLContext.setCurrent(context)
-        }
-        
-        var basePath = Bundle.main.resourcePath?.cString(using: .utf8) ?? []
-        var resolution = view.resolution
-        setupCube(&basePath, &resolution)
         
         if let image = Bundle.main
                 .path(forResource: "Dungeon", ofType: "png")
@@ -42,7 +33,7 @@ final class ViewController: GLKViewController {
                 .map({ $0 as NSData })
                 .map({ UnsafeMutableRawPointer(mutating: $0.bytes) })
         {
-            loadCubeTexture(Int32(image.width), Int32(image.height), bytes)
+            loadTexture(Int32(image.width), Int32(image.height), bytes)
         }
         
         motionManager.gyroUpdateInterval = 1
@@ -57,7 +48,7 @@ extension ViewController {
     override func glkView(_ view: GLKView, drawIn rect: CGRect) {
         guard let attitude = self.attitude else { return }
         
-        moveCamera(
+        rotateCamera(
             Float(attitude.roll),
             Float(attitude.pitch),
             Float(attitude.yaw)

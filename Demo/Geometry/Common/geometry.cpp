@@ -1,21 +1,29 @@
 //
 //  geometry.cpp
-//  OpenGL
+//  Geometry-iOS
 //
 //  Created by Hai Nguyen on 11/20/17.
 //  Copyright © 2017 Hai Nguyen. All rights reserved.
 //
 
-#include "geometry.h"
+#include "geometry.hpp"
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
 
 using namespace Utility;
 
-Geometry::Geometry(string basePath, vec2 resolution, vector<Vertex> vertices, vector<GLubyte> indices) {
+void Geometry::loadTexture(GLsizei width, GLsizei height, GLvoid *pixels) {
+    glGenTextures(1, &texture);
+    glActiveTexture(GL_TEXTURE0);
+    glBindTexture(GL_TEXTURE_2D, texture);
+    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, width, height, 0, GL_RGBA, GL_UNSIGNED_BYTE, pixels);
+    glGenerateMipmap(GL_TEXTURE_2D);
+    glBindTexture(GL_TEXTURE_2D, 0);
+};
+
+Geometry::Geometry(string basePath, vector<Vertex> vertices, vector<GLubyte> indices) {
     this->vertices = vertices;
     this->indices = indices;
-    this->resolution = resolution;
     
     linkShaders(basePath + "/geometry", program);
     
@@ -23,7 +31,6 @@ Geometry::Geometry(string basePath, vec2 resolution, vector<Vertex> vertices, ve
     worldUniformLocation = glGetUniformLocation(program, "uWorld");
     viewUniformLocation = glGetUniformLocation(program, "uView");
     projectionUniformLocation = glGetUniformLocation(program, "uProjection");
-
     textureUniformLocation = glGetUniformLocation(program, "uTexture");
     
 #if GL_APPLE_vertex_array_object
@@ -66,13 +73,6 @@ Geometry::Geometry(string basePath, vec2 resolution, vector<Vertex> vertices, ve
 };
 
 void Geometry::draw(mat4 model, mat4 world, mat4 view, mat4 projection) {
-    glViewport(0, 0, resolution[0], resolution[1]);
-    
-    glClearColor(0., 0., 0., 1.);
-    glClear(GL_COLOR_BUFFER_BIT);
-    glEnable(GL_CULL_FACE);
-    glEnable(GL_BLEND);
-    glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
     glUseProgram(program);
     
     glUniformMatrix4fv(modelUniformLocation, 1, GL_FALSE, value_ptr(model));
@@ -98,14 +98,5 @@ void Geometry::draw(mat4 model, mat4 world, mat4 view, mat4 projection) {
     glBindVertexArrayOES(0);
 #endif
     
-    glBindTexture(GL_TEXTURE_2D, 0);
-};
-
-void Geometry::loadTexture(GLsizei width, GLsizei height, GLvoid *pixels) {
-    glGenTextures(1, &texture);
-    glActiveTexture(GL_TEXTURE0);
-    glBindTexture(GL_TEXTURE_2D, texture);
-    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, width, height, 0, GL_RGBA, GL_UNSIGNED_BYTE, pixels);
-    glGenerateMipmap(GL_TEXTURE_2D);
     glBindTexture(GL_TEXTURE_2D, 0);
 };

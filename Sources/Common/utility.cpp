@@ -10,7 +10,7 @@
 #include <vector>
 #include <fstream>
 
-GLuint Utility::loadShader(GLenum type, string filePath) {
+static GLuint loadShader(GLenum type, string filePath) {
     // read shader code from file path
     string shaderCodes;
     ifstream fileStream(filePath, ios::in);
@@ -71,4 +71,21 @@ void Utility::linkShaders(string basePath, GLuint program) {
     glDetachShader(program, fragmentShaderID);
     glDeleteShader(vertexShaderID);
     glDeleteShader(fragmentShaderID);
+}
+
+quat Utility::euler2Quat(float pitch, float roll, float yaw) {
+    quat q;
+    // Abbreviations for the various angular functions
+    float cy = cos(yaw * 0.5);
+    float sy = sin(yaw * 0.5);
+    float cr = cos(roll * 0.5);
+    float sr = sin(roll * 0.5);
+    float cp = cos(pitch * 0.5);
+    float sp = sin(pitch * 0.5);
+    
+    q.w = cy * cr * cp + sy * sr * sp;
+    q.x = cy * sr * cp - sy * cr * sp;
+    q.y = cy * cr * sp + sy * sr * cp;
+    q.z = sy * cr * cp - cy * sr * sp;
+    return q;
 }

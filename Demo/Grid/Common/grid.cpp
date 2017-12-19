@@ -1,12 +1,12 @@
 //
 //  grid.cpp
-//  GridPoints-iOS
+//  Grid-iOS
 //
 //  Created by Hai Nguyen on 12/4/17.
 //  Copyright © 2017 Hai Nguyen. All rights reserved.
 //
 
-#include "grid.h"
+#include "grid.hpp"
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
 

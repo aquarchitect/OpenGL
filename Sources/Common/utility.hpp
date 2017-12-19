@@ -9,6 +9,8 @@
 #ifndef utility_hpp
 #define utility_hpp
 
+#define GLM_ENABLE_EXPERIMENTAL
+
 #if __APPLE__
     #include <TargetConditionals.h>
     #if TARGET_IPHONE_SIMULATOR || TARGET_OS_IPHONE
@@ -27,12 +29,13 @@
 #include <string>
 #include <vector>
 #include <glm/glm.hpp>
+#include <glm/gtx/quaternion.hpp>
 
 using namespace std;
 using namespace glm;
 
 namespace Utility {
-    GLuint  loadShader(GLenum type, string filePath);
     void    linkShaders(string basePath, GLuint program);
+    quat    euler2Quat(float pitch, float roll, float yaw);
 }
 #endif /* utility_hpp */

@@ -1,18 +1,14 @@
 //
-//  geometry.h
-//  OpenGL
+//  geometry.hpp
+//  Geometry-iOS
 //
 //  Created by Hai Nguyen on 11/20/17.
 //  Copyright © 2017 Hai Nguyen. All rights reserved.
 //
 
-//#ifndef GLM_ENABLE_EXPERIMENTAL
-//#define GLM_ENABLE_EXPERIMENTAL
+#ifndef geometry_hpp
+#define geometry_hpp
 
-#ifndef geometry_h
-#define geometry_h
-
-// geometry.cpp
 #ifdef __cplusplus
 #include "utility.hpp"
 
@@ -25,14 +21,13 @@ public:
         GLfloat normal[3];
     };
     
-    Geometry(string basePath, vec2 resolution, vector<Vertex> vertices, vector<GLubyte> indices);
+    Geometry(string basePath, vector<Vertex> vertices, vector<GLubyte> indices);
     
     void               loadTexture(GLsizei width, GLsizei height, GLvoid *pixels);
     void               draw(mat4 model, mat4 world, mat4 view, mat4 projection);
 private:
     vector<GLubyte>    indices;
     vector<Vertex>     vertices;
-    vec2               resolution;
     
     GLuint             program = glCreateProgram();
     
@@ -47,19 +42,4 @@ private:
     GLuint             textureUniformLocation;
 };
 #endif /* __cplusplus */
-
-// geometry+.cpp
-#ifdef __cplusplus
-extern "C" {
-#endif /* __cplusplus */
-    extern void setupCube(char *basePath, int resolution[2]);
-    
-    extern void moveCamera(float pitch, float yaw, float roll);
-    
-    extern void loadCubeTexture(int width, int height, void *pixels);
-#ifdef __cplusplus
-}
-#endif /* __cplusplus */
-#endif /* geometry_h */
-//#endif /* GLM_ENABLE_EXPERIMENTAL */
-
+#endif /* geometry_hpp */

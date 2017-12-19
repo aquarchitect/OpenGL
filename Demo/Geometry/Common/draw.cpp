@@ -1,21 +1,26 @@
 //
-//  geometry+.cpp
-//  OpenGL
+//  draw.cpp
+//  Geometry-iOS
 //
 //  Created by Hai Nguyen on 11/20/17.
 //  Copyright © 2017 Hai Nguyen. All rights reserved.
 //
 
-#define GLM_ENABLE_EXPERIMENTAL
-
-#include "geometry.h"
+#include "draw.h"
+#include "utility.hpp"
+#include "geometry.hpp"
 #include <glm/gtc/matrix_transform.hpp>
-#include <glm/gtx/quaternion.hpp>
+
+using namespace Utility;
 
 static Geometry     *pCube;
-static GLfloat      ratio;
+static vec2         resolution;
 
-void setupCube(char *basePath, int resolution[2]) {
+static void setResolution(int width, int height) {
+    resolution = {width, height};
+};
+
+void setup(char *basePath, int resolution[2]) {
     vector<Geometry::Vertex> vertices = {
         // Front
         {{ 1, -1, 1}, {1, 0, 0, 1}, {1, 0}, {0, 0, 1}}, // 0
@@ -80,35 +85,25 @@ void setupCube(char *basePath, int resolution[2]) {
         22, 23, 20
     };
     
-    ratio = GLfloat(resolution[0]) / GLfloat(resolution[1]);
-    pCube = new Geometry(basePath, vec2(resolution[0], resolution[1]), vertices, indices);
+    pCube = new Geometry(basePath, vertices, indices);
+    setResolution(resolution[0], resolution[1]);
 };
 
-quat toQuaternion(float pitch, float roll, float yaw)
-{
-    quat q;
-    // Abbreviations for the various angular functions
-    float cy = cos(yaw * 0.5);
-    float sy = sin(yaw * 0.5);
-    float cr = cos(roll * 0.5);
-    float sr = sin(roll * 0.5);
-    float cp = cos(pitch * 0.5);
-    float sp = sin(pitch * 0.5);
+void rotateCamera(float pitch, float yaw, float roll) {
+    glViewport(0, 0, resolution[0], resolution[1]);
     
-    q.w = cy * cr * cp + sy * sr * sp;
-    q.x = cy * sr * cp - sy * cr * sp;
-    q.y = cy * cr * sp + sy * sr * cp;
-    q.z = sy * cr * cp - cy * sr * sp;
-    return q;
-}
-
-void moveCamera(float pitch, float yaw, float roll) {
+    glClearColor(0., 0., 0., 1.);
+    glClear(GL_COLOR_BUFFER_BIT);
+    glEnable(GL_CULL_FACE);
+    glEnable(GL_BLEND);
+    glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+    
 //    vec3 position;
 //    position.x = distance * sin(yaw) * cos(pitch);
 //    position.y = distance * sin(pitch);
 //    position.z = distance * cos(yaw) * cos(pitch);
     
-    quat quat = toQuaternion(yaw, pitch, 0.0);
+    quat quat = euler2Quat(yaw, pitch, 0.0);
     vec3 position = rotate(quat, vec3(0.0,0.0,5.0));
     
     vec3 up(0.0f, 1.0f, 0.0f);
@@ -119,11 +114,12 @@ void moveCamera(float pitch, float yaw, float roll) {
     mat4 world(1.0f);
     mat4 view = lookAt(position, vec3(0.0), up);
     
+    GLfloat ratio = GLfloat(resolution[0]) / GLfloat(resolution[1]);
     mat4 projection = perspective(radians(85.0f), ratio, 0.1f, 100.0f);
     
     pCube->draw(model, world, view, projection);
 };
 
-void loadCubeTexture(int width, int height, void *pixels) {
+void loadTexture(int width, int height, void *pixels) {
     pCube->loadTexture(width, height, pixels);
 };
