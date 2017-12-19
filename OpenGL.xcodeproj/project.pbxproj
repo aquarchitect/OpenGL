@@ -26,6 +26,24 @@
 		C239A5D51FD49F5A003BD3BB /* geometry.vsh in Resources */ = {isa = PBXBuildFile; fileRef = C239A5CB1FD49F43003BD3BB /* geometry.vsh */; };
 		C239A5D61FD49F5A003BD3BB /* utility.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C239A5CA1FD49F43003BD3BB /* utility.cpp */; };
 		C25128701FD5D9D8008E2959 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C251286F1FD5D9D8008E2959 /* ViewController.swift */; };
+		C269A7B61FE8395900BD86EB /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = C269A7B51FE8395900BD86EB /* UIView+.swift */; };
+		C269A7B71FE8395900BD86EB /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = C269A7B51FE8395900BD86EB /* UIView+.swift */; };
+		C269A7B81FE8395900BD86EB /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = C269A7B51FE8395900BD86EB /* UIView+.swift */; };
+		C28C3C9D1FE31E6300C6CF99 /* utility.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C239A5CA1FD49F43003BD3BB /* utility.cpp */; };
+		C28C3C9E1FE31E6300C6CF99 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2F2836D1FBA7339007A0BEA /* AppDelegate.swift */; };
+		C28C3C9F1FE31E6300C6CF99 /* grid+.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C20DA9611FD5C37F00B1D45D /* grid+.cpp */; };
+		C28C3CA01FE31E6300C6CF99 /* grid.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C20DA9671FD5C65500B1D45D /* grid.cpp */; };
+		C28C3CA31FE31E6300C6CF99 /* grid.vsh in Resources */ = {isa = PBXBuildFile; fileRef = C20DA96A1FD5CA9800B1D45D /* grid.vsh */; };
+		C28C3CA41FE31E6300C6CF99 /* Assets-iOS.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C2F283741FBA7339007A0BEA /* Assets-iOS.xcassets */; };
+		C28C3CA51FE31E6300C6CF99 /* grid.fsh in Resources */ = {isa = PBXBuildFile; fileRef = C20DA96C1FD5CAA200B1D45D /* grid.fsh */; };
+		C28C3CA61FE31E6300C6CF99 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C20DA9481FD5BDE900B1D45D /* LaunchScreen.storyboard */; };
+		C28C3CAD1FE31EC700C6CF99 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28C3CAC1FE31EC700C6CF99 /* ViewController.swift */; };
+		C28C3CB01FE31F6100C6CF99 /* particles.vsh in Resources */ = {isa = PBXBuildFile; fileRef = C28C3CAF1FE31F6100C6CF99 /* particles.vsh */; };
+		C28C3CB21FE31F7D00C6CF99 /* particles.fsh in Resources */ = {isa = PBXBuildFile; fileRef = C28C3CB11FE31F7D00C6CF99 /* particles.fsh */; };
+		C28C3CB41FE3202E00C6CF99 /* particles.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C28C3CB31FE3202E00C6CF99 /* particles.cpp */; };
+		C28C3CB61FE320B400C6CF99 /* particles+.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C28C3CB51FE320B400C6CF99 /* particles+.cpp */; };
+		C28C3CB81FE425B900C6CF99 /* update.vsh in Resources */ = {isa = PBXBuildFile; fileRef = C28C3CB71FE425B900C6CF99 /* update.vsh */; };
+		C28C3CBA1FE425C400C6CF99 /* update.fsh in Resources */ = {isa = PBXBuildFile; fileRef = C28C3CB91FE425C400C6CF99 /* update.fsh */; };
 		C2A2DA661FD9011B00DEAC28 /* geometry+.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C239A5C71FD49F43003BD3BB /* geometry+.cpp */; };
 		C2A2DA671FD9011E00DEAC28 /* geometry+.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C239A5C71FD49F43003BD3BB /* geometry+.cpp */; };
 		C2DC35A21FBF8E3E00C49007 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2DC35A11FBF8E3E00C49007 /* AppDelegate.swift */; };
@@ -34,6 +52,7 @@
 		C2DC35B11FBFA2C800C49007 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2DC35B01FBFA2C800C49007 /* ViewController.swift */; };
 		C2DC35B31FBFA47700C49007 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2DC35B21FBFA47700C49007 /* RootView.swift */; };
 		C2DC35BC1FBFB47900C49007 /* Dungeon.png in Resources */ = {isa = PBXBuildFile; fileRef = C2FDEDBC1FBE40C3008529A6 /* Dungeon.png */; };
+		C2EDF78F1FE871220077195D /* update.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2EDF78D1FE871220077195D /* update.cpp */; };
 		C2F2836E1FBA7339007A0BEA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2F2836D1FBA7339007A0BEA /* AppDelegate.swift */; };
 		C2F283751FBA7339007A0BEA /* Assets-iOS.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C2F283741FBA7339007A0BEA /* Assets-iOS.xcassets */; };
 		C2FDEDBD1FBE40C3008529A6 /* Dungeon.png in Resources */ = {isa = PBXBuildFile; fileRef = C2FDEDBC1FBE40C3008529A6 /* Dungeon.png */; };
@@ -56,6 +75,16 @@
 		C239A5CB1FD49F43003BD3BB /* geometry.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = geometry.vsh; sourceTree = "<group>"; };
 		C239A5CC1FD49F43003BD3BB /* geometry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = geometry.h; sourceTree = "<group>"; };
 		C251286F1FD5D9D8008E2959 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		C269A7B51FE8395900BD86EB /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
+		C28C3CAA1FE31E6300C6CF99 /* Particles.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Particles.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C28C3CAC1FE31EC700C6CF99 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		C28C3CAE1FE31EFE00C6CF99 /* particles.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = particles.h; sourceTree = "<group>"; };
+		C28C3CAF1FE31F6100C6CF99 /* particles.vsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = particles.vsh; sourceTree = "<group>"; };
+		C28C3CB11FE31F7D00C6CF99 /* particles.fsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = particles.fsh; sourceTree = "<group>"; };
+		C28C3CB31FE3202E00C6CF99 /* particles.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = particles.cpp; sourceTree = "<group>"; };
+		C28C3CB51FE320B400C6CF99 /* particles+.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = "particles+.cpp"; sourceTree = "<group>"; };
+		C28C3CB71FE425B900C6CF99 /* update.vsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = update.vsh; sourceTree = "<group>"; };
+		C28C3CB91FE425C400C6CF99 /* update.fsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = update.fsh; sourceTree = "<group>"; };
 		C2B25DE81FBB837A00287630 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk/System/Library/Frameworks/OpenGL.framework; sourceTree = DEVELOPER_DIR; };
 		C2B25DEA1FBB840A00287630 /* GLUT.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLUT.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk/System/Library/Frameworks/GLUT.framework; sourceTree = DEVELOPER_DIR; };
 		C2B25DEC1FBB841300287630 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk/System/Library/Frameworks/Cocoa.framework; sourceTree = DEVELOPER_DIR; };
@@ -67,6 +96,8 @@
 		C2DC35AD1FBF929A00C49007 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		C2DC35B01FBFA2C800C49007 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		C2DC35B21FBFA47700C49007 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
+		C2EDF78D1FE871220077195D /* update.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = update.cpp; sourceTree = "<group>"; };
+		C2EDF78E1FE871220077195D /* update.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = update.hpp; sourceTree = "<group>"; };
 		C2F2836A1FBA7339007A0BEA /* Geometry.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Geometry.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2F2836D1FBA7339007A0BEA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C2F283741FBA7339007A0BEA /* Assets-iOS.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Assets-iOS.xcassets"; sourceTree = "<group>"; };
@@ -76,6 +107,13 @@
 
 /* Begin PBXFrameworksBuildPhase section */
 		C20DA9531FD5BFDF00B1D45D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C28C3CA11FE31E6300C6CF99 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -153,8 +191,8 @@
 		C20DA9451FD5BD6B00B1D45D /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				C239A5CA1FD49F43003BD3BB /* utility.cpp */,
 				C239A5C61FD49F43003BD3BB /* utility.hpp */,
+				C239A5CA1FD49F43003BD3BB /* utility.cpp */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -162,6 +200,7 @@
 		C20DA9461FD5BD8000B1D45D /* iOS */ = {
 			isa = PBXGroup;
 			children = (
+				C269A7B51FE8395900BD86EB /* UIView+.swift */,
 				C2F2836D1FBA7339007A0BEA /* AppDelegate.swift */,
 				C20DA9481FD5BDE900B1D45D /* LaunchScreen.storyboard */,
 			);
@@ -207,11 +246,45 @@
 			path = Sources;
 			sourceTree = "<group>";
 		};
+		C28C3C971FE31E0A00C6CF99 /* Particles */ = {
+			isa = PBXGroup;
+			children = (
+				C28C3C981FE31E2500C6CF99 /* Common */,
+				C28C3C991FE31E2A00C6CF99 /* iOS */,
+			);
+			path = Particles;
+			sourceTree = "<group>";
+		};
+		C28C3C981FE31E2500C6CF99 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				C28C3CAE1FE31EFE00C6CF99 /* particles.h */,
+				C28C3CB31FE3202E00C6CF99 /* particles.cpp */,
+				C28C3CB51FE320B400C6CF99 /* particles+.cpp */,
+				C28C3CAF1FE31F6100C6CF99 /* particles.vsh */,
+				C28C3CB11FE31F7D00C6CF99 /* particles.fsh */,
+				C2EDF78E1FE871220077195D /* update.hpp */,
+				C2EDF78D1FE871220077195D /* update.cpp */,
+				C28C3CB71FE425B900C6CF99 /* update.vsh */,
+				C28C3CB91FE425C400C6CF99 /* update.fsh */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		C28C3C991FE31E2A00C6CF99 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				C28C3CAC1FE31EC700C6CF99 /* ViewController.swift */,
+			);
+			path = iOS;
+			sourceTree = "<group>";
+		};
 		C2B25DD41FBB7FF800287630 /* Demo */ = {
 			isa = PBXGroup;
 			children = (
 				C20DA9411FD5B18D00B1D45D /* Geometry */,
 				C20DA9431FD5B7D700B1D45D /* Grid */,
+				C28C3C971FE31E0A00C6CF99 /* Particles */,
 			);
 			path = Demo;
 			sourceTree = "<group>";
@@ -250,6 +323,7 @@
 				C2F2836A1FBA7339007A0BEA /* Geometry.app */,
 				C2DC359F1FBF8E3E00C49007 /* Geometry.app */,
 				C20DA95D1FD5BFDF00B1D45D /* Grid.app */,
+				C28C3CAA1FE31E6300C6CF99 /* Particles.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -275,6 +349,7 @@
 				C20DA94C1FD5BFDF00B1D45D /* Sources */,
 				C20DA9531FD5BFDF00B1D45D /* Frameworks */,
 				C20DA9541FD5BFDF00B1D45D /* Resources */,
+				C2154A4B1FE48B19005A275F /* Label Highlight Script */,
 			);
 			buildRules = (
 			);
@@ -285,6 +360,24 @@
 			productReference = C20DA95D1FD5BFDF00B1D45D /* Grid.app */;
 			productType = "com.apple.product-type.application";
 		};
+		C28C3C9A1FE31E6300C6CF99 /* Particles-iOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C28C3CA71FE31E6300C6CF99 /* Build configuration list for PBXNativeTarget "Particles-iOS" */;
+			buildPhases = (
+				C28C3C9B1FE31E6300C6CF99 /* Sources */,
+				C28C3CA11FE31E6300C6CF99 /* Frameworks */,
+				C28C3CA21FE31E6300C6CF99 /* Resources */,
+				C2154A4A1FE489F9005A275F /* Label Highlight Script */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Particles-iOS";
+			productName = OpenGL;
+			productReference = C28C3CAA1FE31E6300C6CF99 /* Particles.app */;
+			productType = "com.apple.product-type.application";
+		};
 		C2DC359E1FBF8E3E00C49007 /* Geometry-macOS */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = C2DC35AA1FBF8E3E00C49007 /* Build configuration list for PBXNativeTarget "Geometry-macOS" */;
@@ -292,6 +385,7 @@
 				C2DC359B1FBF8E3E00C49007 /* Sources */,
 				C2DC359C1FBF8E3E00C49007 /* Frameworks */,
 				C2DC359D1FBF8E3E00C49007 /* Resources */,
+				C2154A4D1FE48B60005A275F /* Label Highlight Script */,
 			);
 			buildRules = (
 			);
@@ -309,6 +403,7 @@
 				C2F283661FBA7338007A0BEA /* Sources */,
 				C2F283671FBA7338007A0BEA /* Frameworks */,
 				C2F283681FBA7338007A0BEA /* Resources */,
+				C2154A4C1FE48B41005A275F /* Label Highlight Script */,
 			);
 			buildRules = (
 			);
@@ -330,6 +425,9 @@
 				ORGANIZATIONNAME = "Hai Nguyen";
 				TargetAttributes = {
 					C20DA94B1FD5BFDF00B1D45D = {
+						ProvisioningStyle = Automatic;
+					};
+					C28C3C9A1FE31E6300C6CF99 = {
 						ProvisioningStyle = Automatic;
 					};
 					C2DC359E1FBF8E3E00C49007 = {
@@ -359,6 +457,7 @@
 				C2F283691FBA7338007A0BEA /* Geometry-iOS */,
 				C2DC359E1FBF8E3E00C49007 /* Geometry-macOS */,
 				C20DA94B1FD5BFDF00B1D45D /* Grid-iOS */,
+				C28C3C9A1FE31E6300C6CF99 /* Particles-iOS */,
 			);
 		};
 /* End PBXProject section */
@@ -372,6 +471,21 @@
 				C20DA9571FD5BFDF00B1D45D /* Assets-iOS.xcassets in Resources */,
 				C20DA96D1FD5CAA200B1D45D /* grid.fsh in Resources */,
 				C20DA9581FD5BFDF00B1D45D /* LaunchScreen.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C28C3CA21FE31E6300C6CF99 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C28C3CB01FE31F6100C6CF99 /* particles.vsh in Resources */,
+				C28C3CB21FE31F7D00C6CF99 /* particles.fsh in Resources */,
+				C28C3CA31FE31E6300C6CF99 /* grid.vsh in Resources */,
+				C28C3CA41FE31E6300C6CF99 /* Assets-iOS.xcassets in Resources */,
+				C28C3CA51FE31E6300C6CF99 /* grid.fsh in Resources */,
+				C28C3CA61FE31E6300C6CF99 /* LaunchScreen.storyboard in Resources */,
+				C28C3CB81FE425B900C6CF99 /* update.vsh in Resources */,
+				C28C3CBA1FE425C400C6CF99 /* update.fsh in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -400,6 +514,65 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		C2154A4A1FE489F9005A275F /* Label Highlight Script */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Label Highlight Script";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "TAGS=\"TODO:|FIXME:\"\nERRORTAG=\"ERROR:\"\n\nfind ${SRCROOT}/Demo/Particles/{Common,iOS}/ -name \"*.cpp\" -print0                                  \\\n    | xargs -0 egrep --with-filename --line-number --only-matching \"($TAGS).*\\$|($ERRORTAG).*\\$\"    \\\n    | perl -pe \"s/($TAGS)/ warning: \\$1/\"                                                           \\\n    | perl -pe \"s/($ERRORTAG)/ error: \\$1/\"\n";
+		};
+		C2154A4B1FE48B19005A275F /* Label Highlight Script */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Label Highlight Script";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "TAGS=\"TODO:|FIXME:\"\nERRORTAG=\"ERROR:\"\n\nfind ${SRCROOT}/Demo/Grid/{Common,iOS}/ -name \"*.cpp\" -print0                                       \\\n    | xargs -0 egrep --with-filename --line-number --only-matching \"($TAGS).*\\$|($ERRORTAG).*\\$\"    \\\n    | perl -pe \"s/($TAGS)/ warning: \\$1/\"                                                           \\\n    | perl -pe \"s/($ERRORTAG)/ error: \\$1/\"\n";
+		};
+		C2154A4C1FE48B41005A275F /* Label Highlight Script */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Label Highlight Script";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "TAGS=\"TODO:|FIXME:\"\nERRORTAG=\"ERROR:\"\n\nfind ${SRCROOT}/Demo/Geometry/{Common,iOS}/ -name \"*.cpp\" -print0                                   \\\n    | xargs -0 egrep --with-filename --line-number --only-matching \"($TAGS).*\\$|($ERRORTAG).*\\$\"    \\\n    | perl -pe \"s/($TAGS)/ warning: \\$1/\"                                                           \\\n    | perl -pe \"s/($ERRORTAG)/ error: \\$1/\"\n";
+		};
+		C2154A4D1FE48B60005A275F /* Label Highlight Script */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Label Highlight Script";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "TAGS=\"TODO:|FIXME:\"\nERRORTAG=\"ERROR:\"\n\nfind ${SRCROOT}/Demo/Geometry/{Common,macOS}/ -name \"*.cpp\" -print0                                 \\\n    | xargs -0 egrep --with-filename --line-number --only-matching \"($TAGS).*\\$|($ERRORTAG).*\\$\"    \\\n    | perl -pe \"s/($TAGS)/ warning: \\$1/\"                                                           \\\n    | perl -pe \"s/($ERRORTAG)/ error: \\$1/\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		C20DA94C1FD5BFDF00B1D45D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -407,9 +580,26 @@
 			files = (
 				C25128701FD5D9D8008E2959 /* ViewController.swift in Sources */,
 				C20DA94D1FD5BFDF00B1D45D /* utility.cpp in Sources */,
+				C269A7B71FE8395900BD86EB /* UIView+.swift in Sources */,
 				C20DA9521FD5BFDF00B1D45D /* AppDelegate.swift in Sources */,
 				C21B333F1FD8CDB900B0F57D /* grid+.cpp in Sources */,
 				C20DA9691FD5C65500B1D45D /* grid.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C28C3C9B1FE31E6300C6CF99 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C28C3CAD1FE31EC700C6CF99 /* ViewController.swift in Sources */,
+				C28C3C9D1FE31E6300C6CF99 /* utility.cpp in Sources */,
+				C28C3CB61FE320B400C6CF99 /* particles+.cpp in Sources */,
+				C28C3C9E1FE31E6300C6CF99 /* AppDelegate.swift in Sources */,
+				C28C3C9F1FE31E6300C6CF99 /* grid+.cpp in Sources */,
+				C269A7B81FE8395900BD86EB /* UIView+.swift in Sources */,
+				C28C3CA01FE31E6300C6CF99 /* grid.cpp in Sources */,
+				C2EDF78F1FE871220077195D /* update.cpp in Sources */,
+				C28C3CB41FE3202E00C6CF99 /* particles.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -433,6 +623,7 @@
 			files = (
 				C239A5D01FD49F44003BD3BB /* utility.cpp in Sources */,
 				C225BE101FBD11650097F75E /* ViewController.swift in Sources */,
+				C269A7B61FE8395900BD86EB /* UIView+.swift in Sources */,
 				C239A5CD1FD49F44003BD3BB /* geometry.cpp in Sources */,
 				C2A2DA661FD9011B00DEAC28 /* geometry+.cpp in Sources */,
 				C2F2836E1FBA7339007A0BEA /* AppDelegate.swift in Sources */,
@@ -485,6 +676,43 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.hainguyen.opengl-grid-ios";
 				PRODUCT_NAME = Grid;
 				SWIFT_OBJC_BRIDGING_HEADER = Demo/Grid/Common/grid.h;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		C28C3CA81FE31E6300C6CF99 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 88HW36EGGB;
+				INFOPLIST_FILE = "OpenGL/Info-iOS.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.hainguyen.opengl-particle-ios";
+				PRODUCT_NAME = Particles;
+				SWIFT_OBJC_BRIDGING_HEADER = Demo/Particles/Common/particles.h;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		C28C3CA91FE31E6300C6CF99 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 88HW36EGGB;
+				INFOPLIST_FILE = "OpenGL/Info-iOS.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.hainguyen.opengl-particle-ios";
+				PRODUCT_NAME = Particles;
+				SWIFT_OBJC_BRIDGING_HEADER = Demo/Particles/Common/particles.h;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -577,13 +805,17 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				HEADER_SEARCH_PATHS = "$(SRCROOT)/Dependencies/glm/";
+				HEADER_SEARCH_PATHS = (
+					"$(SRCROOT)/Dependencies/glm/",
+					"$(SRCROOT)/Sources/Common/",
+				);
 				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				USE_HEADERMAP = NO;
 			};
 			name = Debug;
 		};
@@ -628,11 +860,15 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				HEADER_SEARCH_PATHS = "$(SRCROOT)/Dependencies/glm/";
+				HEADER_SEARCH_PATHS = (
+					"$(SRCROOT)/Dependencies/glm/",
+					"$(SRCROOT)/Sources/Common/",
+				);
 				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				USE_HEADERMAP = NO;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -682,6 +918,15 @@
 			buildConfigurations = (
 				C20DA95B1FD5BFDF00B1D45D /* Debug */,
 				C20DA95C1FD5BFDF00B1D45D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C28C3CA71FE31E6300C6CF99 /* Build configuration list for PBXNativeTarget "Particles-iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C28C3CA81FE31E6300C6CF99 /* Debug */,
+				C28C3CA91FE31E6300C6CF99 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
