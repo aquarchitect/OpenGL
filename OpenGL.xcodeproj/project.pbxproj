@@ -35,7 +35,7 @@
 		C28C3CB01FE31F6100C6CF99 /* particles.vsh in Resources */ = {isa = PBXBuildFile; fileRef = C28C3CAF1FE31F6100C6CF99 /* particles.vsh */; };
 		C28C3CB21FE31F7D00C6CF99 /* particles.fsh in Resources */ = {isa = PBXBuildFile; fileRef = C28C3CB11FE31F7D00C6CF99 /* particles.fsh */; };
 		C28C3CB41FE3202E00C6CF99 /* particles.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C28C3CB31FE3202E00C6CF99 /* particles.cpp */; };
-		C28C3CB61FE320B400C6CF99 /* particles+.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C28C3CB51FE320B400C6CF99 /* particles+.cpp */; };
+		C28C3CB61FE320B400C6CF99 /* draw.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C28C3CB51FE320B400C6CF99 /* draw.cpp */; };
 		C28C3CB81FE425B900C6CF99 /* update.vsh in Resources */ = {isa = PBXBuildFile; fileRef = C28C3CB71FE425B900C6CF99 /* update.vsh */; };
 		C28C3CBA1FE425C400C6CF99 /* update.fsh in Resources */ = {isa = PBXBuildFile; fileRef = C28C3CB91FE425C400C6CF99 /* update.fsh */; };
 		C2A2DA661FD9011B00DEAC28 /* draw.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C239A5C71FD49F43003BD3BB /* draw.cpp */; };
@@ -68,11 +68,11 @@
 		C269A7B51FE8395900BD86EB /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
 		C28C3CAA1FE31E6300C6CF99 /* Particles.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Particles.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C28C3CAC1FE31EC700C6CF99 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		C28C3CAE1FE31EFE00C6CF99 /* particles.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = particles.h; sourceTree = "<group>"; };
+		C28C3CAE1FE31EFE00C6CF99 /* particles.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = particles.hpp; sourceTree = "<group>"; };
 		C28C3CAF1FE31F6100C6CF99 /* particles.vsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = particles.vsh; sourceTree = "<group>"; };
 		C28C3CB11FE31F7D00C6CF99 /* particles.fsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = particles.fsh; sourceTree = "<group>"; };
 		C28C3CB31FE3202E00C6CF99 /* particles.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = particles.cpp; sourceTree = "<group>"; };
-		C28C3CB51FE320B400C6CF99 /* particles+.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = "particles+.cpp"; sourceTree = "<group>"; };
+		C28C3CB51FE320B400C6CF99 /* draw.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = draw.cpp; sourceTree = "<group>"; };
 		C28C3CB71FE425B900C6CF99 /* update.vsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = update.vsh; sourceTree = "<group>"; };
 		C28C3CB91FE425C400C6CF99 /* update.fsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = update.fsh; sourceTree = "<group>"; };
 		C2B25DE81FBB837A00287630 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk/System/Library/Frameworks/OpenGL.framework; sourceTree = DEVELOPER_DIR; };
@@ -234,9 +234,9 @@
 		C28C3C981FE31E2500C6CF99 /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				C28C3CAE1FE31EFE00C6CF99 /* particles.h */,
+				C28C3CB51FE320B400C6CF99 /* draw.cpp */,
+				C28C3CAE1FE31EFE00C6CF99 /* particles.hpp */,
 				C28C3CB31FE3202E00C6CF99 /* particles.cpp */,
-				C28C3CB51FE320B400C6CF99 /* particles+.cpp */,
 				C28C3CAF1FE31F6100C6CF99 /* particles.vsh */,
 				C28C3CB11FE31F7D00C6CF99 /* particles.fsh */,
 				C2EDF78E1FE871220077195D /* update.hpp */,
@@ -520,7 +520,7 @@
 			files = (
 				C28C3CAD1FE31EC700C6CF99 /* ViewController.swift in Sources */,
 				C28C3C9D1FE31E6300C6CF99 /* utility.cpp in Sources */,
-				C28C3CB61FE320B400C6CF99 /* particles+.cpp in Sources */,
+				C28C3CB61FE320B400C6CF99 /* draw.cpp in Sources */,
 				C2BFA3511FE8CC6C00DC018F /* RootController.swift in Sources */,
 				C28C3C9E1FE31E6300C6CF99 /* AppDelegate.swift in Sources */,
 				C269A7B81FE8395900BD86EB /* UIView+.swift in Sources */,
@@ -605,7 +605,6 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.hainguyen.opengl-particle-ios";
 				PRODUCT_NAME = Particles;
-				SWIFT_OBJC_BRIDGING_HEADER = Demo/Particles/Common/particles.h;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -624,7 +623,6 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.hainguyen.opengl-particle-ios";
 				PRODUCT_NAME = Particles;
-				SWIFT_OBJC_BRIDGING_HEADER = Demo/Particles/Common/particles.h;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

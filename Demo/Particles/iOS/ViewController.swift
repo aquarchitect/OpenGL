@@ -8,29 +8,11 @@
 
 import GLKit
 
-final class ViewController: GLKViewController {
-    
-    // MARK: View Lifecycle
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        self.preferredFramesPerSecond = 60
-        
-        if let context = EAGLContext(api: .openGLES2) {
-            (view as? GLKView)?.context = context
-            EAGLContext.setCurrent(context)
-        }
-        
-        var basePath = Bundle.main.resourcePath?.cString(using: .utf8) ?? []
-        var resolution = view.resolution
-        setupParticles(&basePath, &resolution)
-    }
-}
+final class ViewController: RootController {}
 
 extension ViewController {
     
     override func glkView(_ view: GLKView, drawIn rect: CGRect) {
-        drawParticles(0)
+        draw(0)
     }
 }

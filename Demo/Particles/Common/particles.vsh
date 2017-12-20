@@ -2,32 +2,25 @@
 precision highp float;
 #endif
 
-const float BASE = 255.0;
-const float OFFSET = BASE * BASE / 2.0;
-
 uniform sampler2D uPosition;
-uniform vec2 uScale;
+
 uniform vec2 uGrid;
 uniform vec2 uResolution;
 
-#if __VERSION__ >= 140
-in vec2 aIndex;
-#else
-attribute vec2 aIndex;
-#endif
+attribute vec2 aTexCoord;
+varying vec4 vColor;
 
-float decode(vec2 channels, float scale) {
-    return (dot(channels, vec2(BASE, BASE * BASE)) - OFFSET) / scale;
+float decode(vec2 channels) {
+    return dot(channels, vec2(1.0, 1.0/255.0));
 }
 
 void main() {
-    vec4 encodedPosition = texture2D(uPosition, aIndex / uGrid);
+    vec4 data = texture2D(uPosition, aTexCoord);
     
-    float px = decode(encodedPosition.rg, uScale.x);
-    float py = decode(encodedPosition.ba, uScale.x);
+    vec2 position = vec2(decode(data.rg), decode(data.ba)) * 2.0 - 1.0;
     
-    vec2 p = vec2(px, py) / uResolution * 2.0 - 1.0;
+    gl_PointSize = 50.0;
+    gl_Position = vec4(position, 0.0, 1.0);
     
-    gl_PointSize = 10.0;
-    gl_Position = vec4(p, 0.0, 1.0);
+    vColor = data;
 }

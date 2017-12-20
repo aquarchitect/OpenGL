@@ -1,15 +1,14 @@
 //
-//  particle.h
+//  particle.hpp
 //  OpenGL
 //
 //  Created by Hai Nguyen on 12/14/17.
 //  Copyright © 2017 Hai Nguyen. All rights reserved.
 //
 
-#ifndef particles_h
-#define particles_h
+#ifndef particles_hpp
+#define particles_hpp
 
-// particles.cpp
 #ifdef __cplusplus
 #include "utility.hpp"
 
@@ -18,6 +17,9 @@ public:
     Particles(string basePath, vec2 grid, vec2 resolution);
     void    draw();
 private:
+    struct RGBA { GLubyte r, g, b, a; };
+    struct Textures { GLuint p0, p1, v0, v1; };
+    
     GLuint          program = glCreateProgram();
     
     vector<vec2>    vertices;
@@ -27,18 +29,13 @@ private:
     GLuint          VAO;
     GLuint          VBO;
     
+    Textures        textures;
+    
+    GLuint          positionUniformLocation;
     GLuint          resolutionUniformLocation;
     GLuint          gridUniformLocation;
+    
+    GLuint          createTexture(GLuint slot, GLvoid *pixels);
 };
 #endif /* __cplusplus */
-
-// particles+.cpp
-#ifdef __cplusplus
-extern "C" {
-#endif /* __cplusplus */
-    extern void setupParticles(char *basePath, int resoltion[2]);
-    extern void drawParticles(float deltaTime);
-#ifdef __cplusplus
-}
-#endif /* __cplusplus */
-#endif /* particles_h */
+#endif /* particles_hpp */
