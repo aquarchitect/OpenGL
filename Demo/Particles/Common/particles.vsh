@@ -2,12 +2,13 @@
 precision highp float;
 #endif
 
-uniform sampler2D uPosition;
-
-uniform vec2 uGrid;
 uniform vec2 uResolution;
 
+uniform sampler2D uPositions;
+uniform sampler2D uVelocities;
+
 attribute vec2 aTexCoord;
+varying vec2 vVelocity;
 varying vec4 vColor;
 
 float decode(vec2 channels) {
@@ -15,12 +16,15 @@ float decode(vec2 channels) {
 }
 
 void main() {
-    vec4 data = texture2D(uPosition, aTexCoord);
+    vec4 encodedPosition = texture2D(uPositions, aTexCoord);
+    vec4 encodedVelocity = texture2D(uVelocities, aTexCoord);
     
-    vec2 position = vec2(decode(data.rg), decode(data.ba)) * 2.0 - 1.0;
+    vec2 position = vec2(decode(encodedPosition.rg), decode(encodedPosition.ba)) * 2.0 - 1.0;
+    vec2 velocity = vec2(decode(encodedVelocity.rg), decode(encodedVelocity.ba)) * 2.0 - 1.0;
     
     gl_PointSize = 50.0;
     gl_Position = vec4(position, 0.0, 1.0);
     
-    vColor = data;
+    vColor = encodedPosition;
+    vVelocity = velocity;
 }

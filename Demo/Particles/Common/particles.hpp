@@ -31,9 +31,10 @@ private:
     
     Textures        textures;
     
-    GLuint          positionUniformLocation;
+    GLuint          positionsUniformLocation;
+    GLuint          veolocitiesUniformLocation;
+    
     GLuint          resolutionUniformLocation;
-    GLuint          gridUniformLocation;
     
     GLuint          createTexture(GLuint slot, GLvoid *pixels);
 };

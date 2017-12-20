@@ -55,20 +55,28 @@ Particles::Particles(string basePath, vec2 grid, vec2 resolution) {
                 GLubyte(fmod(rand(), 255.0)),
                 GLubyte(fmod(rand(), 255.0))
             };
+            
+            rgbaV0[index] = {
+                GLubyte(fmod(rand(), 255.0)),
+                GLubyte(fmod(rand(), 255.0)),
+                GLubyte(fmod(rand(), 255.0)),
+                GLubyte(fmod(rand(), 255.0))
+            };
+
         };
     };
     
     this->vertices = vertices;
     this->textures.p0 = createTexture(0, rgbaP0);
-    this->textures.v0 = createTexture(1, NULL);
+    this->textures.v0 = createTexture(1, rgbaV0);
     this->textures.p1 = createTexture(2, NULL);
     this->textures.v1 = createTexture(3, NULL);
     
     linkShaders(basePath + "/particles", program);
     
     resolutionUniformLocation = glGetUniformLocation(program, "uResolution");
-    gridUniformLocation = glGetUniformLocation(program, "uGrid");
-    positionUniformLocation = glGetUniformLocation(program, "uPosition");
+    positionsUniformLocation = glGetUniformLocation(program, "uPositions");
+    veolocitiesUniformLocation = glGetUniformLocation(program, "uVelocities");
     
 #if GL_APPLE_vertex_array_object
     glGenVertexArraysAPPLE(1, &VAO);
@@ -98,11 +106,13 @@ Particles::Particles(string basePath, vec2 grid, vec2 resolution) {
 void Particles::draw() {
     glUseProgram(program);
 
-    glUniform2fv(gridUniformLocation, 1, value_ptr(grid));
     glUniform2fv(resolutionUniformLocation, 1, value_ptr(resolution));
     
     glBindTexture(GL_TEXTURE_2D, textures.p0);
-    glUniform1i(positionUniformLocation, 0);
+    glUniform1i(positionsUniformLocation, 0);
+    
+    glBindTexture(GL_TEXTURE_2D, textures.v0);
+    glUniform1i(veolocitiesUniformLocation, 1);
     
 #if GL_APPLE_vertex_array_object
     glBindVertexArrayAPPLE(VAO);
