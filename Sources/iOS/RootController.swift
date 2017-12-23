@@ -15,6 +15,8 @@ class RootController: GLKViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.preferredFramesPerSecond = 60
+        
         if let context = EAGLContext(api: .openGLES2) {
             (view as? GLKView)?.context = context
             EAGLContext.setCurrent(context)

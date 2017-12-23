@@ -35,7 +35,8 @@ using namespace std;
 using namespace glm;
 
 namespace Utility {
-    void    linkShaders(string basePath, GLuint program);
-    quat    euler2Quat(float pitch, float roll, float yaw);
+    void            linkShaders(string basePath, GLuint program);
+    quat            euler2Quat(float pitch, float roll, float yaw);
+    vector<char>    loadBytes(string basePath);
 }
 #endif /* utility_hpp */

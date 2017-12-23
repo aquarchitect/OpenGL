@@ -89,3 +89,15 @@ quat Utility::euler2Quat(float pitch, float roll, float yaw) {
     q.z = sy * cr * cp - cy * sr * sp;
     return q;
 }
+
+vector<char> Utility::loadBytes(string basePath) {
+    ifstream ifs(basePath, ios::binary | ios::ate);
+    ifstream::pos_type position = ifs.tellg();
+    vector<char> result(position);
+    
+    ifs.seekg(0, ios::beg);
+    ifs.read(result.data(), position);
+    
+    return result;
+}
+
