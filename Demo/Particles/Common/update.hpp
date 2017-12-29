@@ -10,12 +10,13 @@
 #define update_hpp
 
 #include "utility.hpp"
+#include "textures.hpp"
 
 class Update {
 public:
-    Update(string basePath);
+    Update(string basePath, vec2 grid, vec2 resolution, Textures *textures);
     void draw();
-private:
+private:    
     vector<vec2>   vertices = {
                         {-1.0, -1.0},
                         {-1.0, +1.0},
@@ -25,8 +26,21 @@ private:
     
     GLuint          program = glCreateProgram();
     
+    vec2            grid;
+    vec2            resolution;
+    
+    Textures        *textures;
+    
     GLuint          VAO;
     GLuint          VBO;
+    GLuint          FBO;
+    
+    GLuint          resolutionUniformLocation;
+    GLuint          positionsUniformLocation;
+    GLuint          velocitiesUniformLocation;
+    GLuint          modeUniformLocation;
+    
+    void            draw(GLint mode);
 };
 
 #endif /* update_hpp */

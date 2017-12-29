@@ -6,14 +6,26 @@
 //  Copyright © 2017 Hai Nguyen. All rights reserved.
 //
 
-#include "Update.hpp"
+#include "update.hpp"
+#include <iostream>
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
 
 using namespace Utility;
 
-Update::Update(string basePath) {
+Update::Update(string basePath, vec2 grid, vec2 resolution, Textures *textures) {
+    this->grid = grid;
+    this->resolution = resolution;
+    this->textures = textures;
+    
     linkShaders(basePath + "/update", program);
+    
+    resolutionUniformLocation = glGetUniformLocation(program, "uResolution");
+    positionsUniformLocation = glGetUniformLocation(program, "uPositions");
+    velocitiesUniformLocation = glGetUniformLocation(program, "uVelocities");
+    modeUniformLocation = glGetUniformLocation(program, "uMode");
+    
+    glGenFramebuffers(1, &FBO);
     
 #if GL_APPLE_vertex_array_object
     glGenVertexArraysAPPLE(1, &VAO);
@@ -41,19 +53,44 @@ Update::Update(string basePath) {
 };
 
 void Update::draw() {
+    glBindFramebuffer(GL_FRAMEBUFFER, FBO);
+    glViewport(0, 0, grid.x, grid.y);
+    
+    glClearColor(1.0, 0.0, 0.0, 1.0);
+    glClear(GL_COLOR_BUFFER_BIT);
+    glDisable(GL_BLEND);
     glUseProgram(program);
+    
+    glUniform2fv(resolutionUniformLocation, 1, value_ptr(resolution));
+    
+    glBindTexture(GL_TEXTURE_2D, textures->p0);
+    glUniform1i(positionsUniformLocation, 1);
+
+    glBindTexture(GL_TEXTURE_2D, textures->v0);
+    glUniform1i(velocitiesUniformLocation, 2);
     
 #if GL_APPLE_vertex_array_object
     glBindVertexArrayAPPLE(VAO);
 #elif GL_OES_vertex_array_object
     glBindVertexArrayOES(VAO);
 #endif
-    
+
+    glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D, textures->p1, 0);
+    glUniform1i(modeUniformLocation, 0);
     glDrawArrays(GL_TRIANGLE_STRIP, 0, GLsizei(vertices.size()));
+    
+    glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D, textures->v1, 0);
+    glUniform1i(modeUniformLocation, 1);
+    glDrawArrays(GL_TRIANGLE_STRIP, 0, GLsizei(vertices.size()));
+    
 
 #if GL_APPLE_vertex_array_object
     glBindVertexArrayAPPLE(0);
 #elif GL_OES_vertex_array_object
     glBindVertexArrayOES(0);
 #endif
+  
+    glBindTexture(GL_TEXTURE_2D, 0);
+    textures->swap();
+    glBindFramebuffer(GL_FRAMEBUFFER, 2); // unfortunately the default framebuffer is not 0
 };

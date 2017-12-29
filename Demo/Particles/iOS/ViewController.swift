@@ -13,6 +13,7 @@ final class ViewController: RootController {}
 extension ViewController {
     
     override func glkView(_ view: GLKView, drawIn rect: CGRect) {
-        draw(0)
+         draw(0)
     }
 }
+

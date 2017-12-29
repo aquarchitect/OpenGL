@@ -13,33 +13,8 @@
 
 using namespace Utility;
 
-GLuint Particles::createTexture(GLuint slot, GLvoid *pixels) {
-    GLuint texture;
-    glGenTextures(1, &texture);
-    glActiveTexture(GL_TEXTURE0 + slot);
-    glBindTexture(GL_TEXTURE_2D, texture);
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
-    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, (GLsizei)grid.x, (GLsizei)grid.y, 0, GL_RGBA, GL_UNSIGNED_BYTE, pixels);
-    
-    return texture;
-};
-
-Particles::Particles(string basePath, vec2 grid, vec2 resolution) {
-    this->grid = grid;
-    
-    // indexes
-    int count = grid[0] * grid[1];
-    vector<vec2> vertices(count, {0.0, 0.0});
-    RGBA rgbaP0[count];
-    RGBA rgbaV0[count];
-    
-    // another thought was to randomize the initial values on the GPU.
-    // however, as glVertexID is not available on OpenGL ES 2.0, indexes
-    // initialization cannot be avoided. Instead of seprating process
-    // the pixel data is also be randomize through the loop.
+Particles::Particles(string basePath, vec2 grid, vec2 resolution, Textures *textures) {
+    vector<vec2> vertices(grid[0] * grid[1], {0.0, 0.0});
     for (int j = 0; j < grid.y; j++) {
         for (int i = 0; i < grid.x; i++) { // x
             int index = j * int(grid.x) + i;
@@ -48,35 +23,19 @@ Particles::Particles(string basePath, vec2 grid, vec2 resolution) {
                 GLfloat(i/grid.x),
                 GLfloat(j/grid.y)
             };
-            
-            rgbaP0[index] = {
-                GLubyte(fmod(rand(), 255.0)),
-                GLubyte(fmod(rand(), 255.0)),
-                GLubyte(fmod(rand(), 255.0)),
-                GLubyte(fmod(rand(), 255.0))
-            };
-            
-            rgbaV0[index] = {
-                GLubyte(fmod(rand(), 255.0)),
-                GLubyte(fmod(rand(), 255.0)),
-                GLubyte(fmod(rand(), 255.0)),
-                GLubyte(fmod(rand(), 255.0))
-            };
-
         };
     };
     
+    this->textures = textures;
+    this->grid = grid;
+    this->resolution = resolution;
     this->vertices = vertices;
-    this->textures.p0 = createTexture(0, rgbaP0);
-    this->textures.v0 = createTexture(1, rgbaV0);
-    this->textures.p1 = createTexture(2, NULL);
-    this->textures.v1 = createTexture(3, NULL);
     
     linkShaders(basePath + "/particles", program);
     
     resolutionUniformLocation = glGetUniformLocation(program, "uResolution");
     positionsUniformLocation = glGetUniformLocation(program, "uPositions");
-    veolocitiesUniformLocation = glGetUniformLocation(program, "uVelocities");
+    velocitiesUniformLocation = glGetUniformLocation(program, "uVelocities");
     
 #if GL_APPLE_vertex_array_object
     glGenVertexArraysAPPLE(1, &VAO);
@@ -104,15 +63,23 @@ Particles::Particles(string basePath, vec2 grid, vec2 resolution) {
 };
 
 void Particles::draw() {
+    //glBindFramebuffer(GL_FRAMEBUFFER, 1);
+    glViewport(0, 0, resolution.x, resolution.y);
+    
+    glClearColor(0.0, 0.0, 0.0, 1.0);
+    glClear(GL_COLOR_BUFFER_BIT);
+    glEnable(GL_BLEND);
+    glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+    
     glUseProgram(program);
 
     glUniform2fv(resolutionUniformLocation, 1, value_ptr(resolution));
     
-    glBindTexture(GL_TEXTURE_2D, textures.p0);
-    glUniform1i(positionsUniformLocation, 0);
+    glBindTexture(GL_TEXTURE_2D, textures->p0);
+    glUniform1i(positionsUniformLocation, 1);
     
-    glBindTexture(GL_TEXTURE_2D, textures.v0);
-    glUniform1i(veolocitiesUniformLocation, 1);
+    glBindTexture(GL_TEXTURE_2D, textures->v0);
+    glUniform1i(velocitiesUniformLocation, 2);
     
 #if GL_APPLE_vertex_array_object
     glBindVertexArrayAPPLE(VAO);

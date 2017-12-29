@@ -9,15 +9,20 @@
 #include "draw.h"
 #include "update.hpp"
 #include "particles.hpp"
+#include "textures.hpp"
 
 static Particles    *pParticle;
 static Update       *pUpdate;
+static Textures     *pTextures;
 static vec2         resolution;
 
 static void setup(char *basePath, int width, int height) {    
     resolution = {width, height};
-    pUpdate = new Update(basePath);
-    pParticle = new Particles(basePath, vec2(50), resolution);
+    vec2 grid(32.0);
+    
+    pTextures = new Textures(basePath, grid);
+    pUpdate = new Update(basePath, grid, resolution, pTextures);
+    pParticle = new Particles(basePath, grid, resolution, pTextures);
 }
 
 void setup(char *basePath, int resolution[2]) {
@@ -25,13 +30,6 @@ void setup(char *basePath, int resolution[2]) {
 };
 
 void draw(float deltaTime) {
-    glViewport(0, 0, resolution[0], resolution[1]);
-    
-    glClearColor(0.0, 0.0, 0.0, 1.0);
-    glClear(GL_COLOR_BUFFER_BIT);
-    glEnable(GL_BLEND);
-    glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-    
     pUpdate->draw();
     pParticle->draw();
 };

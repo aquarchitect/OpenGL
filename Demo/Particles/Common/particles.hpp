@@ -9,34 +9,28 @@
 #ifndef particles_hpp
 #define particles_hpp
 
-#ifdef __cplusplus
 #include "utility.hpp"
+#include "textures.hpp"
 
 class Particles {
 public:
-    Particles(string basePath, vec2 grid, vec2 resolution);
-    void    draw();
-private:
-    struct RGBA { GLubyte r, g, b, a; };
-    struct Textures { GLuint p0, p1, v0, v1; };
+    Particles(string basePath, vec2 grid, vec2 resolution, Textures *textures);
     
+    void            draw();
+private:
     GLuint          program = glCreateProgram();
     
+    Textures        *textures;
     vector<vec2>    vertices;
+    
     vec2            grid;
     vec2            resolution;
 
     GLuint          VAO;
     GLuint          VBO;
     
-    Textures        textures;
-    
-    GLuint          positionsUniformLocation;
-    GLuint          veolocitiesUniformLocation;
-    
     GLuint          resolutionUniformLocation;
-    
-    GLuint          createTexture(GLuint slot, GLvoid *pixels);
+    GLuint          positionsUniformLocation;
+    GLuint          velocitiesUniformLocation;
 };
-#endif /* __cplusplus */
 #endif /* particles_hpp */

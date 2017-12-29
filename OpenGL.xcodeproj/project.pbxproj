@@ -24,6 +24,9 @@
 		C269A7B61FE8395900BD86EB /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = C269A7B51FE8395900BD86EB /* UIView+.swift */; };
 		C269A7B71FE8395900BD86EB /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = C269A7B51FE8395900BD86EB /* UIView+.swift */; };
 		C269A7B81FE8395900BD86EB /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = C269A7B51FE8395900BD86EB /* UIView+.swift */; };
+		C288221C1FEC653900C6128B /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C288221B1FEC653900C6128B /* main.cpp */; };
+		C28822251FEC8D4400C6128B /* textures.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C28822231FEC8D4400C6128B /* textures.cpp */; };
+		C28822291FECCD2400C6128B /* data in Resources */ = {isa = PBXBuildFile; fileRef = C28822261FECCB7B00C6128B /* data */; };
 		C28C3C9D1FE31E6300C6CF99 /* utility.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C239A5CA1FD49F43003BD3BB /* utility.cpp */; };
 		C28C3C9E1FE31E6300C6CF99 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2F2836D1FBA7339007A0BEA /* AppDelegate.swift */; };
 		C28C3CA01FE31E6300C6CF99 /* grid.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C20DA9671FD5C65500B1D45D /* grid.cpp */; };
@@ -39,6 +42,7 @@
 		C28C3CB81FE425B900C6CF99 /* update.vsh in Resources */ = {isa = PBXBuildFile; fileRef = C28C3CB71FE425B900C6CF99 /* update.vsh */; };
 		C28C3CBA1FE425C400C6CF99 /* update.fsh in Resources */ = {isa = PBXBuildFile; fileRef = C28C3CB91FE425C400C6CF99 /* update.fsh */; };
 		C2A2DA661FD9011B00DEAC28 /* draw.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C239A5C71FD49F43003BD3BB /* draw.cpp */; };
+		C2A42C591FED6EC1009B9EB7 /* data in Resources */ = {isa = PBXBuildFile; fileRef = C2A42C571FED6EBD009B9EB7 /* data */; };
 		C2BFA34F1FE8CC6C00DC018F /* RootController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2BFA34E1FE8CC6C00DC018F /* RootController.swift */; };
 		C2BFA3501FE8CC6C00DC018F /* RootController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2BFA34E1FE8CC6C00DC018F /* RootController.swift */; };
 		C2BFA3511FE8CC6C00DC018F /* RootController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2BFA34E1FE8CC6C00DC018F /* RootController.swift */; };
@@ -48,6 +52,29 @@
 		C2F283751FBA7339007A0BEA /* Assets-iOS.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C2F283741FBA7339007A0BEA /* Assets-iOS.xcassets */; };
 		C2FDEDBD1FBE40C3008529A6 /* Dungeon.png in Resources */ = {isa = PBXBuildFile; fileRef = C2FDEDBC1FBE40C3008529A6 /* Dungeon.png */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		C28822171FEC653900C6128B /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+		C28822281FECCD1000C6128B /* Resources */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 7;
+			files = (
+				C28822291FECCD2400C6128B /* data in Resources */,
+			);
+			name = Resources;
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		C20DA9491FD5BDE900B1D45D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -66,6 +93,11 @@
 		C239A5CB1FD49F43003BD3BB /* geometry.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = geometry.vsh; sourceTree = "<group>"; };
 		C239A5CC1FD49F43003BD3BB /* geometry.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = geometry.hpp; sourceTree = "<group>"; };
 		C269A7B51FE8395900BD86EB /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
+		C28822191FEC653900C6128B /* Playground */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Playground; sourceTree = BUILT_PRODUCTS_DIR; };
+		C288221B1FEC653900C6128B /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		C28822231FEC8D4400C6128B /* textures.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = textures.cpp; sourceTree = "<group>"; };
+		C28822241FEC8D4400C6128B /* textures.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = textures.hpp; sourceTree = "<group>"; };
+		C28822261FECCB7B00C6128B /* data */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file; path = data; sourceTree = "<group>"; };
 		C28C3CAA1FE31E6300C6CF99 /* Particles.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Particles.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C28C3CAC1FE31EC700C6CF99 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		C28C3CAE1FE31EFE00C6CF99 /* particles.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = particles.hpp; sourceTree = "<group>"; };
@@ -75,6 +107,7 @@
 		C28C3CB51FE320B400C6CF99 /* draw.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = draw.cpp; sourceTree = "<group>"; };
 		C28C3CB71FE425B900C6CF99 /* update.vsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = update.vsh; sourceTree = "<group>"; };
 		C28C3CB91FE425C400C6CF99 /* update.fsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = update.fsh; sourceTree = "<group>"; };
+		C2A42C571FED6EBD009B9EB7 /* data */ = {isa = PBXFileReference; lastKnownFileType = file; path = data; sourceTree = "<group>"; };
 		C2B25DE81FBB837A00287630 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk/System/Library/Frameworks/OpenGL.framework; sourceTree = DEVELOPER_DIR; };
 		C2B25DEA1FBB840A00287630 /* GLUT.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLUT.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk/System/Library/Frameworks/GLUT.framework; sourceTree = DEVELOPER_DIR; };
 		C2B25DEC1FBB841300287630 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk/System/Library/Frameworks/Cocoa.framework; sourceTree = DEVELOPER_DIR; };
@@ -97,6 +130,13 @@
 
 /* Begin PBXFrameworksBuildPhase section */
 		C20DA9531FD5BFDF00B1D45D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C28822161FEC653900C6128B /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -222,11 +262,21 @@
 			path = Sources;
 			sourceTree = "<group>";
 		};
+		C288221A1FEC653900C6128B /* Playground */ = {
+			isa = PBXGroup;
+			children = (
+				C28822261FECCB7B00C6128B /* data */,
+				C288221B1FEC653900C6128B /* main.cpp */,
+			);
+			path = Playground;
+			sourceTree = "<group>";
+		};
 		C28C3C971FE31E0A00C6CF99 /* Particles */ = {
 			isa = PBXGroup;
 			children = (
 				C28C3C981FE31E2500C6CF99 /* Common */,
 				C28C3C991FE31E2A00C6CF99 /* iOS */,
+				C2A42C561FED6EA7009B9EB7 /* Resources */,
 			);
 			path = Particles;
 			sourceTree = "<group>";
@@ -243,6 +293,8 @@
 				C2EDF78D1FE871220077195D /* update.cpp */,
 				C28C3CB71FE425B900C6CF99 /* update.vsh */,
 				C28C3CB91FE425C400C6CF99 /* update.fsh */,
+				C28822241FEC8D4400C6128B /* textures.hpp */,
+				C28822231FEC8D4400C6128B /* textures.cpp */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -253,6 +305,14 @@
 				C28C3CAC1FE31EC700C6CF99 /* ViewController.swift */,
 			);
 			path = iOS;
+			sourceTree = "<group>";
+		};
+		C2A42C561FED6EA7009B9EB7 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				C2A42C571FED6EBD009B9EB7 /* data */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 		C2B25DD41FBB7FF800287630 /* Demo */ = {
@@ -287,6 +347,7 @@
 				C20DA9441FD5BC1400B1D45D /* OpenGL */,
 				C24FC4C31FBAA5F100AB7C1E /* Sources */,
 				C2B25DD41FBB7FF800287630 /* Demo */,
+				C288221A1FEC653900C6128B /* Playground */,
 				C2F2836B1FBA7339007A0BEA /* Products */,
 				C2F283801FBA7833007A0BEA /* Frameworks */,
 			);
@@ -298,6 +359,7 @@
 				C2F2836A1FBA7339007A0BEA /* Geometry.app */,
 				C20DA95D1FD5BFDF00B1D45D /* Grid.app */,
 				C28C3CAA1FE31E6300C6CF99 /* Particles.app */,
+				C28822191FEC653900C6128B /* Playground */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -333,6 +395,24 @@
 			productName = OpenGL;
 			productReference = C20DA95D1FD5BFDF00B1D45D /* Grid.app */;
 			productType = "com.apple.product-type.application";
+		};
+		C28822181FEC653900C6128B /* Playground */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C288221F1FEC653900C6128B /* Build configuration list for PBXNativeTarget "Playground" */;
+			buildPhases = (
+				C28822151FEC653900C6128B /* Sources */,
+				C28822161FEC653900C6128B /* Frameworks */,
+				C28822171FEC653900C6128B /* CopyFiles */,
+				C28822281FECCD1000C6128B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Playground;
+			productName = Playground;
+			productReference = C28822191FEC653900C6128B /* Playground */;
+			productType = "com.apple.product-type.tool";
 		};
 		C28C3C9A1FE31E6300C6CF99 /* Particles-iOS */ = {
 			isa = PBXNativeTarget;
@@ -383,6 +463,10 @@
 					C20DA94B1FD5BFDF00B1D45D = {
 						ProvisioningStyle = Automatic;
 					};
+					C28822181FEC653900C6128B = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+					};
 					C28C3C9A1FE31E6300C6CF99 = {
 						ProvisioningStyle = Automatic;
 					};
@@ -409,6 +493,7 @@
 				C2F283691FBA7338007A0BEA /* Geometry-iOS */,
 				C20DA94B1FD5BFDF00B1D45D /* Grid-iOS */,
 				C28C3C9A1FE31E6300C6CF99 /* Particles-iOS */,
+				C28822181FEC653900C6128B /* Playground */,
 			);
 		};
 /* End PBXProject section */
@@ -433,6 +518,7 @@
 				C28C3CB21FE31F7D00C6CF99 /* particles.fsh in Resources */,
 				C28C3CA31FE31E6300C6CF99 /* grid.vsh in Resources */,
 				C28C3CA41FE31E6300C6CF99 /* Assets-iOS.xcassets in Resources */,
+				C2A42C591FED6EC1009B9EB7 /* data in Resources */,
 				C28C3CA51FE31E6300C6CF99 /* grid.fsh in Resources */,
 				C28C3CA61FE31E6300C6CF99 /* LaunchScreen.storyboard in Resources */,
 				C28C3CB81FE425B900C6CF99 /* update.vsh in Resources */,
@@ -514,6 +600,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		C28822151FEC653900C6128B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C288221C1FEC653900C6128B /* main.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C28C3C9B1FE31E6300C6CF99 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -521,6 +615,7 @@
 				C28C3CAD1FE31EC700C6CF99 /* ViewController.swift in Sources */,
 				C28C3C9D1FE31E6300C6CF99 /* utility.cpp in Sources */,
 				C28C3CB61FE320B400C6CF99 /* draw.cpp in Sources */,
+				C28822251FEC8D4400C6128B /* textures.cpp in Sources */,
 				C2BFA3511FE8CC6C00DC018F /* RootController.swift in Sources */,
 				C28C3C9E1FE31E6300C6CF99 /* AppDelegate.swift in Sources */,
 				C269A7B81FE8395900BD86EB /* UIView+.swift in Sources */,
@@ -590,6 +685,30 @@
 				PRODUCT_NAME = Grid;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		C288221D1FEC653900C6128B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Automatic;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		C288221E1FEC653900C6128B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Automatic;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
 			};
 			name = Release;
 		};
@@ -788,6 +907,15 @@
 			buildConfigurations = (
 				C20DA95B1FD5BFDF00B1D45D /* Debug */,
 				C20DA95C1FD5BFDF00B1D45D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C288221F1FEC653900C6128B /* Build configuration list for PBXNativeTarget "Playground" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C288221D1FEC653900C6128B /* Debug */,
+				C288221E1FEC653900C6128B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
