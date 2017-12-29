@@ -16,6 +16,7 @@
 		C20DA96B1FD5CA9800B1D45D /* grid.vsh in Resources */ = {isa = PBXBuildFile; fileRef = C20DA96A1FD5CA9800B1D45D /* grid.vsh */; };
 		C20DA96D1FD5CAA200B1D45D /* grid.fsh in Resources */ = {isa = PBXBuildFile; fileRef = C20DA96C1FD5CAA200B1D45D /* grid.fsh */; };
 		C21B333F1FD8CDB900B0F57D /* draw.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C20DA9611FD5C37F00B1D45D /* draw.cpp */; };
+		C21E28841FF6C0BD00506FB4 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C21E28831FF6C0BD00506FB4 /* main.cpp */; };
 		C225BE101FBD11650097F75E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C225BE0F1FBD11650097F75E /* ViewController.swift */; };
 		C239A5CD1FD49F44003BD3BB /* geometry.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C239A5C51FD49F43003BD3BB /* geometry.cpp */; };
 		C239A5CF1FD49F44003BD3BB /* geometry.fsh in Resources */ = {isa = PBXBuildFile; fileRef = C239A5C81FD49F43003BD3BB /* geometry.fsh */; };
@@ -24,7 +25,6 @@
 		C269A7B61FE8395900BD86EB /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = C269A7B51FE8395900BD86EB /* UIView+.swift */; };
 		C269A7B71FE8395900BD86EB /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = C269A7B51FE8395900BD86EB /* UIView+.swift */; };
 		C269A7B81FE8395900BD86EB /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = C269A7B51FE8395900BD86EB /* UIView+.swift */; };
-		C288221C1FEC653900C6128B /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C288221B1FEC653900C6128B /* main.cpp */; };
 		C28822251FEC8D4400C6128B /* textures.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C28822231FEC8D4400C6128B /* textures.cpp */; };
 		C28822291FECCD2400C6128B /* data in Resources */ = {isa = PBXBuildFile; fileRef = C28822261FECCB7B00C6128B /* data */; };
 		C28C3C9D1FE31E6300C6CF99 /* utility.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C239A5CA1FD49F43003BD3BB /* utility.cpp */; };
@@ -84,6 +84,7 @@
 		C20DA9681FD5C65500B1D45D /* grid.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = grid.hpp; sourceTree = "<group>"; };
 		C20DA96A1FD5CA9800B1D45D /* grid.vsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = grid.vsh; sourceTree = "<group>"; };
 		C20DA96C1FD5CAA200B1D45D /* grid.fsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = grid.fsh; sourceTree = "<group>"; };
+		C21E28831FF6C0BD00506FB4 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		C225BE0F1FBD11650097F75E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		C239A5C51FD49F43003BD3BB /* geometry.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = geometry.cpp; sourceTree = "<group>"; };
 		C239A5C61FD49F43003BD3BB /* utility.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = utility.hpp; sourceTree = "<group>"; };
@@ -94,7 +95,6 @@
 		C239A5CC1FD49F43003BD3BB /* geometry.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = geometry.hpp; sourceTree = "<group>"; };
 		C269A7B51FE8395900BD86EB /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
 		C28822191FEC653900C6128B /* Playground */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Playground; sourceTree = BUILT_PRODUCTS_DIR; };
-		C288221B1FEC653900C6128B /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		C28822231FEC8D4400C6128B /* textures.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = textures.cpp; sourceTree = "<group>"; };
 		C28822241FEC8D4400C6128B /* textures.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = textures.hpp; sourceTree = "<group>"; };
 		C28822261FECCB7B00C6128B /* data */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file; path = data; sourceTree = "<group>"; };
@@ -266,7 +266,7 @@
 			isa = PBXGroup;
 			children = (
 				C28822261FECCB7B00C6128B /* data */,
-				C288221B1FEC653900C6128B /* main.cpp */,
+				C21E28831FF6C0BD00506FB4 /* main.cpp */,
 			);
 			path = Playground;
 			sourceTree = "<group>";
@@ -604,7 +604,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C288221C1FEC653900C6128B /* main.cpp in Sources */,
+				C21E28841FF6C0BD00506FB4 /* main.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
