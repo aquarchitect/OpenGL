@@ -52,8 +52,7 @@ Update::Update(string basePath, vec2 grid, vec2 resolution, Textures *textures) 
     glBindBuffer(GL_ARRAY_BUFFER, 0);
 };
 
-void Update::draw() {
-    glBindFramebuffer(GL_FRAMEBUFFER, FBO);
+void Update::draw(GLint mode) {
     glViewport(0, 0, grid.x, grid.y);
     
     glClearColor(1.0, 0.0, 0.0, 1.0);
@@ -61,11 +60,12 @@ void Update::draw() {
     glDisable(GL_BLEND);
     glUseProgram(program);
     
+    glUniform1i(modeUniformLocation, mode);
     glUniform2fv(resolutionUniformLocation, 1, value_ptr(resolution));
     
     glBindTexture(GL_TEXTURE_2D, textures->p0);
     glUniform1i(positionsUniformLocation, 1);
-
+    
     glBindTexture(GL_TEXTURE_2D, textures->v0);
     glUniform1i(velocitiesUniformLocation, 2);
     
@@ -74,23 +74,25 @@ void Update::draw() {
 #elif GL_OES_vertex_array_object
     glBindVertexArrayOES(VAO);
 #endif
-
-    glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D, textures->p1, 0);
-    glUniform1i(modeUniformLocation, 0);
+    
     glDrawArrays(GL_TRIANGLE_STRIP, 0, GLsizei(vertices.size()));
     
-    glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D, textures->v1, 0);
-    glUniform1i(modeUniformLocation, 1);
-    glDrawArrays(GL_TRIANGLE_STRIP, 0, GLsizei(vertices.size()));
-    
-
 #if GL_APPLE_vertex_array_object
     glBindVertexArrayAPPLE(0);
 #elif GL_OES_vertex_array_object
     glBindVertexArrayOES(0);
 #endif
-  
+    
     glBindTexture(GL_TEXTURE_2D, 0);
+};
+
+void Update::draw() {
+    glBindFramebuffer(GL_FRAMEBUFFER, FBO);
+
+    glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D, textures->p1, 0); draw(0);
+    glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D, textures->v1, 0); draw(1);
     textures->swap();
-    glBindFramebuffer(GL_FRAMEBUFFER, 2); // unfortunately the default framebuffer is not 0
+    
+    // unfortunately the default framebuffer is not 0
+    glBindFramebuffer(GL_FRAMEBUFFER, 2);
 };
