@@ -2,14 +2,14 @@
 precision highp float;
 #endif
 
-const vec2 gravity = vec2(0.0, -0.1);
+const vec2 gravity = vec2(0.0, -3.0);
 const vec2 wind = vec2(0.0);
-const float scale = 2000.0;
 
 uniform sampler2D uPositions;
 uniform sampler2D uVelocities;
-uniform int uMode;
+
 uniform vec2 uResolution;
+uniform int uMode;
 
 varying vec2 vPosition;
 
@@ -24,11 +24,11 @@ float decode(vec2 channels) {
 }
 
 void updatePosition(inout vec2 position, vec2 velocity) {
-    position += velocity + wind;
+    position += velocity + wind + gravity;
 }
 
 void updateVelocity(vec2 position, inout vec2 velocity) {
-    velocity += gravity;
+    
 }
 
 void main() {
@@ -36,7 +36,7 @@ void main() {
     vec4 encodedVelocity = texture2D(uVelocities, vPosition);
     
     vec2 position = vec2(decode(encodedPosition.rg), decode(encodedPosition.ba)) * uResolution;
-    vec2 velocity = (vec2(decode(encodedVelocity.rg), decode(encodedVelocity.ba))/scale * 2.0 - 1.0) * uResolution;
+    vec2 velocity = vec2(decode(encodedVelocity.rg), decode(encodedVelocity.ba)) * 2.0 - 1.0;
     
     if (uMode == 0) {
         updatePosition(position, velocity);
@@ -44,7 +44,7 @@ void main() {
         gl_FragColor = vec4(encode(position.x), encode(position.y));
     } else {
         updateVelocity(position, velocity);
-        velocity = ((velocity/uResolution + 1.0) / 2.0) * scale;
+        velocity = (velocity + 1.0) / 2.0;
         gl_FragColor = vec4(encode(velocity.x), encode(velocity.y));
     }
 }

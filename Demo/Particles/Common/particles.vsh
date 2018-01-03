@@ -2,10 +2,10 @@
 precision highp float;
 #endif
 
-uniform vec2 uResolution;
-
 uniform sampler2D uPositions;
 uniform sampler2D uVelocities;
+
+uniform vec2 uResolution;
 
 attribute vec2 aTexCoord;
 varying vec2 vVelocity;
