@@ -29,6 +29,8 @@ private:
     vec2            grid;
     vec2            resolution;
     
+    GLuint          count = 0;
+    
     Textures        *textures;
     
     GLuint          VAO;

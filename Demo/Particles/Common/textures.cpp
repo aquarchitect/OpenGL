@@ -36,7 +36,10 @@ Textures::Textures(string basePath, vec2 size) {
     this->v1 = createTexture(4, size, NULL);
 };
 
-void Textures::swap() {
+void Textures::swapPositions() {
     GLuint p = p0; p0 = p1; p1 = p;
+};
+
+void Textures::swapVelocities() {
     GLuint v = v0; v0 = v1; v1 = v;
 };

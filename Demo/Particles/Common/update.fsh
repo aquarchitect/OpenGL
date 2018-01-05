@@ -2,7 +2,7 @@
 precision highp float;
 #endif
 
-const vec2 gravity = vec2(0.0, -3.0);
+const vec2 gravity = vec2(0.0, -0.5);
 const vec2 wind = vec2(0.0);
 
 uniform sampler2D uPositions;
@@ -24,11 +24,15 @@ float decode(vec2 channels) {
 }
 
 void updatePosition(inout vec2 position, vec2 velocity) {
-    position += velocity + wind + gravity;
+    position += velocity + wind;
 }
 
 void updateVelocity(vec2 position, inout vec2 velocity) {
+    velocity += gravity;
     
+    if (position.y + velocity.y < -1.0) {
+        velocity.y = 0.0;
+    }
 }
 
 void main() {
@@ -39,12 +43,22 @@ void main() {
     vec2 velocity = vec2(decode(encodedVelocity.rg), decode(encodedVelocity.ba)) * 2.0 - 1.0;
     
     if (uMode == 0) {
+        velocity *= uResolution;
         updatePosition(position, velocity);
         position /= uResolution;
+        
         gl_FragColor = vec4(encode(position.x), encode(position.y));
-    } else {
+    } else if (uMode == 1) {
+        velocity *= uResolution;
         updateVelocity(position, velocity);
-        velocity = (velocity + 1.0) / 2.0;
+        velocity = (velocity/uResolution + 1.0) / 2.0;
+        
         gl_FragColor = vec4(encode(velocity.x), encode(velocity.y));
+    } else if (uMode == 2) {
+        velocity = (velocity/1000.0 + 1.0) / 2.0;
+        
+        gl_FragColor = vec4(encode(velocity.x), encode(velocity.y));
+    } else {
+        discard;
     }
 }

@@ -89,10 +89,22 @@ void Update::draw(GLint mode) {
 void Update::draw() {
     glBindFramebuffer(GL_FRAMEBUFFER, FBO);
 
-    glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D, textures->p1, 0); draw(0);
-    glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D, textures->v1, 0); draw(1);
-    textures->swap();
+    if (count >= 2) {
+        glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D, textures->p1, 0);
+        draw(0);
+        textures->swapPositions();
+
+        glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D, textures->v1, 0);
+        draw(1);
+        textures->swapVelocities();
+    } else {
+        glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D, textures->v1, 0);
+        draw(2);
+        textures->swapVelocities();
+    }
     
     // unfortunately the default framebuffer is not 0
     glBindFramebuffer(GL_FRAMEBUFFER, 2);
+    
+    count += 1;
 };

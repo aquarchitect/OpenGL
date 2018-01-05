@@ -63,7 +63,6 @@ Particles::Particles(string basePath, vec2 grid, vec2 resolution, Textures *text
 };
 
 void Particles::draw() {
-    //glBindFramebuffer(GL_FRAMEBUFFER, 1);
     glViewport(0, 0, resolution.x, resolution.y);
     
     glClearColor(0.0, 0.0, 0.0, 1.0);
@@ -72,8 +71,6 @@ void Particles::draw() {
     glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
     
     glUseProgram(program);
-
-    glUniform2fv(resolutionUniformLocation, 1, value_ptr(resolution));
     
     glBindTexture(GL_TEXTURE_2D, textures->p0);
     glUniform1i(positionsUniformLocation, 1);

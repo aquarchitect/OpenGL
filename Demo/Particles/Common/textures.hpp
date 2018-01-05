@@ -15,7 +15,9 @@ class Textures {
 public:
     Textures(string basePath, vec2 size);
     
-    void        swap();
+    void        swapPositions();
+    void        swapVelocities();
+    
     vec2        size;
     
     GLuint      p0, v0, p1, v1;
