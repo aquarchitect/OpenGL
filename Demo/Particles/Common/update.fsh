@@ -25,12 +25,16 @@ float decode(vec2 channels) {
 
 void updatePosition(inout vec2 position, vec2 velocity) {
     position += velocity + wind;
+    
+    if (position.y <= 0.0) {
+        position.y += uResolution.y;
+    }
 }
 
 void updateVelocity(vec2 position, inout vec2 velocity) {
     velocity += gravity;
     
-    if (position.y + velocity.y < -1.0) {
+    if (position.y + velocity.y < 0.0) {
         velocity.y = 0.0;
     }
 }
