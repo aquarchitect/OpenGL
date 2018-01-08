@@ -44,6 +44,9 @@
 		C28C3CBA1FE425C400C6CF99 /* update.fsh in Resources */ = {isa = PBXBuildFile; fileRef = C28C3CB91FE425C400C6CF99 /* update.fsh */; };
 		C2A2DA661FD9011B00DEAC28 /* draw.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C239A5C71FD49F43003BD3BB /* draw.cpp */; };
 		C2A42C591FED6EC1009B9EB7 /* data in Resources */ = {isa = PBXBuildFile; fileRef = C2A42C571FED6EBD009B9EB7 /* data */; };
+		C2A6C92C2003E6D90025ED91 /* obstacles.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2A6C92A2003E6D90025ED91 /* obstacles.cpp */; };
+		C2A6C92E2003E6F70025ED91 /* obstacles.vsh in Resources */ = {isa = PBXBuildFile; fileRef = C2A6C92D2003E6F70025ED91 /* obstacles.vsh */; };
+		C2A6C9302003E7040025ED91 /* obstacles.fsh in Resources */ = {isa = PBXBuildFile; fileRef = C2A6C92F2003E7040025ED91 /* obstacles.fsh */; };
 		C2BFA34F1FE8CC6C00DC018F /* RootController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2BFA34E1FE8CC6C00DC018F /* RootController.swift */; };
 		C2BFA3501FE8CC6C00DC018F /* RootController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2BFA34E1FE8CC6C00DC018F /* RootController.swift */; };
 		C2BFA3511FE8CC6C00DC018F /* RootController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2BFA34E1FE8CC6C00DC018F /* RootController.swift */; };
@@ -111,6 +114,10 @@
 		C28C3CB71FE425B900C6CF99 /* update.vsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = update.vsh; sourceTree = "<group>"; };
 		C28C3CB91FE425C400C6CF99 /* update.fsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = update.fsh; sourceTree = "<group>"; };
 		C2A42C571FED6EBD009B9EB7 /* data */ = {isa = PBXFileReference; lastKnownFileType = file; path = data; sourceTree = "<group>"; };
+		C2A6C92A2003E6D90025ED91 /* obstacles.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = obstacles.cpp; sourceTree = "<group>"; };
+		C2A6C92B2003E6D90025ED91 /* obstacles.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = obstacles.hpp; sourceTree = "<group>"; };
+		C2A6C92D2003E6F70025ED91 /* obstacles.vsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = obstacles.vsh; sourceTree = "<group>"; };
+		C2A6C92F2003E7040025ED91 /* obstacles.fsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = obstacles.fsh; sourceTree = "<group>"; };
 		C2B25DE81FBB837A00287630 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk/System/Library/Frameworks/OpenGL.framework; sourceTree = DEVELOPER_DIR; };
 		C2B25DEA1FBB840A00287630 /* GLUT.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLUT.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk/System/Library/Frameworks/GLUT.framework; sourceTree = DEVELOPER_DIR; };
 		C2B25DEC1FBB841300287630 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk/System/Library/Frameworks/Cocoa.framework; sourceTree = DEVELOPER_DIR; };
@@ -297,6 +304,10 @@
 				C2EDF78D1FE871220077195D /* update.cpp */,
 				C28C3CB71FE425B900C6CF99 /* update.vsh */,
 				C28C3CB91FE425C400C6CF99 /* update.fsh */,
+				C2A6C92B2003E6D90025ED91 /* obstacles.hpp */,
+				C2A6C92A2003E6D90025ED91 /* obstacles.cpp */,
+				C2A6C92D2003E6F70025ED91 /* obstacles.vsh */,
+				C2A6C92F2003E7040025ED91 /* obstacles.fsh */,
 				C28822241FEC8D4400C6128B /* textures.hpp */,
 				C28822231FEC8D4400C6128B /* textures.cpp */,
 			);
@@ -522,10 +533,12 @@
 				C28C3CB21FE31F7D00C6CF99 /* particles.fsh in Resources */,
 				C28C3CA31FE31E6300C6CF99 /* grid.vsh in Resources */,
 				C28C3CA41FE31E6300C6CF99 /* Assets-iOS.xcassets in Resources */,
+				C2A6C92E2003E6F70025ED91 /* obstacles.vsh in Resources */,
 				C2A42C591FED6EC1009B9EB7 /* data in Resources */,
 				C28C3CA51FE31E6300C6CF99 /* grid.fsh in Resources */,
 				C28C3CA61FE31E6300C6CF99 /* LaunchScreen.storyboard in Resources */,
 				C28C3CB81FE425B900C6CF99 /* update.vsh in Resources */,
+				C2A6C9302003E7040025ED91 /* obstacles.fsh in Resources */,
 				C28C3CBA1FE425C400C6CF99 /* update.fsh in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -619,6 +632,7 @@
 				C28C3CAD1FE31EC700C6CF99 /* ViewController.swift in Sources */,
 				C28C3C9D1FE31E6300C6CF99 /* utility.cpp in Sources */,
 				C28C3CB61FE320B400C6CF99 /* draw.cpp in Sources */,
+				C2A6C92C2003E6D90025ED91 /* obstacles.cpp in Sources */,
 				C28822251FEC8D4400C6128B /* textures.cpp in Sources */,
 				C2BFA3511FE8CC6C00DC018F /* RootController.swift in Sources */,
 				C28C3C9E1FE31E6300C6CF99 /* AppDelegate.swift in Sources */,
