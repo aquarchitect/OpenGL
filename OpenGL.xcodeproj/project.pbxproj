@@ -22,6 +22,9 @@
 		C239A5CF1FD49F44003BD3BB /* geometry.fsh in Resources */ = {isa = PBXBuildFile; fileRef = C239A5C81FD49F43003BD3BB /* geometry.fsh */; };
 		C239A5D01FD49F44003BD3BB /* utility.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C239A5CA1FD49F43003BD3BB /* utility.cpp */; };
 		C239A5D11FD49F44003BD3BB /* geometry.vsh in Resources */ = {isa = PBXBuildFile; fileRef = C239A5CB1FD49F43003BD3BB /* geometry.vsh */; };
+		C24F79AB2005380000B6AC00 /* flat.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C24F79A92005380000B6AC00 /* flat.cpp */; };
+		C24F79AD2005397D00B6AC00 /* flat.vsh in Resources */ = {isa = PBXBuildFile; fileRef = C24F79AC2005397D00B6AC00 /* flat.vsh */; };
+		C24F79AF2005398400B6AC00 /* flat.fsh in Resources */ = {isa = PBXBuildFile; fileRef = C24F79AE2005398400B6AC00 /* flat.fsh */; };
 		C25265711FFC96A600BC8B9C /* positions in Resources */ = {isa = PBXBuildFile; fileRef = C252656F1FFC963D00BC8B9C /* positions */; };
 		C25265721FFC96A600BC8B9C /* velocities in Resources */ = {isa = PBXBuildFile; fileRef = C25265701FFC963D00BC8B9C /* velocities */; };
 		C269A7B61FE8395900BD86EB /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = C269A7B51FE8395900BD86EB /* UIView+.swift */; };
@@ -98,6 +101,10 @@
 		C239A5CA1FD49F43003BD3BB /* utility.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = utility.cpp; sourceTree = "<group>"; };
 		C239A5CB1FD49F43003BD3BB /* geometry.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = geometry.vsh; sourceTree = "<group>"; };
 		C239A5CC1FD49F43003BD3BB /* geometry.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = geometry.hpp; sourceTree = "<group>"; };
+		C24F79A92005380000B6AC00 /* flat.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = flat.cpp; sourceTree = "<group>"; };
+		C24F79AA2005380000B6AC00 /* flat.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = flat.hpp; sourceTree = "<group>"; };
+		C24F79AC2005397D00B6AC00 /* flat.vsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = flat.vsh; sourceTree = "<group>"; };
+		C24F79AE2005398400B6AC00 /* flat.fsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = flat.fsh; sourceTree = "<group>"; };
 		C252656F1FFC963D00BC8B9C /* positions */ = {isa = PBXFileReference; lastKnownFileType = file; path = positions; sourceTree = "<group>"; };
 		C25265701FFC963D00BC8B9C /* velocities */ = {isa = PBXFileReference; lastKnownFileType = file; path = velocities; sourceTree = "<group>"; };
 		C269A7B51FE8395900BD86EB /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
@@ -308,6 +315,10 @@
 				C2A6C92A2003E6D90025ED91 /* obstacles.cpp */,
 				C2A6C92D2003E6F70025ED91 /* obstacles.vsh */,
 				C2A6C92F2003E7040025ED91 /* obstacles.fsh */,
+				C24F79AA2005380000B6AC00 /* flat.hpp */,
+				C24F79A92005380000B6AC00 /* flat.cpp */,
+				C24F79AC2005397D00B6AC00 /* flat.vsh */,
+				C24F79AE2005398400B6AC00 /* flat.fsh */,
 				C28822241FEC8D4400C6128B /* textures.hpp */,
 				C28822231FEC8D4400C6128B /* textures.cpp */,
 			);
@@ -535,9 +546,11 @@
 				C28C3CA41FE31E6300C6CF99 /* Assets-iOS.xcassets in Resources */,
 				C2A6C92E2003E6F70025ED91 /* obstacles.vsh in Resources */,
 				C2A42C591FED6EC1009B9EB7 /* data in Resources */,
+				C24F79AD2005397D00B6AC00 /* flat.vsh in Resources */,
 				C28C3CA51FE31E6300C6CF99 /* grid.fsh in Resources */,
 				C28C3CA61FE31E6300C6CF99 /* LaunchScreen.storyboard in Resources */,
 				C28C3CB81FE425B900C6CF99 /* update.vsh in Resources */,
+				C24F79AF2005398400B6AC00 /* flat.fsh in Resources */,
 				C2A6C9302003E7040025ED91 /* obstacles.fsh in Resources */,
 				C28C3CBA1FE425C400C6CF99 /* update.fsh in Resources */,
 			);
@@ -637,6 +650,7 @@
 				C2BFA3511FE8CC6C00DC018F /* RootController.swift in Sources */,
 				C28C3C9E1FE31E6300C6CF99 /* AppDelegate.swift in Sources */,
 				C269A7B81FE8395900BD86EB /* UIView+.swift in Sources */,
+				C24F79AB2005380000B6AC00 /* flat.cpp in Sources */,
 				C28C3CA01FE31E6300C6CF99 /* grid.cpp in Sources */,
 				C2EDF78F1FE871220077195D /* update.cpp in Sources */,
 				C28C3CB41FE3202E00C6CF99 /* particles.cpp in Sources */,

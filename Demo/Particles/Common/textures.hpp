@@ -11,15 +11,19 @@
 
 #include "utility.hpp"
 
+using Texture = tuple<GLuint, GLuint>;
+
 class Textures {
 public:
-    Textures(string basePath, vec2 size);
+    
+    
+    Textures(string basePath, vec2 size, vec2 resolution);
     
     void        swapPositions();
     void        swapVelocities();
     
-    vec2        size;
-    
-    GLuint      p0, v0, p1, v1;
+    Texture     p0, p1; // position
+    Texture     v0, v1; // velocity
+    Texture     o;  // obstacle
 };
 #endif /* textures_hpp */

@@ -8,21 +8,27 @@
 
 #include "draw.h"
 #include "update.hpp"
+#include "flat.hpp"
 #include "particles.hpp"
+#include "obstacles.hpp"
 #include "textures.hpp"
 
-static Particles    *pParticle;
-static Update       *pUpdate;
+//static Particles    *pParticle;
+//static Update       *pUpdate;
 static Textures     *pTextures;
+static Obstacles    *pObstacles;
+static Flat         *pFlat;
 static vec2         resolution;
 
 static void setup(char *basePath, int width, int height) {    
     resolution = {width, height};
-    vec2 grid(32.0);
+    vec2 size(32.0);
     
-    pTextures = new Textures(basePath, grid);
-    pUpdate = new Update(basePath, grid, resolution, pTextures);
-    pParticle = new Particles(basePath, grid, resolution, pTextures);
+    pTextures = new Textures(basePath, size, resolution);
+//    pUpdate = new Update(basePath, size, resolution, pTextures);
+//    pParticle = new Particles(basePath, size, resolution, pTextures);
+    pObstacles = new Obstacles(basePath, resolution, pTextures);
+    pFlat = new Flat(basePath, resolution, pTextures);
 }
 
 void setup(char *basePath, int resolution[2]) {
@@ -30,6 +36,11 @@ void setup(char *basePath, int resolution[2]) {
 };
 
 void draw(float deltaTime) {
-    pUpdate->draw();
-    pParticle->draw();
+//    pUpdate->draw();
+//    pParticle->draw();
+};
+
+void addObstacle(int x, int y) {
+    pObstacles->addObstacle(vec2(x, y));
+    pFlat->draw();
 };

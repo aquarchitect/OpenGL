@@ -14,7 +14,8 @@ extern "C" {
 #endif /* __cplusplus */
     extern void setup(char *basePath, int resolution[2]);
     extern void draw(float deltaTime);
-
+    
+    extern void addObstacle(int x, int y);
     extern void rotateCamera(float pitch, float yaw, float roll);
     extern void loadTexture(int width, int height, void *pixels);
 #ifdef __cplusplus

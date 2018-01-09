@@ -13,8 +13,8 @@
 
 using namespace Utility;
 
-Update::Update(string basePath, vec2 grid, vec2 resolution, Textures *textures) {
-    this->grid = grid;
+Update::Update(string basePath, vec2 size, vec2 resolution, Textures *textures) {
+    this->size = size;
     this->resolution = resolution;
     this->textures = textures;
     
@@ -53,7 +53,7 @@ Update::Update(string basePath, vec2 grid, vec2 resolution, Textures *textures) 
 };
 
 void Update::draw(GLint mode) {
-    glViewport(0, 0, grid.x, grid.y);
+    glViewport(0, 0, size.x, size.y);
     
     glClearColor(1.0, 0.0, 0.0, 1.0);
     glClear(GL_COLOR_BUFFER_BIT);
@@ -63,11 +63,11 @@ void Update::draw(GLint mode) {
     glUniform1i(modeUniformLocation, mode);
     glUniform2fv(resolutionUniformLocation, 1, value_ptr(resolution));
     
-    glBindTexture(GL_TEXTURE_2D, textures->p0);
-    glUniform1i(positionsUniformLocation, 1);
+    glBindTexture(GL_TEXTURE_2D, get<0>(textures->p0));
+    glUniform1i(positionsUniformLocation, get<1>(textures->p0));
     
-    glBindTexture(GL_TEXTURE_2D, textures->v0);
-    glUniform1i(velocitiesUniformLocation, 2);
+    glBindTexture(GL_TEXTURE_2D, get<0>(textures->v0));
+    glUniform1i(velocitiesUniformLocation, get<1>(textures->v0));
     
 #if GL_APPLE_vertex_array_object
     glBindVertexArrayAPPLE(VAO);
@@ -90,15 +90,15 @@ void Update::draw() {
     glBindFramebuffer(GL_FRAMEBUFFER, FBO);
 
     if (count >= 2) {
-        glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D, textures->p1, 0);
+        glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D, get<0>(textures->p1), 0);
         draw(0);
         textures->swapPositions();
 
-        glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D, textures->v1, 0);
+        glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D, get<0>(textures->v1), 0);
         draw(1);
         textures->swapVelocities();
     } else {
-        glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D, textures->v1, 0);
+        glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D, get<0>(textures->v1), 0);
         draw(2);
         textures->swapVelocities();
     }

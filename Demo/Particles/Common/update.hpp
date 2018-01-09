@@ -17,7 +17,7 @@ public:
     Update(string basePath, vec2 grid, vec2 resolution, Textures *textures);
     void draw();
 private:    
-    vector<vec2>   vertices = {
+    vector<vec2>    vertices = {
                         {-1.0, -1.0},
                         {-1.0, +1.0},
                         {+1.0, -1.0},
@@ -26,7 +26,7 @@ private:
     
     GLuint          program = glCreateProgram();
     
-    vec2            grid;
+    vec2            size;
     vec2            resolution;
     
     GLuint          count = 0;

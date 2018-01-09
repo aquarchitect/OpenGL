@@ -14,7 +14,7 @@
 
 class Particles {
 public:
-    Particles(string basePath, vec2 grid, vec2 resolution, Textures *textures);
+    Particles(string basePath, vec2 size, vec2 resolution, Textures *textures);
     
     void            draw();
 private:
@@ -23,7 +23,6 @@ private:
     Textures        *textures;
     vector<vec2>    vertices;
     
-    vec2            grid;
     vec2            resolution;
 
     GLuint          VAO;

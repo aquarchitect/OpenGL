@@ -7,27 +7,25 @@
 //
 
 #include "particles.hpp"
-#include <iostream>
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
 
 using namespace Utility;
 
-Particles::Particles(string basePath, vec2 grid, vec2 resolution, Textures *textures) {
-    vector<vec2> vertices(grid[0] * grid[1], {0.0, 0.0});
-    for (int j = 0; j < grid.y; j++) {
-        for (int i = 0; i < grid.x; i++) { // x
-            int index = j * int(grid.x) + i;
+Particles::Particles(string basePath, vec2 size, vec2 resolution, Textures *textures) {
+    vector<vec2> vertices(size[0] * size[1], {0.0, 0.0});
+    for (int j = 0; j < size.y; j++) {
+        for (int i = 0; i < size.x; i++) {
+            int index = j * int(size.x) + i;
             
             vertices[index] = {
-                GLfloat(i/grid.x),
-                GLfloat(j/grid.y)
+                GLfloat(i/size.x),
+                GLfloat(j/size.y)
             };
         };
     };
     
     this->textures = textures;
-    this->grid = grid;
     this->resolution = resolution;
     this->vertices = vertices;
     
@@ -72,11 +70,11 @@ void Particles::draw() {
     
     glUseProgram(program);
     
-    glBindTexture(GL_TEXTURE_2D, textures->p0);
-    glUniform1i(positionsUniformLocation, 1);
+    glBindTexture(GL_TEXTURE_2D, get<0>(textures->p0));
+    glUniform1i(positionsUniformLocation, get<1>(textures->p0));
     
-    glBindTexture(GL_TEXTURE_2D, textures->v0);
-    glUniform1i(velocitiesUniformLocation, 2);
+    glBindTexture(GL_TEXTURE_2D, get<0>(textures->v0));
+    glUniform1i(velocitiesUniformLocation, get<1>(textures->v0));
     
 #if GL_APPLE_vertex_array_object
     glBindVertexArrayAPPLE(VAO);
