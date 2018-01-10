@@ -31,11 +31,14 @@ Obstacles::Obstacles(string basePath, vec2 resolution, Textures *textures) {
     glGenFramebuffers(1, &FBO);
 };
 
-void Obstacles::draw() {
+void Obstacles::draw(GLboolean shouldClearColorBuffer) {
     glViewport(0, 0, resolution.x, resolution.y);
     
-    glClearColor(0.0, 0.0, 0.0, 0.0);
-    glClear(GL_COLOR_BUFFER_BIT);
+    if (shouldClearColorBuffer) {
+        glClearColor(0.0, 0.0, 0.0, 0.0);
+        glClear(GL_COLOR_BUFFER_BIT);
+    };
+    
     glEnable(GL_BLEND);
     glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
     
@@ -44,6 +47,7 @@ void Obstacles::draw() {
     glBindBuffer(GL_ARRAY_BUFFER, VBO);
     glEnableVertexAttribArray(positionAttributeLocation);
     glVertexAttribPointer(positionAttributeLocation, 2, GL_FLOAT, GL_FALSE, 0, 0);
+    
     glDrawArrays(GL_POINTS, 0, GLsizei(vertices.size()));
 };
 
@@ -56,5 +60,5 @@ void Obstacles::addObstacle(vec2 position) {
     
     glBindFramebuffer(GL_FRAMEBUFFER, FBO);
     glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D, get<0>(textures->o), 0);
-    draw();
+    draw(true);
 };

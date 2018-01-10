@@ -23,33 +23,17 @@ Update::Update(string basePath, vec2 size, vec2 resolution, Textures *textures) 
     resolutionUniformLocation = glGetUniformLocation(program, "uResolution");
     positionsUniformLocation = glGetUniformLocation(program, "uPositions");
     velocitiesUniformLocation = glGetUniformLocation(program, "uVelocities");
+    obstaclesUniformLocation = glGetUniformLocation(program, "uObstacles");
     modeUniformLocation = glGetUniformLocation(program, "uMode");
+    positionAttributeLocation = glGetAttribLocation(program, "aPosition");
     
     glGenFramebuffers(1, &FBO);
     
-#if GL_APPLE_vertex_array_object
-    glGenVertexArraysAPPLE(1, &VAO);
-    glBindVertexArrayAPPLE(VAO);
-#elif GL_OES_vertex_array_object
-    glGenVertexArraysOES(1, &VAO);
-    glBindVertexArrayOES(VAO);
-#endif
-
     glGenBuffers(1, &VBO);
     glBindBuffer(GL_ARRAY_BUFFER, VBO);
     glBufferData(GL_ARRAY_BUFFER, vertices.size() * sizeof(vec2), &vertices.front(), GL_STATIC_DRAW);
     
-    GLuint positionAttibuteLocation = glGetAttribLocation(program, "aPosition");
-    glEnableVertexAttribArray(positionAttibuteLocation);
-    glVertexAttribPointer(positionAttibuteLocation, 2, GL_FLOAT, GL_FALSE, 0, NULL);
-
-#if GL_APPLE_vertex_array_object
-    glBindVertexArrayAPPLE(0);
-#elif GL_OES_vertex_array_object
-    glBindVertexArrayOES(0);
-#endif
     
-    glBindBuffer(GL_ARRAY_BUFFER, 0);
 };
 
 void Update::draw(GLint mode) {
@@ -69,21 +53,14 @@ void Update::draw(GLint mode) {
     glBindTexture(GL_TEXTURE_2D, get<0>(textures->v0));
     glUniform1i(velocitiesUniformLocation, get<1>(textures->v0));
     
-#if GL_APPLE_vertex_array_object
-    glBindVertexArrayAPPLE(VAO);
-#elif GL_OES_vertex_array_object
-    glBindVertexArrayOES(VAO);
-#endif
+    glBindBuffer(GL_TEXTURE_2D, get<0>(textures->o));
+    glUniform1i(obstaclesUniformLocation, get<1>(textures->o));
+    
+    glBindBuffer(GL_ARRAY_BUFFER, VBO);
+    glEnableVertexAttribArray(positionAttributeLocation);
+    glVertexAttribPointer(positionAttributeLocation, 2, GL_FLOAT, GL_FALSE, 0, NULL);
     
     glDrawArrays(GL_TRIANGLE_STRIP, 0, GLsizei(vertices.size()));
-    
-#if GL_APPLE_vertex_array_object
-    glBindVertexArrayAPPLE(0);
-#elif GL_OES_vertex_array_object
-    glBindVertexArrayOES(0);
-#endif
-    
-    glBindTexture(GL_TEXTURE_2D, 0);
 };
 
 void Update::draw() {
@@ -102,9 +79,6 @@ void Update::draw() {
         draw(2);
         textures->swapVelocities();
     }
-    
-    // unfortunately the default framebuffer is not 0
-    glBindFramebuffer(GL_FRAMEBUFFER, 2);
     
     count += 1;
 };

@@ -33,7 +33,6 @@ private:
     
     Textures        *textures;
     
-    GLuint          VAO;
     GLuint          VBO;
     GLuint          FBO;
     
@@ -41,6 +40,8 @@ private:
     GLuint          positionsUniformLocation;
     GLuint          velocitiesUniformLocation;
     GLuint          modeUniformLocation;
+    GLuint          positionAttributeLocation;
+    GLuint          obstaclesUniformLocation;
     
     void            draw(GLint mode);
 };

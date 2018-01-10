@@ -25,11 +25,13 @@ private:
     
     vec2            resolution;
 
-    GLuint          VAO;
     GLuint          VBO;
     
     GLuint          resolutionUniformLocation;
     GLuint          positionsUniformLocation;
     GLuint          velocitiesUniformLocation;
+    GLuint          texCoordAttributeLocation;
+    
+    void            _draw();
 };
 #endif /* particles_hpp */

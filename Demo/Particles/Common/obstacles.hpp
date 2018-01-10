@@ -17,6 +17,7 @@ public:
     Obstacles(string basePath, vec2 resolution, Textures *textures);
     
     void            addObstacle(vec2 position);
+    void            draw(GLboolean shouldClearColorBuffer);
 private:
     GLuint          program = glCreateProgram();
     
@@ -28,8 +29,6 @@ private:
     GLuint          FBO;
     
     GLuint          positionAttributeLocation;
-    
-    void            draw();
 };
 
 #endif /* obstacles_hpp */
