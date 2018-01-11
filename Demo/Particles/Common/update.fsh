@@ -24,7 +24,7 @@ float decode(vec2 channels) {
     return dot(channels, vec2(1.0, 1.0/255.0));
 }
 
-void updatePosition(inout vec2 position, vec2 velocity) {
+void updatePosition(inout vec2 position, vec2 velocity, vec2 obstacle) {
     position += velocity + WIND;
     
     if (position.y <= 0.0) {
@@ -32,8 +32,10 @@ void updatePosition(inout vec2 position, vec2 velocity) {
     }
 }
 
-void updateVelocity(vec2 position, inout vec2 velocity) {
-    velocity += GRAVITY;
+void updateVelocity(vec2 position, inout vec2 velocity, vec2 obstacle) {
+    if (obstacle == vec2(0.5)) {
+        velocity += GRAVITY;
+    }
     
     if (position.y + velocity.y < 0.0) {
         velocity.y = 0.0;
@@ -44,18 +46,21 @@ void main() {
     vec4 encodedPosition = texture2D(uPositions, vPosition);
     vec4 encodedVelocity = texture2D(uVelocities, vPosition);
     
-    vec2 position = vec2(decode(encodedPosition.rg), decode(encodedPosition.ba)) * uResolution;
+    vec2 position = vec2(decode(encodedPosition.rg), decode(encodedPosition.ba));
     vec2 velocity = vec2(decode(encodedVelocity.rg), decode(encodedVelocity.ba)) * 2.0 - 1.0;
+    vec2 obstacle = texture2D(uObstacles, position).xy;
     
     if (uMode == 0) {
+        position *= uResolution;
         velocity *= uResolution;
-        updatePosition(position, velocity);
+        updatePosition(position, velocity, obstacle);
         position /= uResolution;
         
         gl_FragColor = vec4(encode(position.x), encode(position.y));
     } else if (uMode == 1) {
+        position *= uResolution;
         velocity *= uResolution;
-        updateVelocity(position, velocity);
+        updateVelocity(position, velocity, obstacle);
         velocity = (velocity/uResolution + 1.0) / 2.0;
         
         gl_FragColor = vec4(encode(velocity.x), encode(velocity.y));

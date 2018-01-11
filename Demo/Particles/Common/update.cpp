@@ -32,8 +32,6 @@ Update::Update(string basePath, vec2 size, vec2 resolution, Textures *textures) 
     glGenBuffers(1, &VBO);
     glBindBuffer(GL_ARRAY_BUFFER, VBO);
     glBufferData(GL_ARRAY_BUFFER, vertices.size() * sizeof(vec2), &vertices.front(), GL_STATIC_DRAW);
-    
-    
 };
 
 void Update::draw(GLint mode) {

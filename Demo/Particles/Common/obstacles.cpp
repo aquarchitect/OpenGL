@@ -23,26 +23,30 @@ Obstacles::Obstacles(string basePath, vec2 resolution, Textures *textures) {
     linkShaders(basePath + "/obstacles", program);
     
     positionAttributeLocation = glGetAttribLocation(program, "aPosition");
+    modeUniformLocation = glGetUniformLocation(program, "uMode");
     
     glGenBuffers(1, &VBO);
     glBindBuffer(GL_ARRAY_BUFFER, VBO);
-    glBufferData(GL_ARRAY_BUFFER, count * sizeof(vec2), NULL, GL_DYNAMIC_DRAW);
+    glBufferData(GL_ARRAY_BUFFER, count * sizeof(vec2), vertices.data(), GL_DYNAMIC_DRAW);
     
     glGenFramebuffers(1, &FBO);
 };
 
-void Obstacles::draw(GLboolean shouldClearColorBuffer) {
+void Obstacles::draw(GLint mode) {
     glViewport(0, 0, resolution.x, resolution.y);
     
-    if (shouldClearColorBuffer) {
-        glClearColor(0.0, 0.0, 0.0, 0.0);
+    if (mode == 0) {
+        glClearColor(0.0, 0.0, 0.0, 1.0);
         glClear(GL_COLOR_BUFFER_BIT);
-    };
-    
-    glEnable(GL_BLEND);
-    glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+        glDisable(GL_BLEND);
+    } else {
+        glEnable(GL_BLEND);
+        glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+    }
     
     glUseProgram(program);
+    
+    glUniform1i(modeUniformLocation, mode);
     
     glBindBuffer(GL_ARRAY_BUFFER, VBO);
     glEnableVertexAttribArray(positionAttributeLocation);
@@ -55,10 +59,11 @@ void Obstacles::addObstacle(vec2 position) {
     vec2 vertex = position / resolution;
     vertices.push_back(vertex);
     
+    glBindFramebuffer(GL_FRAMEBUFFER, FBO);
+    glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D, get<0>(textures->o), 0);
+    
     glBindBuffer(GL_ARRAY_BUFFER, VBO);
     glBufferSubData(GL_ARRAY_BUFFER, (vertices.size() - 1) * sizeof(vec2), sizeof(vec2), &vertex);
     
-    glBindFramebuffer(GL_FRAMEBUFFER, FBO);
-    glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D, get<0>(textures->o), 0);
-    draw(true);
+    draw(0);
 };

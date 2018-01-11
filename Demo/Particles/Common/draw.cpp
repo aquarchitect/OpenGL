@@ -7,6 +7,7 @@
 //
 
 #include "draw.h"
+#include <iostream>
 #include "update.hpp"
 #include "particles.hpp"
 #include "obstacles.hpp"
@@ -35,7 +36,7 @@ void setup(char *basePath, int resolution[2]) {
 void draw(float deltaTime) {
     pUpdate->draw();
     pParticle->draw();
-    pObstacles->draw(false);
+    pObstacles->draw(1);
 };
 
 void addObstacle(int x, int y) {
