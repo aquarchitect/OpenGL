@@ -14,16 +14,11 @@
 using namespace std;
 
 int main(int argc, const char * argv[]) {
-    string basePath = "velocities";
+//    cout << modff(float(rand()), float(100.0)) / float(100.0);
     
-    ifstream ifs(basePath, ios::binary | ios::ate);
-    ifstream::pos_type position = ifs.tellg();
-    vector<char> result(position);
-    
-    ifs.seekg(0, ios::beg);
-    ifs.read(result.data(), position);
-
-    cout << result.size();
+    for (int i = 0; i < 10; i++) {
+        cout << fmod(rand(), 100.0) / 100.0 << "\n";
+    }
     
     return 0;
 }
