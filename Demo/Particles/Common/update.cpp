@@ -25,6 +25,7 @@ Update::Update(string basePath, vec2 size, vec2 resolution, Textures *textures) 
     velocitiesUniformLocation = glGetUniformLocation(program, "uVelocities");
     obstaclesUniformLocation = glGetUniformLocation(program, "uObstacles");
     modeUniformLocation = glGetUniformLocation(program, "uMode");
+    randomUniformLocation = glGetUniformLocation(program, "uRandom");
     positionAttributeLocation = glGetAttribLocation(program, "aPosition");
     
     glGenFramebuffers(1, &FBO);
@@ -41,6 +42,9 @@ void Update::draw(GLint mode) {
     glClear(GL_COLOR_BUFFER_BIT);
     glDisable(GL_BLEND);
     glUseProgram(program);
+    
+    const float MAX = 100.0;
+    glUniform1f(randomUniformLocation, fmod(rand(), MAX) / MAX);
     
     glUniform1i(modeUniformLocation, mode);
     glUniform2fv(resolutionUniformLocation, 1, value_ptr(resolution));

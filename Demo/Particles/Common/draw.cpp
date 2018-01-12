@@ -21,7 +21,7 @@ static vec2         resolution;
 
 static void setup(char *basePath, int width, int height) {    
     resolution = {width, height};
-    vec2 size(32.0);
+    vec2 size(64.0);
     
     pTextures = new Textures(basePath, size, resolution);
     pUpdate = new Update(basePath, size, resolution, pTextures);

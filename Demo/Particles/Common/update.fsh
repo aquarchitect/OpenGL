@@ -4,6 +4,7 @@ precision highp float;
 
 const vec2 GRAVITY = vec2(0.0, -0.5);
 const vec2 WIND = vec2(0.0);
+const float RESTITUTION = 0.25;
 
 uniform sampler2D uPositions;
 uniform sampler2D uVelocities;
@@ -11,6 +12,7 @@ uniform sampler2D uObstacles;
 
 uniform vec2 uResolution;
 uniform int uMode;
+uniform float uRandom;
 
 varying vec2 vPosition;
 
@@ -24,21 +26,34 @@ float decode(vec2 channels) {
     return dot(channels, vec2(1.0, 1.0/255.0));
 }
 
-void updatePosition(inout vec2 position, vec2 velocity, vec2 obstacle) {
+void updatePosition(inout vec2 position, vec2 velocity, vec2 obstacle, float random) {
     position += velocity + WIND;
     
-    if (position.y <= 0.0) {
+    if (position.y < 0.0) {
         position.y += uResolution.y;
+    }
+    
+    if (position.x < 0.0) {
+        position.x += uResolution.x - abs(random);
+    } else if (position.x > uResolution.x) {
+        position.x -= uResolution.x + abs(random);
     }
 }
 
-void updateVelocity(vec2 position, inout vec2 velocity, vec2 obstacle) {
-    if (obstacle == vec2(0.5)) {
-        velocity += GRAVITY;
-    }
+void updateVelocity(vec2 position, inout vec2 velocity, vec2 obstacle, float random) {
+    velocity += GRAVITY;
     
     if (position.y + velocity.y < 0.0) {
+        velocity.x += random / 2.0;
         velocity.y = 0.0;
+    }
+    
+    if (length(obstacle) != 0.0) {
+        if (length(velocity) < 0.5) {
+            velocity = 2.0 * (2.0 * obstacle - 1.0);
+        } else {
+            velocity = reflect(velocity, 2.0 * obstacle - 1.0) * RESTITUTION;
+        }
     }
 }
 
@@ -53,14 +68,14 @@ void main() {
     if (uMode == 0) {
         position *= uResolution;
         velocity *= uResolution;
-        updatePosition(position, velocity, obstacle);
+        updatePosition(position, velocity, obstacle, uRandom * 2.0 - 1.0);
         position /= uResolution;
         
         gl_FragColor = vec4(encode(position.x), encode(position.y));
     } else if (uMode == 1) {
         position *= uResolution;
         velocity *= uResolution;
-        updateVelocity(position, velocity, obstacle);
+        updateVelocity(position, velocity, obstacle, uRandom * 2.0 - 1.0);
         velocity = (velocity/uResolution + 1.0) / 2.0;
         
         gl_FragColor = vec4(encode(velocity.x), encode(velocity.y));

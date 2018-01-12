@@ -28,13 +28,14 @@ Textures::Textures(string basePath, vec2 size, vec2 resolution) {
     // data size is 128x128
     vector<char> pixels = loadBytes(basePath + "/data");
     
+    this->o = createTexture(5, resolution, NULL);
+    
     this->p0 = createTexture(1, size, &pixels[0]);
     this->v0 = createTexture(2, size, &pixels[pixels.size()/2]);
     
     this->p1 = createTexture(3, size, NULL);
     this->v1 = createTexture(4, size, NULL);
     
-    this->o = createTexture(5, resolution, NULL);
 };
 
 void Textures::swapPositions() {

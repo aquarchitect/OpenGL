@@ -40,8 +40,9 @@ private:
     GLuint          positionsUniformLocation;
     GLuint          velocitiesUniformLocation;
     GLuint          modeUniformLocation;
-    GLuint          positionAttributeLocation;
     GLuint          obstaclesUniformLocation;
+    GLuint          randomUniformLocation;
+    GLuint          positionAttributeLocation;
     
     void            draw(GLint mode);
 };
