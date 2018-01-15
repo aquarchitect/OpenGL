@@ -4,6 +4,7 @@ precision highp float;
 
 uniform sampler2D uPositions;
 uniform sampler2D uVelocities;
+uniform vec2 uResolution;
 
 attribute vec2 aTexCoord;
 varying vec2 vVelocity;
@@ -19,7 +20,7 @@ void main() {
     vec2 position = vec2(decode(encodedPosition.rg), decode(encodedPosition.ba)) * 2.0 - 1.0;
     vec2 velocity = vec2(decode(encodedVelocity.rg), decode(encodedVelocity.ba)) * 2.0 - 1.0;
     
-    gl_PointSize = 10.0;
+    gl_PointSize = 15.0;
     gl_Position = vec4(position, 0.0, 1.0);
     
     vVelocity = velocity;

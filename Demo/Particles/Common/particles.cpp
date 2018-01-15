@@ -51,6 +51,8 @@ void Particles::_draw() {
     
     glUseProgram(program);
     
+    glUniform2fv(resolutionUniformLocation, 1, value_ptr(resolution));
+    
     glBindTexture(GL_TEXTURE_2D, get<0>(textures->p0));
     glUniform1i(positionsUniformLocation, get<1>(textures->p0));
     

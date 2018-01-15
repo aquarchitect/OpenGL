@@ -43,14 +43,14 @@ void updatePosition(inout vec2 position, vec2 velocity, vec2 obstacle, float ran
 void updateVelocity(vec2 position, inout vec2 velocity, vec2 obstacle, float random) {
     velocity += GRAVITY;
     
-    if (position.y + velocity.y < 0.0) {
+    if (position.y + velocity.y < -1.0) {
         velocity.x += random / 8.0;
         velocity.y = -2.5;
     }
     
     if (length(obstacle) != 0.0) {
         if (length(velocity) < 0.5) {
-            velocity = 0.5 * (2.0 * obstacle - 1.0);
+            velocity = (2.0 * obstacle - 1.0);
         } else {
             velocity = reflect(velocity, 2.0 * obstacle - 1.0) * RESTITUTION;
         }
