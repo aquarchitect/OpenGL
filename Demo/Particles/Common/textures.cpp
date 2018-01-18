@@ -35,7 +35,6 @@ Textures::Textures(string basePath, vec2 size, vec2 resolution) {
     
     this->p1 = createTexture(3, size, NULL);
     this->v1 = createTexture(4, size, NULL);
-    
 };
 
 void Textures::swapPositions() {
