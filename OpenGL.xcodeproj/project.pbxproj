@@ -220,14 +220,14 @@
 			path = OpenGL;
 			sourceTree = "<group>";
 		};
-		C20DA9451FD5BD6B00B1D45D /* Common */ = {
+		C20DA9451FD5BD6B00B1D45D /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
-				C2BFA34A1FE8C21500DC018F /* draw.h */,
-				C239A5C61FD49F43003BD3BB /* utility.hpp */,
-				C239A5CA1FD49F43003BD3BB /* utility.cpp */,
+				C26ABA0D20110CEA006B3119 /* Common */,
+				C20DA9461FD5BD8000B1D45D /* iOS */,
+				C20DA9471FD5BD8500B1D45D /* macOS */,
 			);
-			path = Common;
+			path = Utilities;
 			sourceTree = "<group>";
 		};
 		C20DA9461FD5BD8000B1D45D /* iOS */ = {
@@ -262,14 +262,14 @@
 			path = Common;
 			sourceTree = "<group>";
 		};
-		C24FC4C31FBAA5F100AB7C1E /* Sources */ = {
+		C26ABA0D20110CEA006B3119 /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				C20DA9451FD5BD6B00B1D45D /* Common */,
-				C20DA9461FD5BD8000B1D45D /* iOS */,
-				C20DA9471FD5BD8500B1D45D /* macOS */,
+				C2BFA34A1FE8C21500DC018F /* draw.h */,
+				C239A5C61FD49F43003BD3BB /* utility.hpp */,
+				C239A5CA1FD49F43003BD3BB /* utility.cpp */,
 			);
-			path = Sources;
+			path = Common;
 			sourceTree = "<group>";
 		};
 		C288221A1FEC653900C6128B /* Playground */ = {
@@ -282,14 +282,14 @@
 			path = Playground;
 			sourceTree = "<group>";
 		};
-		C28C3C971FE31E0A00C6CF99 /* Particles */ = {
+		C28C3C971FE31E0A00C6CF99 /* Rain */ = {
 			isa = PBXGroup;
 			children = (
 				C28C3C981FE31E2500C6CF99 /* Common */,
 				C28C3C991FE31E2A00C6CF99 /* iOS */,
 				C2A42C561FED6EA7009B9EB7 /* Resources */,
 			);
-			path = Particles;
+			path = Rain;
 			sourceTree = "<group>";
 		};
 		C28C3C981FE31E2500C6CF99 /* Common */ = {
@@ -330,14 +330,16 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
-		C2B25DD41FBB7FF800287630 /* Demo */ = {
+		C2B25DD41FBB7FF800287630 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				C20DA9451FD5BD6B00B1D45D /* Utilities */,
 				C20DA9411FD5B18D00B1D45D /* Geometry */,
 				C20DA9431FD5B7D700B1D45D /* Grid */,
-				C28C3C971FE31E0A00C6CF99 /* Particles */,
+				C28C3C971FE31E0A00C6CF99 /* Rain */,
+				C288221A1FEC653900C6128B /* Playground */,
 			);
-			path = Demo;
+			path = Sources;
 			sourceTree = "<group>";
 		};
 		C2B25DD61FBB801800287630 /* iOS */ = {
@@ -360,9 +362,7 @@
 			isa = PBXGroup;
 			children = (
 				C20DA9441FD5BC1400B1D45D /* OpenGL */,
-				C24FC4C31FBAA5F100AB7C1E /* Sources */,
-				C2B25DD41FBB7FF800287630 /* Demo */,
-				C288221A1FEC653900C6128B /* Playground */,
+				C2B25DD41FBB7FF800287630 /* Sources */,
 				C2F2836B1FBA7339007A0BEA /* Products */,
 				C2F283801FBA7833007A0BEA /* Frameworks */,
 			);
