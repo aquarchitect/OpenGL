@@ -11,12 +11,8 @@
 
 #include "utility.hpp"
 
-using Texture = tuple<GLuint, GLuint>;
-
 class Textures {
 public:
-    
-    
     Textures(string basePath, vec2 size, vec2 resolution);
     
     void        swapPositions();

@@ -53,11 +53,11 @@ void Particles::_draw() {
     
     glUniform2fv(resolutionUniformLocation, 1, value_ptr(resolution));
     
-    glBindTexture(GL_TEXTURE_2D, get<0>(textures->p0));
-    glUniform1i(positionsUniformLocation, get<1>(textures->p0));
+    glBindTexture(GL_TEXTURE_2D, textures->p0.object);
+    glUniform1i(positionsUniformLocation, textures->p0.slot);
     
-    glBindTexture(GL_TEXTURE_2D, get<0>(textures->v0));
-    glUniform1i(velocitiesUniformLocation, get<1>(textures->v0));
+    glBindTexture(GL_TEXTURE_2D, textures->v0.object);
+    glUniform1i(velocitiesUniformLocation, textures->v0.slot);
     
     glBindBuffer(GL_ARRAY_BUFFER, VBO);
     glEnableVertexAttribArray(texCoordAttributeLocation);

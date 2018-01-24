@@ -60,7 +60,7 @@ void Obstacles::addObstacle(vec2 position) {
     vertices.push_back(vertex);
     
     glBindFramebuffer(GL_FRAMEBUFFER, FBO);
-    glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D, get<0>(textures->o), 0);
+    glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D, textures->o.object, 0);
     
     glBindBuffer(GL_ARRAY_BUFFER, VBO);
     glBufferSubData(GL_ARRAY_BUFFER, (vertices.size() - 1) * sizeof(vec2), sizeof(vec2), &vertex);

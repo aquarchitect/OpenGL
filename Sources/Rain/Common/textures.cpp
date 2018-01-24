@@ -21,7 +21,7 @@ Texture createTexture(GLuint slot, vec2 size, GLvoid *pixels) {
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
     glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, (GLsizei)size.x, (GLsizei)size.y, 0, GL_RGBA, GL_UNSIGNED_BYTE, pixels);
     
-    return make_tuple(texture, slot);
+    return {texture, slot};
 };
 
 Textures::Textures(string basePath, vec2 size, vec2 resolution) {
@@ -38,13 +38,13 @@ Textures::Textures(string basePath, vec2 size, vec2 resolution) {
 };
 
 void Textures::swapPositions() {
-    GLuint object = get<0>(p0);
-    p0 = make_tuple(get<0>(p1), get<1>(p0));
-    p1 = make_tuple(object, get<1>(p1));
+    GLuint object = p0.object;
+    p0 = {p1.object, p0.slot};
+    p1 = {object, p1.slot};
 };
 
-void Textures::swapVelocities() {
-    GLuint object = get<0>(v0);
-    v0 = make_tuple(get<0>(v1), get<1>(v0));
-    v1 = make_tuple(object, get<1>(v1));
+void Textures::swapVelocities() {    
+    GLuint object = v0.object;
+    v0 = {v1.object, v0.slot};
+    v1 = {object, v1.slot};
 };

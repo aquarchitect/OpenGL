@@ -7,7 +7,6 @@
 //
 
 #include "draw.h"
-#include <iostream>
 #include "update.hpp"
 #include "particles.hpp"
 #include "obstacles.hpp"

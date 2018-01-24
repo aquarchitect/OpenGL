@@ -34,6 +34,11 @@
 using namespace std;
 using namespace glm;
 
+struct Texture {
+    GLuint  object;
+    GLuint  slot;
+};
+
 namespace Utility {
     void            linkShaders(string basePath, GLuint program);
     quat            euler2Quat(float pitch, float roll, float yaw);

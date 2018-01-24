@@ -14,10 +14,19 @@ extern "C" {
 #endif /* __cplusplus */
     extern void setup(char *basePath, int resolution[2]);
     extern void draw(float deltaTime);
-    
-    extern void addObstacle(int x, int y);
-    extern void rotateCamera(float pitch, float yaw, float roll);
+
+#if CUBE
     extern void loadTexture(int width, int height, void *pixels);
+    extern void rotateCamera(float pitch, float yaw, float roll);
+#endif
+
+#if RAIN
+    extern void addObstacle(int x, int y);
+#endif
+    
+#if RIPPLE
+    extern void loadTexture(int texture);
+#endif
 #ifdef __cplusplus
 }
 #endif /* __cplusplus */

@@ -49,14 +49,14 @@ void Update::draw(GLint mode) {
     glUniform1i(modeUniformLocation, mode);
     glUniform2fv(resolutionUniformLocation, 1, value_ptr(resolution));
     
-    glBindTexture(GL_TEXTURE_2D, get<0>(textures->p0));
-    glUniform1i(positionsUniformLocation, get<1>(textures->p0));
+    glBindTexture(GL_TEXTURE_2D, textures->p0.object);
+    glUniform1i(positionsUniformLocation, textures->p0.slot);
     
-    glBindTexture(GL_TEXTURE_2D, get<0>(textures->v0));
-    glUniform1i(velocitiesUniformLocation, get<1>(textures->v0));
+    glBindTexture(GL_TEXTURE_2D, textures->v0.object);
+    glUniform1i(velocitiesUniformLocation, textures->v0.slot);
     
-    glBindBuffer(GL_TEXTURE_2D, get<0>(textures->o));
-    glUniform1i(obstaclesUniformLocation, get<1>(textures->o));
+    glBindBuffer(GL_TEXTURE_2D, textures->o.object);
+    glUniform1i(obstaclesUniformLocation, textures->o.slot);
     
     glBindBuffer(GL_ARRAY_BUFFER, VBO);
     glEnableVertexAttribArray(positionAttributeLocation);
@@ -69,15 +69,15 @@ void Update::draw() {
     glBindFramebuffer(GL_FRAMEBUFFER, FBO);
 
     if (count >= 2) {
-        glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D, get<0>(textures->p1), 0);
+        glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D, textures->p1.object, 0);
         draw(0);
         textures->swapPositions();
 
-        glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D, get<0>(textures->v1), 0);
+        glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D, textures->v1.object, 0);
         draw(1);
         textures->swapVelocities();
     } else {
-        glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D, get<0>(textures->v1), 0);
+        glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D, textures->v1.object, 0);
         draw(2);
         textures->swapVelocities();
     }
