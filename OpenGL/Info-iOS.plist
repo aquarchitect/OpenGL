@@ -44,5 +44,7 @@
 	<false/>
 	<key>PrefersOpengGL</key>
 	<true/>
+	<key>NSCameraUsageDescription</key>
+	<string>The app requires to access your camera.</string>
 </dict>
 </plist>
