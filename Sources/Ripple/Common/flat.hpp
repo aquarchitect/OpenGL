@@ -30,7 +30,7 @@ private:
     vec2            resolution;
     
     GLuint          VBO;
-    Texture         texture;
+    texture         texture;
     
     GLuint          textureUniformLocation;
     GLuint          timeUniformLocation;

@@ -10,7 +10,7 @@
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
 
-using namespace Utility;
+using namespace utility;
 
 Grid::Grid(string basePath, vec2 grid, vec2 resolution) {
     this->vertices = vector<Vertex>(grid[0] * grid[1], {{0.0, 0.0}, 0.0});

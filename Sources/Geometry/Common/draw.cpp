@@ -11,7 +11,7 @@
 #include "geometry.hpp"
 #include <glm/gtc/matrix_transform.hpp>
 
-using namespace Utility;
+using namespace utility;
 
 static Geometry     *pCube;
 static vec2         resolution;
@@ -103,7 +103,7 @@ void rotateCamera(float pitch, float yaw, float roll) {
 //    position.y = distance * sin(pitch);
 //    position.z = distance * cos(yaw) * cos(pitch);
     
-    quat quat = euler2Quat(yaw, pitch, 0.0);
+    quat quat = convertToQuat(yaw, pitch, 0.0);
     vec3 position = rotate(quat, vec3(0.0,0.0,5.0));
     
     vec3 up(0.0f, 1.0f, 0.0f);

@@ -18,8 +18,8 @@ public:
     void        swapPositions();
     void        swapVelocities();
     
-    Texture     p0, p1; // position
-    Texture     v0, v1; // velocity
-    Texture     o;  // obstacle
+    texture     p0, p1; // position
+    texture     v0, v1; // velocity
+    texture     o;  // obstacle
 };
 #endif /* textures_hpp */

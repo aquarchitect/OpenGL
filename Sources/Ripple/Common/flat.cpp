@@ -11,7 +11,7 @@
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
 
-using namespace Utility;
+using namespace utility;
 
 Flat::Flat(string basePath, vec2 resolution) {
     this->resolution = resolution;
@@ -49,6 +49,7 @@ void Flat::draw(float deltaTime) {
 
 void Flat::loadTexture(GLuint texture) {
     this->texture = {texture, 1};
+    
     glActiveTexture(GL_TEXTURE0 + this->texture.slot);
     glBindTexture(GL_TEXTURE_2D, this->texture.object);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);

@@ -11,7 +11,7 @@
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
 
-using namespace Utility;
+using namespace utility;
 
 Update::Update(string basePath, vec2 size, vec2 resolution, Textures *textures) {
     this->size = size;

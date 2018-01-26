@@ -10,7 +10,7 @@
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
 
-using namespace Utility;
+using namespace utility;
 
 void Geometry::loadTexture(GLsizei width, GLsizei height, GLvoid *pixels) {
     glGenTextures(1, &texture);

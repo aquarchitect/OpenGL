@@ -8,7 +8,7 @@
 
 #include "textures.hpp"
 
-using namespace Utility;
+using namespace utility;
 
 Texture createTexture(GLuint slot, vec2 size, GLvoid *pixels) {
     GLuint texture;

@@ -34,14 +34,20 @@
 using namespace std;
 using namespace glm;
 
-struct Texture {
+struct texture {
     GLuint  object;
     GLuint  slot;
 };
 
-namespace Utility {
-    void            linkShaders(string basePath, GLuint program);
-    quat            euler2Quat(float pitch, float roll, float yaw);
+struct mesh {
+    vector<vec2>    vertices;
+    vector<int>     indices;
+};
+
+namespace utility {
     vector<char>    loadBytes(string basePath);
-}
+    void            linkShaders(string basePath, GLuint program);
+    quat            convertToQuat(float pitch, float roll, float yaw);
+    mesh            createMesh(int row, int column);
+};
 #endif /* utility_hpp */

@@ -11,7 +11,7 @@
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
 
-using namespace Utility;
+using namespace utility;
 
 Obstacles::Obstacles(string basePath, vec2 resolution, Textures *textures) {
     const int count = 128;

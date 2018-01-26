@@ -43,9 +43,9 @@ static GLuint loadShader(GLenum type, string filePath) {
     }
     
     return shaderID;
-}
+};
 
-void Utility::linkShaders(string basePath, GLuint program) {
+void utility::linkShaders(string basePath, GLuint program) {
     GLuint vertexShaderID = loadShader(GL_VERTEX_SHADER, basePath + ".vsh");
     GLuint fragmentShaderID = loadShader(GL_FRAGMENT_SHADER, basePath + ".fsh");
     
@@ -71,10 +71,11 @@ void Utility::linkShaders(string basePath, GLuint program) {
     glDetachShader(program, fragmentShaderID);
     glDeleteShader(vertexShaderID);
     glDeleteShader(fragmentShaderID);
-}
+};
 
-quat Utility::euler2Quat(float pitch, float roll, float yaw) {
+quat utility::convertToQuat(float pitch, float roll, float yaw) {
     quat q;
+    
     // Abbreviations for the various angular functions
     float cy = cos(yaw * 0.5);
     float sy = sin(yaw * 0.5);
@@ -88,9 +89,9 @@ quat Utility::euler2Quat(float pitch, float roll, float yaw) {
     q.y = cy * cr * sp + sy * sr * cp;
     q.z = sy * cr * cp - cy * sr * sp;
     return q;
-}
+};
 
-vector<char> Utility::loadBytes(string basePath) {
+vector<char> utility::loadBytes(string basePath) {
     ifstream ifs(basePath, ios::binary | ios::ate);
     ifstream::pos_type position = ifs.tellg();
     vector<char> result(position);
@@ -99,5 +100,14 @@ vector<char> Utility::loadBytes(string basePath) {
     ifs.read(result.data(), position);
     
     return result;
-}
+};
 
+mesh utility::createMesh(int row, int column) {
+    for (int i = 0; i < row; i++) {
+        for (int j = 0; j < column; j++) {
+            
+        }
+    }
+    
+    return {{}, {}};
+};

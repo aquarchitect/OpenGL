@@ -10,7 +10,7 @@
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
 
-using namespace Utility;
+using namespace utility;
 
 Particles::Particles(string basePath, vec2 size, vec2 resolution, Textures *textures) {
     vector<vec2> vertices(size[0] * size[1], {0.0, 0.0});
