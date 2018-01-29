@@ -34,8 +34,6 @@
 		C239A5CF1FD49F44003BD3BB /* geometry.fsh in Resources */ = {isa = PBXBuildFile; fileRef = C239A5C81FD49F43003BD3BB /* geometry.fsh */; };
 		C239A5D01FD49F44003BD3BB /* utility.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C239A5CA1FD49F43003BD3BB /* utility.cpp */; };
 		C239A5D11FD49F44003BD3BB /* geometry.vsh in Resources */ = {isa = PBXBuildFile; fileRef = C239A5CB1FD49F43003BD3BB /* geometry.vsh */; };
-		C25265711FFC96A600BC8B9C /* positions in Resources */ = {isa = PBXBuildFile; fileRef = C252656F1FFC963D00BC8B9C /* positions */; };
-		C25265721FFC96A600BC8B9C /* velocities in Resources */ = {isa = PBXBuildFile; fileRef = C25265701FFC963D00BC8B9C /* velocities */; };
 		C269A7B61FE8395900BD86EB /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = C269A7B51FE8395900BD86EB /* UIView+.swift */; };
 		C269A7B71FE8395900BD86EB /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = C269A7B51FE8395900BD86EB /* UIView+.swift */; };
 		C269A7B81FE8395900BD86EB /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = C269A7B51FE8395900BD86EB /* UIView+.swift */; };
@@ -85,8 +83,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 7;
 			files = (
-				C25265711FFC96A600BC8B9C /* positions in Resources */,
-				C25265721FFC96A600BC8B9C /* velocities in Resources */,
 			);
 			name = Resources;
 			runOnlyForDeploymentPostprocessing = 0;
@@ -117,8 +113,6 @@
 		C239A5CA1FD49F43003BD3BB /* utility.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = utility.cpp; sourceTree = "<group>"; };
 		C239A5CB1FD49F43003BD3BB /* geometry.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = geometry.vsh; sourceTree = "<group>"; };
 		C239A5CC1FD49F43003BD3BB /* geometry.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = geometry.hpp; sourceTree = "<group>"; };
-		C252656F1FFC963D00BC8B9C /* positions */ = {isa = PBXFileReference; lastKnownFileType = file; path = positions; sourceTree = "<group>"; };
-		C25265701FFC963D00BC8B9C /* velocities */ = {isa = PBXFileReference; lastKnownFileType = file; path = velocities; sourceTree = "<group>"; };
 		C269A7B51FE8395900BD86EB /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
 		C27A3160201A4EBD00944473 /* VideoController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoController.swift; sourceTree = "<group>"; };
 		C28822191FEC653900C6128B /* Playground */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Playground; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -332,8 +326,6 @@
 		C288221A1FEC653900C6128B /* Playground */ = {
 			isa = PBXGroup;
 			children = (
-				C252656F1FFC963D00BC8B9C /* positions */,
-				C25265701FFC963D00BC8B9C /* velocities */,
 				C21E28831FF6C0BD00506FB4 /* main.cpp */,
 			);
 			path = Playground;
@@ -560,7 +552,7 @@
 					};
 					C28822181FEC653900C6128B = {
 						CreatedOnToolsVersion = 9.2;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 					};
 					C28C3C9A1FE31E6300C6CF99 = {
 						ProvisioningStyle = Automatic;
@@ -871,10 +863,13 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CODE_SIGN_IDENTITY = "-";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = macosx;
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 			};
 			name = Debug;
 		};
@@ -883,10 +878,13 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CODE_SIGN_IDENTITY = "-";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = macosx;
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 			};
 			name = Release;
 		};

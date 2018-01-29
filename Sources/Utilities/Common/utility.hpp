@@ -48,6 +48,6 @@ namespace utility {
     vector<char>    loadBytes(string basePath);
     void            linkShaders(string basePath, GLuint program);
     quat            convertToQuat(float pitch, float roll, float yaw);
-    mesh            createMesh(int row, int column);
+    mesh            createMesh(int rows, int columns);
 };
 #endif /* utility_hpp */

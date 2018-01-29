@@ -7,7 +7,6 @@
 //
 
 #include "utility.hpp"
-#include <vector>
 #include <fstream>
 
 static GLuint loadShader(GLenum type, string filePath) {
@@ -102,12 +101,22 @@ vector<char> utility::loadBytes(string basePath) {
     return result;
 };
 
-mesh utility::createMesh(int row, int column) {
-    for (int i = 0; i < row; i++) {
-        for (int j = 0; j < column; j++) {
+mesh utility::createMesh(int rows, int columns) {
+    vector<vec2> vertices = vector<vec2>(rows * columns);
+    vector<int> indexes = vector<int>((rows - 1) * 2 * (columns + 1));
+    
+    for (int i = 0; i < rows; i++) {
+        indexes[i * 2 * (columns + 1)] = i * columns;
+        
+        for (int j = 0; j < columns; j++) {
+            vertices[i * columns + j] = {float(i) / float(rows - 1), float(j) / float(columns - 1)};
             
+            indexes[i * 2 * (columns + 1) + 1 + 2 * j] = i * columns + j;
+            indexes[i * 2 * (columns + 1) + 2 + 2 * j] = (i + 1) * columns + j;
         }
+        
+        indexes[(i + 1) * 2 * (columns + 1) - 1] = (i + 2) * columns - 1;
     }
     
-    return {{}, {}};
+    return {vertices, indexes};
 };

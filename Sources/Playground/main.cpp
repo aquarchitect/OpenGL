@@ -12,13 +12,9 @@
 #include <glm/glm.hpp>
 
 using namespace std;
+using namespace glm;
 
 int main(int argc, const char * argv[]) {
-//    cout << modff(float(rand()), float(100.0)) / float(100.0);
-    
-    for (int i = 0; i < 10; i++) {
-        cout << fmod(rand(), 100.0) / 100.0 << "\n";
-    }
     
     return 0;
 }
