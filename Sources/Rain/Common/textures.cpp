@@ -10,7 +10,7 @@
 
 using namespace utility;
 
-Texture createTexture(GLuint slot, vec2 size, GLvoid *pixels) {
+texture createTexture(GLuint slot, vec2 size, GLvoid *pixels) {
     GLuint texture;
     glGenTextures(1, &texture);
     glActiveTexture(GL_TEXTURE0 + slot);

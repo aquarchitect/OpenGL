@@ -20,7 +20,7 @@ final class ViewController: RootController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    
+        
         videoController = EAGLContext.current().map {
             let preset: AVCaptureSession.Preset
             switch self.traitCollection.userInterfaceIdiom {
