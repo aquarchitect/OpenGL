@@ -6,9 +6,9 @@ const vec2 GRAVITY = vec2(0.0, -0.5);
 const vec2 WIND = vec2(0.0);
 const float RESTITUTION = 0.2;
 
-uniform sampler2D uPositions;
-uniform sampler2D uVelocities;
-uniform sampler2D uObstacles;
+uniform highp sampler2D uPositions;
+uniform highp sampler2D uVelocities;
+uniform highp sampler2D uObstacles;
 
 uniform vec2 uResolution;
 uniform int uMode;
@@ -28,12 +28,12 @@ float decode(vec2 channels) {
 
 void updatePosition(inout vec2 position, vec2 velocity, vec2 obstacle, float random) {
     position += velocity + WIND;
-    
+
     if (position.y <= 0.0 || position.x <= 0.0 || position.x >= uResolution.x) {
         position.x = abs(mod(position.x + 100.0 * random, uResolution.x));
         position.y += uResolution.y;
     }
-    
+
     if (length(obstacle) != 0.0) {
         position -= velocity;
         position += 2.0 * obstacle - 1.0;
@@ -42,12 +42,12 @@ void updatePosition(inout vec2 position, vec2 velocity, vec2 obstacle, float ran
 
 void updateVelocity(vec2 position, inout vec2 velocity, vec2 obstacle, float random) {
     velocity += GRAVITY;
-    
+
     if (position.y + velocity.y < -1.0) {
         velocity.x += random / 8.0;
         velocity.y = -2.5;
     }
-    
+
     if (length(obstacle) != 0.0) {
         if (length(velocity) < 0.5) {
             velocity = (2.0 * obstacle - 1.0);
