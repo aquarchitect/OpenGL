@@ -7,37 +7,28 @@
 //
 
 #include "draw.h"
-#include "update.hpp"
-#include "particles.hpp"
-#include "obstacles.hpp"
-#include "textures.hpp"
+#include "rain.hpp"
+//#include "update.hpp"
+//#include "particles.hpp"
+//#include "obstacles.hpp"
+//#include "textures.hpp"
 
-static Particles    *pParticle;
-static Update       *pUpdate;
-static Textures     *pTextures;
-static Obstacles    *pObstacles;
-static vec2         resolution;
+//static Particles    *pParticle;
+//static Update       *pUpdate;
+//static Textures     *pTextures;
+//static Obstacles    *pObstacles;
+//static vec2         resolution;
 
-static void setup(char *basePath, int width, int height) {    
-    resolution = {width, height};
-    vec2 size(64.0);
-    
-    pTextures = new Textures(basePath, size, resolution);
-    pUpdate = new Update(basePath, size, resolution, pTextures);
-    pParticle = new Particles(basePath, size, resolution, pTextures);
-    pObstacles = new Obstacles(basePath, resolution, pTextures);
-}
+static rain *pRain;
 
 void setup(char *basePath, int resolution[2]) {
-    setup(basePath, resolution[0], resolution[1]);
+    pRain = new rain(basePath, vec2(64.0), {resolution[0], resolution[1]});
 };
 
 void draw(float deltaTime) {
-    pUpdate->draw();
-    pParticle->draw();
-    pObstacles->draw(1);
+    pRain->draw();
 };
 
 void addObstacle(int x, int y) {
-    pObstacles->addObstacle(vec2(x, y));
+    pRain->addObstacle({x, y});
 };

@@ -41,27 +41,24 @@
 		C27A3162201A4EBD00944473 /* VideoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C27A3160201A4EBD00944473 /* VideoController.swift */; };
 		C27A3163201A4EBD00944473 /* VideoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C27A3160201A4EBD00944473 /* VideoController.swift */; };
 		C27A3164201A4EBD00944473 /* VideoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C27A3160201A4EBD00944473 /* VideoController.swift */; };
-		C28822251FEC8D4400C6128B /* textures.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C28822231FEC8D4400C6128B /* textures.cpp */; };
 		C28C3C9D1FE31E6300C6CF99 /* utility.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C239A5CA1FD49F43003BD3BB /* utility.cpp */; };
 		C28C3C9E1FE31E6300C6CF99 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2F2836D1FBA7339007A0BEA /* AppDelegate.swift */; };
 		C28C3CA41FE31E6300C6CF99 /* Assets-iOS.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C2F283741FBA7339007A0BEA /* Assets-iOS.xcassets */; };
 		C28C3CA61FE31E6300C6CF99 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C20DA9481FD5BDE900B1D45D /* LaunchScreen.storyboard */; };
-		C28C3CB01FE31F6100C6CF99 /* particles.vsh in Resources */ = {isa = PBXBuildFile; fileRef = C28C3CAF1FE31F6100C6CF99 /* particles.vsh */; };
-		C28C3CB21FE31F7D00C6CF99 /* particles.fsh in Resources */ = {isa = PBXBuildFile; fileRef = C28C3CB11FE31F7D00C6CF99 /* particles.fsh */; };
-		C28C3CB41FE3202E00C6CF99 /* particles.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C28C3CB31FE3202E00C6CF99 /* particles.cpp */; };
+		C28C3CB01FE31F6100C6CF99 /* draw.vsh in Resources */ = {isa = PBXBuildFile; fileRef = C28C3CAF1FE31F6100C6CF99 /* draw.vsh */; };
+		C28C3CB21FE31F7D00C6CF99 /* draw.fsh in Resources */ = {isa = PBXBuildFile; fileRef = C28C3CB11FE31F7D00C6CF99 /* draw.fsh */; };
 		C28C3CB61FE320B400C6CF99 /* draw.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C28C3CB51FE320B400C6CF99 /* draw.cpp */; };
-		C28C3CB81FE425B900C6CF99 /* update.vsh in Resources */ = {isa = PBXBuildFile; fileRef = C28C3CB71FE425B900C6CF99 /* update.vsh */; };
-		C28C3CBA1FE425C400C6CF99 /* update.fsh in Resources */ = {isa = PBXBuildFile; fileRef = C28C3CB91FE425C400C6CF99 /* update.fsh */; };
+		C28C3CB81FE425B900C6CF99 /* particles.vsh in Resources */ = {isa = PBXBuildFile; fileRef = C28C3CB71FE425B900C6CF99 /* particles.vsh */; };
+		C28C3CBA1FE425C400C6CF99 /* particles.fsh in Resources */ = {isa = PBXBuildFile; fileRef = C28C3CB91FE425C400C6CF99 /* particles.fsh */; };
+		C29137F4203DE3CF0034B5E2 /* rain.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C29137F2203DE3CF0034B5E2 /* rain.cpp */; };
 		C2A2DA661FD9011B00DEAC28 /* draw.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C239A5C71FD49F43003BD3BB /* draw.cpp */; };
 		C2A42C591FED6EC1009B9EB7 /* data in Resources */ = {isa = PBXBuildFile; fileRef = C2A42C571FED6EBD009B9EB7 /* data */; };
-		C2A6C92C2003E6D90025ED91 /* obstacles.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2A6C92A2003E6D90025ED91 /* obstacles.cpp */; };
 		C2A6C92E2003E6F70025ED91 /* obstacles.vsh in Resources */ = {isa = PBXBuildFile; fileRef = C2A6C92D2003E6F70025ED91 /* obstacles.vsh */; };
 		C2A6C9302003E7040025ED91 /* obstacles.fsh in Resources */ = {isa = PBXBuildFile; fileRef = C2A6C92F2003E7040025ED91 /* obstacles.fsh */; };
 		C2BFA34F1FE8CC6C00DC018F /* RootController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2BFA34E1FE8CC6C00DC018F /* RootController.swift */; };
 		C2BFA3501FE8CC6C00DC018F /* RootController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2BFA34E1FE8CC6C00DC018F /* RootController.swift */; };
 		C2BFA3511FE8CC6C00DC018F /* RootController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2BFA34E1FE8CC6C00DC018F /* RootController.swift */; };
 		C2BFA3541FE8D20A00DC018F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2BFA3531FE8D20A00DC018F /* ViewController.swift */; };
-		C2EDF78F1FE871220077195D /* update.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2EDF78D1FE871220077195D /* update.cpp */; };
 		C2F2836E1FBA7339007A0BEA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2F2836D1FBA7339007A0BEA /* AppDelegate.swift */; };
 		C2F283751FBA7339007A0BEA /* Assets-iOS.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C2F283741FBA7339007A0BEA /* Assets-iOS.xcassets */; };
 		C2FDEDBD1FBE40C3008529A6 /* Dungeon.png in Resources */ = {isa = PBXBuildFile; fileRef = C2FDEDBC1FBE40C3008529A6 /* Dungeon.png */; };
@@ -116,20 +113,16 @@
 		C269A7B51FE8395900BD86EB /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
 		C27A3160201A4EBD00944473 /* VideoController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoController.swift; sourceTree = "<group>"; };
 		C28822191FEC653900C6128B /* Playground */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Playground; sourceTree = BUILT_PRODUCTS_DIR; };
-		C28822231FEC8D4400C6128B /* textures.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = textures.cpp; sourceTree = "<group>"; };
-		C28822241FEC8D4400C6128B /* textures.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = textures.hpp; sourceTree = "<group>"; };
 		C28C3CAA1FE31E6300C6CF99 /* Particles.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Particles.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C28C3CAC1FE31EC700C6CF99 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		C28C3CAE1FE31EFE00C6CF99 /* particles.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = particles.hpp; sourceTree = "<group>"; };
-		C28C3CAF1FE31F6100C6CF99 /* particles.vsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = particles.vsh; sourceTree = "<group>"; };
-		C28C3CB11FE31F7D00C6CF99 /* particles.fsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = particles.fsh; sourceTree = "<group>"; };
-		C28C3CB31FE3202E00C6CF99 /* particles.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = particles.cpp; sourceTree = "<group>"; };
+		C28C3CAF1FE31F6100C6CF99 /* draw.vsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = draw.vsh; sourceTree = "<group>"; };
+		C28C3CB11FE31F7D00C6CF99 /* draw.fsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = draw.fsh; sourceTree = "<group>"; };
 		C28C3CB51FE320B400C6CF99 /* draw.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = draw.cpp; sourceTree = "<group>"; };
-		C28C3CB71FE425B900C6CF99 /* update.vsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = update.vsh; sourceTree = "<group>"; };
-		C28C3CB91FE425C400C6CF99 /* update.fsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = update.fsh; sourceTree = "<group>"; };
+		C28C3CB71FE425B900C6CF99 /* particles.vsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = particles.vsh; sourceTree = "<group>"; };
+		C28C3CB91FE425C400C6CF99 /* particles.fsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = particles.fsh; sourceTree = "<group>"; };
+		C29137F2203DE3CF0034B5E2 /* rain.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = rain.cpp; sourceTree = "<group>"; };
+		C29137F3203DE3CF0034B5E2 /* rain.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = rain.hpp; sourceTree = "<group>"; };
 		C2A42C571FED6EBD009B9EB7 /* data */ = {isa = PBXFileReference; lastKnownFileType = file; path = data; sourceTree = "<group>"; };
-		C2A6C92A2003E6D90025ED91 /* obstacles.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = obstacles.cpp; sourceTree = "<group>"; };
-		C2A6C92B2003E6D90025ED91 /* obstacles.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = obstacles.hpp; sourceTree = "<group>"; };
 		C2A6C92D2003E6F70025ED91 /* obstacles.vsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = obstacles.vsh; sourceTree = "<group>"; };
 		C2A6C92F2003E7040025ED91 /* obstacles.fsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = obstacles.fsh; sourceTree = "<group>"; };
 		C2B25DE81FBB837A00287630 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk/System/Library/Frameworks/OpenGL.framework; sourceTree = DEVELOPER_DIR; };
@@ -143,8 +136,6 @@
 		C2DC35A31FBF8E3E00C49007 /* Assets-macOS.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Assets-macOS.xcassets"; sourceTree = "<group>"; };
 		C2DC35A81FBF8E3E00C49007 /* Info-macOS.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Info-macOS.plist"; sourceTree = "<group>"; };
 		C2DC35AD1FBF929A00C49007 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
-		C2EDF78D1FE871220077195D /* update.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = update.cpp; sourceTree = "<group>"; };
-		C2EDF78E1FE871220077195D /* update.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = update.hpp; sourceTree = "<group>"; };
 		C2F2836A1FBA7339007A0BEA /* Geometry.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Geometry.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2F2836D1FBA7339007A0BEA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C2F283741FBA7339007A0BEA /* Assets-iOS.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Assets-iOS.xcassets"; sourceTree = "<group>"; };
@@ -345,20 +336,14 @@
 			isa = PBXGroup;
 			children = (
 				C28C3CB51FE320B400C6CF99 /* draw.cpp */,
-				C28C3CAE1FE31EFE00C6CF99 /* particles.hpp */,
-				C28C3CB31FE3202E00C6CF99 /* particles.cpp */,
-				C28C3CAF1FE31F6100C6CF99 /* particles.vsh */,
-				C28C3CB11FE31F7D00C6CF99 /* particles.fsh */,
-				C2EDF78E1FE871220077195D /* update.hpp */,
-				C2EDF78D1FE871220077195D /* update.cpp */,
-				C28C3CB71FE425B900C6CF99 /* update.vsh */,
-				C28C3CB91FE425C400C6CF99 /* update.fsh */,
-				C2A6C92B2003E6D90025ED91 /* obstacles.hpp */,
-				C2A6C92A2003E6D90025ED91 /* obstacles.cpp */,
+				C29137F3203DE3CF0034B5E2 /* rain.hpp */,
+				C29137F2203DE3CF0034B5E2 /* rain.cpp */,
+				C28C3CAF1FE31F6100C6CF99 /* draw.vsh */,
+				C28C3CB11FE31F7D00C6CF99 /* draw.fsh */,
+				C28C3CB71FE425B900C6CF99 /* particles.vsh */,
+				C28C3CB91FE425C400C6CF99 /* particles.fsh */,
 				C2A6C92D2003E6F70025ED91 /* obstacles.vsh */,
 				C2A6C92F2003E7040025ED91 /* obstacles.fsh */,
-				C28822241FEC8D4400C6128B /* textures.hpp */,
-				C28822231FEC8D4400C6128B /* textures.cpp */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -613,15 +598,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C28C3CB01FE31F6100C6CF99 /* particles.vsh in Resources */,
-				C28C3CB21FE31F7D00C6CF99 /* particles.fsh in Resources */,
+				C28C3CB01FE31F6100C6CF99 /* draw.vsh in Resources */,
+				C28C3CB21FE31F7D00C6CF99 /* draw.fsh in Resources */,
 				C28C3CA41FE31E6300C6CF99 /* Assets-iOS.xcassets in Resources */,
 				C2A6C92E2003E6F70025ED91 /* obstacles.vsh in Resources */,
 				C2A42C591FED6EC1009B9EB7 /* data in Resources */,
 				C28C3CA61FE31E6300C6CF99 /* LaunchScreen.storyboard in Resources */,
-				C28C3CB81FE425B900C6CF99 /* update.vsh in Resources */,
+				C28C3CB81FE425B900C6CF99 /* particles.vsh in Resources */,
 				C2A6C9302003E7040025ED91 /* obstacles.fsh in Resources */,
-				C28C3CBA1FE425C400C6CF99 /* update.fsh in Resources */,
+				C28C3CBA1FE425C400C6CF99 /* particles.fsh in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -666,7 +651,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "TAGS=\"TODO:|FIXME:\"\nERRORTAG=\"ERROR:\"\n\nfind ${SRCROOT}/Demo/Particles/{Common,iOS}/ -name \"*.cpp\" -print0                                  \\\n    | xargs -0 egrep --with-filename --line-number --only-matching \"($TAGS).*\\$|($ERRORTAG).*\\$\"    \\\n    | perl -pe \"s/($TAGS)/ warning: \\$1/\"                                                           \\\n    | perl -pe \"s/($ERRORTAG)/ error: \\$1/\"\n";
+			shellScript = "TAGS=\"TODO:|FIXME:\"\nERRORTAG=\"ERROR:\"\n\nfind ${SRCROOT}/Sources/Rain/{Common,iOS}/ -name \"*.cpp\" -print0                                  \\\n    | xargs -0 egrep --with-filename --line-number --only-matching \"($TAGS).*\\$|($ERRORTAG).*\\$\"    \\\n    | perl -pe \"s/($TAGS)/ warning: \\$1/\"                                                           \\\n    | perl -pe \"s/($ERRORTAG)/ error: \\$1/\"\n";
 		};
 		C2154A4B1FE48B19005A275F /* Label Highlight Script */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -744,14 +729,11 @@
 				C200A4112011A5FF00BE0E70 /* ViewController.swift in Sources */,
 				C28C3C9D1FE31E6300C6CF99 /* utility.cpp in Sources */,
 				C28C3CB61FE320B400C6CF99 /* draw.cpp in Sources */,
-				C2A6C92C2003E6D90025ED91 /* obstacles.cpp in Sources */,
 				C27A3163201A4EBD00944473 /* VideoController.swift in Sources */,
-				C28822251FEC8D4400C6128B /* textures.cpp in Sources */,
 				C2BFA3511FE8CC6C00DC018F /* RootController.swift in Sources */,
 				C28C3C9E1FE31E6300C6CF99 /* AppDelegate.swift in Sources */,
 				C269A7B81FE8395900BD86EB /* UIView+.swift in Sources */,
-				C2EDF78F1FE871220077195D /* update.cpp in Sources */,
-				C28C3CB41FE3202E00C6CF99 /* particles.cpp in Sources */,
+				C29137F4203DE3CF0034B5E2 /* rain.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
