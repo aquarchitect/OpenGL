@@ -30,24 +30,15 @@
 #include <vector>
 #include <glm/glm.hpp>
 #include <glm/gtx/quaternion.hpp>
+#include <glm/gtc/matrix_transform.hpp>
+#include <glm/gtc/type_ptr.hpp>
 
 using namespace std;
 using namespace glm;
 
 struct texture {
-    GLuint  object;
+    GLuint  id;
     GLuint  slot;
-};
-
-struct vertex {
-    vec3 position;
-    vec3 normal;
-    vec2 texCoord;
-};
-
-struct mesh {
-    vector<vertex>  vertices;
-    vector<int>     indices;
 };
 
 struct plane {

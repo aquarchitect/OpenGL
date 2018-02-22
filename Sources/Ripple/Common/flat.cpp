@@ -35,7 +35,7 @@ void Flat::draw(float deltaTime) {
     glDisable(GL_BLEND);
     glUseProgram(program);
     
-    glBindTexture(GL_TEXTURE_2D, this->texture.object);
+    glBindTexture(GL_TEXTURE_2D, this->texture.id);
     glUniform1i(textureUniformLocation, this->texture.slot);
     
     glUniform1f(timeUniformLocation, deltaTime);
@@ -51,7 +51,7 @@ void Flat::loadTexture(GLuint texture) {
     this->texture = {texture, 1};
     
     glActiveTexture(GL_TEXTURE0 + this->texture.slot);
-    glBindTexture(GL_TEXTURE_2D, this->texture.object);
+    glBindTexture(GL_TEXTURE_2D, this->texture.id);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
 };

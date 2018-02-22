@@ -7,8 +7,6 @@
 //
 
 #include "rain.hpp"
-#include <glm/gtc/matrix_transform.hpp>
-#include <glm/gtc/type_ptr.hpp>
 
 static const float RANDOM_MAX = 100.0;
 static const int OBSTACLE_SIZE = 128;
@@ -77,13 +75,13 @@ void rain::updateParticles(GLint mode) {
     glUniform1f(particlesRandomUniformLocation, fmod(rand(), RANDOM_MAX) / RANDOM_MAX);
     glUniform2fv(particlesResolutionUniformLocation, 1, value_ptr(screenResolution));
     
-    glBindTexture(GL_TEXTURE_2D, position0Texture.object);
+    glBindTexture(GL_TEXTURE_2D, position0Texture.id);
     glUniform1i(particlesPositionsUniformLocation, position0Texture.slot);
     
-    glBindTexture(GL_TEXTURE_2D, velocity0Texture.object);
+    glBindTexture(GL_TEXTURE_2D, velocity0Texture.id);
     glUniform1i(particlesVelocitiesUniformLocation, velocity0Texture.slot);
     
-    glBindTexture(GL_TEXTURE_2D, obstacleTexture.object);
+    glBindTexture(GL_TEXTURE_2D, obstacleTexture.id);
     glUniform1i(particlesObstaclesUniformLocation, obstacleTexture.slot);
     
     glBindBuffer(GL_ARRAY_BUFFER, quadVertexBuffer);
@@ -98,10 +96,10 @@ void rain::drawOnScreen() {
     glPushGroupMarkerEXT(0, "Draw On Screen");
     glUseProgram(drawProgram);
     
-    glBindTexture(GL_TEXTURE_2D, position0Texture.object);
+    glBindTexture(GL_TEXTURE_2D, position0Texture.id);
     glUniform1i(drawPositionsUniformLocation, position0Texture.slot);
     
-    glBindTexture(GL_TEXTURE_2D, velocity0Texture.object);
+    glBindTexture(GL_TEXTURE_2D, velocity0Texture.id);
     glUniform1i(drawVelocitiesUniformLocation, velocity0Texture.slot);
     
     glBindBuffer(GL_ARRAY_BUFFER, particlesVertexBuffer);
@@ -135,21 +133,21 @@ void rain::addObstacle(vec2 position) {
     
     glBindFramebuffer(GL_FRAMEBUFFER, obstableFramebuffer);
     glViewport(0, 0, screenResolution.x, screenResolution.y);
-    glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D, obstacleTexture.object, 0);
+    glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D, obstacleTexture.id, 0);
     glClearColor(0.0, 0.0, 0.0, 1.0);
     glClear(GL_COLOR_BUFFER_BIT);
     drawObstacles(0);
 };
 
 void rain::swapPositionsTextures() {
-    GLuint object = position0Texture.object;
-    position0Texture = {position1Texture.object, position0Texture.slot};
+    GLuint object = position0Texture.id;
+    position0Texture = {position1Texture.id, position0Texture.slot};
     position1Texture = {object, position1Texture.slot};
 };
 
 void rain::swapVelocitiesTextures() {
-    GLuint object = velocity0Texture.object;
-    velocity1Texture = {velocity1Texture.object, velocity0Texture.slot};
+    GLuint object = velocity0Texture.id;
+    velocity1Texture = {velocity1Texture.id, velocity0Texture.slot};
     velocity1Texture = {object, velocity1Texture.slot};
 };
 
@@ -158,14 +156,14 @@ void rain::draw() {
     glViewport(0, 0, particlesSize.x, particlesSize.y);
 
     if (frame >= 2) {
-        glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D, position1Texture.object, 0);
+        glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D, position1Texture.id, 0);
         glClearColor(0.0, 0.0, 0.0, 1.0);
         glClear(GL_COLOR_BUFFER_BIT);
         glDisable(GL_BLEND);
         updateParticles(0);
         swapPositionsTextures();
 
-        glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D, velocity1Texture.object, 0);
+        glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D, velocity1Texture.id, 0);
         glClearColor(0.0, 0.0, 0.0, 1.0);
         glClear(GL_COLOR_BUFFER_BIT);
         glDisable(GL_BLEND);
@@ -173,7 +171,7 @@ void rain::draw() {
         swapVelocitiesTextures();
     } else {
         // scale down the initial velocities
-        glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D, velocity1Texture.object, 0);
+        glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D, velocity1Texture.id, 0);
         glClearColor(0.0, 0.0, 0.0, 1.0);
         glClear(GL_COLOR_BUFFER_BIT);
         glDisable(GL_BLEND);
