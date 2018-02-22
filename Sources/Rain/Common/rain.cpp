@@ -22,7 +22,7 @@ rain::rain(string basePath, vec2 particlesSize, vec2 screenResolution) {
     this->screenResolution = screenResolution;
     this->particlesSize = particlesSize;
     
-    this->particles = createMesh(int(particlesSize.x), int(particlesSize.y)).vertices;
+    this->particles = createPlane(int(particlesSize.x), int(particlesSize.y)).vertices;
     this->obstacles.reserve(OBSTACLE_SIZE);
     
     this->obstacleTexture = createTexture(5, screenResolution, NULL);

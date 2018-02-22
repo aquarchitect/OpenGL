@@ -39,7 +39,18 @@ struct texture {
     GLuint  slot;
 };
 
+struct vertex {
+    vec3 position;
+    vec3 normal;
+    vec2 texCoord;
+};
+
 struct mesh {
+    vector<vertex>  vertices;
+    vector<int>     indices;
+};
+
+struct plane {
     vector<vec2>    vertices;
     vector<int>     indices;
 };
@@ -48,7 +59,7 @@ namespace utility {
     vector<char>    loadBytes(string basePath);
     void            linkShaders(string basePath, GLuint program);
     quat            convertToQuat(float pitch, float roll, float yaw);
-    mesh            createMesh(int rows, int columns);
+    plane           createPlane(int rows, int columns);
     texture         createTexture(GLuint slot, vec2 size, GLvoid *pixels);
 };
 #endif /* utility_hpp */

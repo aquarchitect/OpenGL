@@ -101,7 +101,7 @@ vector<char> utility::loadBytes(string basePath) {
     return result;
 };
 
-mesh utility::createMesh(int rows, int columns) {
+plane utility::createPlane(int rows, int columns) {
     vector<vec2> vertices = vector<vec2>(rows * columns);
     vector<int> indexes = vector<int>((rows - 1) * 2 * (columns + 1));
     
