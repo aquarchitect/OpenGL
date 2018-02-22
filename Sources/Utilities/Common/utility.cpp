@@ -106,17 +106,35 @@ mesh utility::createMesh(int rows, int columns) {
     vector<int> indexes = vector<int>((rows - 1) * 2 * (columns + 1));
     
     for (int i = 0; i < rows; i++) {
-        indexes[i * 2 * (columns + 1)] = i * columns;
-        
         for (int j = 0; j < columns; j++) {
             vertices[i * columns + j] = {float(i) / float(rows - 1), float(j) / float(columns - 1)};
             
-            indexes[i * 2 * (columns + 1) + 1 + 2 * j] = i * columns + j;
-            indexes[i * 2 * (columns + 1) + 2 + 2 * j] = (i + 1) * columns + j;
+            if (i < rows - 1) {
+                indexes[i * 2 * (columns + 1) + 1 + 2 * j] = i * columns + j;
+                indexes[i * 2 * (columns + 1) + 2 + 2 * j] = (i + 1) * columns + j;
+            }
         }
         
-        indexes[(i + 1) * 2 * (columns + 1) - 1] = (i + 2) * columns - 1;
+        if (i < rows - 1) {
+            indexes[i * 2 * (columns + 1)] = i * columns;
+            indexes[(i + 1) * 2 * (columns + 1) - 1] = (i + 2) * columns - 1;
+        }
     }
     
     return {vertices, indexes};
+};
+
+texture utility::createTexture(GLuint slot, vec2 size, GLvoid *pixels) {
+    GLuint texture;
+    
+    glGenTextures(1, &texture);
+    glActiveTexture(GL_TEXTURE0 + slot);
+    glBindTexture(GL_TEXTURE_2D, texture);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, GLsizei(size.x), GLsizei(size.y), 0, GL_RGBA, GL_UNSIGNED_BYTE, pixels);
+    
+    return {texture, slot};
 };

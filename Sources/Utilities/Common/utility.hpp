@@ -49,5 +49,6 @@ namespace utility {
     void            linkShaders(string basePath, GLuint program);
     quat            convertToQuat(float pitch, float roll, float yaw);
     mesh            createMesh(int rows, int columns);
+    texture         createTexture(GLuint slot, vec2 size, GLvoid *pixels);
 };
 #endif /* utility_hpp */
