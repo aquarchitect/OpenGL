@@ -86,19 +86,18 @@ void scene::loadCubeTexture(GLsizei width, GLsizei height, GLvoid *pixels) {
 };
 
 void scene::draw() {
-    float ratio = GLfloat(screenResolution.x) / GLfloat(screenResolution.y);
+    GLfloat ratio = GLfloat(screenResolution.x) / GLfloat(screenResolution.y);
     vec3 position(0.0f, 0.0f, 5.0f);
     vec3 up(0.0f, 1.0f, 0.0f);
     
-    mat4 model = translate(mat4(1.0f), vec3(0.0,1.0,0.0));
+    mat4 model = translate(mat4(1.0), vec3(0.0, 0.0, -5.0));
     mat4 world(1.0f);
     mat4 view = lookAt(position, vec3(0.0), up);
-    mat4 projection = perspective(radians(85.0f), ratio, 0.1f, 100.0f);
+    mat4 projection = perspective(radians(45.0f), ratio, 0.1f, 100.0f);
     
     mesh::light light = {vec3(1.0), vec3(0.0, 0.0, -1.0), 0.1, 0.8, 0.0};
     
     glViewport(0, 0, screenResolution.x, screenResolution.y);
-    
     glClearColor(0., 0., 0., 1.);
     glClear(GL_COLOR_BUFFER_BIT);
     glEnable(GL_CULL_FACE);

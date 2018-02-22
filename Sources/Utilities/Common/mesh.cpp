@@ -17,7 +17,7 @@ mesh::mesh(string basePath, vector<vertex> vertices, vector<GLubyte> indices, st
     modelUniformLocation = glGetUniformLocation(program, "uModel");
     worldUniformLocation = glGetUniformLocation(program, "uWorld");
     viewUniformLocation = glGetUniformLocation(program, "uView");
-    projectionUniformLocation = glGetUniformLocation(program, "uWorld");
+    projectionUniformLocation = glGetUniformLocation(program, "uProjection");
     textureUniformLocation = glGetUniformLocation(program, "uTexture");
     
     lightColorUniformLocation = glGetUniformLocation(program, "uLight.color");
@@ -64,7 +64,7 @@ void mesh::draw(light light, mat4 model, mat4 world, mat4 view, mat4 projection)
     glUniformMatrix4fv(projectionUniformLocation, 1, GL_FALSE, value_ptr(projection));
     
     glUniform3fv(lightColorUniformLocation, 1, value_ptr(light.color));
-    glUniform3fv(lightDiffuseUniformLocation, 1, value_ptr(light.direction));
+    glUniform3fv(lightDirectionUniformLocation, 1, value_ptr(light.direction));
     glUniform1f(lightAmbientUniformLocation, light.ambient);
     glUniform1f(lightDiffuseUniformLocation, light.diffuse);
     glUniform1f(lightSpecularUniformLocation, light.specular);
